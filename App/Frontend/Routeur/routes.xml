@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 	<routes>
+
+		<!--Partie menu du jeu-->
 		<route url="/" module="Begin" action="index"></route>
 		<route url="/allCharacters.html" module="Begin" action="allCharacters"></route>
 		<route url="/about.html" module="Begin" action="about"></route>
+
+		<!--Partie Forêt-->
+		<route url="/startGame.html" module="Forest" action="start"></route>
 	</routes>

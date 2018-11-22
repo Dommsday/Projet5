@@ -5,14 +5,14 @@ namespace Model;
 use \Entity\Forest;
 
 
-class BeginManagerPDO extends BeginManager{
+class ForestManagerPDO extends ForestManager{
 
-	public function getAllCharacters(){
+	public function startStory(){
 
-		$request = $this->dao->query('SELECT id, name, damages, life FROM characters');
+		$request = $this->dao->query('SELECT id, content, title FROM forest WHERE atout = \'start\'');
 
-		$characters = $request->fetchAll();
+		$textStart = $request->fetch();
 
-		return $characters;
+		return $textStart;
 	}
 }

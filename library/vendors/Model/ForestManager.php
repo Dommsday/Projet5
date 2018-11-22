@@ -5,7 +5,7 @@ namespace Model;
 use \framework\Manager;
 use \Entity\Forest;
 
-abstract class BeginManager extends Manager{
+abstract class ForestManager extends Manager{
 
-	abstract protected function getAllCharacters();
+	abstract public function startStory();
 }

@@ -68,7 +68,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="#">Nouveau Jeu</a>
+							<a class="nav-link" href="/startGame.html">Nouveau Jeu</a>
 						</li>
 					
 					</ul>

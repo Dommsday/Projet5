@@ -15,4 +15,13 @@ class ForestManagerPDO extends ForestManager{
 
 		return $textStart;
 	}
+
+	public function impasse(){
+
+		$request = $this->dao->query('SELECT id, content, title FROM forest WHERE atout = \'impasse\'');
+
+		$textImpasse = $request->fetch();
+
+		return $textImpasse;
+	}
 }

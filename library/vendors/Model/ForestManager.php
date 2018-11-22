@@ -8,4 +8,6 @@ use \Entity\Forest;
 abstract class ForestManager extends Manager{
 
 	abstract public function startStory();
+
+	abstract public function impasse();
 }

@@ -8,4 +8,5 @@
 
 		<!--Partie Forêt-->
 		<route url="/startGame.html" module="Forest" action="start"></route>
+		<route url="/impasse.html" module="Forest" action="impasse"></route>
 	</routes>

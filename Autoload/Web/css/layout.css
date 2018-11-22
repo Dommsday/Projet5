@@ -174,3 +174,25 @@ tbody tr{
 
 /*FIN PAGE ABOUT
 *************************/
+
+/*PARTIE GAME
+*******************/
+
+.choise-right, .choise-left{
+	margin: 6%;
+	color: #000000;
+	font-weight: bold;
+}
+
+.choise-road .choise-right a:hover{
+	color: #000000;
+}
+
+
+.container-game{
+	text-align: center;
+	color: #FFFFFF;
+	margin-top: 4%;
+}
+/*FIN PARTIE GAME
+*********************/

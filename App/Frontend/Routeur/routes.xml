@@ -5,6 +5,10 @@
 		<route url="/" module="Begin" action="index"></route>
 		<route url="/allCharacters.html" module="Begin" action="allCharacters"></route>
 		<route url="/about.html" module="Begin" action="about"></route>
+		<route url="/inscription.html" module="Begin" action="inscription"></route>
+		<route url="/connexion.html" module="Begin" action="connexion"></route>
+
+		<route url="/confirmation-deconnexion.html" module="Begin" action="confirmDeconnexion"></route>
 
 		<!--Partie Forêt-->
 		<route url="/startGame.html" module="Forest" action="start"></route>

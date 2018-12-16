@@ -4,8 +4,14 @@ namespace App\Frontend\Modules\Begin;
 
 use \framework\BackController;
 use \framework\HTTPRequest;
+use \framework\PlayersFormHandler;
+use \framework\PlayerFormConnexionHandler;
 use \Entity\Characters;
 use \Entity\Warrior;
+use \Entity\Players;
+use \FormBuilder\PlayersFormBuilder;
+use \FormBuilder\PlayerFormConnexionBuilder;
+
 
 class BeginController extends BackController{
 
@@ -31,4 +37,116 @@ class BeginController extends BackController{
 
 		$this->page->addVarPage('title', 'A propos');
 	}
+
+	public function executeInscription(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Page d\'inscription');
+
+		$this->processPlayersForm($request);
+
+	}
+
+	public function processPlayersForm(HTTPRequest $request){
+
+		$player = new Players;
+
+		$pseudo = htmlspecialchars($request->postData('pseudo'));
+		$email = htmlspecialchars($request->postData('email'));
+		$password = htmlspecialchars($request->postData('password'));
+		$passwordConfirm = htmlspecialchars($request->postData('passwordConfirm'));
+
+
+		$pseudoLength = $this->app->config()->get('pseudo_length');
+		$passwordLength = $this->app->config()->get('password_length');
+
+
+		if($request->method() == 'POST'){
+
+			if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+
+				if(($passwordConfirm == $password) && (strlen($pseudo) >= $pseudoLength) && (strlen($password) >= $passwordLength)){
+
+					$player = new Players([
+
+						'pseudo' =>htmlspecialchars($request->postData('pseudo')),
+						'email' => htmlspecialchars($request->postData('email')),
+						'password' => htmlspecialchars($request->postData('password')),
+						'passwordConfirm' => htmlspecialchars($request->postData('passwordConfirm')),
+					]);
+
+				}else{
+
+					$this->app->user()->setMessage('Les identifiants doivent etre correctement entrés');
+				}
+			}
+		}
+
+		$formPlayersBuilder = new PlayersFormBuilder($player);
+		$formPlayersBuilder->build();
+
+		$playersForm = $formPlayersBuilder->playersForm();
+
+		$formPlayersBuilder = new PlayersFormHandler($playersForm, $this->managers->getManagerOf('Players'), $request);
+
+		if($formPlayersBuilder->process()){
+
+			$this->app->user()->setAuthenticated(true);
+			$this->app->user()->setAttribute('pseudo', $request->postData('pseudo'));
+			$this->app->httpResponse()->redirect('.');
+		}
+
+		$this->page->addVarPage('playersForm', $playersForm->createView());
+
+
+	}
+
+	public function executeConnexion(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Page de connexion');
+
+		$this->processPlayerFormConnexion($request);
+	}
+
+	public function processPlayerFormConnexion(HTTPRequest $request){
+
+		$player = new Players;
+
+		$connexion = $this->managers->getManagerOf('Players')->connexionPlayer($request->postData('pseudo'));
+
+		$password = htmlspecialchars($request->postData('password'));
+
+		$isCorrect = password_verify($password, $connexion['password']);
+
+		if($request->method() == 'POST'){
+
+			if($isCorrect){
+
+				$this->app->user()->setAttribute('pseudo', $request->postData('pseudo'));
+				$this->app->user()->setAuthenticated(true);
+				$this->app->httpResponse()->redirect('.');
+			}else{
+
+				$this->app->user()->setMessage('Le pseudo ou le mot de passe est incorrect');
+			}
+		}
+
+		$formPlayerConnexion = new PlayerFormConnexionBuilder($player);
+		$formPlayerConnexion->build();
+
+		$playerFormConnexion = $formPlayerConnexion->playerFormConnexion();
+
+		$formPlayersBuilder = new PlayerFormConnexionHandler($playerFormConnexion, $this->managers->getManagerOf('Players'), $request);
+
+		$this->page->addVarPage('playerFormConnexion', $playerFormConnexion->createView());
+
+	}
+
+	public function executeConfirmDeconnexion(HTTPRequest $request){
+
+    $this->page->addVarPage('title', 'Déconnexion');
+
+    $this->app->user()->setAuthenticated(false);
+
+    session_destroy(); 
+  }
 }

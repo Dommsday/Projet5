@@ -68,8 +68,26 @@
 						</li>
 
 						<li class="nav-item">
+							<a class="nav-link" href="/inscription.html">S'inscrire</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/connexion.html">Se connecter</a>
+						</li>
+
+						<li class="nav-item">
 							<a class="nav-link" href="/startGame.html">Nouveau Jeu</a>
 						</li>
+
+						<?php  
+							if($user->isAuthenticated()){
+						?>
+						<li class="nav-item">
+							<a class="nav-link" href="/confirmation-deconnexion.html"><i class="fas fa-user-times" title="Déconnexion"></i></a>
+						</li>
+						<?php  
+						}
+						?>
 					
 					</ul>
 
@@ -93,7 +111,23 @@
 	<!--CONTENU DES DERNIERES NEWS-->
 	<section class="section-container container-fluid">
 		<div class="container-contenu container">
+	
+			<?php
+			if($user->isAuthenticated()){
+			?>
+					<h1>Bonjour <?= $user->getAttribute('pseudo')?></h1>
+			<?php	
+			}
+			?>
 			<div class="row">
+
+				<?php if($user->hasMessage()){
+				?>
+				<p class="message"><i class="fas fa-check-circle"></i><?=$user->getMessage()?></p>
+				<?php  
+				}
+				?>
+
 			
 				<?= $content ?>
 			</div>

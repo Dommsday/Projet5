@@ -6,6 +6,7 @@ use \framework\Manager;
 use \Entity\Warrior;
 use \Entity\Characters;
 
-abstract class ForestManager extends Manager{
+abstract class BeginManager extends Manager{
 
+	abstract public function getAllCharacters();
 }

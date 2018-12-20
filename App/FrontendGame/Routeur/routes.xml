@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<routes>
+
+	<route url="/game/connexion.html" module="Game" action ="connexion" ></route>
+	<route url="/game/" module="Game" action ="index" ></route>
+
+	<route url="/game/rightChoise.html" module="Game" action="rightChoise"> </route>
+    
+</routes>

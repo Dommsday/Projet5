@@ -9,7 +9,7 @@ class ForestManagerPDO extends ForestManager{
 
 	public function startStory(){
 
-		$request = $this->dao->query('SELECT id, content, title FROM forest WHERE atout = \'start\'');
+		$request = $this->dao->query('SELECT id, content, title FROM forest WHERE type = \'start\'');
 
 		$textStart = $request->fetch();
 
@@ -18,10 +18,47 @@ class ForestManagerPDO extends ForestManager{
 
 	public function impasse(){
 
-		$request = $this->dao->query('SELECT id, content, title FROM forest WHERE atout = \'impasse\'');
+		$request = $this->dao->query('SELECT id, content, title FROM forest WHERE type = \'impasse\'');
 
 		$textImpasse = $request->fetch();
 
 		return $textImpasse;
+	}
+
+	public function getText($id){
+
+		$request = $this->dao->prepare('SELECT id, title, content FROM forest WHERE id = :id');
+
+		$request->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+		$request->execute();
+
+		$request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Forest');
+    
+    	$textForest = $requete->fetch();
+  
+     	return $textForest;
+	}
+
+	protected function add(Forest $forest){
+
+		$request = $this->dao->prepare('INSERT INTO forest SET title = :title, content = :content, type = :type');
+
+		$request->bindValue(':title', $forest->title());
+		$request->bindValue(':content', $forest->content());
+		$request->bindValue(':type', $forest->type());
+
+		$request->execute();
+	}
+
+    protected function modify(Forest $forest){
+
+		$request = $this->dao->prepare('UPDATE forest SET title = :title, content = :content, type = :type WHERE id = :id');
+
+		$request->bindValue(':title', $forest->title());
+		$request->bindValue(':content', $forestforest->content());
+		$request->bindValue(':type', $forestforest->type());
+		$request->bindValue(':id', $forest->id(), \PDO::PARAM_INT);
+
+		$request->execute();
 	}
 }

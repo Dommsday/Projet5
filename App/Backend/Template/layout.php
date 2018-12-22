@@ -60,6 +60,10 @@
 						</li>
 
 						<li class="nav-item">
+							<a class="nav-link" href="/admin/">Admin</a>
+						</li>
+
+						<li class="nav-item">
 							<a class="nav-link" href="/admin/insert.html">Rédaction</a>
 						</li>
 
@@ -123,8 +127,7 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="Web/js/time.js"></script>
-	<script type="text/javascript" src="Web/js/form.js"></script>
+	<script type="text/javascript" src="/Web/js/time.js"></script>
 
 	<!--PARTIE FORMULAIRE TINYMCE-->
 	<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>

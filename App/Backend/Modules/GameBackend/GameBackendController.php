@@ -6,11 +6,16 @@ use \framework\BackController;
 use \framework\HTTPRequest;
 use \Entity\Players;
 use \Entity\Forest;
+use \Entity\Cave;
+use \Entity\Characters;
+use \Entity\Inventory;
 use \framework\User;
 use \framework\PlayerFormConnexionHandler;
 use \framework\FormTinyMCEHandler;
 use \FormBuilder\PlayerFormConnexionBuilder;
 use \FormBuilder\TinyMCEFormBuilder;
+use \FormBuilder\TinyMCEFormBuilderCharacters;
+use \FormBuilder\TinyMCEFormBuilderInventory;
 
 class GameBackendController extends BackController{
 
@@ -65,10 +70,16 @@ class GameBackendController extends BackController{
 
 		$this->page->addVarPage('title', 'Rédaction');
 
-		$this->processTinyMCEForm($request);
 	}
 
-	public function processTinyMCEForm(HTTPRequest $request){
+	public function executeWritingForest(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Ecriture d\'élément');
+
+		$this->processTinyMCEFormForest($request);
+	}
+
+	public function processTinyMCEFormForest(HTTPRequest $request){
 
 		if($request->method() == 'POST'){
 
@@ -108,4 +119,152 @@ class GameBackendController extends BackController{
 
 		$this->page->addVarPage('tinymce', $tinymce->createView());
 	}
+
+	public function executeWritingCave(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Ecriture d\'élément');
+
+		$this->processTinyMCEFormCave($request);
+	}
+
+	public function processTinyMCEFormCave(HTTPRequest $request){
+
+		if($request->method() == 'POST'){
+
+			$cave = new Cave([
+				'title' => $request->postData('title'),
+				'content' => $request->postData('content'),
+				'type' => $request->postData('type')
+			]);
+
+			if($request->getExists('id')){
+
+				$cave->setId($request->getData('id'));
+			}
+		}else{
+
+			if($request->getExists('id')){
+
+				$cave = $this->managers->getManagerOf('Cave')->getText($request->getData('id'));
+			}else{
+
+				$cave = new Cave;
+			}
+		}
+
+		$formTinyMCEBuilder = new TinyMCEFormBuilder($cave);
+		$formTinyMCEBuilder->build();
+
+		$tinymce = $formTinyMCEBuilder->tinymce();
+
+		$FormTinyMCEHandler = new FormTinyMCEHandler($tinymce, $this->managers->getManagerOf('Cave'), $request);
+
+		if($FormTinyMCEHandler->process()){
+
+			$this->app->user()->setMessage($cave->idNew() ? 'L\'élément à bien été ajouté' : 'L\'élément à bien été modifié');
+			$this->app->httpResponse()->redirect('/admin/');
+		}
+
+		$this->page->addVarPage('tinymce', $tinymce->createView());
+	}
+
+	public function executeWritingCharacters(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Ecriture d\'élément');
+
+		$this->processTinyMCEFormCharacters($request);
+	}
+
+	public function processTinyMCEFormCharacters(HTTPRequest $request){
+
+		if($request->method() == 'POST'){
+
+			$characters = new Characters([
+				'name' => $request->postData('name'),
+				'damages' => $request->postData('damages'),
+				'type' => $request->postData('type'),
+				'life' => $request->postData('life')
+			]);
+
+			if($request->getExists('id')){
+
+				$characters->setId($request->getData('id'));
+			}
+		}else{
+
+			if($request->getExists('id')){
+
+				$characters = $this->managers->getManagerOf('Characters')->getText($request->getData('id'));
+			}else{
+
+				$characters = new Characters;
+			}
+		}
+
+		$formTinyMCEBuilder = new TinyMCEFormBuilderCharacters($characters);
+		$formTinyMCEBuilder->build();
+
+		$tinymce = $formTinyMCEBuilder->tinymce();
+
+		$FormTinyMCEHandler = new FormTinyMCEHandler($tinymce, $this->managers->getManagerOf('Characters'), $request);
+
+		if($FormTinyMCEHandler->process()){
+
+			$this->app->user()->setMessage($characters->idNew() ? 'L\'élément à bien été ajouté' : 'L\'élément à bien été modifié');
+			$this->app->httpResponse()->redirect('/admin/');
+		}
+
+		$this->page->addVarPage('tinymce', $tinymce->createView());
+	}
+
+	public function executeWritingInventory(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Ecriture d\'élément');
+
+		$this->processTinyMCEFormInventory($request);
+	}
+
+	public function processTinyMCEFormInventory(HTTPRequest $request){
+
+		if($request->method() == 'POST'){
+
+			$inventory = new Inventory([
+				'name' => $request->postData('name'),
+				'description' => $request->postData('description'),
+				'damages' => $request->postData('damages'),
+				'life' => $request->postData('life'),
+				'type' => $request->postData('type')
+			]);
+
+			if($request->getExists('id')){
+
+				$inventory->setId($request->getData('id'));
+			}
+		}else{
+
+			if($request->getExists('id')){
+
+				$inventory = $this->managers->getManagerOf('Inventory')->getText($request->getData('id'));
+			}else{
+
+				$inventory = new Inventory;
+			}
+		}
+
+		$formTinyMCEBuilder = new TinyMCEFormBuilderInventory($inventory);
+		$formTinyMCEBuilder->build();
+
+		$tinymce = $formTinyMCEBuilder->tinymce();
+
+		$FormTinyMCEHandler = new FormTinyMCEHandler($tinymce, $this->managers->getManagerOf('Inventory'), $request);
+
+		if($FormTinyMCEHandler->process()){
+
+			$this->app->user()->setMessage($inventory->idNew() ? 'L\'objet à bien été ajouté' : 'L\'objet à bien été modifié');
+			$this->app->httpResponse()->redirect('/admin/');
+		}
+
+		$this->page->addVarPage('tinymce', $tinymce->createView());
+	}
+	
 }

@@ -1,31 +1,28 @@
-<h1>Inserer un nouvel élément</h1>
-
-<p>
-Forêt
-</p>
-<br />
-<p>
-Grotte
-</p>
-<br />
-<p>
-Personnage
-</p>
-<br />
-<p>
-Bestiaires
-</p> 
-
 <div class="title col-lg-12 col-xl-12">
-	<h2 class="title-form">Ajouter un article</h2>
+	<h1 class="title-form">Insérer un nouvel élément</h1>
 </div>
 
-<div class="form col-lg-12 col-xl-12">
-	<form action="" method="post">
-		<div class="form-group">
-			<?= $tinymce ?>
-		</div>
+<div class="informations col-sm-12 col-md-12 col-lg-12 col-xl-12">
+	<div class="news">
+			<a href="/admin/writing-forest.html"><h2>Forêt</h2></a>
+			
+	</div>
 
-		<input type="submit" class="btn btn-primary" value="Ajouter" />
-	</form>
+	<div class="comments">
+		<a href="/admin/writing-cave.html"><h2>Grotte</h2></a>
+		
+	</div>
+
+	<div class="members">
+		<a href="/admin/writing-characters.html"><h2>Ennemies</h2></a>
+		
+	</div>
+
+	<div class="inventory">
+		<a href="/admin/writing-inventory.html"><h2>Inventaires</h2></a>
+		
+	</div>
+
 </div>
+
+

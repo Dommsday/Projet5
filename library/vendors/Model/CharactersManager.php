@@ -13,6 +13,10 @@ abstract class CharactersManager extends Manager{
     
     abstract protected function modify(Characters $characters);
 
+    abstract public function getAllElements();
+
+    abstract public function delete($id);
+
 	//Méthode qui s'écrit directement car elle n'est pas dépendante de la DAO
     public function save(Characters $characters){
 

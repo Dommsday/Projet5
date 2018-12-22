@@ -43,4 +43,21 @@ class CaveManagerPDO extends CaveManager{
 
 		$request->execute();
 	}
+
+	public function getAllElements(){
+
+		$request = $this->dao->query('SELECT id, title, content, type FROM cave');
+
+		$listElements = $request->fetchAll();
+
+		return $listElements;
+	}
+
+	public function delete($id){
+
+		$request = $this->dao->prepare('DELETE FROM cave WHERE id = :id');
+		$request->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+
+		$request->execute();
+	}
 }

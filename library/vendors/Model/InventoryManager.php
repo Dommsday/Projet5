@@ -13,6 +13,11 @@ abstract class InventoryManager extends Manager{
     
     abstract protected function modify(Inventory $inventory);
 
+    abstract public function getAllElements();
+
+    abstract public function delete($id);
+
+
 	//Méthode qui s'écrit directement car elle n'est pas dépendante de la DAO
     public function save(Inventory $inventory){
 

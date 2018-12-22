@@ -13,9 +13,13 @@ abstract class ForestManager extends Manager{
 
 	abstract public function getText($id);
 
+    abstract public function getAllElements();
+
 	abstract protected function add(Forest $forest);
     
     abstract protected function modify(Forest $forest);
+
+    abstract public function delete($id);
 
 	//Méthode qui s'écrit directement car elle n'est pas dépendante de la DAO
     public function save(Forest $forest){

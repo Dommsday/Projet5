@@ -266,5 +266,105 @@ class GameBackendController extends BackController{
 
 		$this->page->addVarPage('tinymce', $tinymce->createView());
 	}
+
+	public function executeSeeAllForest(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Liste des éléments');
+
+		$manager = $this->managers->getManagerOf('Forest')->getAllElements();
+
+		$this->page->addVarPage('listElements', $manager);
+	}
+
+	public function executeSeeAllCave(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Liste des éléments');
+
+		$manager = $this->managers->getManagerOf('Cave')->getAllElements();
+
+		$this->page->addVarPage('listElements', $manager);
+	}
+
+	public function executeSeeAllCharacters(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Liste des éléments');
+
+		$manager = $this->managers->getManagerOf('Characters')->getAllElements();
+
+		$this->page->addVarPage('listElements', $manager);
+	}
+
+	public function executeSeeAllInventory(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Liste des éléments');
+
+		$manager = $this->managers->getManagerOf('Inventory')->getAllElements();
+
+		$this->page->addVarPage('listElements', $manager);
+	}
+
+	public function executeUpdateForest(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Modification d\'élément');
+
+		$this->processTinyMCEFormForest($request);
+	}
+
+	public function executeUpdateCave(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Modification d\'élément');
+
+		$this->processTinyMCEFormCave($request);
+	}
+
+	public function executeUpdateCharacters(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Modification d\'élément');
+
+		$this->processTinyMCEFormCharacters($request);
+	}
+
+	public function executeUpdateInventory(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Modification d\'élément');
+
+		$this->processTinyMCEFormInventory($request);
+	}
+
+	public function executeDeleteForest(HTTPRequest $request){
+
+		$this->managers->getManagerOf('Forest')->delete($request->getData('id'));
+
+		$this->app->user()->setMessage('L\'élément à bien été supprimé');
+
+		$this->app->httpResponse()->redirect('/admin/all-forest.html');
+	}
+
+	public function executeDeleteCave(HTTPRequest $request){
+
+		$this->managers->getManagerOf('Cave')->delete($request->getData('id'));
+
+		$this->app->user()->setMessage('L\'élément à bien été supprimé');
+
+		$this->app->httpResponse()->redirect('/admin/all-cave.html');
+	}
+
+	public function executeDeleteCharacters(HTTPRequest $request){
+
+		 $this->managers->getManagerOf('Characters')->delete($request->getData('id'));
+
+		$this->app->user()->setMessage('L\'élément à bien été supprimé');
+
+		$this->app->httpResponse()->redirect('/admin/all-characters.html');
+	}
+
+	public function executeDeleteInventory(HTTPRequest $request){
+
+		$this->managers->getManagerOf('Inventory')->delete($request->getData('id'));
+
+		$this->app->user()->setMessage('L\'élément à bien été supprimé');
+
+		$this->app->httpResponse()->redirect('/admin/all-forest.html');
+	}
 	
 }

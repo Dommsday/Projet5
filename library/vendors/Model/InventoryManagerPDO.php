@@ -47,4 +47,21 @@ class InventoryManagerPDO extends InventoryManager{
 
 		$request->execute();
 	}
+
+	public function getAllElements(){
+
+		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory');
+
+		$listElements = $request->fetchAll();
+
+		return $listElements;
+	}
+
+	public function delete($id){
+
+		$request = $this->dao->prepare('DELETE FROM inventory WHERE id = :id');
+		$request->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+
+		$request->execute();
+	}
 }

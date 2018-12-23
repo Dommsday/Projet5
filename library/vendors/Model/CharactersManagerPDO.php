@@ -27,8 +27,8 @@ class CharactersManagerPDO extends CharactersManager{
 
 		$request->bindValue(':name', $characters->name());
 		$request->bindValue(':type', $characters->type());
-		$request->bindValue(':damages', $characters->damages());
-		$request->bindValue(':life', $characters->life());
+		$request->bindValue(':damages', (int) $characters->damages(), \PDO::PARAM_INT);
+		$request->bindValue(':life', (int) $characters->life(), \PDO::PARAM_INT);
 
 		$request->execute();
 	}
@@ -39,8 +39,8 @@ class CharactersManagerPDO extends CharactersManager{
 
 		$request->bindValue(':name', $characters->name());
 		$request->bindValue(':type', $characters->type());
-		$request->bindValue(':damages', $characters->damages());
-		$request->bindValue(':life', $characters->life());
+		$request->bindValue(':damages', (int) $characters->damages(), \PDO::PARAM_INT);
+		$request->bindValue(':life', (int) $characters->life(), \PDO::PARAM_INT);
 		$request->bindValue(':id', $characters->id(), \PDO::PARAM_INT);
 
 		$request->execute();

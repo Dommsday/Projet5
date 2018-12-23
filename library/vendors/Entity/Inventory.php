@@ -54,8 +54,7 @@ class Inventory extends Entity{
 	}
 
 	public function setDamages($damages){
-		$damages = (int) $damages;
-
+		
 		if($damages >= 0 && $damages <= 100){
 
 			$this->damages = $damages;
@@ -63,8 +62,7 @@ class Inventory extends Entity{
 	}
 
 	public function setLife($life){
-		$life = (int) $life;
-
+		
 		if($life > 0 && $life <= 150){
 
 			$this->life = $life;

@@ -3,6 +3,7 @@ namespace FormBuilder;
 
 use \framework\TinyMCEBuilder;
 use \framework\StringField;
+use \framework\NumberField;
 use \framework\TextTinyField;
 use \framework\MaxLengthValidator;
 use \framework\NotNullValidator;
@@ -36,9 +37,9 @@ class TinyMCEFormBuilderInventory extends TinyMCEBuilder
         ],
        ]));
 
-      $this->tinymce->add(new StringField([
+      $this->tinymce->add(new NumberField([
         'label' => 'Dégâts',
-        'type' => 'text',
+        'type' => 'number',
         'name' => 'damages',
         'id' => 'damages',
         'boots' => 'form-control',
@@ -58,9 +59,9 @@ class TinyMCEFormBuilderInventory extends TinyMCEBuilder
         ],
        ]));
 
-      $this->tinymce->add(new StringField([
+      $this->tinymce->add(new NumberField([
         'label' => 'Vie',
-        'type' => 'text',
+        'type' => 'number',
         'name' => 'life',
         'id' => 'life',
         'boots' => 'form-control',

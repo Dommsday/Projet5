@@ -114,7 +114,7 @@ class GameBackendController extends BackController{
 		if($FormTinyMCEHandler->process()){
 
 			$this->app->user()->setMessage($forest->idNew() ? 'L\'élément à bien été ajouté' : 'L\'élément à bien été modifié');
-			$this->app->httpResponse()->redirect('/admin/');
+			$this->app->httpResponse()->redirect('/admin/insert.html');
 		}
 
 		$this->page->addVarPage('tinymce', $tinymce->createView());
@@ -162,7 +162,7 @@ class GameBackendController extends BackController{
 		if($FormTinyMCEHandler->process()){
 
 			$this->app->user()->setMessage($cave->idNew() ? 'L\'élément à bien été ajouté' : 'L\'élément à bien été modifié');
-			$this->app->httpResponse()->redirect('/admin/');
+			$this->app->httpResponse()->redirect('/admin/insert.html');
 		}
 
 		$this->page->addVarPage('tinymce', $tinymce->createView());
@@ -211,7 +211,7 @@ class GameBackendController extends BackController{
 		if($FormTinyMCEHandler->process()){
 
 			$this->app->user()->setMessage($characters->idNew() ? 'L\'élément à bien été ajouté' : 'L\'élément à bien été modifié');
-			$this->app->httpResponse()->redirect('/admin/');
+			$this->app->httpResponse()->redirect('/admin/insert.html');
 		}
 
 		$this->page->addVarPage('tinymce', $tinymce->createView());
@@ -261,7 +261,7 @@ class GameBackendController extends BackController{
 		if($FormTinyMCEHandler->process()){
 
 			$this->app->user()->setMessage($inventory->idNew() ? 'L\'objet à bien été ajouté' : 'L\'objet à bien été modifié');
-			$this->app->httpResponse()->redirect('/admin/');
+			$this->app->httpResponse()->redirect('/admin/insert.html');
 		}
 
 		$this->page->addVarPage('tinymce', $tinymce->createView());
@@ -301,6 +301,15 @@ class GameBackendController extends BackController{
 		$manager = $this->managers->getManagerOf('Inventory')->getAllElements();
 
 		$this->page->addVarPage('listElements', $manager);
+	}
+
+	public function executeSeeAllMembers(HTTPRequest $request){
+
+		$manager = $this->managers->getManagerOf('Players')->getAllMembers();
+
+		$this->page->addVarPage('members', $manager);
+
+		$this->page->addVarPage('title', 'Liste de tout les membres');
 	}
 
 	public function executeUpdateForest(HTTPRequest $request){
@@ -365,6 +374,15 @@ class GameBackendController extends BackController{
 		$this->app->user()->setMessage('L\'élément à bien été supprimé');
 
 		$this->app->httpResponse()->redirect('/admin/all-forest.html');
+	}
+
+	public function executeDeleteMember(HTTPRequest $request){
+
+		$this->managers->getManagerOf('Players')->delete($request->getData('id'));
+
+		$this->app->user()->setMessage('Le joueur à bien été supprimé');
+
+		$this->app->httpResponse()->redirect('/admin/all-members.html');
 	}
 	
 }

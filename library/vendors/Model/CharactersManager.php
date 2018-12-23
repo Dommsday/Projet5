@@ -20,12 +20,12 @@ abstract class CharactersManager extends Manager{
 	//Méthode qui s'écrit directement car elle n'est pas dépendante de la DAO
     public function save(Characters $characters){
 
-    	if($cave->Valid()){
+        if($characters->Valid()){
 
-    		$cave->idNew() ? $this->add($characters) : $this->modify($characters);
-    	}else{
+            $characters->idNew() ? $this->add($characters) : $this->modify($characters);
+        }else{
 
-    		throw new \RuntimeException('L\'élément doit être validé pour être enregistré');
-    	}
+            throw new \RuntimeException('Le personnage/bestiaire doit être validé pour être enregistré');
+        }
     }
 }

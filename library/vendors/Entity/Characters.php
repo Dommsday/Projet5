@@ -4,29 +4,46 @@ namespace Entity;
 
 use \framework\Entity;
 
- class Characters extends Entity{
+class Characters extends Entity{
 
+	protected $id;
 	protected $name;
 	protected $damages;
 	protected $life;
+	protected $type;
 
 	const ITS_ME = 1;
 	const CHARACTERS_DEAD = 2;
 	const CHARACTERS_DAMAGE = 3;
+	const CHARACTERS_TYPE = 4;
+	const INVALID_NAME = 4;
 
 	public function Valid(){
-		return !empty($name);
+		return !(empty($this->name) || empty($this->type));
 	}
 
-	public function setName($name){
-		if (!is_string($name) || empty($name)){
+	public function setId($id){
 
-			$this->erreurs[] = self: INVALID_NAME;
+		$id = (int) $id;
+
+		if($id > 0){
+
+			$this->id = $id;
 		}
 	}
 
+	public function setName($name){
+
+		if(!is_string($name) || empty($name)){
+
+			$this->erreurs[] = self::INVALID_NAME;
+		}
+
+		$this->name = $name;
+
+	}
+
 	public function setDamages($damages){
-		$damages = (int) $damages;
 
 		if($damages >= 0 && $damages <= 100){
 
@@ -35,12 +52,21 @@ use \framework\Entity;
 	}
 
 	public function setLife($life){
-		$life = (int) $life;
-
+	
 		if($life > 0 && $life <= 150){
 
 			$this->life = $life;
 		}
+	}
+
+	public function setType($type){
+		if (!is_string($type) || empty($type)){
+
+			$this->erreurs[] = self::CHARACTERS_TYPE;
+		}
+
+		$this->type = $type;
+
 	}
 
 	public function id(){
@@ -63,6 +89,11 @@ use \framework\Entity;
 		return $this->life;
 	}
 
+	public function type(){
+
+		return $this->type;
+	}
+
 	public function receiveDamages(){
 
 		$this->life = $this->life - $this->damages;
@@ -77,10 +108,10 @@ use \framework\Entity;
 
 	public function getDamages(Characters $character){
 
-		if($characters->id == $this->id){
+		if($character->id == $this->id){
 			return self::ITS_ME;
 		}
 
-		return self $perso->receiveDamages();
+		return self::$character->receiveDamages();
 	}
 }

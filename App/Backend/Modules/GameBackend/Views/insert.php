@@ -3,12 +3,12 @@
 </div>
 
 <div class="informations col-sm-12 col-md-12 col-lg-12 col-xl-12">
-	<div class="news">
+	<div class="forest">
 			<a href="/admin/writing-forest.html"><h2>Forêt</h2></a>
 			
 	</div>
 
-	<div class="comments">
+	<div class="cave">
 		<a href="/admin/writing-cave.html"><h2>Grotte</h2></a>
 		
 	</div>

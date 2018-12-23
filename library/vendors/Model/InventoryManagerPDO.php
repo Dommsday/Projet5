@@ -28,8 +28,8 @@ class InventoryManagerPDO extends InventoryManager{
 		$request->bindValue(':name', $inventory->name());
 		$request->bindValue(':description', $inventory->description());
 		$request->bindValue(':type', $inventory->type());
-		$request->bindValue(':damages', $inventory->damages());
-		$request->bindValue(':life', $inventory->life());
+		$request->bindValue(':damages', (int) $inventory->damages(), \PDO::PARAM_INT);
+		$request->bindValue(':life', (int) $inventory->life(), \PDO::PARAM_INT);
 
 		$request->execute();
 	}
@@ -41,8 +41,8 @@ class InventoryManagerPDO extends InventoryManager{
 		$request->bindValue(':name', $inventory->name());
 		$request->bindValue(':description', $inventory->description());
 		$request->bindValue(':type', $inventory->type());
-		$request->bindValue(':damages', $inventory->damages());
-		$request->bindValue(':life', $inventory->life());
+		$request->bindValue(':damages', (int) $inventory->damages(), \PDO::PARAM_INT);
+		$request->bindValue(':life', (int) $inventory->life(), \PDO::PARAM_INT);
 		$request->bindValue(':id', $inventory->id(), \PDO::PARAM_INT);
 
 		$request->execute();

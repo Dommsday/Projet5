@@ -2,15 +2,53 @@
 	
 	<div class="title-start">
 		<h1><?= $textStart['title']?></h1>
+		<h2><?= $user->getAttribute('back')?></h2>
 	</div>
 
 	<div class="text-start">
 		<p><?= nl2br($textStart['content']) ?></p>
 	</div>
 
+	<div id="apple1" class="apple">
+			
+		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
+
+		<div id="action1" class="action">
+			<button>Manger</button>
+			<button>Stocker</button>
+		</div>
+	</div>
+
+	<div id="apple2" class="apple">
+		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
+
+		<div id="action2" class="action">
+			<button>Manger</button>
+			<button>Stocker</button>
+		</div>
+	</div>
+
+	<div id="apple3" class="apple">
+		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
+
+		<div id="action3" class="action">
+			<button>Manger</button>
+			<button>Stocker</button>
+		</div>
+	</div>
+
+	<div id="apple4" class="apple">
+		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
+
+		<div id="action4" class="action">
+			<button>Manger</button>
+			<button>Stocker</button>
+		</div>
+	</div>
+
 	<div class="choise-road">
-		<a class="choise-left" href="#">Aller à gauche</a>
-		<a class="choise-right" href="/game/rightChoise.html">Aller à droite</a>
+		<a class="choise-left" href="/game/fight-one-left.html">Aller à gauche</a>
+		<a class="choise-right" href="/game/fight-one-right.html">Aller à droite</a>
 	</div>
 
 </div>

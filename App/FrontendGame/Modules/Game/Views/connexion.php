@@ -1,6 +1,5 @@
 <div class="title col-md-12 col-lg-12 col-xl-12">
 	<h2 class="title-form">Connexion</h2>
-	<h1>Helloooooooooooo</h1>
 </div>
 
 <div class="form col-md-12 col-lg-12 col-xl-12">

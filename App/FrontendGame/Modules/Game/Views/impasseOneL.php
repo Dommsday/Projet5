@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="choise-road">
-		<a class="/game" href="#">Retour en arrière</a>
+		<a class="choise-back" href="/game/chest-four-left.html">Retour en arrière</a>
 	</div>
 
 </div>

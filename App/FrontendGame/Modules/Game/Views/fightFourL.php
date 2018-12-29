@@ -12,8 +12,18 @@
 		<i class="fab fa-wolf-pack-battalion"><?= $wolf['name']?></i>
 	</div>
 
+	<div id="apple1" class="apple">
+			
+		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
+
+		<div id="action1" class="action">
+			<button>Manger</button>
+			<button>Stocker</button>
+		</div>
+	</div>
+
 	<div class="choise-road">
-		<a class="choise-top" href="/game/portal-left.html">Aller tout droit</a>
+		<a class="choise-top" href="/game/portal.html">Aller tout droit</a>
 	</div>
 
 </div>

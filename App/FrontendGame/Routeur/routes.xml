@@ -2,8 +2,94 @@
 <routes>
 
 	<route url="/game/connexion.html" module="Game" action ="connexion" ></route>
-	<route url="/game/" module="Game" action ="index" ></route>
+	<route url="/game/test.html" module="Game" action ="test" ></route>
 
-	<route url="/game/rightChoise.html" module="Game" action="rightChoise"> </route>
-    
+	<route url="/game/" module="Game" action ="index"></route>
+
+	<!--Chemin de gauche-->
+	<route url="/game/fight-one-left.html" module="Game" action="fightOneL"></route>
+	<route url="/game/chest-one-left.html" module="Game" action="chestOneL"></route>
+	
+		<!--Chemin gauche de gauche-->
+		<route url="/game/village-one-left.html" module="Game" action="villageOneL"></route>
+		<route url="/game/undergrowth-one-left.html" module="Game" action="underOneL"></route>
+		<route url="/game/fight-two-left.html" module="Game" action="fightTwoL"></route>
+
+			<!--Chemin gauche-->
+			<route url="/game/fountain-one-left.html" module="Game" action="fountainOneL"></route>
+				
+				<!--Chemin gauche-->
+				<route url="/game/fight-four-left.html" module="Game" action="fightFourL"></route>
+				<route url="/game/chest-five-left.html" module="Game" action="chestFiveL"></route>
+
+				<route url="/game/portal.html" module="Game" action="portal"></route>
+				<!--Fin Chemin gauche-->
+
+			<!--Fin Chemin gauche-->
+
+			<!--Chemin droit-->
+			<route url="/game/undergrowth-two-left.html" module="Game" action="underTwoL"></route>
+			<route url="/game/fight-three-left.html" module="Game" action="fightThreeL"></route>
+			<!--Fin Chemin droit-->
+		<!--Fin Chemin gauche de gauche-->
+
+		<!--Chemin droit de gauche-->
+		<route url="/game/fight-five-left.html" module="Game" action="fightFiveL"></route>
+		<route url="/game/fountain-two-left.html" module="Game" action="fountainTwoL"></route>
+		<route url="/game/chest-four-left.html" module="Game" action="chestFourL"></route>
+
+			<!--Chemin gauche-->
+			<route url="/game/village-two-left.html" module="Game" action="villageTwoL"></route>
+			<route url="/game/undergrowth-three-left.html" module="Game" action="underThreeL"></route>
+			<route url="/game/impasse-two-left.html" module="Game" action="impasseTwoL"></route>
+			<route url="/game/impasse-dead.html" module="Game" action="impasseDead"></route>
+			<!-- Fin Chemin gauche-->
+
+			<!--Chemin droit-->
+			<route url="/game/impasse-one-left.html" module="Game" action="impasseOneL"></route>
+			<!--Fin Chemin droit-->
+
+		<!--Fin Chemin de gauche-->
+
+		<!--Chemin de droite-->
+		<route url="/game/fight-one-right.html" module="Game" action="fightOneR"></route>
+		<route url="/game/chest-nine-right.html" module="Game" action="chestNineR"></route>
+
+			<!--Chemin de gauche-->
+			<route url="/game/undergrowth-four-right.html" module="Game" action="underFourR"></route>
+			<route url="/game/village-three-right.html" module="Game" action="villageThreeR"></route>
+			<route url="/game/fight-three-right.html" module="Game" action="fightThreeR"></route>
+
+				<!--Chemin de gauche-->
+				<route url="/game/undergrowth-six-right.html" module="Game" action="underSixR"></route>
+				<route url="/game/impasse-three-right.html" module="Game" action="impasseThreeR"></route>
+				<route url="/game/fight-six-right.html" module="Game" action="fightSixR"></route>
+				<!--Fin du chemin gauche-->
+
+				<!--Chemin de droite-->
+				<route url="/game/village-five-right.html" module="Game" action="villageFiveR"></route>
+				<!--Fin du chemin de droite-->
+
+
+			<!--Fin chemin de gauche-->
+
+			<!--Chemin de droite-->
+			<route url="/game/fight-two-right.html" module="Game" action="fightTwoR"></route>
+			<route url="/game/chest-eight-right.html" module="Game" action="chestEightR"></route>
+			<route url="/game/village-four-right.html" module="Game" action="villageFourR"></route>
+
+				<!--Chemin de gauche-->
+				<route url="/game/fight-four-right.html" module="Game" action="fightFourR"></route>
+				<route url="/game/fight-seven-right.html" module="Game" action="fightSevenR"></route>
+				<route url="/game/undergrowth-five-right.html" module="Game" action="underFiveR"></route>
+				<!--Fin du chemin de gauche-->
+
+				<!--Chemin de droite-->
+				<route url="/game/fight-five-right.html" module="Game" action="fightFiveR"></route>
+				<route url="/game/impasse-four-right.html" module="Game" action="impasseFourR"></route>
+				<!--Fin du chemin de droite-->
+
+			<!--Fin du chemin de droite-->
+
+
 </routes>

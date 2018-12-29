@@ -1,14 +1,15 @@
 <div class="container container-game">
 	
 	<div class="title-start">
-		<h1><?= nl2br($textUndergrowth['title']) ?></h1>
+		<h1><?= $textVillage['title']?></h1>
 	</div>
 
 	<div class="text-start">
-		<p><?= nl2br($textUndergrowth['content']) ?></p>
+		<p><?= nl2br($textVillage['content']) ?></p>
 	</div>
 
 	<div id="apple1" class="apple">
+			
 		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
 
 		<div id="action1" class="action">
@@ -26,8 +27,17 @@
 		</div>
 	</div>
 
-	<div class="choise-road">
-		<a class="choise-top" href="/game/impasse-dead.html">Aller tout droit</a>
+	<div id="apple3" class="apple">
+		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
+
+		<div id="action3" class="action">
+			<button>Manger</button>
+			<button>Stocker</button>
+		</div>
 	</div>
-	
+
+	<div class="choise-road">
+		<a class="choise-top" href="/game/fight-three-right.html">Aller tout droit</a>	
+	</div>
+
 </div>

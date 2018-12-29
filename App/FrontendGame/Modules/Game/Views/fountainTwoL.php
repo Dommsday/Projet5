@@ -8,6 +8,8 @@
 		<p><?= nl2br($textFountain['content']) ?></p>
 	</div>
 
+	<a  href="/game/fight-two-right.html">?</a>
+
 	<div class="choise-road">
 		<a class="choise-top" href="/game/chest-four-left.html">Aller tout droit</a>
 	</div>

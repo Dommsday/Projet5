@@ -8,13 +8,12 @@
 		<p><?= nl2br($textFight['content']) ?></p>
 	</div>
 
-	
-	<div id ="wolf1" class="wolf">
-		<i class="fab fa-wolf-pack-battalion"><?= $wolf['name']?></i>
+	<div id ="crow1" class="crow">
+		<i class="fas fa-crow"><?= $crow['name']?></i>
 	</div>
 
 	<div class="choise-road">
-		<a class="choise-top" href="/game/fountain-two-left.html">Aller tout droit</a>
+		<a class="choise-top" href="/game/chest-nine-right.html">Aller tout droit</a>
 	</div>
 
 </div>

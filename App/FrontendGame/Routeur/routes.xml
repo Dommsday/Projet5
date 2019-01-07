@@ -2,7 +2,7 @@
 <routes>
 
 	<route url="/game/connexion.html" module="Game" action ="connexion" ></route>
-	<route url="/game/test.html" module="Game" action ="test" ></route>
+	<route url="/game/inventory.html" module="Game" action ="inventory" ></route>
 
 	<route url="/game/" module="Game" action ="index"></route>
 

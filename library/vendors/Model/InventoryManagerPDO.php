@@ -4,7 +4,6 @@ namespace Model;
 
 use \Entity\Inventory;
 
-
 class InventoryManagerPDO extends InventoryManager{
 
 	public function getText($id){
@@ -16,7 +15,7 @@ class InventoryManagerPDO extends InventoryManager{
 
 		$request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Inventory');
     
-    	$textInventory = $requete->fetch();
+    	$textInventory = $request->fetch();
   
      	return $textInventory;
 	}
@@ -63,5 +62,74 @@ class InventoryManagerPDO extends InventoryManager{
 		$request->bindValue(':id', (int) $id, \PDO::PARAM_INT);
 
 		$request->execute();
+	}
+
+	public function getApple(){
+
+		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE name = \'Pomme\'');
+
+    	$apple = $request->fetch();
+  
+     	return $apple;
+	}
+
+	public function getKnife(){
+
+		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE name = \'Couteau\'');
+
+    	$knife = $request->fetch();
+  
+     	return $knife;
+	}
+
+	public function getSword(){
+
+		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE name = \'Epée\'');
+
+    	$sword = $request->fetch();
+  
+     	return $sword;
+	}
+
+	public function getAcorn(){
+
+		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE name = \'Gland\'');
+
+    	$acorn = $request->fetch();
+  
+     	return $acorn ;
+	}
+
+	public function getStick(){
+
+		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE name = \'Bâton\'');
+
+    	$stick = $request->fetch();
+  
+     	return $stick ;
+	}
+
+	public function getMap(){
+
+		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE type = \'Map\'');
+
+		$map = $request->fetch();
+
+		return $map;
+	}
+
+	public function inventoryPlayer($id_player){
+
+		$request = $this->dao->prepare('INSERT INTO inventory_player SET name = :name, description = :description, damages = :damages, life = :life, type = :type WHERE id_player = :id_player');
+
+		$request->bindValue(':name', $inventory->name());
+		$request->bindValue(':description', $inventory->description());
+		$request->bindValue(':type', $inventory->type());
+		$request->bindValue(':damages', (int) $inventory->damages(), \PDO::PARAM_INT);
+		$request->bindValue(':life', (int) $inventory->life(), \PDO::PARAM_INT);
+		$request->bindValue(':id_player', $inventory->id_player(), \PDO::PARAM_INT);
+
+		$request->execute();
+
 	}
 }

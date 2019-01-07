@@ -19,6 +19,7 @@ class Inventory extends Entity{
 	const INVALD_LIFE = 4;
 	const INVALD_TYPE = 5;
 
+	
 	public function Valid(){
 		return !(empty($this->name) || empty($this->description));
 	}
@@ -62,7 +63,7 @@ class Inventory extends Entity{
 	}
 
 	public function setLife($life){
-		
+	
 		if($life > 0 && $life <= 150){
 
 			$this->life = $life;

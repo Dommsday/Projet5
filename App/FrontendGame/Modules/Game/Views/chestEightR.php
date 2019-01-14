@@ -18,7 +18,7 @@
 		</div>
 	</div>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-top" href="/game/village-four-right.html">Aller tout droit</a>
 	</div>
 

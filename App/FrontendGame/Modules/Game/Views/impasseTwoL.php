@@ -17,7 +17,7 @@
 		</div>
 	</div>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-top" href="/game/village-two-left.html">Retour en arrière</a>
 	</div>
 </div>

@@ -8,7 +8,7 @@ class PlayersManagerPDO extends PlayersManager{
 
 	protected function newPlayers(Players $player){
 
-		$request = $this->dao->prepare('INSERT INTO players SET pseudo = :pseudo, email = :email, password = :password, passwordConfirm = :passwordConfirm, date = NOW()');
+		$request = $this->dao->prepare('INSERT INTO players SET  pseudo = :pseudo, email = :email, password = :password, passwordConfirm = :passwordConfirm, date = NOW()');
 
 		$request->bindValue(':pseudo', $player->pseudo());
 		$request->bindValue(':email', $player->email());
@@ -33,4 +33,22 @@ class PlayersManagerPDO extends PlayersManager{
 
 		return $connexion;
 	}
+
+	public function getAllMembers(){
+
+		$request = $this->dao->query('SELECT id, pseudo, email, administrator, DATE_FORMAT(date, "%d/%m/%Y") AS date FROM players');
+
+		$members = $request->fetchAll();
+
+		return $members;
+	}
+
+	public function delete($id){
+
+		$request = $this->dao->prepare('DELETE FROM players WHERE id = :id');
+		$request->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+
+		$request->execute();
+	}
+
 }

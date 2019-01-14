@@ -8,7 +8,7 @@
 		<p><?= nl2br($textChest['content']) ?></p>
 	</div>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-left" href="/game/village-two-left.html">Aller à gauche</a>
 		<a class="choise-right" href="/game/impasse-one-left.html">Aller à droite</a>
 	</div>

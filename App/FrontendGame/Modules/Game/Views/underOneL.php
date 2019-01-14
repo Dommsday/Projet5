@@ -7,8 +7,21 @@
 	<div class="text-start">
 		<p><?= nl2br($textUndergrowth['content']) ?></p>
 	</div>
+	
+	<div id="apple1" class="apple">
+			
+		<img class="stick" src="/Web/images/stick.png" />
+		<?= $stick['name']?>
 
-	<div class="choise-road">
+		<div id="action1" class="action">
+			<form action="" method="post">
+				<?= $formStick ?>
+				<input id="btnApple1" type="submit" value="Prendre" />
+			</form>
+		</div>
+	</div>
+
+	<div id="choise-road">
 		<a class="choise-top" href="/game/fight-two-left.html">Aller tout droit</a>
 	</div>
 	

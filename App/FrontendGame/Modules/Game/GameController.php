@@ -9,8 +9,10 @@ use \Entity\InventoryPlayer;
 use \Entity\Characters;
 use \framework\User;
 use \framework\PlayerFormConnexionHandler;
-use \FormBuilder\PlayerFormConnexionBuilder;
+use \framework\FormFightHandler;
 use \framework\FormObjectHandler;
+use \FormBuilder\PlayerFormConnexionBuilder;
+use \FormBuilder\FightFormBuilder;
 use \FormBuilder\ObjectFormBuilder;
 use \framework\BackController;
 
@@ -142,7 +144,7 @@ class GameController extends BackController{
 
 		$formAcorn= $ObjectFormBuilder->formObject();
 
-		$formPlayerHandler = new FormObjectHandler($formAcorn $this->managers->getManagerOf('InventoryPlayer'), $request);
+		$formPlayerHandler = new FormObjectHandler($formAcorn, $this->managers->getManagerOf('InventoryPlayer'), $request);
 
 		if($formPlayerHandler->process()){
 			$this->app->user()->setMessage('L\'objet à été mis dans votre inventaire');
@@ -175,7 +177,7 @@ class GameController extends BackController{
 
 		$formStick= $ObjectFormBuilder->formObject();
 
-		$formPlayerHandler = new FormObjectHandler($formStick $this->managers->getManagerOf('InventoryPlayer'), $request);
+		$formPlayerHandler = new FormObjectHandler($formStick, $this->managers->getManagerOf('InventoryPlayer'), $request);
 
 		if($formPlayerHandler->process()){
 			$this->app->user()->setMessage('L\'objet à été mis dans votre inventaire');
@@ -208,7 +210,7 @@ class GameController extends BackController{
 
 		$formMap= $ObjectFormBuilder->formObject();
 
-		$formPlayerHandler = new FormObjectHandler($formMap $this->managers->getManagerOf('InventoryPlayer'), $request);
+		$formPlayerHandler = new FormObjectHandler($formMap, $this->managers->getManagerOf('InventoryPlayer'), $request);
 
 		if($formPlayerHandler->process()){
 			$this->app->user()->setMessage('L\'objet à été mis dans votre inventaire');
@@ -217,13 +219,39 @@ class GameController extends BackController{
 		$this->page->addVarPage('formMap', $formMap->createView());
 	}
 
+	public function formFight(HTTPRequest $request){
+
+		$bat = $this->managers->getManagerOf('Characters')->getBat();
+
+		if($request->method() == 'POST'){
+
+			echo 'La vie de la chauve-souris est de '.$bat['life'];
+		}else{
+			$bat = new Characters;
+		}
+
+		$formFight = new FightFormBuilder($bat);
+		$formFight->build();
+
+		$formFightGame = $formFight->formFight();
+
+		$formFightHandler = new FormFightHandler($formFightGame, $this->managers->getManagerOf('Characters'), $request);
+
+		if($formFightHandler->process()){
+			$this->app->user()->setMessage('Attaque');
+		}
+
+		$this->page->addVarPage('formFightGame', $formFightGame->createView());
+	}
+
 	public function executeInventory(){
 
 		$warriorPlayer = $this->managers->getManagerOf('Characters')->getWarriorPlayer();
-		$objects = $this->managers->getManagerOf('Inventory')->getAllElements();
+		$objects = $this->managers->getManagerOf('InventoryPlayer')->getInventory($this->app->user()->getAttribute('id'));
 
 		$this->page->addVarPage('warriorPlayer', $warriorPlayer);
 		$this->page->addVarPage('objects', $objects);
+
 	}
 
 	public function executeConnexion(HTTPRequest $request){
@@ -268,40 +296,49 @@ class GameController extends BackController{
 
 	}
 
+
 	public function executeIndex(HTTPRequest $request){
 
-		$this->executeInventory();
+		
 		$this->takeApple($request);
+
+		$this->executeInventory($this->app->user()->getAttribute('id'));
 
 		$forest = $this->managers->getManagerOf('Forest')->startStory();
 		$apple = $this->managers->getManagerOf('Inventory')->getApple();
-	
 
 		$this->page->addVarPage('textStart', $forest);
 		$this->page->addVarPage('apple', $apple);
-
 	}
 
 	//Partie de Gauche
 
 	public function executeFightOneL(HTTPRequest $request){
 
+		$this->takeStick($request);
 		$this->executeInventory();
+	
 
 		$textFight = $this->managers->getManagerOf('Forest')->fight();
 		$bat = $this->managers->getManagerOf('Characters')->getBat();
+		$stick = $this->managers->getManagerOf('Inventory')->getStick();
 		
 		$this->page->addVarPage('textFight', $textFight);
 		$this->page->addVarPage('bat', $bat);
+		$this->page->addVarPage('stick', $stick);
+
 	}
 
 	public function executeChestOneL(HTTPRequest $request){
 
+		$this->takeSword($request);
 		$this->executeInventory();
 
 		$textChest = $this->managers->getManagerOf('Forest')->chest();
+		$sword = $this->managers->getManagerOf('Inventory')->getSword();
 		
 		$this->page->addVarPage('textChest', $textChest);
+		$this->page->addVarPage('sword', $sword);
 	}
 
 	public function executeChestThreeL(HTTPRequest $request){
@@ -324,6 +361,7 @@ class GameController extends BackController{
 
 	public function executeChestFiveL(HTTPRequest $request){
 
+		$this->takeApple($request);
 		$this->executeInventory();
 
 		$textChest = $this->managers->getManagerOf('Forest')->chest();
@@ -335,13 +373,14 @@ class GameController extends BackController{
 
 	public function executeVillageOneL(HTTPRequest $request){
 
+		$this->takeAcorn($request);
 		$this->executeInventory();
 
 		$textVillage = $this->managers->getManagerOf('Forest')->village();
-		$apple = $this->managers->getManagerOf('Inventory')->getApple();
+		$acorn = $this->managers->getManagerOf('Inventory')->getAcorn();
 		
 		$this->page->addVarPage('textVillage', $textVillage);
-		$this->page->addVarPage('apple', $apple);
+		$this->page->addVarPage('acorn', $acorn);
 	}
 
 	public function executeVillageTwoL(HTTPRequest $request){
@@ -358,23 +397,27 @@ class GameController extends BackController{
 
 	public function executeUnderOneL(HTTPRequest $request){
 
+		$this->takeStick($request);
 		$this->executeInventory();
 
 		$textUndergrowth = $this->managers->getManagerOf('Forest')->undergrowth();
-		
+		$stick = $this->managers->getManagerOf('Inventory')->getStick();
+
 		$this->page->addVarPage('textUndergrowth', $textUndergrowth);
+		$this->page->addVarPage('stick', $stick);
 
 	}
 
 	public function executeUnderTwoL(HTTPRequest $request){
 
+		$this->takeAcorn($request);
 		$this->executeInventory();
 
 		$textUndergrowth = $this->managers->getManagerOf('Forest')->undergrowth();
-		$apple = $this->managers->getManagerOf('Inventory')->getApple();
+		$acorn = $this->managers->getManagerOf('Inventory')->getAcorn();
 		
 		$this->page->addVarPage('textUndergrowth', $textUndergrowth);
-		$this->page->addVarPage('apple', $apple);
+		$this->page->addVarPage('acorn', $acorn);
 	}
 
 	public function executeUnderThreeL(HTTPRequest $request){
@@ -401,20 +444,23 @@ class GameController extends BackController{
 
 	public function executeFightThreeL(HTTPRequest $request){
 
+		$this->takeAcorn($request);
 		$this->executeInventory();
 
 		$textFight = $this->managers->getManagerOf('Forest')->fight();
 		$wolf = $this->managers->getManagerOf('Characters')->getWolf();
-		$apple = $this->managers->getManagerOf('Inventory')->getApple();
+		$acorn = $this->managers->getManagerOf('Inventory')->getAcorn();
 		
 		$this->page->addVarPage('textFight', $textFight);
 		$this->page->addVarPage('wolf', $wolf);
-		$this->page->addVarPage('apple', $apple);
+		$this->page->addVarPage('acorn', $acorn);
 	}
 
 	public function executeFightFourL(HTTPRequest $request){
 
+		$this->takeApple($request);
 		$this->executeInventory();
+
 
 		$forest = $this->managers->getManagerOf('Forest')->fight();
 		$wolf = $this->managers->getManagerOf('Characters')->getWolf();
@@ -458,11 +504,14 @@ class GameController extends BackController{
 
 	public function executePortal(HTTPRequest $request){
 
+		$this->takeApple($request);
 		$this->executeInventory();
 
 		$textPortal = $this->managers->getManagerOf('Forest')->portal();
+		$apple = $this->managers->getManagerOf('Inventory')->getApple();
 		
 		$this->page->addVarPage('textPortal', $textPortal);
+		$this->page->addVarPage('apple', $apple);
 	}
 
 	public function executeImpasseOneL(HTTPRequest $request){

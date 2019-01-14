@@ -12,7 +12,7 @@
 		<i class="fas fa-dragon"><?= $bat['name']?></i>
 	</div>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-top" href="/game/portal.html">Aller tout droit</a>
 	</div>
 

@@ -29,7 +29,7 @@
 
 	<a href="/game/fight-seven-right.html">?</a>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-top" href="/game/fight-six-right.html">Aller tout droit</a>
 	</div>
 

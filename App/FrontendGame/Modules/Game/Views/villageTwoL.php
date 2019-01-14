@@ -10,7 +10,7 @@
 
 	<a class="secret" href="/game/fight-three-left.html">?</a>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-left" href="/game/undergrowth-three-left.html">Aller à gauche</a>
 		<a class="choise-right" href="/game/impasse-two-left.html">Aller à droite</a>	
 	</div>

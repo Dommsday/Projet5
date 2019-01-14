@@ -26,7 +26,7 @@
 		</div>
 	</div>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-top" href="/game/fight-five-right.html">Retour en arrière</a>
 	</div>
 </div>

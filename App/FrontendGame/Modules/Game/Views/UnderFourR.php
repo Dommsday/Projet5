@@ -8,7 +8,7 @@
 		<p><?= nl2br($textUndergrowth['content']) ?></p>
 	</div>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-top" href="/game/village-three-right.html">Aller tout droit</a>
 	</div>
 

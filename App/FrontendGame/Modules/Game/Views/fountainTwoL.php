@@ -10,7 +10,7 @@
 
 	<a  href="/game/fight-two-right.html">?</a>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-top" href="/game/chest-four-left.html">Aller tout droit</a>
 	</div>
 

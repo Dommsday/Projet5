@@ -12,6 +12,7 @@ class PlayerFormConnexionBuilder extends PlayerConnexionBuilder{
   {
     $this->playerFormConnexion->add(new StringField([
         'label' => 'Pseudo',
+        'type' => 'text',
         'name' => 'pseudo',
         'id' => 'pseudo',
         'maxLength' => "20",

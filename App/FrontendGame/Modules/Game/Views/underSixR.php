@@ -18,7 +18,9 @@
 		</div>
 	</div>
 
-	<div class="choise-road">
+	<a href="/game/fight-seven-right.html">?</a>
+
+	<div id="choise-road">
 		<a class="choise-left" href="/game/impasse-three-right.html">Aller à gauche</a>
 		<a class="choise-right" href="/game/fight-six-right.html">Aller à droite</a>
 	</div>

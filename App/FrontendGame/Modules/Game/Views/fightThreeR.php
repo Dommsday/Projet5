@@ -26,7 +26,7 @@
 		</div>
 	</div>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-left" href="/game/undergrowth-six-right.html">Aller à gauche</a>
 		<a class="choise-right" href="/game/village-five-right.html">Aller à droite</a>
 	</div>

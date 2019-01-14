@@ -12,7 +12,7 @@
 		<i class="fab fa-wolf-pack-battalion"><?= $wolf['name']?></i>
 	</div>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-top" href="/game/impasse-four-right.html">Aller tout droit</a>
 	</div>
 

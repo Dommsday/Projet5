@@ -12,7 +12,7 @@
 		<i class="fas fa-crow"><?= $crow['name']?></i>
 	</div>
 
-	<div class="choise-road">
+	<div id="choise-road">
 		<a class="choise-top" href="/game/impasse-dead.html">Aller tout droit</a>
 	</div>
 

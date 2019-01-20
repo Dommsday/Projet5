@@ -19,7 +19,7 @@
 			<?= $apple['name']?>
 
 			<div id="action1" class="action">
-				<form action="" method="post">
+				<form action="" method="post" id="test">
 					<?= $formApple ?>
 					<input type="submit" value="Prendre" id="btnApple1"/>
 				</form>

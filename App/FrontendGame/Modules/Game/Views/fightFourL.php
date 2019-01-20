@@ -10,33 +10,47 @@
 
 	<div id ="wolf1" class="wolf">
 		<img src="/Web/images/wolf.gif" class="wolf_gif"/>
-		<?= $wolf['name']?>
+
+		<table class="ennemi-character">
+			<tr class="name-character">
+				<th>Nom</th>
+				<th>Force</th>
+				<th>Vie</th>
+			</tr>
+
+			<tr class="stats-character">
+				<td><?= $wolf['name']?></td>
+				<td id="damages-wolf"><?= $wolf['damages']?></td>
+				<td id="life-wolf"><?= $wolf['life']?></td>
+			</tr>
+
+		</table>
+
+		<button id="button-attak-wolf">Attaquer</button>
 	</div>
 
-	<div id="apple1" class="apple">
+	<div id="chest1" class="chest chestOne chestFight">
 			
-		<img class="apple" src="/Web/images/apple.png" />
+		<img class="chest-img" src="/Web/images/chest.png" />
+
+		<div id="action_chest1" class="action_chest">
+			<button class="open_chest">Ouvrir</button>
+		</div>
+	</div>
+
+	<div id="apple1" class="apple-fight apple-fight-four">
+				
+		<img class="apple-img" src="/Web/images/apple.png" />
 		<?= $apple['name']?>
 
 		<div id="action1" class="action">
 			<form action="" method="post">
 				<?= $formApple ?>
-				<input id="btnApple1" type="submit" value="Prendre" />
+				<input type="submit" value="Prendre" id="btnApple1"/>
 			</form>
 		</div>
 	</div>
 
-	<div id="apple1" class="apple">
-			
-		<img class="chest" src="/Web/images/chest.png" />
-
-		<div id="action1" class="action">
-			<form action="" method="post">
-				<?= $formAcorn ?>
-				<input id="btnApple1" type="submit" value="Ouvrir" />
-			</form>
-		</div>
-	</div>
 
 	<div id="choise-road">
 		<a class="choise-top" href="/game/portal.html">Aller tout droit</a>

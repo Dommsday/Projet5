@@ -8,58 +8,80 @@
 		<p><?= nl2br($textPortal['content']) ?></p>
 	</div>
 
-	<div id="apple1" class="apple">
+	<div id="gate1" class="gate gate-end">
 			
-		<img class="gate" src="/Web/images/gate.png" />
+		<img class="gate-img" src="/Web/images/gate.png" />
 
-		<div id="action1" class="action">
-			<form action="" method="post">
-				<?= $formAcorn ?>
-				<input id="btnApple1" type="submit" value="Ouvrir" />
+		<div id="action_portal1" class="action_gate">
+			<form id="form_gate" name="form_gate" action="" method="post">
+				<input type="number" id="number_1" value="0" min="0" max="9" />
+				<input type="number" id="number_2" value="0" min="0" max="9" />
+				<input type="number" id="number_3" value="0" min="0" max="9" />
+				<input type="number" id="number_4" value="0" min="0" max="9" />
+				<input type="number" id="number_5" value="0" min="0" max="9" />
+				<input type="number" id="number_6" value="0" min="0" max="9" />
+
+				<input type="submit" id ="valid_code" value="Valider" />
 			</form>
 		</div>
 	</div>
 
-	<div id="apple1" class="apple">
-			
-		<img class="apple" src="/Web/images/apple.png" />
-		<?= $apple['name']?>
+	<div id="all-apple-gate">
 
-		<div id="action1" class="action">
-			<form action="" method="post">
-				<?= $formApple ?>
-				<input id="btnApple1" type="submit" value="Prendre" />
-			</form>
+		<div id="apple1" class="apple">
+				
+			<img class="apple-img" src="/Web/images/apple.png" />
+			<?= $apple['name']?>
+
+			<div id="action1" class="action">
+				<form action="" method="post">
+					<?= $formApple ?>
+					<input type="submit" value="Prendre" id="btnApple1"/>
+				</form>
+			</div>
+		</div>
+
+		<div id="apple2" class="apple apple2-index">
+
+			<img class="apple-img" src="/Web/images/apple.png" />
+			<?= $apple['name']?>
+
+			<div id="action2" class="action">
+				<form action="" method="post">
+					<?= $formApple ?>
+					<input type="submit" value="Prendre" id="btnApple2"/>
+				</form>
+			</div>
+		</div>
+
+		<div id="apple3" class="apple apple3-index">
+
+			<img class="apple-img" src="/Web/images/apple.png" />
+			<?= $apple['name']?>
+
+			<div id="action3" class="action">
+				<form action="" method="post">
+					<?= $formApple ?>
+					<input type="submit" value="Prendre" id="btnApple3"/>
+				</form>
+			</div>
+		</div>
+
+		<div id="apple4" class="apple apple4-index">
+			
+			<img class="apple-img" src="/Web/images/apple.png" />
+			<?= $apple['name']?>
+
+			<div id="action4" class="action">
+				<form action="" method="post">
+					<?= $formApple ?>
+					<input type="submit" value="Prendre" id="btnApple4"/>
+				</form>
+			</div>
 		</div>
 	</div>
 
-	<div id="apple2" class="apple">
-			
-		<img class="apple" src="/Web/images/apple.png" />
-		<?= $apple['name']?>
-
-		<div id="action2" class="action">
-			<form action="" method="post">
-				<?= $formApple ?>
-				<input id="btnApple1" type="submit" value="Prendre" />
-			</form>
-		</div>
-	</div>
-
-	<div id="apple3" class="apple">
-			
-		<img class="apple" src="/Web/images/apple.png" />
-		<?= $apple['name']?>
-
-		<div id="action3" class="action">
-			<form action="" method="post">
-				<?= $formApple ?>
-				<input id="btnApple1" type="submit" value="Prendre" />
-			</form>
-		</div>
-	</div>
-
-	<div class="id">
+	<div id="choise-road-end">
 		<a class="choise-left" href="/game/boss-game.html">Aller tout droit</a>
 	</div>
 

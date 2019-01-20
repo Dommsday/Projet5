@@ -8,15 +8,12 @@
 		<p><?= nl2br($textFountain['content']) ?></p>
 	</div>
 
-	<div id="apple1" class="apple">
+	<div id="fountain1" class="foutain">
 			
-		<img class="foutain" src="/Web/images/fountain.png" />
+		<img class="fountain-img" src="/Web/images/fountain.png" />
 
-		<div id="action1" class="action">
-			<form action="" method="post">
-				<?= $formAcorn ?>
-				<input id="btnApple1" type="submit" value="Ouvrir" />
-			</form>
+		<div id="action-fountain1" class="action-fountain">
+			<button id="active-fountain">Boire</button>
 		</div>
 	</div>
 

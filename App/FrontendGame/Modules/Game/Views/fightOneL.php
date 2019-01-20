@@ -20,13 +20,13 @@
 
 			<tr class="stats-character">
 				<td><?= $bat['name']?></td>
-				<td id="damages-enemy"><?= $bat['damages']?></td>
-				<td id="life-enemy"><?= $bat['life']?></td>
+				<td id="damages-bat"><?= $bat['damages']?></td>
+				<td id="life-bat"><?= $bat['life']?></td>
 			</tr>
 
 		</table>
 
-		<button id="button-attak">Attaquer</button>
+		<button id="button-attak-bat">Attaquer</button>
 	</div>
 
 	<div id="stick1" class="stick stick-fight">
@@ -37,7 +37,7 @@
 		<div id="action-stick1" class="action-stick">
 			<form action="" method="post">
 				<?= $formStick ?>
-				<input id="btnApple1" type="submit" value="Prendre" />
+				<input id="btnStick1" type="submit" value="Prendre" />
 			</form>
 		</div>
 	</div>

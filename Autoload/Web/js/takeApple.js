@@ -1,6 +1,6 @@
 var TakeApple = {
 	
-	
+	btnApple1: document.getElementById("btnApple1"),
 	action_element : document.querySelectorAll(".action"),
 
 	allApple: document.getElementsByClassName("apple"),
@@ -14,14 +14,16 @@ var TakeApple = {
 	action2 : document.getElementById("action2"),
 	action3 : document.getElementById("action3"),
 	action4 : document.getElementById("action4"),
+
+	test: document.getElementById("test"),
 	
 
 	init: function(){
 	
 		this.AllhiddenAction();
+		//this.hideAppple();
 		
 	},
-
 
 	hidden_action: function(){
 

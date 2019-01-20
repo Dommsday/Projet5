@@ -10,18 +10,31 @@
 	
 	<div id ="crow1" class="crow">
 		<img src="/Web/images/crow.gif" class="crow_gif"/>
-		<?= $crow['name']?>
+
+		<table class="ennemi-character">
+			<tr class="name-character">
+				<th>Nom</th>
+				<th>Force</th>
+				<th>Vie</th>
+			</tr>
+
+			<tr class="stats-character">
+				<td><?= $crow['name']?></td>
+				<td id="damages-crow"><?= $crow['damages']?></td>
+				<td id="life-crow"><?= $crow['life']?></td>
+			</tr>
+
+		</table>
+
+		<button id="button-attak-crow">Attaquer</button>
 	</div>
 
-	<div id="apple1" class="apple">
+	<div id="chest1-fightTwo" class="chest chestTwoL">
 			
-		<img class="chest" src="/Web/images/chest.png" />
+		<img class="chest-img" src="/Web/images/chest.png" />
 
-		<div id="action1" class="action">
-			<form action="" method="post">
-				<?= $formAcorn ?>
-				<input id="btnApple1" type="submit" value="Ouvrir" />
-			</form>
+		<div id="action_chest1" class="action_chest">
+			<button class="open_chest">Ouvrir</button>
 		</div>
 	</div>
 	

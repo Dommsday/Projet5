@@ -8,15 +8,15 @@
 		<p><?= nl2br($textUndergrowth['content']) ?></p>
 	</div>
 	
-	<div id="apple1" class="apple">
+	<div id="stick2" class="stick stick-under">
 			
-		<img class="stick" src="/Web/images/stick.png" />
+		<img class="stick-img" src="/Web/images/stick.png" />
 		<?= $stick['name']?>
 
-		<div id="action1" class="action">
+		<div id="action-stick2" class="action-stick">
 			<form action="" method="post">
 				<?= $formStick ?>
-				<input id="btnApple1" type="submit" value="Prendre" />
+				<input id="btnStick2" type="submit" value="Prendre" />
 			</form>
 		</div>
 	</div>

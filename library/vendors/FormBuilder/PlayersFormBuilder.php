@@ -16,6 +16,7 @@ class PlayersFormBuilder extends PlayersBuilder{
     $this->playersForm->add(new StringField([
         'label' => 'Pseudo',
         'name' => 'pseudo',
+        'type' => 'text',
         'id' => 'pseudo',
         'placeholder' => "6 caractères minimum",
         'maxLength' => "20",
@@ -30,6 +31,7 @@ class PlayersFormBuilder extends PlayersBuilder{
        $this->playersForm->add(new PasswordField([
         'label' => 'Mot de Passe',
         'name' => 'password',
+        'type' => 'password',
         'id' => 'password',
         'placeholder' => "8 caractères minimum",
         'boots' => 'form-control',
@@ -44,6 +46,7 @@ class PlayersFormBuilder extends PlayersBuilder{
        $this->playersForm->add(new PasswordField([
         'label' => 'Retaper Mot de Passe',
         'name' => 'passwordConfirm',
+        'type' => 'password',
         'id' => 'passwordConfirm',
         'boots' => 'form-control',
         'validators' => [
@@ -55,6 +58,7 @@ class PlayersFormBuilder extends PlayersBuilder{
         'label' => 'E-mail',
         'name' => 'email',
         'id' => 'email',
+        'type' => 'email',
         'placeholder' => "Ex: aaa@bb.cc",
         'idSpan' => 'emailHelp',
         'boots' => 'form-control',

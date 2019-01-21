@@ -12,10 +12,12 @@ use \Entity\Inventory;
 use \framework\User;
 use \framework\PlayerFormConnexionHandler;
 use \framework\FormTinyMCEHandler;
+use \framework\FormActionHandler;
 use \FormBuilder\PlayerFormConnexionBuilder;
 use \FormBuilder\TinyMCEFormBuilder;
 use \FormBuilder\TinyMCEFormBuilderCharacters;
 use \FormBuilder\TinyMCEFormBuilderInventory;
+use \FormBuilder\ActionFormBuilder;
 
 class GameBackendController extends BackController{
 
@@ -233,7 +235,8 @@ class GameBackendController extends BackController{
 				'description' => $request->postData('description'),
 				'damages' => $request->postData('damages'),
 				'life' => $request->postData('life'),
-				'type' => $request->postData('type')
+				'type' => $request->postData('type'),
+				'lifetime' => $request->postData('lifetime')
 			]);
 
 			if($request->getExists('id')){
@@ -340,6 +343,13 @@ class GameBackendController extends BackController{
 		$this->processTinyMCEFormInventory($request);
 	}
 
+	public function executeUpdateAction(HTTPRequest $request){
+
+		$this->page->addVarPage('title', 'Modification d\'action');
+
+		$this->processActionForm($request);
+	}
+
 	public function executeDeleteForest(HTTPRequest $request){
 
 		$this->managers->getManagerOf('Forest')->delete($request->getData('id'));
@@ -384,5 +394,5 @@ class GameBackendController extends BackController{
 
 		$this->app->httpResponse()->redirect('/admin/all-members.html');
 	}
-	
+
 }

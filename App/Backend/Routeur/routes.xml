@@ -8,6 +8,7 @@
 	<route url="/admin/writing-cave.html" module="GameBackend" action="writingCave"></route>
 	<route url="/admin/writing-characters.html" module="GameBackend" action="writingCharacters"></route>
 	<route url="/admin/writing-inventory.html" module="GameBackend" action="writingInventory"></route>
+	
 
 	<route url="/admin/update-forest-element-([0-9]+).html" module="GameBackend" action="updateForest" vars="id"></route>
 	<route url="/admin/delete-forest-element-([0-9]+).html" module="GameBackend" action="deleteForest" vars="id"></route>
@@ -25,5 +26,7 @@
 	<route url="/admin/all-cave.html" module="GameBackend" action="seeAllCave"></route>
 	<route url="/admin/all-characters.html" module="GameBackend" action="seeAllCharacters"></route>
 	<route url="/admin/all-inventory.html" module="GameBackend" action="seeAllInventory"></route>
+	<route url="/admin/all-members.html" module="GameBackend" action="seeAllMembers"></route>
+	
     
 </routes>

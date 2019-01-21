@@ -12,12 +12,14 @@ class Inventory extends Entity{
 	protected $damages;
 	protected $life;
 	protected $type;
+	protected $lifetime;
 
 	const INVALID_NAME = 1;
 	const INVALD_DESCRIPTION = 2;
 	const INVALD_DAMAGES = 3;
 	const INVALD_LIFE = 4;
 	const INVALD_TYPE = 5;
+	const INVALD_LIFETIME = 6;
 
 	
 	public function Valid(){
@@ -64,7 +66,7 @@ class Inventory extends Entity{
 
 	public function setLife($life){
 	
-		if($life > 0 && $life <= 150){
+		if($life >= 0 && $life <= 150){
 
 			$this->life = $life;
 		}
@@ -78,6 +80,14 @@ class Inventory extends Entity{
 		}
 
 		$this->type = $type; 
+	}
+
+	public function setLifetime($lifetime){
+	
+		if($lifetime > 0 && $lifetime <= 20){
+
+			$this->lifetime = $lifetime;
+		}
 	}
 
 
@@ -104,5 +114,9 @@ class Inventory extends Entity{
 
 	public function type(){
 		return $this->type;
+	}
+
+	public function lifetime(){
+		return $this->lifetime;
 	}
 }

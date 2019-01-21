@@ -55,7 +55,7 @@ class TinyMCEFormBuilderInventory extends TinyMCEBuilder
         'id' => 'type',
         'boots' => 'form-control',
         'validators' => [
-          new NotNullValidator('Merci de spécifier la durée d\'utilisation de l\'objet'),
+          new NotNullValidator('Merci de spécifier le type de l\'objet'),
         ],
        ]));
 
@@ -64,6 +64,17 @@ class TinyMCEFormBuilderInventory extends TinyMCEBuilder
         'type' => 'number',
         'name' => 'life',
         'id' => 'life',
+        'boots' => 'form-control',
+        'validators' => [
+          new NotNullValidator('Merci de spécifier la durée de vie de l\'objet'),
+        ],
+       ]));
+
+      $this->tinymce->add(new NumberField([
+        'label' => 'Utilisation',
+        'type' => 'number',
+        'name' => 'lifetime',
+        'id' => 'lifetime',
         'boots' => 'form-control',
         'validators' => [
           new NotNullValidator('Merci de spécifier la durée de vie de l\'objet'),

@@ -25,6 +25,7 @@ class PlayerFormConnexionBuilder extends PlayerConnexionBuilder{
        $this->playerFormConnexion->add(new PasswordField([
         'label' => 'Mot de Passe',
         'name' => 'password',
+        'type' => 'password',
         'id' => 'password',
         'boots' => 'form-control',
         'validators' => [

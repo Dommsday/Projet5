@@ -22,26 +22,28 @@ class InventoryManagerPDO extends InventoryManager{
 
 	protected function add(Inventory $inventory){
 
-		$request = $this->dao->prepare('INSERT INTO inventory SET name = :name, description = :description, type = :type, damages = :damages, life = :life');
+		$request = $this->dao->prepare('INSERT INTO inventory SET name = :name, description = :description, type = :type, damages = :damages, life = :life, lifetime = :lifetime');
 
 		$request->bindValue(':name', $inventory->name());
 		$request->bindValue(':description', $inventory->description());
 		$request->bindValue(':type', $inventory->type());
 		$request->bindValue(':damages', (int) $inventory->damages(), \PDO::PARAM_INT);
 		$request->bindValue(':life', (int) $inventory->life(), \PDO::PARAM_INT);
+		$request->bindValue(':lifetime', (int) $inventory->lifetime(), \PDO::PARAM_INT);
 
 		$request->execute();
 	}
 
     protected function modify(Inventory $inventory){
 
-		$request = $this->dao->prepare('UPDATE inventory SET name = :name, description = :description, type = :type, damages = :damages, life = :life WHERE id = :id');
+		$request = $this->dao->prepare('UPDATE inventory SET name = :name, description = :description, type = :type, damages = :damages, life = :life, lifetime = :lifetime WHERE id = :id');
 
 		$request->bindValue(':name', $inventory->name());
 		$request->bindValue(':description', $inventory->description());
 		$request->bindValue(':type', $inventory->type());
 		$request->bindValue(':damages', (int) $inventory->damages(), \PDO::PARAM_INT);
 		$request->bindValue(':life', (int) $inventory->life(), \PDO::PARAM_INT);
+		$request->bindValue(':lifetime', (int) $inventory->lifetime(), \PDO::PARAM_INT);
 		$request->bindValue(':id', $inventory->id(), \PDO::PARAM_INT);
 
 		$request->execute();
@@ -49,7 +51,7 @@ class InventoryManagerPDO extends InventoryManager{
 
 	public function getAllElements(){
 
-		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory');
+		$request = $this->dao->query('SELECT id, name, description, damages, life, type, lifetime FROM inventory');
 
 		$listElements = $request->fetchAll();
 
@@ -66,7 +68,7 @@ class InventoryManagerPDO extends InventoryManager{
 
 	public function getApple(){
 
-		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE name = \'Pomme\'');
+		$request = $this->dao->query('SELECT id, name, description, damages, life, lifetime, type FROM inventory WHERE name = \'Pomme\'');
 
     	$apple = $request->fetch();
   
@@ -75,7 +77,7 @@ class InventoryManagerPDO extends InventoryManager{
 
 	public function getKnife(){
 
-		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE name = \'Couteau\'');
+		$request = $this->dao->query('SELECT id, name, description, damages, life, lifetime, type FROM inventory WHERE name = \'Couteau\'');
 
     	$knife = $request->fetch();
   
@@ -84,7 +86,7 @@ class InventoryManagerPDO extends InventoryManager{
 
 	public function getSword(){
 
-		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE name = \'Epée\'');
+		$request = $this->dao->query('SELECT id, name, description, damages, life, lifetime, type FROM inventory WHERE name = \'Epée\'');
 
     	$sword = $request->fetch();
   
@@ -93,7 +95,7 @@ class InventoryManagerPDO extends InventoryManager{
 
 	public function getAcorn(){
 
-		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE name = \'Gland\'');
+		$request = $this->dao->query('SELECT id, name, description, damages, life, lifetime, type FROM inventory WHERE name = \'Gland\'');
 
     	$acorn = $request->fetch();
   
@@ -102,7 +104,7 @@ class InventoryManagerPDO extends InventoryManager{
 
 	public function getStick(){
 
-		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE name = \'Bâton\'');
+		$request = $this->dao->query('SELECT id, name, description, damages, life, lifetime, type FROM inventory WHERE name = \'Bâton\'');
 
     	$stick = $request->fetch();
   
@@ -111,7 +113,7 @@ class InventoryManagerPDO extends InventoryManager{
 
 	public function getMap(){
 
-		$request = $this->dao->query('SELECT id, name, description, damages, life, type FROM inventory WHERE type = \'Map\'');
+		$request = $this->dao->query('SELECT id, name, description, damages, life, lifetime, type FROM inventory WHERE type = \'Map\'');
 
 		$map = $request->fetch();
 
@@ -120,13 +122,14 @@ class InventoryManagerPDO extends InventoryManager{
 
 	public function inventoryPlayer($id_player){
 
-		$request = $this->dao->prepare('INSERT INTO inventory_player SET name = :name, description = :description, damages = :damages, life = :life, type = :type WHERE id_player = :id_player');
+		$request = $this->dao->prepare('INSERT INTO inventory_player SET name = :name, description = :description, damages = :damages, life = :life, type = :type, lifetime = :lifetime WHERE id_player = :id_player');
 
 		$request->bindValue(':name', $inventory->name());
 		$request->bindValue(':description', $inventory->description());
 		$request->bindValue(':type', $inventory->type());
 		$request->bindValue(':damages', (int) $inventory->damages(), \PDO::PARAM_INT);
 		$request->bindValue(':life', (int) $inventory->life(), \PDO::PARAM_INT);
+		$request->bindValue(':lifetime', (int) $inventory->lifetime(), \PDO::PARAM_INT);
 		$request->bindValue(':id_player', $inventory->id_player(), \PDO::PARAM_INT);
 
 		$request->execute();

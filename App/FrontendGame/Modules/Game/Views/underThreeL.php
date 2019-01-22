@@ -8,21 +8,16 @@
 		<p><?= nl2br($textUndergrowth['content']) ?></p>
 	</div>
 
-	<div id="apple1" class="apple">
-		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
+	<div id="acorn1" class="acorn acorn-village-one">
+			
+		<img class="acorn-img" src="/Web/images/acorn.png" />
+		<?= $acorn['name']?>
 
-		<div id="action1" class="action">
-			<button>Manger</button>
-			<button>Stocker</button>
-		</div>
-	</div>
-
-	<div id="apple2" class="apple">
-		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
-
-		<div id="action2" class="action">
-			<button>Manger</button>
-			<button>Stocker</button>
+		<div id="action-acorn1" class="action-acorn">
+			<form action="" method="post">
+				<?= $formAcorn ?>
+				<input id="btnAcorn1" type="submit" value="Prendre" />
+			</form>
 		</div>
 	</div>
 

@@ -4,7 +4,7 @@
 		<h1><?= nl2br($textImpasse['title']) ?></h1>
 	</div>
 
-	<div class="text-start">
+	<div class="text-start impasseOne">
 		<p><?= nl2br($textImpasse['content']) ?></p>
 	</div>
 

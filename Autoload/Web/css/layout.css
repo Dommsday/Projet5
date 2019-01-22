@@ -9,6 +9,204 @@ a:hover{
 	text-decoration: inherit;
 }
 
+#btnModal{
+	height: 5%;
+}
+
+.text_game, .text_frontend, .dashbord{
+	position: relative;
+	height: auto;
+}
+
+/*PAGE SIGNALEMENT
+**********************/
+.confirmation, .message{
+	border: solid black 2px;
+	background: #FBEDE0;
+	border-radius: 20px;
+	color: #000000;
+	margin-left: 10%;
+	text-align: center;
+}
+
+.confirmation{
+	padding: 20px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.confirmation-inscription, .confirmation-deconnexion{
+
+	margin-left: 25%;
+}
+
+.confirmation-connexion{
+	margin-left: 30%;
+}
+
+.link-confirmation{
+	font-size: 1em;
+	margin-left: 6%;
+}
+
+.fa-check-circle{
+	color: green;
+	margin-right: 20px;
+}
+
+#test{
+
+	display: flex;
+	flex-direction: column;
+}
+
+/*PARTIE MODAL
+********************/
+
+#testModal{
+	border: 4px solid blue;
+	width: 900px;
+	margin-left: 14%;
+}
+
+.modal-dialog1{
+	border: 2px solid green;
+	width: 500px;
+	height: 500px;
+}
+
+.modal-dialog2{
+	border: 2px solid black;
+	width: 200px;
+	height: 500px;
+}
+
+.modal-dialog3{
+	border: 2px solid orange;
+	width: 250px;
+	height: 500px;
+}
+
+.modal-body3{
+	display: flex;
+}
+
+
+#all-modal-dialog{
+	display: flex;
+}
+
+.modal-header{
+	background: #404040;
+	color: #FFFFFF;
+}
+
+.modal-header1{
+	display: flex;
+}
+
+button span{
+	padding: 0px 10px 0px 10px;
+	transition: 0.5s;
+}
+
+button span:hover{
+	background: #B0081A;
+	border-radius: 5px;
+}
+
+.modal-body{
+	height: 350px;
+}
+
+.modal-body-one{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#modal-img{
+	width: 40%;
+	height: 100%;
+	border: 2px solid black;
+}
+
+#modal-description-player{
+	border: 1px solid #737373;
+	border-radius: 10px;
+	background-color: #737373;
+	width: 55%;
+	height: 40%;
+	margin-left: 4%;
+	padding: 10px;
+}
+
+#modal-description-player p{
+	margin: 0px;
+	font-weight: bold;
+}
+
+.warrior_png_img{
+	width: 100%;
+	height: 100%;
+}
+
+#btnObject{
+	width: 35%;
+	height: 10%;
+	position: absolute;
+	bottom: 1%;
+}
+
+#all-modal-objects{
+	position: relative;
+	display: flex;
+	justify-content: space-around;
+	border: 2px solid black;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+
+.modal-object{
+	background-color: red;
+	width: 50px;
+	height: 50px;
+	border: 1px solid black;
+	margin-bottom: 1%;
+}
+
+.modal-object-description{
+	border: 1px solid orange;
+}
+
+#all-modal-description{
+	background: #FFFFFF;
+	border: 2px solid black;
+	width: 300px;
+	height: 180px;
+	position: absolute;
+	left: 92%;
+}
+
+
+
+
+/*FIN PARTIE MODAL
+**********************/
+
+/*Message qui s'affiche lors des commentaires ou articles*/
+.message{
+	padding-top: 10px;
+	font-size: 20px;
+	margin-top: 2%;
+	margin-left: 420px;
+	font-weight: bold;
+	width: 200px;
+	height: 100px;
+}
+/*FIN PAGE SIGNALEMENT
+************************/
+
 
 /*PARTIE HEADER
 *****************/
@@ -88,10 +286,11 @@ header{
 /*DEBUT FOOTER
 *******************/
 footer{
-	margin-top: 4%;
 	align-items: : center;
 	display: flex;
 	padding-top: 1%;
+	bottom: 0%;
+	width: 100%;
 }
 
 .fa-facebook-square, .fa-twitter-square, .fa-instagram{
@@ -154,38 +353,41 @@ tbody tr{
 /*FIN PAGE TOUT LES PERSONNAGES
 ******************************/
 
-/*PAGE ABOUT
-**************************/
-.about-title{
-	text-align: center;
-	margin-top: 4%;
-	margin-bottom: 4%;
-	color: #FFFFFF;
-}
+/*Partie FORMULAIRE
+***************************/
 
-.about-text{
-	text-align: center;
-	color: #FFFFFF;
-}
+#emailHelp, #pseudoHelp, #passwordHelp{
 
-.about-text strong{
-	color: #000000;
+	font-weight: bold;
 }
-
-/*FIN PAGE ABOUT
-*************************/
+/*FIN PARTIE FORMULAIRE
+***************************/
 
 /*PARTIE GAME
 *******************/
 
-.choise-right, .choise-left{
+.text_game{
+	background: #c5c2c1;
+}
+
+.impasseOne, .underFour, .impasseThree{
+	margin-bottom: 25%;
+}
+
+.choise-right, .choise-left, .choise-top, .choise-bottom, .choise-back{
 	margin: 6%;
 	color: #000000;
 	font-weight: bold;
 }
 
-.choise-road .choise-right a:hover{
-	color: #000000;
+#choise-road, #choise-road-end{
+	background: #FFFFFF;
+	position: absolute;
+	bottom: 0%;
+	border: 2px solid black;
+	border-radius: 10px;
+	width: 100%;
+	margin-left: -1.3%;
 }
 
 
@@ -193,6 +395,276 @@ tbody tr{
 	text-align: center;
 	color: #FFFFFF;
 	margin-top: 4%;
+	
 }
+
+.table-inventory{
+	width: 200px;
+	margin: auto;
+}
+
+.table-inventory th{
+	padding: 2px;
+}
+
+.table-inventory td{
+	padding: 5px;
+}
+
+.table-inventory td, .table-inventory th{
+	background: white;
+	border: 2px solid black;
+	text-align: center;
+}
+
+.text-inventory{
+	position: relative;
+}
+
+#all-apple{
+	display: flex;
+}
+
+#all-apple-gate{
+	display: flex;
+}
+
+.apple2-index{
+	margin-top: 5%;
+}
+
+.apple3-index{
+	margin-top: 25%;
+}
+
+.apple4-index{
+	margin-left: 25%;
+}
+
+.apple-fight-four{
+	margin-bottom: 6%;
+}
+
+.apple{
+	width: 25%;
+}
+
+/*.apple-chestFive, .apple2-chestFive, .apple2-villageTwo, .apple1-villageTwo, .apple{
+	width: 25%;
+}*/
+
+.apple-chestFive{
+	
+	margin-top: 5%;
+}
+
+.apple2-chestFive{
+	margin-left: 50%;
+}
+
+ #apple1, #apple2, #apple3, #apple4{
+ 	border: solid black 2px;
+ 	height: 120px;
+ }
+
+ #stick1, #stick2{
+ 	border: solid red 2px;
+ 	height: 100px;
+ 	width: 20%;
+ }
+
+ #chest1, #sword1{
+ 	width: 30%;
+ 	border: 2px solid black;
+ }
+
+ #gate1{
+ 	border: 2px solid blue;
+
+ }
+
+ .gate-img{
+ 	width: 80%;
+ }
+
+
+ #stick1{
+ 	margin-top: 14%;
+ }
+
+ #stick2{
+ 	margin-top: 24%;
+ 	margin-left: 30%;
+ }
+
+ #chest1{
+ 	margin: auto;
+ }
+
+ #sword1{
+ 	margin-top: 4%;
+ }
+
+.apple, .stick, .sword{
+	margin-bottom: 50px;
+}
+
+#acorn1, #acorn2{
+	width: 20%;
+ 	border: solid 2px black;
+ }
+
+ #acorn1{
+ 	margin-left: 6%;
+ 	margin-top: 5%;
+ }
+
+ #acorn2{
+ 	margin-left: 60%;
+ 	margin-top: 15%;
+ }
+
+ .acorn-village-one{
+ 	margin-bottom: 4%;
+ }
+
+ .acorn1-fight-three{
+ 	margin-top: 4%;
+ }
+
+ .acorn2-fight-three{
+ 	margin-left: 14%;
+ 	margin-bottom: 6%;
+ }
+
+
+/*PARTIE GIF
+*********************/
+#bat1, .bat_gif{
+	width: 250px;
+	height: 150px;
+	margin: auto;
+}
+
+#crow1, .crow_gif{
+	width: 180px;
+	height: 150px;
+	margin: auto;
+}
+
+#crow1{
+	margin-bottom: 24%;
+}
+
+#wolf1, .wolf_gif{
+	width: 180px;
+	height: 150px;
+	margin: auto;
+}
+
+.wolf-fight-five{
+	margin-bottom: 4%;
+}
+
+.apple-img{
+	width: 17%;
+	margin-bottom: 2%;
+}
+
+.stick-img{
+	width: 50%;
+}
+
+.chest-img{
+	width: 60%;
+}
+
+#chest1-fightTwo{
+	margin-bottom: 6%;
+}
+
+.chestTwoL, .chestFourL, .chestEightR{
+	width: 30%;
+ 	border: 2px solid black;
+ 	margin: auto;
+}
+
+.chestEightR{
+	margin-bottom: 6%;
+}
+
+.chestFight{
+	margin-top: 4%;
+}
+
+.acorn-img{
+	width: 30%;
+	margin-bottom: 2%;
+
+}
+
+.acorn-villageFourR{
+
+	margin-bottom: 6%;
+}
+
+.sword-img{
+	width: 35%;
+}
+
+.apple-fight{
+	margin-top: 6%; 
+	width: 20%;
+}
+
+#fountain1{
+	margin-bottom: 12%;
+	border: 1px solid black;
+}
+/*FIN PARTIE GIF
+*********************/
+
+
 /*FIN PARTIE GAME
 *********************/
+
+/*PARTIE BACKEND
+**********************/
+
+/*Index
+***********/
+
+.informations_backend{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 7%;
+}
+
+.informations_backend h2{
+	text-align: inherit;
+	font-size: 1.4em;
+	padding: 10px;
+	color: #000000;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.forest, .cave, .characters, .inventory, .members, .action_game{
+	background: #228BE6;
+	width: 300px;
+	height: 150px;
+	transition-property: background;
+	transition-duration: 1s;
+	margin-left: 1%;
+}
+
+.forest:hover, .cave:hover, .characters:hover, .inventory:hover, .members:hover, .action_game:hover{
+	background: #FBEDE0;
+}
+/*Fin Index
+****************/
+
+
+/*FIN PARTIE BACKEND
+************************/
+

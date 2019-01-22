@@ -32,7 +32,8 @@ class GameController extends BackController{
 				'description' => $knife['description'],
 				'damages' => $knife['damages'],
 				'life' => $knife['life'],
-				'type' => $knife['type']
+				'type' => $knife['type'],
+				'lifetime' => $knife['lifetime']
 			]);
 		}else{
 			$object = new InventoryPlayer;
@@ -66,7 +67,8 @@ class GameController extends BackController{
 				'description' => $apple['description'],
 				'damages' => $apple['damages'],
 				'life' => $apple['life'],
-				'type' => $apple['type']
+				'type' => $apple['type'],
+				'lifetime' => $apple['lifetime']
 			]);
 		}else{
 			$object = new InventoryPlayer;
@@ -99,7 +101,8 @@ class GameController extends BackController{
 				'description' => $sword['description'],
 				'damages' => $sword['damages'],
 				'life' => $sword['life'],
-				'type' => $sword['type']
+				'type' => $sword['type'],
+				'lifetime' => $sword['lifetime']
 			]);
 		}else{
 			$object = new InventoryPlayer;
@@ -132,7 +135,8 @@ class GameController extends BackController{
 				'description' => $acorn['description'],
 				'damages' => $acorn['damages'],
 				'life' => $acorn['life'],
-				'type' => $acorn['type']
+				'type' => $acorn['type'],
+				'lifetime' => $acorn['lifetime']
 			]);
 		}else{
 			$object = new InventoryPlayer;
@@ -165,7 +169,8 @@ class GameController extends BackController{
 				'description' => $stick['description'],
 				'damages' => $stick['damages'],
 				'life' => $stick['life'],
-				'type' => $stick['type']
+				'type' => $stick['type'],
+				'lifetime' => $stick['lifetime']
 			]);
 		}else{
 			$object = new InventoryPlayer;
@@ -198,7 +203,8 @@ class GameController extends BackController{
 				'description' => $map['description'],
 				'damages' => $map['damages'],
 				'life' => $map['life'],
-				'type' => $map['type']
+				'type' => $map['type'],
+				'lifetime' => $map['lifetime']
 			]);
 		}else{
 			$object = new InventoryPlayer;
@@ -248,9 +254,11 @@ class GameController extends BackController{
 
 		$warriorPlayer = $this->managers->getManagerOf('Characters')->getWarriorPlayer();
 		$objects = $this->managers->getManagerOf('InventoryPlayer')->getInventory($this->app->user()->getAttribute('id'));
+		$Allobjects = $this->managers->getManagerOf('InventoryPlayer')->getAllInventory($this->app->user()->getAttribute('id'));
 
 		$this->page->addVarPage('warriorPlayer', $warriorPlayer);
 		$this->page->addVarPage('objects', $objects);
+		$this->page->addVarPage('Allobjects', $Allobjects);
 
 	}
 
@@ -352,11 +360,14 @@ class GameController extends BackController{
 
 	public function executeChestFourL(HTTPRequest $request){
 
+		$this->takeStick($request);
 		$this->executeInventory();
 
 		$textChest = $this->managers->getManagerOf('Forest')->chest();
+		$stick = $this->managers->getManagerOf('Inventory')->getStick();
 		
 		$this->page->addVarPage('textChest', $textChest);
+		$this->page->addVarPage('stick', $stick);
 	}
 
 	public function executeChestFiveL(HTTPRequest $request){
@@ -385,6 +396,7 @@ class GameController extends BackController{
 
 	public function executeVillageTwoL(HTTPRequest $request){
 
+		$this->takeApple($request);
 		$this->executeInventory();
 
 		$textVillage = $this->managers->getManagerOf('Forest')->village();
@@ -422,13 +434,14 @@ class GameController extends BackController{
 
 	public function executeUnderThreeL(HTTPRequest $request){
 
+		$this->takeAcorn($request);
 		$this->executeInventory();
 
 		$textUndergrowth = $this->managers->getManagerOf('Forest')->undergrowth();
-		$apple = $this->managers->getManagerOf('Inventory')->getApple();
+		$acorn = $this->managers->getManagerOf('Inventory')->getAcorn();
 		
 		$this->page->addVarPage('textUndergrowth', $textUndergrowth);
-		$this->page->addVarPage('apple', $apple);
+		$this->page->addVarPage('acorn', $acorn);
 	}
 
 	public function executeFightTwoL(HTTPRequest $request){
@@ -476,10 +489,10 @@ class GameController extends BackController{
 		$this->executeInventory();
 
 		$forest = $this->managers->getManagerOf('Forest')->fight();
-		$wolf = $this->managers->getManagerOf('Characters')->getWolf();
+		$bat = $this->managers->getManagerOf('Characters')->getBat();
 		
 		$this->page->addVarPage('textFight', $forest);
-		$this->page->addVarPage('wolf', $wolf);
+		$this->page->addVarPage('bat', $bat);
 	}
 
 	public function executeFountainOneL(HTTPRequest $request){
@@ -525,6 +538,7 @@ class GameController extends BackController{
 
 	public function executeImpasseTwoL(HTTPRequest $request){
 
+		$this->takeApple($request);
 		$this->executeInventory();
 
 		$textImpasse = $this->managers->getManagerOf('Forest')->impasse();
@@ -549,13 +563,16 @@ class GameController extends BackController{
 
 	public function executeFightOneR(HTTPRequest $request){
 
+		$this->takeApple($request);
 		$this->executeInventory();
 
 		$textFight = $this->managers->getManagerOf('Forest')->fight();
-		$crow = $this->managers->getManagerOf('Characters')->getCrow();
+		$bat = $this->managers->getManagerOf('Characters')->getBat();
+		$apple = $this->managers->getManagerOf('Inventory')->getApple();
 		
 		$this->page->addVarPage('textFight', $textFight);
-		$this->page->addVarPage('crow', $crow);
+		$this->page->addVarPage('bat', $bat);
+		$this->page->addVarPage('apple', $apple);
 	}
 
 	public function executeFightFourR(HTTPRequest $request){
@@ -593,24 +610,29 @@ class GameController extends BackController{
 
 	public function executeChestEightR(HTTPRequest $request){
 
+		$this->takeSword($request);
+		$this->takeApple($request);
 		$this->executeInventory();
 
 		$textChest = $this->managers->getManagerOf('Forest')->chest();
 		$apple = $this->managers->getManagerOf('Inventory')->getApple();
+		$sword = $this->managers->getManagerOf('Inventory')->getSword();
 		
 		$this->page->addVarPage('textChest', $textChest);
 		$this->page->addVarPage('apple', $apple);
+		$this->page->addVarPage('sword', $sword);
 	}
 
 	public function executeChestNineR(HTTPRequest $request){
 
+		$this->takeStick($request);
 		$this->executeInventory();
 
 		$textChest = $this->managers->getManagerOf('Forest')->chest();
-		$apple = $this->managers->getManagerOf('Inventory')->getApple();
+		$stick = $this->managers->getManagerOf('Inventory')->getStick();
 		
 		$this->page->addVarPage('textChest', $textChest);
-		$this->page->addVarPage('apple', $apple);
+		$this->page->addVarPage('stick', $stick);
 	}
 
 	public function executeUnderFourR(HTTPRequest $request){
@@ -624,6 +646,7 @@ class GameController extends BackController{
 
 	public function executeVillageThreeR(HTTPRequest $request){
 
+		$this->takeApple($request);
 		$this->executeInventory();
 
 		$textVillage = $this->managers->getManagerOf('Forest')->village();
@@ -635,17 +658,22 @@ class GameController extends BackController{
 
 	public function executeVillageFourR(HTTPRequest $request){
 
+		$this->takeApple($request);
+		$this->takeAcorn($request);
 		$this->executeInventory();
 
 		$textVillage = $this->managers->getManagerOf('Forest')->village();
 		$apple = $this->managers->getManagerOf('Inventory')->getApple();
+		$acorn = $this->managers->getManagerOf('Inventory')->getAcorn();
 		
 		$this->page->addVarPage('textVillage', $textVillage);
 		$this->page->addVarPage('apple', $apple);
+		$this->page->addVarPage('acorn', $acorn);
 	}
 
 	public function executeVillageFiveR(HTTPRequest $request){
 
+		$this->takeApple($request);
 		$this->executeInventory();
 
 		$textVillage = $this->managers->getManagerOf('Forest')->village();
@@ -671,14 +699,11 @@ class GameController extends BackController{
 		$this->executeInventory();
 
 		$textFight = $this->managers->getManagerOf('Forest')->fight();
-		$wolf = $this->managers->getManagerOf('Characters')->getWolf();
-		$crow = $this->managers->getManagerOf('Characters')->getCrow();
-		$apple = $this->managers->getManagerOf('Inventory')->getApple();
+		$bat = $this->managers->getManagerOf('Characters')->getBat();
+		
 		
 		$this->page->addVarPage('textFight', $textFight);
-		$this->page->addVarPage('wolf', $wolf);
-		$this->page->addVarPage('crow', $crow);
-		$this->page->addVarPage('apple', $apple);
+		$this->page->addVarPage('bat', $bat);
 	}
 
 	public function executeFightSixR(HTTPRequest $request){
@@ -694,6 +719,7 @@ class GameController extends BackController{
 
 	public function executeUnderFiveR(HTTPRequest $request){
 
+		$this->takeApple($request);
 		$this->executeInventory();
 
 		$textUndergrowth = $this->managers->getManagerOf('Forest')->undergrowth();
@@ -705,13 +731,14 @@ class GameController extends BackController{
 
 	public function executeUnderSixR(HTTPRequest $request){
 
+		$this->takeAcorn($request);
 		$this->executeInventory();
 
 		$textUndergrowth = $this->managers->getManagerOf('Forest')->undergrowth();
-		$apple = $this->managers->getManagerOf('Inventory')->getApple();
+		$acorn = $this->managers->getManagerOf('Inventory')->getAcorn();
 		
 		$this->page->addVarPage('textUndergrowth', $textUndergrowth);
-		$this->page->addVarPage('apple', $apple);
+		$this->page->addVarPage('acorn', $acorn);
 	}
 
 	public function executeImpasseThreeR(HTTPRequest $request){
@@ -725,6 +752,7 @@ class GameController extends BackController{
 
 	public function executeImpasseFourR(HTTPRequest $request){
 
+		$this->takeApple($request);
 		$this->executeInventory();
 
 		$textImpasse = $this->managers->getManagerOf('Forest')->impasse();

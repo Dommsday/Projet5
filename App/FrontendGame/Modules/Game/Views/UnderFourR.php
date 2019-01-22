@@ -4,7 +4,7 @@
 		<h1><?= nl2br($textUndergrowth['title']) ?></h1>
 	</div>
 
-	<div class="text-start">
+	<div class="text-start underFour">
 		<p><?= nl2br($textUndergrowth['content']) ?></p>
 	</div>
 

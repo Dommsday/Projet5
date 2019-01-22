@@ -8,22 +8,25 @@
 		<p><?= nl2br($textFight['content']) ?></p>
 	</div>
 	
-	<div id ="wolf1" class="wolf">
-		<i class="fab fa-wolf-pack-battalion"><?= $wolf['name']?></i>
-	</div>
+	<div id ="bat1" class="bat">
+		<img src="/Web/images/bat.gif" class="bat_gif"/>
 
-	<div id ="crow1" class="wolf">
-		<i class="fas fa-crow"><?= $crow['name']?></i>
-	</div>
+		<table class="ennemi-character">
+			<tr class="name-character">
+				<th>Nom</th>
+				<th>Force</th>
+				<th>Vie</th>
+			</tr>
 
-	<div id="apple1" class="apple">
-			
-		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
+			<tr class="stats-character">
+				<td><?= $bat['name']?></td>
+				<td id="damages-bat"><?= $bat['damages']?></td>
+				<td id="life-bat"><?= $bat['life']?></td>
+			</tr>
 
-		<div id="action1" class="action">
-			<button>Manger</button>
-			<button>Stocker</button>
-		</div>
+		</table>
+
+		<button id="button-attak-bat">Attaquer</button>
 	</div>
 
 	<div id="choise-road">

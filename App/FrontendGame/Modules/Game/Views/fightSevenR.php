@@ -8,8 +8,25 @@
 		<p><?= nl2br($textFight['content']) ?></p>
 	</div>
 
-	<div id ="bat1" class="bat">
-		<i class="fas fa-dragon"><?= $bat['name']?></i>
+	<div id ="bat1" class="bat bat-fightSevenR">
+		<img src="/Web/images/bat.gif" class="bat_gif"/>
+
+		<table class="ennemi-character">
+			<tr class="name-character">
+				<th>Nom</th>
+				<th>Force</th>
+				<th>Vie</th>
+			</tr>
+
+			<tr class="stats-character">
+				<td><?= $bat['name']?></td>
+				<td id="damages-bat"><?= $bat['damages']?></td>
+				<td id="life-bat"><?= $bat['life']?></td>
+			</tr>
+
+		</table>
+
+		<button id="button-attak-bat">Attaquer</button>
 	</div>
 
 	<div id="choise-road">

@@ -8,13 +8,25 @@
 		<p><?= nl2br($textChest['content']) ?></p>
 	</div>
 
-	<div id="apple1" class="apple">
-			
-		<i class="fas fa-apple-alt"><?= $apple['name']?></i>
+	<div id="apple1" class="apple apple1-chestEight">
+				
+			<img class="apple-img" src="/Web/images/apple.png" />
+			<?= $apple['name']?>
 
-		<div id="action1" class="action">
-			<button>Manger</button>
-			<button>Stocker</button>
+			<div id="action1" class="action">
+				<form action="" method="post">
+					<?= $formApple ?>
+					<input type="submit" value="Prendre" id="btnApple1"/>
+				</form>
+			</div>
+	</div>
+
+	<div id="chest1-chestFour" class="chest chestEightR">
+			
+		<img class="chest-img" src="/Web/images/chest.png" />
+
+		<div id="action_chest1" class="action_chest">
+			<button class="open_chest">Ouvrir</button>
 		</div>
 	</div>
 

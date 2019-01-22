@@ -9,7 +9,24 @@
 	</div>
 
 	<div id ="wolf1" class="wolf">
-		<i class="fab fa-wolf-pack-battalion"><?= $wolf['name']?></i>
+		<img src="/Web/images/wolf.gif" class="wolf_gif"/>
+
+		<table class="ennemi-character">
+			<tr class="name-character">
+				<th>Nom</th>
+				<th>Force</th>
+				<th>Vie</th>
+			</tr>
+
+			<tr class="stats-character">
+				<td><?= $wolf['name']?></td>
+				<td id="damages-wolf"><?= $wolf['damages']?></td>
+				<td id="life-wolf"><?= $wolf['life']?></td>
+			</tr>
+
+		</table>
+
+		<button id="button-attak-wolf">Attaquer</button>
 	</div>
 
 	<div id="choise-road">

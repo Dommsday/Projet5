@@ -16,9 +16,7 @@
 
 	<!--FICHIER CSS-->
 	<link rel="stylesheet" href="/Web/css/layout.css" type="text/css" />
-	<link rel="stylesheet" href="/Web/css/resolution_screen.css" media="screen and (min-width: 992px) and (max-width: 1199px)" type="text/css" />
-	<link rel="stylesheet" href="/Web/css/resolution_tablette.css" media="screen and (min-width: 768px) and (max-width: 991px)" type="text/css" />
-	<link rel="stylesheet" href="/Web/css/resolution_phone.css" media="screen and (max-width: 767px)" type="text/css" />
+	
 	
 	<!--FICHIER DES ICONES-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
@@ -62,28 +60,33 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/allCharacters.html">Personnages</a>
 						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="/about.html">A propos</a>
-						</li>
+						
+						<?php  
+							if(!$user->isAuthenticated()){
+						?>
 
 						<li class="nav-item">
 							<a class="nav-link" href="/inscription.html">S'inscrire</a>
 						</li>
 
+
 						<li class="nav-item">
 							<a class="nav-link" href="/connexion.html">Se connecter</a>
 						</li>
 
-						<li class="nav-item">
-							<a class="nav-link" href="/startGame.html">Nouveau Jeu</a>
-						</li>
+						<?php
+						}
+						?>
 
 						<?php  
 							if($user->isAuthenticated()){
 						?>
 						<li class="nav-item">
-							<a class="nav-link" href="/confirmation-deconnexion.html"><i class="fas fa-user-times" title="Déconnexion"></i></a>
+							<a id="new-game" class="nav-link" href="/game/">Nouveau Jeu</a>
+						</li>
+
+						<li class="nav-item">
+							<a id="deconnexion" class="nav-link" href="/confirmation-deconnexion.html"><i class="fas fa-user-times" title="Déconnexion"></i></a>
 						</li>
 						<?php  
 						}
@@ -111,15 +114,21 @@
 	<!--CONTENU DES DERNIERES NEWS-->
 	<section class="section-container container-fluid">
 		<div class="container-contenu container">
-	
-			<?php
-			if($user->isAuthenticated()){
-			?>
-					<h1>Bonjour <?= $user->getAttribute('pseudo')?></h1>
-			<?php	
-			}
-			?>
-			<div class="row">
+
+			
+			<p>Bonjour <?= $user->getAttribute('pseudo')?></p>
+	<p>Ton ID est  <?= $user->getAttribute('id')?></p>
+
+	<div id="demo">
+	<form  method="post" action="">
+		<p>Yes</p>
+		<input type="submit" id="btnTest" value="Envoyer" />
+	</form>
+</div>
+
+			
+			<button type="button" id="btnTestDelete">effacer</button>
+			<div class="row text_frontend">
 
 				<?php if($user->hasMessage()){
 				?>
@@ -128,15 +137,17 @@
 				}
 				?>
 
-			
 				<?= $content ?>
 			</div>
+
 		</div>
 	</section>
+
+
 	<!--FIN CONTENU DES DERNIERES NEWS-->
 
 	<!--FOOTER-->
-	<footer>
+	<footer class="footer_frontend">
 		<div class="items-footer">
 			<p class="icon-footer copyright">© Copyright 2018</p>
 			<p class="icon-footer facebbok"><a href="#"><i class="fab fa-facebook-square"></i></a></p>
@@ -144,6 +155,11 @@
 			<p class="icon-footer instagram"><a href="#"><i class="fab fa-instagram"></i></a></p>
 		</div>
 	</footer>
+
+	<script type="text/javascript" src="Web/js/ajax.js"></script>
+	<script type="text/javascript" src="Web/js/time.js"></script>
+	<script type="text/javascript" src="Web/js/form.js"></script>
+	<script type="text/javascript" src="Web/js/test.js"></script>
 
 </body>
 </html>

@@ -1,7 +1,9 @@
 var TakeApple = {
-	
+
+	storageApple: window.sessionStorage,
 	btnApple1: document.getElementById("btnApple1"),
 	action_element : document.querySelectorAll(".action"),
+	test: document.querySelector(".test"),
 
 	allApple: document.getElementsByClassName("apple"),
 	
@@ -15,14 +17,12 @@ var TakeApple = {
 	action3 : document.getElementById("action3"),
 	action4 : document.getElementById("action4"),
 
-	test: document.getElementById("test"),
-	
+
+
 
 	init: function(){
 	
 		this.AllhiddenAction();
-		//this.hideAppple();
-		
 	},
 
 	hidden_action: function(){

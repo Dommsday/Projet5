@@ -16,10 +16,7 @@
 
 	<!--FICHIER CSS-->
 	<link rel="stylesheet" href="/Web/css/layout.css" type="text/css" />
-	<link rel="stylesheet" href="/Web/css/resolution_screen.css" media="screen and (min-width: 992px) and (max-width: 1199px)" type="text/css" />
-	<link rel="stylesheet" href="/Web/css/resolution_tablette.css" media="screen and (min-width: 768px) and (max-width: 991px)" type="text/css" />
-	<link rel="stylesheet" href="/Web/css/resolution_phone.css" media="screen and (max-width: 767px)" type="text/css" />
-	
+
 	<!--FICHIER DES ICONES-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
@@ -59,7 +56,9 @@
 							<a class="nav-link" href="/">Accueil</a>
 						</li>
 
-						
+						<li class="nav-item">
+							<a id="deconnexion" class="nav-link" href="/confirmation-deconnexion.html"><i class="fas fa-user-times" title="Déconnexion"></i></a>
+						</li>
 					
 					</ul>
 
@@ -68,25 +67,28 @@
 	</header>
 	<!--FIN MENU NAVIGATION-->
 
-	<!--CONTENU DES DERNIERES NEWS-->
-	<section class="section-container container-fluid">
-		<div class="container-contenu container">
 	
-			<div class="row">
+	<section class="section-container-frontendgame container-fluid">
+		<div class="container-contenu-frontendgame container">
 
-				<?php if($user->hasMessage()){
-				?>
-				<p class="message"><i class="fas fa-check-circle"></i><?=$user->getMessage()?></p>
-				<?php  
-				}
-				?>
+			<div class="row text_game">
+				
+				<?= $content ?>
+			</div>
 
 			
-				<?= $content ?>
+		</div>
+	</section>
+
+	<section class="section-container-frontendgame-inventory container-fluid">
+		<div class="container-contenu-frontendgame-inventory container">
+			<div class="row text-inventory">
+				<?php require('/../Modules/Game/Views/inventory.php');?>
 			</div>
 		</div>
 	</section>
-	<!--FIN CONTENU DES DERNIERES NEWS-->
+
+	
 
 	<!--FOOTER-->
 	<footer>
@@ -98,8 +100,18 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="Web/js/time.js"></script>
-	<script type="text/javascript" src="Web/js/form.js"></script>
-
+	
+	<script type="text/javascript" src="/Web/js/ajax.js"></script>
+	<script type="text/javascript" src="/Web/js/fightBat.js"></script>
+	<script type="text/javascript" src="/Web/js/fightCrow.js"></script>
+	<script type="text/javascript" src="/Web/js/fightWolf.js"></script>
+	<script type="text/javascript" src="/Web/js/gate.js"></script>
+	<script type="text/javascript" src="/Web/js/takeStick.js"></script>
+	<script type="text/javascript" src="/Web/js/takeApple.js"></script>
+	<script type="text/javascript" src="/Web/js/fountain.js"></script>
+	<script type="text/javascript" src="/Web/js/playerStorage.js"></script>
+	<script type="text/javascript" src="/Web/js/time.js"></script>
+	<script type="text/javascript" src="/Web/js/appleForm.js"></script>
+	
 </body>
 </html>

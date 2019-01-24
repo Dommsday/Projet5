@@ -7,27 +7,37 @@ var PlayerStorage = {
 	damagePlayer: document.getElementById("damages_players"),
 	lifeStorage: null,
 	damageStorage: null,
+
+	all_modal_objects: document.getElementById("all-modal-objects"),
+	modal_object: document.getElementsByClassName("modal-object"),
 	modal_description: document.getElementsByClassName("modal-object-description"),
 	modal_damages: document.getElementsByClassName("modal-object-damages"),
 	modal_life: document.getElementsByClassName("modal-object-life"),
-	modal_object: document.getElementsByClassName("modal-object"),
+	modal_lifetime: document.getElementsByClassName("modal-object-lifetime"),
+
 	all_modal_description: document.getElementById("all-modal-description"),
-	btnObject: document.getElementById('btnObject'),
+	btnObject: document.getElementById("btnObject"),
+	spanLife: document.getElementById("life"),
+	spanDamages: document.getElementById("damages"),
 
 	textDescription: document.createElement("p"),
 	textDamages: document.createElement("p"),
 	textLife: document.createElement("p"),
+	textLifetime: document.createElement("p"),
+	
 
 	init: function(){
 
 		PlayerStorage.refresh();
 		PlayerStorage.btnObject.disabled = true;
+		PlayerStorage.all_modal_description.style.display="none";
 
 		this.hidden_all_modal();
 		this.show_modal_description();
 
 		PlayerStorage.deconnexion.addEventListener("click", function(){
 			PlayerStorage.storagePlayer.clear();
+			AppleForm.storageAppleForm.clear();
 		});
 
 		//Partie vie du joueur
@@ -47,6 +57,7 @@ var PlayerStorage = {
 		this.hidden_modal_description();
 		this.hidden_modal_damages();
 		this.hidden_modal_life();
+		this.hidden_modal_lifetime();
 	},
 
 	hidden_modal_description: function(){
@@ -54,8 +65,6 @@ var PlayerStorage = {
 		for(let i = 0; i< PlayerStorage.modal_description.length; i++){
 			PlayerStorage.modal_description[i].style.display="none";
 		}
-
-		PlayerStorage.all_modal_description.style.display="none";
 	},
 
 	hidden_modal_damages: function(){
@@ -70,6 +79,13 @@ var PlayerStorage = {
 
 		for(let i = 0; i< PlayerStorage.modal_life.length; i++){
 			PlayerStorage.modal_life[i].style.display="none";
+		}
+	},
+
+	hidden_modal_lifetime: function(){
+
+		for(let i = 0; i< PlayerStorage.modal_lifetime.length; i++){
+			PlayerStorage.modal_lifetime[i].style.display="none";
 		}
 	},
 
@@ -95,7 +111,7 @@ var PlayerStorage = {
 
 					if(i == k){
 
-						PlayerStorage.textDamages.textContent = PlayerStorage.modal_damages[k].textContent;
+						PlayerStorage.textDamages.textContent = "Dégâts : "+PlayerStorage.modal_damages[k].textContent;
 
 						PlayerStorage.all_modal_description.appendChild(PlayerStorage.textDamages);
 
@@ -106,9 +122,19 @@ var PlayerStorage = {
 
 					if(i == l){
 
-						PlayerStorage.textLife.textContent = PlayerStorage.modal_life[l].textContent;
+						PlayerStorage.textLife.textContent = "Regain de vie : "+PlayerStorage.modal_life[l].textContent;
 
 						PlayerStorage.all_modal_description.appendChild(PlayerStorage.textLife);
+					}
+				}
+
+				for(let m =0; m < PlayerStorage.modal_lifetime.length; m++){
+
+					if(i == m){
+
+						PlayerStorage.textLifetime.textContent = "Nombre d'utilisation : "+PlayerStorage.modal_lifetime[m].textContent;
+
+						PlayerStorage.all_modal_description.appendChild(PlayerStorage.textLifetime);
 					}
 				}
 				
@@ -130,15 +156,35 @@ var PlayerStorage = {
 			PlayerStorage.modal_object[i].addEventListener("click",function(){
 
 				PlayerStorage.btnObject.disabled = false;
-				PlayerStorage.storagePlayer.setItem("test", PlayerStorage.storageInfo(PlayerStorage.modal_object[i].textContent));
+				PlayerStorage.storagePlayer.setItem("test", PlayerStorage.modal_object[i]);
+				
+				PlayerStorage.storagePlayer.setItem("objectLife", PlayerStorage.storageInfo(PlayerStorage.modal_life[i].textContent));
+				PlayerStorage.storagePlayer.setItem("objectDamages", PlayerStorage.storageInfo(PlayerStorage.modal_damages[i].textContent));
+				PlayerStorage.storagePlayer.setItem("objectName", PlayerStorage.storageInfo(PlayerStorage.modal_object[i].textContent));
+				
+				
+				PlayerStorage.spanLife.textContent = "";
+				PlayerStorage.spanDamages.textContent = "";
+				PlayerStorage.spanLife.textContent += " + "+PlayerStorage.storagePlayer.getItem("objectLife");
+				PlayerStorage.spanDamages.textContent += " + "+PlayerStorage.storagePlayer.getItem("objectDamages");
+
+				//Quand on clique sur le bouton 'Utilisier'
+				PlayerStorage.btnObject.addEventListener("click",function(){
+
+					
+					PlayerStorage.spanLife.textContent = "";
+					PlayerStorage.spanDamages.textContent = "";
+
+					PlayerStorage.lifePlayer.textContent = Number(PlayerStorage.storagePlayer.getItem("objectLife")) 
+															+ Number(PlayerStorage.storagePlayer.getItem('lifePlayer'));
+					alert(PlayerStorage.lifePlayer.textContent);
+
+					PlayerStorage.all_modal_objects.removeChild(PlayerStorage.modal_object[i]);
+				});
 				
 			});
 
-			PlayerStorage.btnObject.addEventListener("click",function(){
-				alert(PlayerStorage.storagePlayer.getItem("test"));
-			});
 		}
-
 	},
 
 	refresh: function(){

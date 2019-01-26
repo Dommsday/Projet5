@@ -41,7 +41,7 @@ class InventoryPlayerManagerPDO extends InventoryPlayerManager{
 
 	public function getAllInventory($id_player){
 
-		$request = $this->dao->prepare('SELECT name, description, damages, life, type, lifetime FROM inventory_player WHERE id_player = :id_player');
+		$request = $this->dao->prepare('SELECT name, description, damages, life, type, lifetime FROM inventory_player WHERE id_player = :id_player LIMIT 0, 9');
 
 		$request->bindValue(':id_player', (int) $id_player, \PDO::PARAM_INT);
 

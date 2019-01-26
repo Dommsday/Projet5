@@ -20,6 +20,9 @@ var PlayerStorage = {
 	spanLife: document.getElementById("life"),
 	spanDamages: document.getElementById("damages"),
 
+	statLife: document.getElementById("statLife"),
+	statDamage: document.getElementById("statDamage"),
+
 	textDescription: document.createElement("p"),
 	textDamages: document.createElement("p"),
 	textLife: document.createElement("p"),
@@ -93,14 +96,20 @@ var PlayerStorage = {
 
 	show_modal_description: function(){
 
+		PlayerStorage.statLife.textContent = PlayerStorage.storagePlayer.getItem("lifePlayer");
+		PlayerStorage.statDamage.textContent = PlayerStorage.storagePlayer.getItem("damagePlayer");
+
 		for(let i = 0; i< PlayerStorage.modal_object.length; i++){
-			
+
+
+			//QUAND ON SURVOLE LES DIFFERENTS OBJETS DE L'INVENTAIRE
 			PlayerStorage.modal_object[i].addEventListener("mouseover",function(){
 
 				for(let j = 0; j < PlayerStorage.modal_description.length; j++){
 
 					if(i == j){
 						
+						//AFFICHE LA DESCRIPTION
 						PlayerStorage.textDescription.textContent = PlayerStorage.modal_description[j].textContent;
 
 						PlayerStorage.all_modal_description.appendChild(PlayerStorage.textDescription);
@@ -113,6 +122,7 @@ var PlayerStorage = {
 
 					if(i == k){
 
+						//AFFICHE LES DEGATS
 						PlayerStorage.textDamages.textContent = "Dégâts : "+PlayerStorage.modal_damages[k].textContent;
 
 						PlayerStorage.all_modal_description.appendChild(PlayerStorage.textDamages);
@@ -124,6 +134,7 @@ var PlayerStorage = {
 
 					if(i == l){
 
+						//AFFICHE LE REGAIN DE VIE
 						PlayerStorage.textLife.textContent = "Regain de vie : "+PlayerStorage.modal_life[l].textContent;
 
 						PlayerStorage.all_modal_description.appendChild(PlayerStorage.textLife);
@@ -134,6 +145,7 @@ var PlayerStorage = {
 
 					if(i == m){
 
+						//AFFICHE LE NBR D'UTILISATION
 						PlayerStorage.textLifetime.textContent = "Nombre d'utilisation : "+PlayerStorage.modal_lifetime[m].textContent;
 
 						PlayerStorage.all_modal_description.appendChild(PlayerStorage.textLifetime);
@@ -155,14 +167,14 @@ var PlayerStorage = {
 				
 			});
 
+			//QUAND ON CLIQUE SUR L'UN DES OBJET DE L'INVENTAIRE
 			PlayerStorage.modal_object[i].addEventListener("click",function(){
 
 				PlayerStorage.btnObject.disabled = false;
-				PlayerStorage.storagePlayer.setItem("test", PlayerStorage.modal_object[i]);
 				
-				PlayerStorage.storagePlayer.setItem("objectLife", PlayerStorage.storageInfo(PlayerStorage.modal_life[i].textContent));
-				PlayerStorage.storagePlayer.setItem("objectDamages", PlayerStorage.storageInfo(PlayerStorage.modal_damages[i].textContent));
-				PlayerStorage.storagePlayer.setItem("objectName", PlayerStorage.storageInfo(PlayerStorage.modal_object[i].textContent));
+				PlayerStorage.storagePlayer.setItem("objectLife", PlayerStorage.modal_life[i].textContent);
+				PlayerStorage.storagePlayer.setItem("objectDamages", PlayerStorage.modal_damages[i].textContent);
+				PlayerStorage.storagePlayer.setItem("objectName", PlayerStorage.modal_object[i].textContent);
 				
 				
 				PlayerStorage.spanLife.textContent = "";
@@ -170,23 +182,25 @@ var PlayerStorage = {
 				PlayerStorage.spanLife.textContent += " + "+PlayerStorage.storagePlayer.getItem("objectLife");
 				PlayerStorage.spanDamages.textContent += " + "+PlayerStorage.storagePlayer.getItem("objectDamages");
 
-				//Quand on clique sur le bouton 'Utilisier'
-				PlayerStorage.btnObject.addEventListener("click",function(){
-
-					
-					PlayerStorage.spanLife.textContent = "";
-					PlayerStorage.spanDamages.textContent = "";
-
-					PlayerStorage.lifePlayer.textContent = Number(PlayerStorage.storagePlayer.getItem("objectLife")) 
-															+ Number(PlayerStorage.storagePlayer.getItem('lifePlayer'));
-					alert(PlayerStorage.lifePlayer.textContent);
-
-					PlayerStorage.all_modal_objects.removeChild(PlayerStorage.modal_object[i]);
-				});
-				
 			});
-
 		}
+
+		//QUAND ON CLIQUE SUR 'Utilisier'
+		PlayerStorage.btnObject.addEventListener("click",function(){
+					
+			PlayerStorage.spanLife.textContent = "";
+			PlayerStorage.spanDamages.textContent = "";
+
+			let newStatLife = Number(PlayerStorage.storagePlayer.getItem("objectLife")) + Number(PlayerStorage.storagePlayer.getItem('lifePlayer'));
+			let newStatDamage = Number(PlayerStorage.storagePlayer.getItem("objectDamages")) + Number(PlayerStorage.storagePlayer.getItem('damagePlayer'));
+
+			PlayerStorage.lifePlayer.textContent = newStatLife;
+			PlayerStorage.damagePlayer.textContent = newStatDamage;
+
+			PlayerStorage.storagePlayer.setItem("lifePlayer", PlayerStorage.lifePlayer.textContent);
+			PlayerStorage.storagePlayer.setItem("damagePlayer", PlayerStorage.damagePlayer.textContent);
+					
+		});
 	},
 
 	refresh: function(){

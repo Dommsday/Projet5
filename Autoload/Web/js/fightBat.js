@@ -8,14 +8,12 @@ var FightBat = {
 	lifePlayer : document.getElementById("life_players"),
 
 	init: function(){
-	
+
 		this.attakPlayerBat();
 	},
 
 
 	attakPlayerBat: function(){
-
-		//FightBat.refresh();
 
 		//Si la vie de l'ennemi est supérieur à 0 le changement de route est invisible
 		if(Number(FightBat.lifeBat.textContent) > 0){
@@ -29,7 +27,7 @@ var FightBat = {
 			let chance = Math.floor(Math.random() * 50) + 1;//Taux de chance
 
 			let batLife = FightBat.lifeBat.textContent;
-			let playerDamage = PlayerStorage.playerDamage();
+			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
 			//Si le taux de chance est supérieur à 35
 			if(chance >= 35){
@@ -65,6 +63,7 @@ var FightBat = {
 			}else{
 
 				alert("Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi");
+
 			}
 
 			//Si la vie de l'ennemi est séupérieur à 0
@@ -89,9 +88,7 @@ var FightBat = {
 
 		let chance = Math.floor(Math.random() * 50) + 1;
 
-			let playerLife = PlayerStorage.storageInfo(FightBat.lifePlayer.textContent);
-
-			alert("Vous avez "+PlayerStorage.storageInfo(playerLife)+" points de vie");
+			let playerLife = PlayerStorage.storagePlayer.getItem("lifePlayer");
 		
 			let batDamage = FightBat.damageBat.textContent;
 
@@ -112,8 +109,12 @@ var FightBat = {
 
 				FightBat.storageBat.setItem('lifePlayer', FightBat.lifePlayer.textContent);
 
-				alert("Il vous reste "+PlayerStorage.storageInfo(FightBat.storageBat.getItem('lifePlayer'))+ "points de vie");
+				if(FightBat.storageBat.getItem('lifePlayer') < 0){
 
+					alert("Il vous reste 0 points de vie");
+				}else{
+					alert("Il vous reste "+FightBat.storageBat.getItem('lifePlayer')+ "points de vie");
+				}
 
 				//Si le joueur à 0 points de vie
 				if(FightBat.lifePlayer.textContent <= 0){
@@ -135,7 +136,7 @@ var FightBat = {
 
 				alert("Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas");
 
-				alert("Il vous reste "+PlayerStorage.storageInfo(FightBat.storageBat.getItem('lifePlayer'))+ "points de vie");
+				alert("Il vous reste "+FightBat.storageBat.getItem('lifePlayer')+ "points de vie");
 			}
 	}
 	

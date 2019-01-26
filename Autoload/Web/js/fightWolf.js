@@ -37,10 +37,10 @@ var FightWolf = {
 			let chance = Math.floor(Math.random() * 50) + 1;//Taux de chance
 
 			let wolfLife = FightWolf.lifeWolf.textContent;
-			let playerDamage = PlayerStorage.playerDamage();
+			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
 			//Si le taux de chance est supérieur à 40
-			if(chance >= 20){
+			if(chance >= 30){
 
 				alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
 
@@ -101,13 +101,11 @@ var FightWolf = {
 
 		let chance = Math.floor(Math.random() * 50) + 1;
 
-		let playerLife = PlayerStorage.storageInfo(FightWolf.lifePlayer.textContent);
-
-		alert("Vous avez "+PlayerStorage.storageInfo(playerLife)+" points de vie");
+		let playerLife = PlayerStorage.storagePlayer.getItem("lifePlayer");
 		
 		let wolfDamage = FightWolf.damageWolf.textContent;
 
-		if(chance >= 50){
+		if(chance >= 35){
 
 			alert("le taux de chance de l'ennemi est de "+chance+" il vous touche");
 
@@ -124,7 +122,13 @@ var FightWolf = {
 
 			FightWolf.storageWolf.setItem('lifePlayer', FightWolf.lifePlayer.textContent);
 
-			alert("Il vous reste "+PlayerStorage.storageInfo(FightWolf.storageWolf.getItem('lifePlayer'))+ "points de vie");
+			if(FightWolf.storageWolf.setItem('lifePlayer') < 0){
+				alert("Il vous reste 0 points de vie");
+			}else{
+				alert("Il vous reste "+FightWolf.storageWolf.getItem('lifePlayer')+ "points de vie");
+			}
+
+			
 
 			//Si le joueur à 0 points de vie
 			if(FightWolf.lifePlayer.textContent <= 0){
@@ -144,7 +148,7 @@ var FightWolf = {
 
 			alert("Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas");
 
-			alert("Il vous reste "+PlayerStorage.storageInfo(FightWolf.storageWolf.getItem('lifePlayer'))+ "points de vie");
+			alert("Il vous reste "+FightWolf.storageWolf.getItem('lifePlayer')+ "points de vie");
 		}
 	}
 	

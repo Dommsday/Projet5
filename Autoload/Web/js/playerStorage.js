@@ -5,8 +5,8 @@ var PlayerStorage = {
 	newGame: document.getElementById("new-game"),
 	lifePlayer: document.getElementById("life_players"),
 	damagePlayer: document.getElementById("damages_players"),
-	lifeStorage: null,
-	damageStorage: null,
+	//lifeStorage: null,
+	//damageStorage: null,
 
 	all_modal_objects: document.getElementById("all-modal-objects"),
 	modal_object: document.getElementsByClassName("modal-object"),
@@ -29,6 +29,20 @@ var PlayerStorage = {
 	init: function(){
 
 		PlayerStorage.refresh();
+		//Partie vie du joueur
+		let playerLife = PlayerStorage.lifePlayer.textContent;
+		
+		PlayerStorage.storagePlayer.setItem("lifePlayer", playerLife);
+
+		//PlayerStorage.lifeStorage = PlayerStorage.storagePlayer.getItem("lifePlayer");
+		//alert("La MEMOIRE VIE est de "+PlayerStorage.lifeStorage);
+
+		//Partie dégâts du joueur
+		let damagePlayer = PlayerStorage.damagePlayer.textContent;
+
+		PlayerStorage.storagePlayer.setItem("damagePlayer", damagePlayer);
+		//PlayerStorage.damageStorage = PlayerStorage.storagePlayer.getItem("damagePlayer");
+
 		PlayerStorage.btnObject.disabled = true;
 		PlayerStorage.all_modal_description.style.display="none";
 
@@ -37,19 +51,7 @@ var PlayerStorage = {
 
 		PlayerStorage.deconnexion.addEventListener("click", function(){
 			PlayerStorage.storagePlayer.clear();
-			AppleForm.storageAppleForm.clear();
 		});
-
-		//Partie vie du joueur
-		let playerLife = PlayerStorage.lifePlayer.textContent;
-		PlayerStorage.storagePlayer.setItem("lifePlayer", PlayerStorage.storageInfo(playerLife));
-		PlayerStorage.lifeStorage = PlayerStorage.storagePlayer.getItem("lifePlayer");
-
-		//Partie dégâts du joueur
-		let damagePlayer = PlayerStorage.damagePlayer.textContent;
-		PlayerStorage.storagePlayer.setItem("damagePlayer", PlayerStorage.storageInfo(damagePlayer));
-		PlayerStorage.damageStorage = PlayerStorage.storagePlayer.getItem("damagePlayer");
-
 
 	},
 
@@ -190,26 +192,25 @@ var PlayerStorage = {
 	refresh: function(){
 
 		if(PlayerStorage.storagePlayer.length > 0){
-
-			PlayerStorage.lifePlayer.textContent = PlayerStorage.storagePlayer.getItem('lifePlayer');
-			PlayerStorage.damagePlayer.textContent = PlayerStorage.storagePlayer.getItem('damagePlayer');
-
+			
+			PlayerStorage.lifePlayer.textContent = PlayerStorage.storagePlayer.getItem("lifePlayer");
+			PlayerStorage.damagePlayer.textContent = PlayerStorage.storagePlayer.getItem("damagePlayer");
 		}
 	},
 
-	playerLife: function(){
+	/*playerLifeNum: function(){
 
-		return PlayerStorage.lifeStorage;
+		return PlayerStorage.lifeStorage.textContent;
 	},
 
-	playerDamage: function(){
+	playerDamageNum: function(){
 
-		return PlayerStorage.damageStorage;
+		return PlayerStorage.damageStorage.textContent;
 	},
 
-	storageInfo: function(playerInfo){
+	/*storageInfo: function(playerInfo){
 		return playerInfo;
-	}
+	}*/
 
 }
 

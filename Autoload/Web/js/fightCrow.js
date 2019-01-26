@@ -35,7 +35,7 @@ var FightCrow = {
 			let chance = Math.floor(Math.random() * 50) + 1;//Taux de chance
 
 			let crowLife = FightCrow.lifeCrow.textContent;
-			let playerDamage = PlayerStorage.playerDamage();
+			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
 			//Si le taux de chance est supérieur à 40
 			if(chance >= 30){
@@ -99,9 +99,7 @@ var FightCrow = {
 
 		let chance = Math.floor(Math.random() * 50) + 1;
 
-		let playerLife = PlayerStorage.storageInfo(FightCrow.lifePlayer.textContent);
-
-		alert("Vous avez "+PlayerStorage.storageInfo(playerLife)+" points de vie");
+		let playerLife = PlayerStorage.storagePlayer.getItem("lifePlayer");
 		
 		let crowDamage = FightCrow.damageCrow.textContent;
 
@@ -122,7 +120,12 @@ var FightCrow = {
 
 			FightCrow.storageCrow.setItem('lifePlayer', FightCrow.lifePlayer.textContent);
 
-			alert("Il vous reste "+PlayerStorage.storageInfo(FightCrow.storageCrow.getItem('lifePlayer'))+ "points de vie");
+			if(FightCrow.storageCrow.getItem('lifePlayer') < 0){
+				alert("Il vous reste 0 points de vie");
+			}else{
+
+				alert("Il vous reste "+FightCrow.storageCrow.getItem('lifePlayer')+ "points de vie");
+			}
 
 			//Si le joueur à 0 points de vie
 			if(FightCrow.lifePlayer.textContent <= 0){
@@ -144,7 +147,7 @@ var FightCrow = {
 
 			alert("Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas");
 
-			alert("Il vous reste "+PlayerStorage.storageInfo(FightCrow.storageCrow.getItem('lifePlayer'))+ "points de vie");
+			alert("Il vous reste "+FightCrow.storageCrow.getItem('lifePlayer')+ "points de vie");
 		}
 	}
 	

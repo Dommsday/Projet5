@@ -9,9 +9,6 @@ a:hover{
 	text-decoration: inherit;
 }
 
-#btnModal{
-	height: 5%;
-}
 
 .text_game, .text_frontend, .dashbord{
 	position: relative;
@@ -62,6 +59,18 @@ a:hover{
 
 /*PARTIE MODAL
 ********************/
+.btnModal{
+	width: 30%;
+	height: 12%;
+	padding: 2%;
+	margin-top: 100%;
+}
+
+.btnModal a{
+	font-weight: bold;
+	color: #000000;
+}
+
 
 #testModal{
 	border: 4px solid blue;
@@ -85,6 +94,14 @@ a:hover{
 	border: 2px solid orange;
 	width: 250px;
 	height: 500px;
+}
+
+.modal-body2 p{
+	font-weight: bold;
+}
+
+ span#life, span#damages{
+	color : #02A676;
 }
 
 .modal-body3{
@@ -187,8 +204,6 @@ button span:hover{
 	position: absolute;
 	left: 92%;
 }
-
-
 
 
 /*FIN PARTIE MODAL
@@ -366,8 +381,22 @@ tbody tr{
 /*PARTIE GAME
 *******************/
 
+#button_inventory{
+	width: 10%;
+	margin: auto;
+	border: none;
+	padding: 1%;
+	font-weight: bold;
+}
+
+.full_inventory{
+	background: red;
+	color: #FFFFFF;
+}
+
 .text_game{
 	background: #c5c2c1;
+	height: 800px;
 }
 
 .impasseOne, .underFour, .impasseThree{

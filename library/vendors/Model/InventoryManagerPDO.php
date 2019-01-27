@@ -8,7 +8,7 @@ class InventoryManagerPDO extends InventoryManager{
 
 	public function getText($id){
 
-		$request = $this->dao->prepare('SELECT id, name, description, damages, life, type FROM inventory WHERE id = :id');
+		$request = $this->dao->prepare('SELECT id, name, description, damages, life, type, lifetime FROM inventory WHERE id = :id');
 
 		$request->bindValue(':id', (int) $id, \PDO::PARAM_INT);
 		$request->execute();

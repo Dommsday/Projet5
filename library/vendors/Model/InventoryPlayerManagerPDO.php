@@ -12,7 +12,6 @@ class InventoryPlayerManagerPDO extends InventoryPlayerManager{
 
 		$request = $this->dao->prepare('INSERT INTO inventory_player SET id_player = :id_player, name = :name, description = :description, type = :type, damages = :damages, life = :life, lifetime = :lifetime');
 
-		
 		$request->bindValue(':name', $inventoryPlayer->name());
 		$request->bindValue(':description', $inventoryPlayer->description());
 		$request->bindValue(':type', $inventoryPlayer->type());
@@ -41,7 +40,7 @@ class InventoryPlayerManagerPDO extends InventoryPlayerManager{
 
 	public function getAllInventory($id_player){
 
-		$request = $this->dao->prepare('SELECT name, description, damages, life, type, lifetime FROM inventory_player WHERE id_player = :id_player LIMIT 0, 9');
+		$request = $this->dao->prepare('SELECT id, name, description, damages, life, type, lifetime FROM inventory_player WHERE id_player = :id_player LIMIT 0, 9');
 
 		$request->bindValue(':id_player', (int) $id_player, \PDO::PARAM_INT);
 
@@ -52,6 +51,14 @@ class InventoryPlayerManagerPDO extends InventoryPlayerManager{
 		$allInventory = $request->fetchAll();
 
 		return $allInventory;
+	}
+
+	public function delete($id){
+
+		$request = $this->dao->prepare('DELETE FROM inventory_player WHERE id = :id');
+		$request->bindValue(':id', (int) $id, \PDO::PARAM_INT);
+
+		$request->execute();
 	}
 
 }

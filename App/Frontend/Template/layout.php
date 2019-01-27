@@ -58,6 +58,10 @@
 						</li>
 
 						<li class="nav-item">
+							<a class="nav-link" href="/admin/">Admin</a>
+						</li>
+
+						<li class="nav-item">
 							<a class="nav-link" href="/allCharacters.html">Personnages</a>
 						</li>
 						
@@ -119,15 +123,6 @@
 			<p>Bonjour <?= $user->getAttribute('pseudo')?></p>
 	<p>Ton ID est  <?= $user->getAttribute('id')?></p>
 
-	<div id="demo">
-	<form  method="post" action="">
-		<p>Yes</p>
-		<input type="submit" id="btnTest" value="Envoyer" />
-	</form>
-</div>
-
-			
-			<button type="button" id="btnTestDelete">effacer</button>
 			<div class="row text_frontend">
 
 				<?php if($user->hasMessage()){
@@ -156,10 +151,10 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="Web/js/ajax.js"></script>
+	
 	<script type="text/javascript" src="Web/js/time.js"></script>
 	<script type="text/javascript" src="Web/js/form.js"></script>
-	<script type="text/javascript" src="Web/js/test.js"></script>
+	
 
 </body>
 </html>

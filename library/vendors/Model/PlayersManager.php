@@ -9,7 +9,13 @@ abstract class PlayersManager extends Manager{
 
 	abstract protected function newPlayers(Players $player);
 
+	abstract public function connexionAdministrator($pseudo);
+
 	abstract public function connexionPlayer($pseudo);
+
+	abstract public function getAllMembers();
+
+	abstract public function delete($id);
 
 	public function save(Players $player){
 

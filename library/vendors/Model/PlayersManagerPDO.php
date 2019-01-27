@@ -34,6 +34,20 @@ class PlayersManagerPDO extends PlayersManager{
 		return $connexion;
 	}
 
+	public function connexionAdministrator($pseudo){
+
+		$request = $this->dao->prepare('SELECT id, password, administrator FROM players WHERE pseudo = :pseudo AND administrator = 1');
+
+		$request->bindValue(':pseudo', $pseudo, \PDO::PARAM_STR);
+		$request->execute();
+
+		$request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'Entity\Players');
+
+		$connexion = $request->fetch();
+
+		return $connexion;
+	}
+
 	public function getAllMembers(){
 
 		$request = $this->dao->query('SELECT id, pseudo, email, administrator, DATE_FORMAT(date, "%d/%m/%Y") AS date FROM players');

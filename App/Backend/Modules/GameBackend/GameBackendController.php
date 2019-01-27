@@ -25,15 +25,18 @@ class GameBackendController extends BackController{
 
     	$this->page->addVarPage('title', 'Page de connexion');
 
-		$this->processPlayerFormConnexion($request);
+		$this->processAdministratorFormConnexion($request);
 
   	}
 
-  	public function processPlayerFormConnexion(HTTPRequest $request){
+  	public function processAdministratorFormConnexion(HTTPRequest $request){
 
-		$player = new Players;
+		$player = new Players([
+    	'pseudo' => htmlspecialchars($request->postData('pseudo')),
+		'password' => htmlspecialchars($request->postData('password')),
+    	]);
 
-		$connexion = $this->managers->getManagerOf('Players')->connexionPlayer($request->postData('pseudo'));
+		$connexion = $this->managers->getManagerOf('Players')->connexionAdministrator($request->postData('pseudo'));
 
 		$password = htmlspecialchars($request->postData('password'));
 
@@ -41,14 +44,15 @@ class GameBackendController extends BackController{
 
 		if($request->method() == 'POST'){
 
-			if($isCorrect){
+			if(($isCorrect) && ($connexion['administrator'] == 1)){
 
+				$this->app->user()->setAttribute('administrator', $connexion['administrator']);
 				$this->app->user()->setAttribute('pseudo', $request->postData('pseudo'));
 				$this->app->user()->setAuthenticated(true);
 				$this->app->httpResponse()->redirect('/admin/');
 			}else{
 
-				$this->app->user()->setMessage('Le pseudo ou le mot de passe est incorrect');
+				$this->app->user()->setMessage('Vous n\'êtes pas l\'administrateur');
 			}
 		}
 

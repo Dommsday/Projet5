@@ -11,6 +11,7 @@ class Players extends Entity{
 	protected $email;
 	protected $password;
 	protected $passwordConfirm;
+	protected $administrator;
 	protected $date;
 
 	const PSEUDO_INVALIDE = 1;
@@ -72,6 +73,15 @@ class Players extends Entity{
 		$this->passwordConfirm = $passwordConfirm;
 	}
 
+	public function setAdministrator($administrator){
+		$administrator = (int) $administrator;
+
+		if($administrator > 0){
+
+			$this->administrator = $administrator;
+		}
+	}
+
 	public function setDate(\DateTime $date){
 
 		$this->date = $date;
@@ -95,6 +105,10 @@ class Players extends Entity{
 
 	public function passwordConfirm(){
 		return $this->passwordConfirm;
+	}
+
+	public function administrator(){
+		return $this->administrator;
 	}
 
 	public function date(){

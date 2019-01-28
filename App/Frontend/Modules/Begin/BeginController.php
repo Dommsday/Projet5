@@ -19,7 +19,11 @@ class BeginController extends BackController{
 	public function executeIndex(HTTPRequest $request){
 
 		$this->page->addVarPage('title', 'L\'histoire dont vous êtes le héros');
-		
+
+		$player = $this->managers->getManagerOf('Players')->connexionAdministrator($request->postData('pseudo'));
+
+		$this->page->addVarPage('player', $player);
+
 	}
 
 	//Méthode qui affiche la liste des personnages
@@ -27,16 +31,12 @@ class BeginController extends BackController{
 
 		$this->page->addVarPage('title', 'Liste des personnages');
 
-		$manager = $this->managers->getManagerOf('Begin');
+		$allCharacters = $this->managers->getManagerOf('Begin')->getAllCharacters();
 
-		$this->page->addVarPage('characters', $manager->getAllCharacters());
+		$this->page->addVarPage('allCharacters', $allCharacters);
 
 	}
 
-	public function executeAbout(HTTPRequest $request){
-
-		$this->page->addVarPage('title', 'A propos');
-	}
 
 	public function executeInscription(HTTPRequest $request){
 
@@ -50,6 +50,8 @@ class BeginController extends BackController{
 
 		$player = new Players;
 
+		$verif = $this->managers->getManagerOf('Players')->connexionPlayer($request->postData('pseudo'));
+
 		$pseudo = htmlspecialchars($request->postData('pseudo'));
 		$email = htmlspecialchars($request->postData('email'));
 		$password = htmlspecialchars($request->postData('password'));
@@ -62,7 +64,11 @@ class BeginController extends BackController{
 
 		if($request->method() == 'POST'){
 
-			if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+			if($pseudo == $verif['pseudo']){
+
+				$this->app->user()->setMessage('Le pseudo est déjà utilisé');
+
+			}elseif(filter_var($email, FILTER_VALIDATE_EMAIL)){
 
 				if(($passwordConfirm == $password) && (strlen($pseudo) >= $pseudoLength) && (strlen($password) >= $passwordLength)){
 
@@ -92,7 +98,8 @@ class BeginController extends BackController{
 
 			$this->app->user()->setAuthenticated(true);
 			$this->app->user()->setAttribute('pseudo', $request->postData('pseudo'));
-			$this->app->httpResponse()->redirect('.');
+			$this->app->user()->setAttribute('id', $request->postData('id'));
+			$this->app->httpResponse()->redirect('/confirmation-inscription.html');
 		}
 
 		$this->page->addVarPage('playersForm', $playersForm->createView());
@@ -120,10 +127,11 @@ class BeginController extends BackController{
 		if($request->method() == 'POST'){
 
 			if($isCorrect){
-
 				$this->app->user()->setAttribute('pseudo', $request->postData('pseudo'));
+				$this->app->user()->setAttribute('id', $connexion['id']);
+				$this->app->user()->setAttribute('administrator', $connexion['administrator']);
 				$this->app->user()->setAuthenticated(true);
-				$this->app->httpResponse()->redirect('.');
+				$this->app->httpResponse()->redirect('/confirmation-connexion.html');
 			}else{
 
 				$this->app->user()->setMessage('Le pseudo ou le mot de passe est incorrect');
@@ -141,12 +149,24 @@ class BeginController extends BackController{
 
 	}
 
+	public function executeConfirmInscription(HTTPRequest $request){
+
+    	$this->page->addVarPage('title', 'Confirmation d\'inscription');
+
+  	}
+
+  	public function executeConfirmConnexion(HTTPRequest $request){
+
+  		$this->page->addVarPage('title', 'Confirmation de connexion');
+  	}
+
 	public function executeConfirmDeconnexion(HTTPRequest $request){
 
-    $this->page->addVarPage('title', 'Déconnexion');
+    	$this->page->addVarPage('title', 'Déconnexion');
 
-    $this->app->user()->setAuthenticated(false);
+    	$this->app->user()->setAuthenticated(false);
 
-    session_destroy(); 
+    	session_destroy(); 
+
   }
 }

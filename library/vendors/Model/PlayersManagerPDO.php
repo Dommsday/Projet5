@@ -22,7 +22,7 @@ class PlayersManagerPDO extends PlayersManager{
 
 	public function connexionPlayer($pseudo){
 
-		$request = $this->dao->prepare('SELECT id, pseudo, password FROM players WHERE pseudo = :pseudo');
+		$request = $this->dao->prepare('SELECT id, pseudo, password, administrator FROM players WHERE pseudo = :pseudo');
 
 		$request->bindValue(':pseudo', $pseudo, \PDO::PARAM_STR);
 		$request->execute();

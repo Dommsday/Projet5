@@ -57,9 +57,15 @@
 							<a class="nav-link" href="/">Accueil</a>
 						</li>
 
+						<?php
+							if($user->getAttribute('administrator') == 1){
+						?>
 						<li class="nav-item">
 							<a class="nav-link" href="/admin/">Admin</a>
 						</li>
+						<?php
+						}
+						?>
 
 						<li class="nav-item">
 							<a class="nav-link" href="/allCharacters.html">Personnages</a>

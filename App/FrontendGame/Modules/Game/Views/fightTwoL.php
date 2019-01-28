@@ -26,7 +26,7 @@
 
 		</table>
 
-		<button id="button-attak-crow">Attaquer</button>
+		<button id="button-attak-crow" class="button-attak-enemy">Attaquer</button>
 	</div>
 
 	<div id="chest1-fightTwo" class="chest chestTwoL">

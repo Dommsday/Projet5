@@ -26,9 +26,12 @@
 
 		</table>
 
-		<button id="button-attak-bat">Attaquer</button>
+		<button id="button-attak-bat" class="button-attak-enemy">Attaquer</button>
 	</div>
-
+	
+	<?php
+		if(isset($display) && $display == 1){
+	?>
 	<div id="stick1" class="stick stick-fight">
 			
 		<img class="stick-img" src="/Web/images/stick.png" />
@@ -36,11 +39,15 @@
 
 		<div id="action-stick1" class="action-stick">
 			<form action="" method="post">
+				<input type="hidden" name="stick1"/>
 				<?= $formStick ?>
 				<input id="btnStick1" type="submit" value="Prendre" />
 			</form>
 		</div>
 	</div>
+	<?php
+	}
+	?>
 
 	<div id="choise-road">
 		<a class="choise-top direction" href="/game/chest-one-left.html">Aller tout droit</a>

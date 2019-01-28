@@ -26,7 +26,7 @@
 
 		</table>
 
-		<button id="button-attak-wolf">Attaquer</button>
+		<button id="button-attak-wolf" class="button-attak-enemy">Attaquer</button>
 	</div>
 
 	<div id="chest1" class="chest chestOne chestFight">
@@ -38,18 +38,26 @@
 		</div>
 	</div>
 
-	<div id="apple1" class="apple-fight apple-fight-four">
-				
-		<img class="apple-img" src="/Web/images/apple.png" />
-		<?= $apple['name']?>
+	<?php
+		if(isset($displayApple1) && $displayApple1 == 1){
+	?>
 
-		<div id="action1" class="action">
-			<form action="" method="post">
-				<?= $formApple ?>
-				<input type="submit" value="Prendre" id="btnApple1"/>
-			</form>
+		<div id="apple1" class="apple-fight apple-fight-four">
+				
+			<img class="apple-img" src="/Web/images/apple.png" />
+			<?= $apple['name']?>
+
+			<div id="action1" class="action">
+				<form action="" method="post">
+					<?= $formApple ?>
+					<input type="submit" name="apple1" value="Prendre" id="btnApple1"/>
+				</form>
+			</div>
 		</div>
-	</div>
+
+	<?php
+	}
+	?>
 
 
 	<div id="choise-road">

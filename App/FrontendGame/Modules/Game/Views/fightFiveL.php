@@ -27,8 +27,30 @@
 
 		</table>
 
-		<button id="button-attak-bat">Attaquer</button>
+		<button id="button-attak-bat" class="button-attak-enemy">Attaquer</button>
 	</div>
+
+	<?php
+		if(isset($display) && $display == 1){
+	?>
+
+		<div id="apple1" class="apple1-fightFiveL apple">
+				
+			<img class="apple-img" src="/Web/images/apple.png" />
+			<?= $apple['name']?>
+
+			<div id="action1" class="action">
+				<form action="" method="post">
+					<input type="hidden" name="apple1"/>
+					<?= $formApple ?>
+					<input type="submit" value="Prendre" id="btnApple1"/>
+				</form>
+			</div>
+		</div>
+
+	<?php
+	}
+	?>
 
 	<div id="choise-road">
 		<a class="choise-top" href="/game/fountain-two-left.html">Aller tout droit</a>

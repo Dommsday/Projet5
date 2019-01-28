@@ -26,7 +26,7 @@
 
 		</table>
 
-		<button id="button-attak-wolf">Attaquer</button>
+		<button id="button-attak-wolf" class="button-attak-enemy">Attaquer</button>
 	</div>
 
 	<div id="choise-road">

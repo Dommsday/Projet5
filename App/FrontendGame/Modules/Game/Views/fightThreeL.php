@@ -26,7 +26,7 @@
 
 		</table>
 
-		<button id="button-attak-wolf">Attaquer</button>
+		<button id="button-attak-wolf" class="button-attak-enemy">Attaquer</button>
 	</div>
 
 	<div id="chest1" class="chest chestOne">
@@ -38,6 +38,12 @@
 		</div>
 	</div>
 
+	
+
+	<?php
+		if(isset($display) && $display == 1){
+	?>
+
 	<div id="acorn1" class="acorn acorn1-fight-three">
 			
 		<img class="acorn-img" src="/Web/images/acorn.png" />
@@ -45,24 +51,16 @@
 
 		<div id="action-acorn1" class="action-acorn">
 			<form action="" method="post">
+				<input type="hidden" name="acorn1"/>
 				<?= $formAcorn ?>
 				<input id="btnAcorn1" type="submit" value="Prendre" />
 			</form>
 		</div>
 	</div>
 
-	<div id="acorn2" class="acorn acorn2-fight-three">
-			
-		<img class="acorn-img" src="/Web/images/acorn.png" />
-		<?= $acorn['name']?>
-
-		<div id="action-acorn1" class="action-acorn">
-			<form action="" method="post">
-				<?= $formAcorn ?>
-				<input id="btnAcorn1" type="submit" value="Prendre" />
-			</form>
-		</div>
-	</div>
+	<?php
+	}
+	?>
 
 	<div id="choise-road">
 		<a class="choise-top" href="/game/portal.html">Aller tout droit</a>

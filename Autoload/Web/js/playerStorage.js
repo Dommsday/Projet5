@@ -35,6 +35,9 @@ var PlayerStorage = {
 	textLife: document.createElement("p"),
 	textLifetime: document.createElement("p"),
 	btnObject: document.createElement("button"),
+
+	//Valeur des dégâts par défault
+	defaultDamages: 4,
 	
 
 	init: function(){
@@ -52,6 +55,9 @@ var PlayerStorage = {
 		//Partie dégâts du joueur
 		let damagePlayer = PlayerStorage.damagePlayer.textContent;
 		PlayerStorage.storagePlayer.setItem("damagePlayer", damagePlayer);
+
+		//On enregistre la valeur de dégâts par default
+		PlayerStorage.storagePlayer.setItem("defaultDamages", PlayerStorage.defaultDamages);
 
 		//Arme du joueur
 		let weaponPlayer = PlayerStorage.weaponPlayer.textContent;
@@ -104,6 +110,7 @@ var PlayerStorage = {
 	show_modal_description: function(){
 
 		PlayerStorage.statLife.textContent = PlayerStorage.lifePlayer.textContent;
+
 		PlayerStorage.statDamage.textContent = PlayerStorage.damagePlayer.textContent;
 
 		for(let i = 0; i< PlayerStorage.modal_object.length; i++){
@@ -208,63 +215,76 @@ var PlayerStorage = {
 
 				PlayerStorage.all_modal_description.style.display="none";
 				
-				PlayerStorage.storagePlayer.setItem("objectLife", PlayerStorage.modal_life[i].textContent);
-				PlayerStorage.storagePlayer.setItem("objectDamages", PlayerStorage.modal_damages[i].textContent);
-				PlayerStorage.storagePlayer.setItem("objectName", PlayerStorage.modal_object[i].textContent);
-				PlayerStorage.storagePlayer.setItem("objectLifetime", PlayerStorage.modal_lifetime[i].textContent);
-				
-				
 				PlayerStorage.spanLife.textContent = "";
 				PlayerStorage.spanDamages.textContent = "";
-				PlayerStorage.statLifetime.textContent = "";
 
-				PlayerStorage.spanLife.textContent += " + "+PlayerStorage.storagePlayer.getItem("objectLife");
-				PlayerStorage.spanDamages.textContent += " + "+PlayerStorage.storagePlayer.getItem("objectDamages");
+				/*if(!(PlayerStorage.modal_lifetime[i].textContent == 1)){
+					//PlayerStorage.statLifetime.textContent = "";
+				}*/	
 
-				if(!(PlayerStorage.storagePlayer.getItem("objectLifetime") == 1)){
-					PlayerStorage.nameWeapon.textContent = PlayerStorage.storagePlayer.getItem("objectName");
-				}else{
-					PlayerStorage.nameWeapon.textContent = "Mains nues";
+				//PlayerStorage.statDamage = PlayerStorage.modal_damages[i].textContent;
+				let valueSpanDamage = PlayerStorage.modal_damages[i].textContent;
+				PlayerStorage.spanDamages.textContent = valueSpanDamage;
+				
+
+				//Si le nombre "Utilisation" n'a pas la valeur 1
+				if(!(PlayerStorage.modal_lifetime[i].textContent == 1)){
+
+					PlayerStorage.nameWeapon.textContent = PlayerStorage.modal_object[i].textContent;
+					PlayerStorage.statLifetime.textContent = PlayerStorage.modal_lifetime[i].textContent;
+					PlayerStorage.statDamage.textContent = PlayerStorage.storagePlayer.getItem("defaultDamages");
 				}
 
-				PlayerStorage.statLifetime.textContent = PlayerStorage.storagePlayer.getItem("objectLifetime");
 				
+				let valueSpanLife = PlayerStorage.modal_life[i].textContent; 
+				PlayerStorage.spanLife.textContent = valueSpanLife;
 
 			});
 		}
 
-		//SI L'INVENTAIRE EST PLEIN
-		if(PlayerStorage.modal_object.length === 9){
-			PlayerStorage.btnInventory.classList.add("full_inventory");
-			PlayerStorage.btnInput.disabled = true;
-		}
-
 		//QUAND ON CLIQUE SUR 'Utiliser'
 		PlayerStorage.btnObject.addEventListener("click",function(){
-					
+
+			let newNameWeapon = PlayerStorage.nameWeapon.textContent;
+			PlayerStorage.storagePlayer.setItem("objectName", newNameWeapon);
+
+			let newStatLife = Number(PlayerStorage.spanLife.textContent) + Number(PlayerStorage.statLife.textContent);
+			PlayerStorage.storagePlayer.setItem("objectLife", newStatLife);
+
+			let newStatDamage = Number(PlayerStorage.spanDamages.textContent) + Number(PlayerStorage.statDamage.textContent);
+			PlayerStorage.storagePlayer.setItem("objectDamages", newStatDamage);
+
+			/*let newStatLife = Number(PlayerStorage.spanLife.textContent) + Number(PlayerStorage.statLife.textContent);
+			PlayerStorage.storagePlayer.setItem("objectLife", newStatLife);
+
+			let newStatDamage = Number(PlayerStorage.spanDamage.textContent) + Number(PlayerStorage.storagePlayer.getItem('damagePlayer'));
+			PlayerStorage.storagePlayer.setItem("objectDamages", newStatDamage);*/
+
+			let newStatLifetime = PlayerStorage.statLifetime.textContent;
+			PlayerStorage.storagePlayer.setItem("objectLifetime", newStatLifetime);
+
 			PlayerStorage.spanLife.textContent = "";
 			PlayerStorage.spanDamages.textContent = "";
 
-			let newNameWeapon = PlayerStorage.storagePlayer.getItem("objectName");
-			let newStatLife = Number(PlayerStorage.storagePlayer.getItem("objectLife")) + Number(PlayerStorage.storagePlayer.getItem('lifePlayer'));
-			let newStatDamage = Number(PlayerStorage.storagePlayer.getItem("objectDamages")) + Number(PlayerStorage.storagePlayer.getItem('damagePlayer'));
-			let newStatLifetime = PlayerStorage.storagePlayer.getItem("objectLifetime");
-
 			//VALEUR DANS LA BARRE DU JEU
-			PlayerStorage.lifePlayer.textContent = newStatLife;
-			PlayerStorage.damagePlayer.textContent = newStatDamage;
-			PlayerStorage.weaponPlayer.textContent = newNameWeapon;
+			PlayerStorage.lifePlayer.textContent = PlayerStorage.storagePlayer.getItem("objectLife");
+			PlayerStorage.damagePlayer.textContent = PlayerStorage.storagePlayer.getItem("objectDamages");
+			
 
 			//VALEUR DANS L'INVENTAIRE
-			PlayerStorage.statLife.textContent = newStatLife;
-			PlayerStorage.statDamage.textContent = newStatDamage;
+			PlayerStorage.spanDamages.textContent = PlayerStorage.storagePlayer.getItem("objectDamages");
 
+			//Si le nombre "Utilisation" n'a pas la valeur 1
 			if(!(PlayerStorage.storagePlayer.getItem("objectLifetime") == 1)){
 
-				PlayerStorage.statLifetime.textContent = newStatLifetime;
-				PlayerStorage.nameWeapon.textContent = newNameWeapon;
-			}
+				//DANS LA BARRE DU JEU
+				PlayerStorage.weaponPlayer.textContent = PlayerStorage.storagePlayer.getItem("objectName");
 
+				//VALEUR DE L'INVENTAIRE
+				PlayerStorage.nameWeapon.textContent = PlayerStorage.storagePlayer.getItem("objectName");
+				PlayerStorage.spanLife.textContent = PlayerStorage.storagePlayer.getItem("objectLife");
+				//PlayerStorage.statLifetime.textContent = newStatLifetime;
+			}
 
 			PlayerStorage.storagePlayer.setItem("objectName", PlayerStorage.weaponPlayer.textContent);
 			PlayerStorage.storagePlayer.setItem("lifePlayer", PlayerStorage.lifePlayer.textContent);
@@ -272,6 +292,12 @@ var PlayerStorage = {
 			PlayerStorage.storagePlayer.setItem("objectLifetime", PlayerStorage.statLifetime.textContent);
 
 		});
+
+		//SI L'INVENTAIRE EST PLEIN
+		if(PlayerStorage.modal_object.length === 9){
+			PlayerStorage.btnInventory.classList.add("full_inventory");
+			PlayerStorage.btnInput.disabled = true;
+		}
 	},
 
 	refresh: function(){
@@ -316,7 +342,7 @@ var PlayerStorage = {
 					PlayerStorage.nameWeapon.textContent = "Mains nues";
 
 					//On remet la force initiale
-					let restartDamages = PlayerStorage.storagePlayer.getItem('damagePlayer') - PlayerStorage.storagePlayer.getItem("objectDamages");
+					let restartDamages = PlayerStorage.storagePlayer.getItem('defaultDamages');
 
 
 					PlayerStorage.damagePlayer.textContent = restartDamages;

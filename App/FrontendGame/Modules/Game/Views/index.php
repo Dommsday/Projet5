@@ -13,57 +13,27 @@
 
 	<div id="all-apple">
 
-		<div id="apple1" class="apple">
+		<?php
+		if(isset($display) && $display  == 1){
+			
+		?>
+
+		<div id="apple1" class="apple1-index apple">
 				
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
+			<img class="apple-img" src="<?= $apple['src']?>" alt="<?= $apple['name']?>" title="<?= $apple['name']?>"/>
 
 			<div id="action1" class="action">
 				<form action="" method="post">
 					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple1"/>
+					<input type="submit" name="apple1" value="Prendre" id="btnApple1"/>
 				</form>
 			</div>
 		</div>
 
-		<div id="apple2" class="apple apple2-index">
+		<?php
+		}
+		?>	
 
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
-
-			<div id="action2" class="action">
-				<form action="" method="post">
-					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple2"/>
-				</form>
-			</div>
-		</div>
-
-		<div id="apple3" class="apple apple3-index">
-
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
-
-			<div id="action3" class="action">
-				<form action="" method="post">
-					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple3"/>
-				</form>
-			</div>
-		</div>
-
-		<div id="apple4" class="apple apple4-index">
-			
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
-
-			<div id="action4" class="action">
-				<form action="" method="post">
-					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple4"/>
-				</form>
-			</div>
-		</div>
 	</div>
 
 	<div id="choise-road">

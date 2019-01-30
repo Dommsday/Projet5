@@ -35,8 +35,7 @@
 
 		<div id="apple1" class="apple1-fightOneR apple">
 				
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
+			<img class="apple-img" src="<?= $apple['src']?>" alt="<?= $apple['name']?>" title="<?= $apple['name']?>"/>
 
 			<div id="action1" class="action">
 				<form action="" method="post">

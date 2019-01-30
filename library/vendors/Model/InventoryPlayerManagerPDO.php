@@ -10,7 +10,7 @@ class InventoryPlayerManagerPDO extends InventoryPlayerManager{
 
 	protected function add(InventoryPlayer $inventoryPlayer){
 
-		$request = $this->dao->prepare('INSERT INTO inventory_player SET id_player = :id_player, name = :name, description = :description, type = :type, damages = :damages, life = :life, lifetime = :lifetime');
+		$request = $this->dao->prepare('INSERT INTO inventory_player SET id_player = :id_player, name = :name, description = :description, type = :type, damages = :damages, life = :life, lifetime = :lifetime, src = :src');
 
 		$request->bindValue(':name', $inventoryPlayer->name());
 		$request->bindValue(':description', $inventoryPlayer->description());
@@ -19,6 +19,7 @@ class InventoryPlayerManagerPDO extends InventoryPlayerManager{
 		$request->bindValue(':life', (int) $inventoryPlayer->life(), \PDO::PARAM_INT);
 		$request->bindValue(':lifetime', (int) $inventoryPlayer->lifetime(), \PDO::PARAM_INT);
 		$request->bindValue(':id_player', (int) $inventoryPlayer->idPlayer(), \PDO::PARAM_INT);
+		$request->bindValue(':src', $inventoryPlayer->src());
 
 		$request->execute();
 	}
@@ -40,7 +41,7 @@ class InventoryPlayerManagerPDO extends InventoryPlayerManager{
 
 	public function getAllInventory($id_player){
 
-		$request = $this->dao->prepare('SELECT id, name, description, damages, life, type, lifetime FROM inventory_player WHERE id_player = :id_player LIMIT 0, 9');
+		$request = $this->dao->prepare('SELECT id, name, description, damages, life, type, lifetime, src FROM inventory_player WHERE id_player = :id_player LIMIT 0, 9');
 
 		$request->bindValue(':id_player', (int) $id_player, \PDO::PARAM_INT);
 

@@ -13,26 +13,49 @@
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button class="open_chest">Ouvrir</button>
+			<button type="button" class="open_chest" data-toggle="modal" data-target="#chestFourL">Ouvrir</button>
 		</div>
 	</div>
 
-	<div id="stick1" class="stick stick-fight">
+		<?php
+		if(isset($display) && $display == 1){
+	?>
+	<div id="stick1" class="stick stick-chestFourL">
 			
-		<img class="stick-img" src="/Web/images/stick.png" />
-		<?= $stick['name']?>
+		<img class="stick-img" src="<?= $stick['src']?>" alt="<?= $stick['name']?>" title="<?= $stick['name']?>"/>
 
 		<div id="action-stick1" class="action-stick">
 			<form action="" method="post">
+				<input type="hidden" name="stick1"/>
 				<?= $formStick ?>
-				<input id="btnStick1" type="submit" value="Prendre" />
+				<input id="btnStick2" type="submit" value="Prendre" />
 			</form>
 		</div>
 	</div>
+	<?php
+	}
+	?>
 
 	<div id="choise-road">
 		<a class="choise-left" href="/game/village-two-left.html">Aller à gauche</a>
 		<a class="choise-right" href="/game/impasse-one-left.html">Aller à droite</a>
 	</div>
 
+</div>
+
+<div class="modal fade" id="chestFourL" tabindex="-1" role="dialog" aria-labelledby="chestFourLLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		    <div class="modal-header">
+		       <h5 class="modal-title" id="chestOneLLabel">Un bout de parchemin</h5>
+		    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		        <span aria-hidden="true">&times;</span>
+		    </button>
+		    </div>
+		     <div class="modal-body">
+		        <p>Un petit bout de papier, preques détruit. On peut y apercevoir des chiffres. Vous devriez les noter quelques part</p>
+		        777
+		     </div>
+		</div>
+	</div>
 </div>

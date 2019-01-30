@@ -34,7 +34,7 @@
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button class="open_chest">Ouvrir</button>
+			<button class="open_chest" data-toggle="modal" data-target="#fightThreeL">Ouvrir</button>
 		</div>
 	</div>
 
@@ -66,4 +66,21 @@
 		<a class="choise-top" href="/game/portal.html">Aller tout droit</a>
 	</div>
 
+</div>
+
+<div class="modal fade" id="fightThreeL" tabindex="-1" role="dialog" aria-labelledby="fightThreeLLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		    <div class="modal-header">
+		       <h5 class="modal-title" id="chestOneLLabel">Un bout de parchemin</h5>
+		    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		        <span aria-hidden="true">&times;</span>
+		    </button>
+		    </div>
+		     <div class="modal-body">
+		        <p>Un petit bout de papier, preques détruit. On peut y apercevoir des chiffres. Vous devriez les noter quelques part</p>
+		        88
+		     </div>
+		</div>
+	</div>
 </div>

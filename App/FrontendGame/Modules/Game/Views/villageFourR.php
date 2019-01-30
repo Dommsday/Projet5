@@ -8,31 +8,27 @@
 		<p><?= nl2br($textVillage['content']) ?></p>
 	</div>
 
-	<div id="apple1" class="apple aplle1-villageFourR">
-				
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
+	<?php
+		if(isset($display) && $display == 1){
+	?>
 
-			<div id="action1" class="action">
-				<form action="" method="post">
-					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple1"/>
-				</form>
-			</div>
-	</div>
-
-	<div id="acorn1" class="acorn acorn-villageFourR">
+	<div id="sword1" class="sword swordOne">
 			
-		<img class="acorn-img" src="/Web/images/acorn.png" />
-		<?= $acorn['name']?>
+		<img class="sword-img" src="<?= $sword['src']?>" alt="<?= $sword['name']?>" title="<?= $sword['name']?>"/>
+		
 
-		<div id="action-acorn1" class="action-acorn">
+		<div id="action_sword1" class="action_sword">
 			<form action="" method="post">
-				<?= $formAcorn ?>
-				<input id="btnAcorn1" type="submit" value="Prendre" />
+				<input type="hidden" name="sword1"/>
+				<?= $formSword ?>
+				<input id="btnSword1" type="submit" value="Prendre" />
 			</form>
 		</div>
 	</div>
+
+	<?php
+	}
+	?>
 
 	<a href="/game/chest-four-left.html">?</a>
 

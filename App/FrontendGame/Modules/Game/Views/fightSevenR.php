@@ -8,8 +8,8 @@
 		<p><?= nl2br($textFight['content']) ?></p>
 	</div>
 
-	<div id ="bat1" class="bat bat-fightSevenR">
-		<img src="/Web/images/bat.gif" class="bat_gif"/>
+		<div id ="crow1" class="crow">
+		<img src="/Web/images/crow.gif" class="crow_gif"/>
 
 		<table class="ennemi-character">
 			<tr class="name-character">
@@ -19,18 +19,44 @@
 			</tr>
 
 			<tr class="stats-character">
-				<td><?= $bat['name']?></td>
-				<td id="damages-bat"><?= $bat['damages']?></td>
-				<td id="life-bat"><?= $bat['life']?></td>
+				<td><?= $crow['name']?></td>
+				<td id="damages-crow"><?= $crow['damages']?></td>
+				<td id="life-crow"><?= $crow['life']?></td>
 			</tr>
 
 		</table>
 
-		<button id="button-attak-bat" class="button-attak-enemy">Attaquer</button>
+		<button id="button-attak-crow" class="button-attak-enemy">Attaquer</button>
+	</div>
+
+	<div id="chest1-fightTwo" class="chest chestfightSevenR">
+			
+		<img class="chest-img" src="/Web/images/chest.png" />
+
+		<div id="action_chest1" class="action_chest">
+			<button type="button" class="open_chest" data-toggle="modal" data-target="#fightSevenR">Ouvrir</button>
+		</div>
 	</div>
 
 	<div id="choise-road">
 		<a class="choise-top" href="/game/portal.html">Aller tout droit</a>
 	</div>
 
+</div>
+
+<div class="modal fade" id="fightSevenR" tabindex="-1" role="dialog" aria-labelledby="fightSevenRLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		    <div class="modal-header">
+		       <h5 class="modal-title" id="chestOneLLabel">Un bout de parchemin</h5>
+		    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		        <span aria-hidden="true">&times;</span>
+		    </button>
+		    </div>
+		     <div class="modal-body">
+		        <p>Un petit bout de papier, preques détruit. On peut y apercevoir des chiffres. Vous devriez les noter quelques part</p>
+		        88
+		     </div>
+		</div>
+	</div>
 </div>

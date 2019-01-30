@@ -23,8 +23,7 @@
 
 		<div id="apple2" class="apple apple2-impasseFour">
 
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
+			<img class="apple-img" src="<?= $apple['src']?>" alt="<?= $apple['name']?>" title="<?= $apple['name']?>"/>
 
 			<div id="action2" class="action">
 				<form action="" method="post">

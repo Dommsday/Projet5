@@ -12,31 +12,27 @@
 
 	<div id="all-apple">
 
-		<div id="apple1" class="apple apple1-villageTwo">
+		<?php
+		if(isset($display) && $display == 1){
+		?>
+
+		<div id="apple1" class="apple1-villageTwo apple">
 				
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
+			<img class="apple-img" src="<?= $apple['src']?>" alt="<?= $apple['name']?>" title="<?= $apple['name']?>"/>
 
 			<div id="action1" class="action">
 				<form action="" method="post">
+					<input type="hidden" name="apple1"/>
 					<?= $formApple ?>
 					<input type="submit" value="Prendre" id="btnApple1"/>
 				</form>
 			</div>
 		</div>
 
-		<div id="apple2" class="apple apple2-villageTwo">
-
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
-
-			<div id="action2" class="action">
-				<form action="" method="post">
-					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple2"/>
-				</form>
-			</div>
-		</div>
+		<?php
+		}
+		?>
+		
 	</div>
 
 	<div id="choise-road">

@@ -34,7 +34,7 @@
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button class="open_chest">Ouvrir</button>
+			<button type="button" class="open_chestbtn" data-toggle="modal" data-target="#fightTwoL">Ouvrir</button>
 		</div>
 	</div>
 	
@@ -43,4 +43,21 @@
 		<a class="choise-right" href="/game/undergrowth-two-left.html">Aller à droite</a>
 	</div>
 
+</div>
+
+<div class="modal fade" id="fightTwoL" tabindex="-1" role="dialog" aria-labelledby="fightTwoLLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		    <div class="modal-header">
+		       <h5 class="modal-title" id="chestOneLLabel">Un bout de parchemin</h5>
+		    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		        <span aria-hidden="true">&times;</span>
+		    </button>
+		    </div>
+		     <div class="modal-body">
+		        <p>Un petit bout de papier, preques détruit. On peut y apercevoir des chiffres. Vous devriez les noter quelques part</p>
+		        777
+		     </div>
+		</div>
+	</div>
 </div>

@@ -13,6 +13,7 @@ class Inventory extends Entity{
 	protected $life;
 	protected $type;
 	protected $lifetime;
+	protected $src;
 
 	const INVALID_NAME = 1;
 	const INVALD_DESCRIPTION = 2;
@@ -20,10 +21,11 @@ class Inventory extends Entity{
 	const INVALD_LIFE = 4;
 	const INVALD_TYPE = 5;
 	const INVALD_LIFETIME = 6;
+	const INVALD_SRC = 7;
 
 	
 	public function Valid(){
-		return !(empty($this->name) || empty($this->description));
+		return !(empty($this->name) || empty($this->description) || empty($this->src));
 	}
 
 	public function setId($id){
@@ -84,10 +86,20 @@ class Inventory extends Entity{
 
 	public function setLifetime($lifetime){
 	
-		if($lifetime > 0 && $lifetime <= 20){
+		if($lifetime >= 0 && $lifetime <= 20){
 
 			$this->lifetime = $lifetime;
 		}
+	}
+
+	public function setSrc($src){
+
+		if(!is_string($src) || empty($src)){
+
+			$this->erreurs[] = self::INVALD_SRC;
+		}
+
+		$this->src = $src; 
 	}
 
 
@@ -118,5 +130,9 @@ class Inventory extends Entity{
 
 	public function lifetime(){
 		return $this->lifetime;
+	}
+
+	public function src(){
+		return $this->src;
 	}
 }

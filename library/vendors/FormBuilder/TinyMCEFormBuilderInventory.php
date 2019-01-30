@@ -80,5 +80,16 @@ class TinyMCEFormBuilderInventory extends TinyMCEBuilder
           new NotNullValidator('Merci de spécifier la durée de vie de l\'objet'),
         ],
        ]));
+
+      $this->tinymce->add(new TextTinyField([
+        'label' => 'Lien',
+        'name' => 'src',
+        'id' => 'src',
+        'rows' => 8,
+        'cols' => 90,
+        'validators' => [
+          new NotNullValidator('Merci de spécifier le lien-image de l\'objet'),
+        ],
+       ]));
   }
 }

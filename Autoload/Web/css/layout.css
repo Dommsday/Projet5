@@ -9,7 +9,6 @@ a:hover{
 	text-decoration: inherit;
 }
 
-
 .text_game, .text_frontend, .dashbord{
 	position: relative;
 	height: auto;
@@ -51,165 +50,7 @@ a:hover{
 	margin-right: 20px;
 }
 
-#test{
-
-	display: flex;
-	flex-direction: column;
-}
-
-/*PARTIE MODAL
-********************/
-.btnModal{
-	width: 30%;
-	height: 12%;
-	padding: 2%;
-	margin-top: 100%;
-}
-
-.btnModal a{
-	font-weight: bold;
-	color: #000000;
-}
-
-
-#testModal{
-	border: 4px solid blue;
-	width: 900px;
-	margin-left: 14%;
-}
-
-.modal-dialog1{
-	border: 2px solid green;
-	width: 500px;
-	height: 500px;
-}
-
-.modal-dialog2{
-	border: 2px solid black;
-	width: 200px;
-	height: 500px;
-}
-
-.modal-dialog3{
-	border: 2px solid orange;
-	width: 250px;
-	height: 500px;
-}
-
-.modal-body2 p{
-	font-weight: bold;
-}
-
- span#life, span#damages{
-	color : #02A676;
-}
-
-.modal-body3{
-	display: flex;
-}
-
-
-#all-modal-dialog{
-	display: flex;
-}
-
-.modal-header{
-	background: #404040;
-	color: #FFFFFF;
-}
-
-.modal-header1{
-	display: flex;
-}
-
-button span{
-	padding: 0px 10px 0px 10px;
-	transition: 0.5s;
-}
-
-button span:hover{
-	background: #B0081A;
-	border-radius: 5px;
-}
-
-.modal-body{
-	height: 350px;
-}
-
-.modal-body-one{
-	display: flex;
-	flex-wrap: wrap;
-}
-
-#modal-img{
-	width: 40%;
-	height: 100%;
-	border: 2px solid black;
-}
-
-#modal-description-player{
-	border: 1px solid #737373;
-	border-radius: 10px;
-	background-color: #737373;
-	width: 55%;
-	height: 40%;
-	margin-left: 4%;
-	padding: 10px;
-}
-
-#modal-description-player p{
-	margin: 0px;
-	font-weight: bold;
-}
-
-.warrior_png_img{
-	width: 100%;
-	height: 100%;
-}
-
-#btnObject{
-	width: 35%;
-	height: 10%;
-	position: absolute;
-	bottom: 1%;
-}
-
-#all-modal-objects{
-	position: relative;
-	display: flex;
-	justify-content: space-around;
-	border: 2px solid black;
-	flex-wrap: wrap;
-	width: 100%;
-}
-
-
-.modal-object{
-	background-color: red;
-	width: 50px;
-	height: 50px;
-	border: 1px solid black;
-	margin-bottom: 1%;
-}
-
-.modal-object-description{
-	border: 1px solid orange;
-}
-
-#all-modal-description{
-	background: #FFFFFF;
-	border: 2px solid black;
-	width: 300px;
-	height: 180px;
-	position: absolute;
-	left: 92%;
-}
-
-
-/*FIN PARTIE MODAL
-**********************/
-
-/*Message qui s'affiche lors des commentaires ou articles*/
+/*message qui s'affiche lors des commentaires ou articles*/
 .message{
 	padding-top: 10px;
 	font-size: 20px;
@@ -298,6 +139,71 @@ header{
 /*FIN PARTIE BANNIERE
 *******************/
 
+/*PARTIE SLIDER
+**********************/
+
+#slider {
+    height: 600px;
+    width: 100%;
+    background-color: #000000;
+    position: relative;
+}
+
+.container_items {
+    position: relative;
+    width: 99%;
+    height: 100%;
+}
+
+.item_slider {
+    position: absolute;
+    height: 90%;
+    width: 95%;
+    background-color: #737373;
+    border: 2px solid #b5ebf2;
+    left: 3%;
+    top: 5%;
+    border-radius: 6px;
+    box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.item_content {
+    text-align: center;
+}
+
+.item_content h2 {
+    font-size: 3.2em;
+    color: #b5ebf2;
+    margin-bottom: 40px;
+}
+
+.item_content p {
+    color: #b5ebf2;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button_left,
+.button_right {
+    position: absolute;
+    top: 45%;
+    z-index: 99;
+    font-size: 25px;
+    color: #c0fafd;
+}
+
+.button_right {
+    right: 1%;
+}
+
+/*FIN PARTIE SLIDER
+***********************/
+
+
 /*DEBUT FOOTER
 *******************/
 footer{
@@ -381,6 +287,12 @@ tbody tr{
 /*PARTIE GAME
 *******************/
 
+#container-inventory{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
 #button_inventory{
 	width: 10%;
 	margin: auto;
@@ -427,13 +339,24 @@ tbody tr{
 	
 }
 
+#container-table-button{
+	display: flex;
+	margin-top: 2%;
+	margin-bottom: 4%;
+}
+
 .table-inventory{
-	width: 200px;
-	margin: auto;
+	width: 30%;
+	background: #FFFFFF;
+	margin-left: 25%;
+}
+
+#button_inventory{
+	margin-right: 25%;
 }
 
 .table-inventory th{
-	padding: 2px;
+	padding: 5px;
 }
 
 .table-inventory td{
@@ -441,7 +364,6 @@ tbody tr{
 }
 
 .table-inventory td, .table-inventory th{
-	background: white;
 	border: 2px solid black;
 	text-align: center;
 }
@@ -454,33 +376,14 @@ tbody tr{
 	display: flex;
 }
 
-#all-apple-gate{
-	display: flex;
-}
-
-.apple2-index{
+.apple1-index{
 	margin-top: 5%;
-}
-
-.apple3-index{
-	margin-top: 25%;
-}
-
-.apple4-index{
-	margin-left: 25%;
-}
-
-.apple-fight-four{
-	margin-bottom: 6%;
+	margin-left: 20%;
 }
 
 .apple{
 	width: 25%;
 }
-
-/*.apple-chestFive, .apple2-chestFive, .apple2-villageTwo, .apple1-villageTwo, .apple{
-	width: 25%;
-}*/
 
 .apple-chestFive{
 	
@@ -493,7 +396,8 @@ tbody tr{
 
  #apple1, #apple2, #apple3, #apple4{
  	border: solid black 2px;
- 	height: 120px;
+ 	height: 100px;
+ 	width: 10%;
  }
 
  #stick1, #stick2{
@@ -596,7 +500,7 @@ tbody tr{
 }
 
 .apple-img{
-	width: 17%;
+	width: 45%;
 	margin-bottom: 2%;
 }
 
@@ -612,7 +516,7 @@ tbody tr{
 	margin-bottom: 6%;
 }
 
-.chestTwoL, .chestFourL, .chestEightR{
+.chestTwoL, .chestFourL, .chestEightR, .chestFightFourR, .chestfightSevenR{
 	width: 30%;
  	border: 2px solid black;
  	margin: auto;
@@ -653,6 +557,164 @@ tbody tr{
 /*FIN PARTIE GIF
 *********************/
 
+/*PARTIE MODAL
+********************/
+#all-modal-dialog{
+	margin-top: 6%;
+	margin-left: 10%;
+	width: 80%;
+	height: auto;
+	display: flex;
+}
+
+.modal-dialog1, .modal-dialog2, .modal-dialog3{
+	height: auto;
+}
+
+.modal-dialog1{
+	width: 40%;
+}
+
+.modal-dialog2, .modal-dialog3{	
+	width: 20%;
+}
+
+.modal-body2 p{
+	font-weight: bold;
+}
+
+ span#life, span#damages{
+	color : #02A676;
+}
+
+.modal-body3{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+
+#all-modal-dialog{
+	display: flex;
+}
+
+.modal-header{
+	background: #404040;
+	color: #FFFFFF;
+}
+
+.modal-header1{
+	display: flex;
+}
+
+button span{
+	padding: 0px 10px 0px 10px;
+	transition: 0.5s;
+}
+
+button span:hover{
+	background: #B0081A;
+	border-radius: 5px;
+}
+
+.modal-body{
+	height: 350px;
+}
+
+.modal-body-one{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#modal-img{
+	width: 40%;
+	height: 100%;
+	border: 2px solid black;
+}
+
+#modal-description-player{
+	border: 1px solid #737373;
+	border-radius: 10px;
+	background-color: #737373;
+	width: 55%;
+	height: 40%;
+	margin-left: 4%;
+	padding: 10px;
+}
+
+#modal-description-player p{
+	margin: 0px;
+	font-weight: bold;
+}
+
+.warrior_png_img{
+	width: 100%;
+	height: 100%;
+}
+
+#btnObject{
+	width: 35%;
+	height: 10%;
+	position: absolute;
+	bottom: 1%;
+}
+
+#all-modal-objects{
+	position: relative;
+	display: flex;
+	justify-content: space-around;
+	border: 2px solid black;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+
+.modal-object{
+	background-color: red;
+	width: 16%;
+	height: 12%;
+	margin-top: 2%;
+	margin-bottom: 1%;
+}
+
+.modal-object-description{
+	border: 1px solid orange;
+}
+
+#all-modal-description{
+	background: #FFFFFF;
+	border: 2px solid black;
+	width: 100%;
+	height: auto;
+	position: absolute;
+	left: 92%;
+}
+
+#all-modal-objects{
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.btnModal{
+	position: absolute;
+	width: 45%;
+	height: 12%;
+	padding: 2%;
+	bottom: 1%;
+	border: none;
+}
+
+.btnModal a{
+	font-weight: bold;
+	color: #000000;
+}
+
+
+/*FIN PARTIE MODAL
+**********************/
+
 
 /*FIN PARTIE GAME
 *********************/
@@ -692,6 +754,70 @@ tbody tr{
 }
 /*Fin Index
 ****************/
+
+/*DEBUT TOUT LES OBJETS
+**********************/
+.all-resume{
+	background: #FFFFFF;
+}
+
+#title-all-inventory th{
+	
+	padding: 10px;
+	text-align: center;
+}
+
+#container-all-inventory td{
+	padding: 10px;
+}
+
+#container-all-inventory .description{
+	width: 20%;
+}
+
+#container-all-inventory .damages{
+	text-align: center;
+}
+
+#container-all-inventory .life{
+	width: 10%;
+	text-align: center;
+}
+
+#container-all-inventory .lifetime{
+	width: 15%;
+	text-align: center;
+}
+
+.fa-pen, .fa-trash-alt{
+	color: #000000;
+}
+
+.picture{
+	width: 20%;
+	text-align: center;
+}
+
+.img-all-pictures{
+	width: 40px;
+	height: 40px;
+}
+
+.all-pictures{
+	width: 8%;
+	height: 8%;
+}
+
+.btn-all-inventory{
+	margin-top: 2%;
+}
+
+.btn-all-inventory a{
+	color: #000000;
+	font-weight: bold;
+}
+/*FIN TOUT LES OBJETS
+*************************/
 
 
 /*FIN PARTIE BACKEND

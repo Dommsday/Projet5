@@ -8,8 +8,8 @@
 		<p><?= nl2br($textFight['content']) ?></p>
 	</div>
 
-		<div id ="crow1" class="crow">
-		<img src="/Web/images/crow.gif" class="crow_gif"/>
+	<div id ="bat1" class="bat bat-fightSevenR">
+		<img src="/Web/images/bat.gif" class="bat_gif"/>
 
 		<table class="ennemi-character">
 			<tr class="name-character">
@@ -19,23 +19,14 @@
 			</tr>
 
 			<tr class="stats-character">
-				<td><?= $crow['name']?></td>
-				<td id="damages-crow"><?= $crow['damages']?></td>
-				<td id="life-crow"><?= $crow['life']?></td>
+				<td><?= $bat['name']?></td>
+				<td id="damages-bat"><?= $bat['damages']?></td>
+				<td id="life-bat"><?= $bat['life']?></td>
 			</tr>
 
 		</table>
 
-		<button id="button-attak-crow" class="button-attak-enemy">Attaquer</button>
-	</div>
-
-	<div id="chest1-fightTwo" class="chest chestFightFourR">
-			
-		<img class="chest-img" src="/Web/images/chest.png" />
-
-		<div id="action_chest1" class="action_chest">
-			<button class="open_chest">Ouvrir</button>
-		</div>
+		<button id="button-attak-bat" class="button-attak-enemy">Attaquer</button>
 	</div>
 
 	<div id="choise-road">

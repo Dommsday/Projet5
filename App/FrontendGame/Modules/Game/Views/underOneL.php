@@ -7,19 +7,28 @@
 	<div class="text-start">
 		<p><?= nl2br($textUndergrowth['content']) ?></p>
 	</div>
-	
-	<div id="stick2" class="stick stick-under">
-			
-		<img class="stick-img" src="/Web/images/stick.png" />
-		<?= $stick['name']?>
 
-		<div id="action-stick2" class="action-stick">
+	<?php
+		if(isset($display) && $display == 1){
+	?>
+	<div id="stick1" class="stick stick-underOne">
+			
+		<img class="stick-img" src="<?= $stick['src']?>" alt="<?= $stick['name']?>" title="<?= $stick['name']?>"/>
+		
+
+		<div id="action-stick1" class="action-stick">
 			<form action="" method="post">
+				<input type="hidden" name="stick1"/>
 				<?= $formStick ?>
 				<input id="btnStick2" type="submit" value="Prendre" />
 			</form>
 		</div>
 	</div>
+	<?php
+	}
+	?>
+
+</div>
 
 	<div id="choise-road">
 		<a class="choise-top" href="/game/fight-two-left.html">Aller tout droit</a>

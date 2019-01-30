@@ -34,18 +34,17 @@
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button class="open_chest">Ouvrir</button>
+			<button type="button" class="open_chest" data-toggle="modal" data-target="#fightFourL">Ouvrir</button>
 		</div>
 	</div>
 
 	<?php
-		if(isset($displayApple1) && $displayApple1 == 1){
+		if(isset($display) && $display == 1){
 	?>
 
 		<div id="apple1" class="apple-fight apple-fight-four">
 				
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
+			<img class="apple-img" src="<?= $apple['src']?>" alt="<?= $apple['name']?>" title="<?= $apple['name']?>" />
 
 			<div id="action1" class="action">
 				<form action="" method="post">
@@ -64,4 +63,21 @@
 		<a class="choise-top" href="/game/portal.html">Aller tout droit</a>
 	</div>
 
+</div>
+
+<div class="modal fade" id="fightFourL" tabindex="-1" role="dialog" aria-labelledby="fightFourLLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		    <div class="modal-header">
+		       <h5 class="modal-title" id="chestOneLLabel">Un bout de parchemin</h5>
+		    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		        <span aria-hidden="true">&times;</span>
+		    </button>
+		    </div>
+		     <div class="modal-body">
+		        <p>Un petit bout de papier, preques détruit. On peut y apercevoir des chiffres. Vous devriez les noter quelques part</p>
+		        88
+		     </div>
+		</div>
+	</div>
 </div>

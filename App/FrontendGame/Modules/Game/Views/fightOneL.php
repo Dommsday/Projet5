@@ -34,8 +34,7 @@
 	?>
 	<div id="stick1" class="stick stick-fight">
 			
-		<img class="stick-img" src="/Web/images/stick.png" />
-		<?= $stick['name']?>
+		<img class="stick-img" src="<?= $stick['src']?>" alt="<?= $stick['name']?>" title="<?= $stick['name']?>"/>
 
 		<div id="action-stick1" class="action-stick">
 			<form action="" method="post">

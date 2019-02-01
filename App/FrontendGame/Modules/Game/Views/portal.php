@@ -21,20 +21,10 @@
 				<input type="number" id="number_5" value="0" min="0" max="9" />
 				<input type="number" id="number_6" value="0" min="0" max="9" />
 
-				<input type="submit" id ="valid_code" value="Valider" />
+				<input type="submit" id ="valid_code" value="Valider" class="btn" />
 			</form>
 		</div>
-	</div>
-
-		<?php
-		if(isset($display) && $display == 1){
-		?>
-
-		<?php
-		}
-		?>
-
-			
+	</div>	
 
 	<div id="choise-road-end">
 		<a class="choise-left" href="/game/boss-game.html">Aller tout droit</a>

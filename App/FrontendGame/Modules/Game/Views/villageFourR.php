@@ -12,7 +12,7 @@
 		if(isset($displaySword) && $displaySword == 1){
 	?>
 
-	<div id="sword1" class="sword swordOne">
+	<div id="sword1" class="sword sword-village-Four-R">
 			
 		<img class="sword-img" src="<?= $sword['src']?>" alt="<?= $sword['name']?>" title="<?= $sword['name']?>"/>
 		
@@ -30,8 +30,9 @@
 	}
 	?>
 
-	<a href="/game/chest-four-left.html">?</a>
-
+	<div id="secret-rock-villageFour">
+		<a href="/game/chest-four-left.html">?</a>
+	</div>
 	<div id="choise-road">
 		<a class="choise-top" href="/game/fight-four-right.html">Aller à gauche</a>
 		<a class="choise-top" href="/game/fight-five-right.html">Aller à droite</a>

@@ -8,8 +8,10 @@
 		<p><?= nl2br($textUndergrowth['content']) ?></p>
 	</div>
 
-	<a href="/game/fight-seven-right.html">?</a>
-	
+	<div id="secret-rock-under-six">
+		<a href="/game/fight-seven-right.html">?</a>
+	</div>
+
 	<?php
 		if(isset($displayAcorn) && $displayAcorn == 1){
 	?>
@@ -23,7 +25,7 @@
 			<form action="" method="post">
 				<input type="hidden" name="acorn1"/>
 				<?= $formAcorn ?>
-				<input id="btnAcorn1" type="submit" value="Prendre" class="btnAcorn" />
+				<input id="btnAcorn1" type="submit" value="Prendre" class="btnAcorn btn" />
 			</form>
 		</div>
 	</div>
@@ -31,16 +33,14 @@
 	}
 	?>
 
-	<div id="chest1-chestFour" class="chest chestFourL">
+	<div id="chest1" class="chest chestFourR">
 			
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button type="button" class="open_chest" data-toggle="modal" data-target="#underSixR">Ouvrir</button>
+			<button type="button" id="action-open-chest" class="open_chest btn" data-toggle="modal" data-target="#underSixR">Ouvrir</button>
 		</div>
 	</div>
-
-	
 
 	<div id="choise-road">
 		<a class="choise-left" href="/game/impasse-three-right.html">Aller à gauche</a>

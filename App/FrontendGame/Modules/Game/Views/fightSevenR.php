@@ -26,15 +26,15 @@
 
 		</table>
 
-		<button id="button-attak-crow" class="button-attak-enemy">Attaquer</button>
+		<button id="button-attak-crow" class="button-attak-enemy btn">Attaquer</button>
 	</div>
 
-	<div id="chest1-fightTwo" class="chest chestfightSevenR">
+	<div id="chest1" class="chest chestfightSevenR">
 			
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button type="button" class="open_chest" data-toggle="modal" data-target="#fightSevenR">Ouvrir</button>
+			<button type="button" id="action-open-chest" class="open_chest btn" data-toggle="modal" data-target="#fightSevenR">Ouvrir</button>
 		</div>
 	</div>
 

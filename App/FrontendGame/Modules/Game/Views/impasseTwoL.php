@@ -20,7 +20,7 @@
 			<form action="" method="post">
 				<input type="hidden" name="stick1"/>
 				<?= $formStick ?>
-				<input id="btnStick1" type="submit" value="Prendre" class="btnStick"/>
+				<input id="btnStick1" type="submit" value="Prendre" class="btnStick btn"/>
 			</form>
 		</div>
 	</div>

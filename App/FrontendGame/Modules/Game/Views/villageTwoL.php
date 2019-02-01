@@ -8,8 +8,9 @@
 		<p><?= nl2br($textVillage['content']) ?></p>
 	</div>
 
-	<a class="secret" href="/game/fight-three-left.html">?</a>
-
+	<div id="secret-rock-ville-txo-L">
+		<a class="secret" href="/game/fight-three-left.html">?</a>
+	</div>
 	<div id="all-apple">
 
 		<?php

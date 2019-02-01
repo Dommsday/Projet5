@@ -28,8 +28,6 @@
 	}
 	?>
 
-</div>
-
 	<div id="choise-road">
 		<a class="choise-top" href="/game/fight-two-left.html">Aller tout droit</a>
 	</div>

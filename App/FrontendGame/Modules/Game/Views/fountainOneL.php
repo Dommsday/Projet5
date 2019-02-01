@@ -13,7 +13,7 @@
 		<img class="fountain-img" src="/Web/images/fountain.png" />
 
 		<div id="action-fountain1" class="action-fountain">
-			<button id="active-fountain">Boire</button>
+			<button type="button" id="active-fountain" class="btn">Boire</button>
 		</div>
 	</div>
 

@@ -12,7 +12,7 @@
 		if(isset($displayAcorn) && $displayAcorn == 1){
 	?>
 
-	<div id="acorn1" class="acorn acorn1-village-one">
+	<div id="acorn1" class="acorn acorn-village-one">
 			
 		<img class="acorn-img" src="<?= $acorn['src']?>" alt="<?= $acorn['name']?>" title="<?= $acorn['name']?>"/>
 
@@ -30,7 +30,7 @@
 	?>
 
 	<div id="choise-road">
-		<a class="choise-left" href="/game/undergrowth-one-left.html">Aller tout droit</a>
+		<a class="choise-top" href="/game/undergrowth-one-left.html">Aller tout droit</a>
 	</div>
 
 </div>

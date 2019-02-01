@@ -20,7 +20,7 @@
 				<form action="" method="post">
 					<input type="hidden" name="apple1"/>
 					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple1" class="btnApple"/>
+					<input type="submit" value="Prendre" id="btnApple1" class="btnApple btn"/>
 				</form>
 			</div>
 		</div>

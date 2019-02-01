@@ -9,27 +9,24 @@
 	</div>
 
 	<?php
-		if(isset($display) && $display == 1){
+		if(isset($displayApple) && $displayApple  == 1){		
 	?>
 
-		<div id="apple1" class="apple1-villageFiveR apple">
+		<div id="apple1" class="apple1-village-Five-R apple">
 				
 			<img class="apple-img" src="<?= $apple['src']?>" alt="<?= $apple['name']?>" title="<?= $apple['name']?>"/>
 
 			<div id="action1" class="action">
 				<form action="" method="post">
-					<input type="hidden" name="apple1"/>
 					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple1"/>
+					<input type="submit" name="apple1" value="Prendre" id="btnApple1" class="btnApple"/>
 				</form>
 			</div>
 		</div>
 
 	<?php
 	}
-	?>
-
-	<a href="/game/fight-seven-right.html">?</a>
+	?>	
 
 	<div id="choise-road">
 		<a class="choise-top" href="/game/fight-six-right.html">Aller tout droit</a>

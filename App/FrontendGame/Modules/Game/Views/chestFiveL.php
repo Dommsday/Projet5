@@ -9,7 +9,7 @@
 	</div>
 
 	<?php
-		if(isset($display) && $display == 1){
+		if(isset($displayApple) && $displayApple == 1){
 	?>
 
 		<div id="apple1" class="apple apple-chestFive">
@@ -20,7 +20,7 @@
 				<form action="" method="post">
 					<input type="hidden" name="apple1"/>
 					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple1"/>
+					<input type="submit" value="Prendre" class="btn btnApple" id="btnApple1"/>
 				</form>
 			</div>
 		</div>
@@ -34,7 +34,7 @@
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button type="button" class="open_chest" data-toggle="modal" data-target="#chestFiveL">Ouvrir</button>
+			<button type="button" class="open_chest btn" id="action-open-chest" data-toggle="modal" data-target="#chestFiveL">Ouvrir</button>
 		</div>
 	</div>
 

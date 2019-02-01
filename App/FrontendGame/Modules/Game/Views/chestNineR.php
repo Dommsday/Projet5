@@ -8,7 +8,7 @@
 		<p><?= nl2br($textChest['content']) ?></p>
 	</div>
 
-	<div id="chest1" class="chest cchestNineR">
+	<div id="chest1" class="chest chestNineR">
 			
 		<img class="chest-img" src="/Web/images/chest.png" />
 
@@ -18,18 +18,18 @@
 	</div>
 
 	<?php
-		if(isset($display) && $display == 1){
+		if(isset($displayStick) && $displayStick == 1){
 	?>
-	<div id="stick1" class="stick stick-chestNine">
+	
+	<div id="stick1" class="stick stick-chestNineR">
 			
-		<img class="stick-img" src="/Web/images/stick.png" />
-		<?= $stick['name']?>
+		<img class="stick-img" src="<?= $stick['src']?>" alt="<?= $stick['name']?>" title="<?= $stick['name']?>"/>
 
 		<div id="action-stick1" class="action-stick">
 			<form action="" method="post">
 				<input type="hidden" name="stick1"/>
 				<?= $formStick ?>
-				<input id="btnStick1" type="submit" value="Prendre" />
+				<input id="btnStick1" type="submit" value="Prendre" class="btnStick btn"/>
 			</form>
 		</div>
 	</div>

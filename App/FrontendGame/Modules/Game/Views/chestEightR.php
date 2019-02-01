@@ -8,6 +8,15 @@
 		<p><?= nl2br($textChest['content']) ?></p>
 	</div>
 
+	<div id="chest1" class="chest chestEightR">
+			
+		<img class="chest-img" src="/Web/images/chest.png" />
+
+		<div id="action_chest1" class="action_chest">
+			<button type="button" id="action-open-chest" class="open_chest btn" data-toggle="modal" data-target="#chestEightR">Ouvrir</button>
+		</div>
+	</div>
+
 	<?php
 		if(isset($displayApple) && $displayApple  == 1){	
 	?>
@@ -27,15 +36,6 @@
 	<?php
 	}
 	?>
-
-	<div id="chest1" class="chest chestEightR">
-			
-		<img class="chest-img" src="/Web/images/chest.png" />
-
-		<div id="action_chest1" class="action_chest">
-			<button type="button" id="action-open-chest" class="open_chest btn" data-toggle="modal" data-target="#chestEightR">Ouvrir</button>
-		</div>
-	</div>
 
 	<div id="choise-road">
 		<a class="choise-top" href="/game/village-four-right.html">Aller tout droit</a>

@@ -26,7 +26,7 @@
 
 		</table>
 
-		<button id="button-attak-bat" class="button-attak-enemy">Attaquer</button>
+		<button id="button-attak-bat" class="button-attak-enemy btn">Attaquer</button>
 	</div>
 
 	<?php
@@ -41,7 +41,7 @@
 			<form action="" method="post">
 				<input type="hidden" name="acorn1"/>
 				<?= $formAcorn ?>
-				<input id="btnAcorn1" type="submit" value="Prendre" class="btnAcorn"/>
+				<input id="btnAcorn1" type="submit" value="Prendre" class="btnAcorn btn"/>
 			</form>
 		</div>
 	</div>

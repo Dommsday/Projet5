@@ -8,15 +8,17 @@
 		<p><?= nl2br($textFountain['content']) ?></p>
 	</div>
 
-	<a  href="/game/fight-two-right.html">?</a>
-
 	<div id="fountain1" class="foutain">
 			
 		<img class="fountain-img" src="/Web/images/fountain.png" />
 
 		<div id="action-fountain1" class="action-fountain">
-			<button type="button" id="active-fountain">Boire</button>
+			<button type="button" id="active-fountain" class="btn">Boire</button>
 		</div>
+	</div>
+
+	<div id="secret-rock-fountainTwo" class="rock">
+		<a href="/game/fight-two-right.html">?</a>
 	</div>
 
 	<div id="choise-road">

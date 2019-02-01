@@ -376,99 +376,266 @@ tbody tr{
 	display: flex;
 }
 
-.apple1-index{
-	margin-top: 5%;
-	margin-left: 20%;
+
+/*Partie combat objets
+*************************/
+
+/*APPLE
+=============*/
+.apple-img{
+	width: 45%;
+	margin-bottom: 2%;
 }
 
-.apple{
-	width: 25%;
-}
-
-.apple-chestFive{
-	
-	margin-top: 5%;
-}
-
-.apple2-chestFive{
-	margin-left: 50%;
-}
-
- #apple1, #apple2, #apple3, #apple4{
+#apple1{
  	border: solid black 2px;
  	height: 100px;
  	width: 10%;
  }
 
- #stick1, #stick2{
+.apple1-index{
+	margin-top: 5%;
+	margin-left: 20%;
+}
+
+.apple-fight-four{
+	margin-top: 20%;
+	margin-left: 15%;
+}
+
+.apple-chestFive{
+	margin-top: 12%;
+	margin-left: 24%;
+}
+
+.apple1-fightFive-L{
+	margin-top: 15%;
+	margin-left: 40%;
+}
+
+.apple1-villageTwo{
+	margin-top: 25%;
+	margin-left: 38%;
+}
+
+.apple1-villageThree-R{
+	margin-left: 24%;
+	margin-top: 17%;
+}
+
+.apple1-village-Five-R{
+	margin-left: 42%;
+	margin-top: 11%;
+}
+
+.apple1-chestEightR{
+	margin-top: 12%;
+}
+
+.apple1-underFiveR{
+	margin-top: 23%;
+	margin-left: 26%;
+}
+
+/*FIN APPLE
+================*/
+
+/*STICK
+=============*/
+.stick-img{
+	width: 50%;
+}
+
+#stick1{
  	border: solid red 2px;
  	height: 100px;
  	width: 20%;
- }
-
- #chest1, #sword1{
- 	width: 30%;
- 	border: 2px solid black;
- }
-
- #gate1{
- 	border: 2px solid blue;
-
- }
-
- .gate-img{
- 	width: 80%;
- }
-
-
- #stick1{
- 	margin-top: 14%;
- }
-
- #stick2{
- 	margin-top: 24%;
- 	margin-left: 30%;
- }
-
- #chest1{
- 	margin: auto;
- }
-
- #sword1{
- 	margin-top: 4%;
- }
-
-.apple, .stick, .sword{
-	margin-bottom: 50px;
 }
 
-#acorn1, #acorn2{
+.stick-fightOneL{
+ 	margin-top: 17%;
+	margin-left: 20%;
+}
+
+.stick-impasse-two{
+
+	margin-top: 25%;
+	margin-left: 21%;
+}
+
+.stick-chestNineR{
+	margin-left: 14%;
+	margin-top: 5%;
+}
+
+
+/*FIN STICK
+================*/
+
+/*ACORN
+=============*/
+.acorn-img{
+	width: 30%;
+	margin-bottom: 2%;
+}
+
+#acorn1{
+	border: solid orange 2px;
+ 	height: 100px;
+ 	width: 20%;	
+}
+
+.acorn-village-one{
+	margin-top: 20%;
+	margin-left: 32%;
+}
+
+.acorn-under-two{
+	margin-top: 30%;
+	margin-left: 20%;
+}
+
+.acorn1-underThree{
+	margin-top: 42%;
+	margin-left: 50%;
+}
+
+.acorn1-fightOneR{
+	margin-top: 12%;
+	margin-left: 31%;
+}
+
+.acorn1-UnderFourR{
+	margin-left: 15%;
+}
+
+.acorn1-UnderSixR{
+	margin-top: 11%;
+	margin-left: 24%;
+}
+
+/*FIN ACORN
+================*/
+
+/*SWORD
+=============*/
+
+.sword-img{
+	width: 35%;
+}
+
+#sword1{
+	border: solid green 2px;
+ 	height: 170px;
+ 	width: 35%;	
+}
+
+.swordOne{
+	margin-top: 2%;
+ 	margin-left: 8%;
+}
+
+.stick-underOne{
+	margin-top: 40%;
+	margin-left: 80%;
+}
+
+.stick-chestFourL{
+	margin-top: -10%;
+}
+
+.sword-village-Four-R{
+	margin-top: 16%;
+}
+
+/*FIN SWORD
+================*/
+
+/*CHEST
+=============*/
+.chest-img{
+	width: 60%;
+}
+
+#chest1{
+	border: solid red 2px;
+ 	height: 320px;
+ 	width: 40%;
+}
+
+button#action-open-chest{
 	width: 20%;
- 	border: solid 2px black;
- }
+	margin: auto;
+}
 
- #acorn1{
- 	margin-left: 6%;
- 	margin-top: 5%;
- }
+.chestOne{
+	margin: auto;
+}
 
- #acorn2{
- 	margin-left: 60%;
- 	margin-top: 15%;
- }
+.chestTwoL{
 
- .acorn-village-one{
- 	margin-bottom: 4%;
- }
+	margin-top: 4%;
+}
 
- .acorn1-fight-three{
- 	margin-top: 4%;
- }
+.chestFightFour-L{
+	margin: auto;
+}
 
- .acorn2-fight-three{
- 	margin-left: 14%;
- 	margin-bottom: 6%;
- }
+.chestFourL{
+	margin-top: 10%;
+	margin-left: 60%;
+}
+
+.chestNineR{
+	margin: auto;
+}
+
+.chestEightR{
+	margin-left: 30%;
+}
+
+.chestfightSevenR{
+	margin: auto;
+}
+
+/*FIN CHEST
+================*/
+
+/*FOUNTAIN
+=================*/
+
+.fountain-img{
+	width: 40%;
+}
+
+#fountain1{
+	margin-bottom: 12%;
+	border: 1px solid black;
+	height: 480px;
+}
+
+#secret-rock-fountainTwo{
+	margin-top: -10%;
+}
+/*FIN FOUNTAIN
+====================*/
+
+/*GATE
+=======================*/
+#gate1{
+	border: 2px solid blue;
+	height: 450px;
+}
+
+.gate-img{
+	width: 100%;
+}
+/*FIN GATE
+==========================*/
+
+
+/*Fin Partie combat objets
+****************************/
 
 
 /*PARTIE GIF
@@ -499,61 +666,7 @@ tbody tr{
 	margin-bottom: 4%;
 }
 
-.apple-img{
-	width: 45%;
-	margin-bottom: 2%;
-}
 
-.stick-img{
-	width: 50%;
-}
-
-.chest-img{
-	width: 60%;
-}
-
-#chest1-fightTwo{
-	margin-bottom: 6%;
-}
-
-.chestTwoL, .chestFourL, .chestEightR, .chestFightFourR, .chestfightSevenR{
-	width: 30%;
- 	border: 2px solid black;
- 	margin: auto;
-}
-
-.chestEightR{
-	margin-bottom: 6%;
-}
-
-.chestFight{
-	margin-top: 4%;
-}
-
-.acorn-img{
-	width: 30%;
-	margin-bottom: 2%;
-
-}
-
-.acorn-villageFourR{
-
-	margin-bottom: 6%;
-}
-
-.sword-img{
-	width: 35%;
-}
-
-.apple-fight{
-	margin-top: 6%; 
-	width: 20%;
-}
-
-#fountain1{
-	margin-bottom: 12%;
-	border: 1px solid black;
-}
 /*FIN PARTIE GIF
 *********************/
 
@@ -662,7 +775,6 @@ button span:hover{
 #all-modal-objects{
 	position: relative;
 	display: flex;
-	justify-content: space-around;
 	border: 2px solid black;
 	flex-wrap: wrap;
 	width: 100%;
@@ -670,11 +782,15 @@ button span:hover{
 
 
 .modal-object{
-	background-color: red;
 	width: 16%;
 	height: 12%;
 	margin-top: 2%;
 	margin-bottom: 1%;
+	margin-left: 2%;
+}
+
+.img-src-modal{
+	width: 100%;
 }
 
 .modal-object-description{
@@ -694,7 +810,6 @@ button span:hover{
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
 }
 
 .btnModal{
@@ -712,9 +827,9 @@ button span:hover{
 }
 
 
+
 /*FIN PARTIE MODAL
 **********************/
-
 
 /*FIN PARTIE GAME
 *********************/

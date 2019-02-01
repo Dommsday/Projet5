@@ -8,12 +8,12 @@
 		<p><?= nl2br($textChest['content']) ?></p>
 	</div>
 
-	<div id="chest1-chestFour" class="chest chestFourL">
+	<div id="chest1" class="chest chestFourL">
 			
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button type="button" class="open_chest" data-toggle="modal" data-target="#chestFourL">Ouvrir</button>
+			<button type="button" id="action-open-chest" class="open_chest btn" data-toggle="modal" data-target="#chestFourL">Ouvrir</button>
 		</div>
 	</div>
 
@@ -28,7 +28,7 @@
 			<form action="" method="post">
 				<input type="hidden" name="stick1"/>
 				<?= $formStick ?>
-				<input id="btnStick1" type="submit" value="Prendre" class="btnStick" />
+				<input id="btnStick1" type="submit" value="Prendre" class="btnStick btn" />
 			</form>
 		</div>
 	</div>

@@ -33,7 +33,7 @@
 		if(isset($displayStick) && $displayStick == 1){
 	?>
 	
-	<div id="stick1" class="stick stick-fight">
+	<div id="stick1" class="stick stick-fightOneL">
 			
 		<img class="stick-img" src="<?= $stick['src']?>" alt="<?= $stick['name']?>" title="<?= $stick['name']?>"/>
 

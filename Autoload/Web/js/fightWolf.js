@@ -32,14 +32,12 @@ var FightWolf = {
 		//Quand on attaque l'ennemi
 		FightWolf.btnAttakWolf.addEventListener("click", function(){
 
-			alert("attaque de loup");
-
 			let chance = Math.floor(Math.random() * 50) + 1;//Taux de chance
 
 			let wolfLife = FightWolf.lifeWolf.textContent;
 			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
-			//Si le taux de chance est supérieur à 40
+			//Si le taux de chance est supérieur à 30
 			if(chance >= 30){
 
 				alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
@@ -105,7 +103,7 @@ var FightWolf = {
 		
 		let wolfDamage = FightWolf.damageWolf.textContent;
 
-		if(chance >= 35){
+		if(chance >= 60){
 
 			alert("le taux de chance de l'ennemi est de "+chance+" il vous touche");
 
@@ -122,7 +120,7 @@ var FightWolf = {
 
 			FightWolf.storageWolf.setItem('lifePlayer', FightWolf.lifePlayer.textContent);
 
-			if(FightWolf.storageWolf.setItem('lifePlayer') < 0){
+			if(FightWolf.storageWolf.getItem('lifePlayer') < 0){
 				alert("Il vous reste 0 points de vie");
 			}else{
 				alert("Il vous reste "+FightWolf.storageWolf.getItem('lifePlayer')+ "points de vie");

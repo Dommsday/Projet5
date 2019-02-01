@@ -7,10 +7,20 @@ var Fountain = {
 	btnFountain : document.getElementById("active-fountain"),
 	lifePlayer: document.getElementById("life_players"),
 
+	display: 1,
+
 	init: function(){
 
+		this.refresh();
 		this.heal();
 		this.AllhiddenAction();
+
+		if(Fountain.display == 1){
+			Fountain.btnFountain.style.display = "block";
+
+			Fountain.storageFountain.setItem("display", Fountain.display);
+			alert("DISPLAY "+Fountain.storageFountain.getItem("display"));
+		}
 	},
 
 	hidden_action_fountain: function(){
@@ -42,15 +52,20 @@ var Fountain = {
 
 		Fountain.btnFountain.addEventListener("click", function(){
 
+			Fountain.endAllStorage();
+
 			Fountain.lifePlayer.textContent = Number(Fountain.lifePlayer.textContent) + 15;
 
 			alert("Vous récupérez 15 points de vie");
 
 			Fountain.storageFountain.setItem('lifePlayer', Fountain.lifePlayer.textContent);
 
-			alert("Il vous reste "+PlayerStorage.storageInfo(Fountain.storageFountain.getItem('lifePlayer'))+ "points de vie");
-
 			Fountain.btnFountain.style.display = "none";
+
+			Fountain.display = 2;
+
+			Fountain.storageFountain.setItem("display", Fountain.display);
+			alert("DISPLA NEW" +Fountain.storageFountain.getItem("display"));
 
 		});
 
@@ -59,6 +74,26 @@ var Fountain = {
 	AllhiddenAction: function(){
 
 		this.hiddenActionFountain1();
+	},
+
+	endAllStorage: function(){
+
+			TakeApple.display = 1;
+			TakeApple.storageApple.setItem("displayApple", TakeApple.display);
+
+			TakeStick.display = 1;
+			TakeStick.storageStick.setItem("displayStick", TakeStick.display);
+
+			TakeAcorn.display = 1;
+			TakeAcorn.storageAcorn.setItem("displayAcorn", TakeAcorn.display);
+	},
+
+	refresh: function(){
+
+		if(Fountain.storageFountain.length > 0){
+
+			Fountain.display = Fountain.storageFountain.getItem("display");
+		}
 	}
 }
 

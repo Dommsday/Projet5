@@ -13,6 +13,7 @@ var PlayerStorage = {
 
 	all_modal_objects: document.getElementById("all-modal-objects"),
 	modal_object: document.getElementsByClassName("modal-object"),
+	modal_name: document.getElementsByClassName("modal-object-name"),
 	modal_description: document.getElementsByClassName("modal-object-description"),
 	modal_damages: document.getElementsByClassName("modal-object-damages"),
 	modal_life: document.getElementsByClassName("modal-object-life"),
@@ -67,15 +68,24 @@ var PlayerStorage = {
 
 		PlayerStorage.deconnexion.addEventListener("click", function(){
 			PlayerStorage.storagePlayer.clear();
+			TakeApple.storageApple.clear();
 		});
 
 	},
 
 	hidden_all_modal:function(){
 		this.hidden_modal_description();
+		this.hidden_modal_name();
 		this.hidden_modal_damages();
 		this.hidden_modal_life();
 		this.hidden_modal_lifetime();
+	},
+
+	hidden_modal_name: function(){
+
+		for(let i = 0; i< PlayerStorage.modal_name.length; i++){
+			PlayerStorage.modal_name[i].style.display="none";
+		}
 	},
 
 	hidden_modal_description: function(){
@@ -118,12 +128,12 @@ var PlayerStorage = {
 			//QUAND ON SURVOLE LES DIFFERENTS OBJETS DE L'INVENTAIRE
 			PlayerStorage.modal_object[i].addEventListener("mouseover",function(){
 
-				for(let h = 0; h < PlayerStorage.modal_object.length; h++){
+				for(let h = 0; h < PlayerStorage.modal_name.length; h++){
 
 					if(i == h){
 						
 						//AFFICHE LE NOM 
-						PlayerStorage.textName.textContent = "Nom : "+PlayerStorage.modal_object[h].textContent;
+						PlayerStorage.textName.textContent = "Nom : "+PlayerStorage.modal_name[h].textContent;
 
 						PlayerStorage.all_modal_description.appendChild(PlayerStorage.textName);
 						PlayerStorage.all_modal_description.style.display="block";
@@ -197,15 +207,18 @@ var PlayerStorage = {
 			//QUAND ON CLIQUE SUR L'UN DES OBJET DE L'INVENTAIRE
 			PlayerStorage.modal_object[i].addEventListener("click",function(){
 
+				PlayerStorage.btnObject.textContent = null;
+				
 				for(let n = 0; n < PlayerStorage.modal_href.length; n++){
 
 					if(i == n){
-
+						
 						PlayerStorage.modal_href[i].textContent = "Utiliser";
-
 						PlayerStorage.btnObject.setAttribute("type", "button");
 						PlayerStorage.btnObject.setAttribute("class", "btnModal");
 						PlayerStorage.btnObject.appendChild(PlayerStorage.modal_href[i]);
+
+
 
 						//AFFICHE LE BOUTON D'UTILISATION
 						PlayerStorage.all_modal_objects.appendChild(PlayerStorage.btnObject);
@@ -218,11 +231,6 @@ var PlayerStorage = {
 				PlayerStorage.spanLife.textContent = "";
 				PlayerStorage.spanDamages.textContent = "";
 
-				/*if(!(PlayerStorage.modal_lifetime[i].textContent == 1)){
-					//PlayerStorage.statLifetime.textContent = "";
-				}*/	
-
-				//PlayerStorage.statDamage = PlayerStorage.modal_damages[i].textContent;
 				let valueSpanDamage = PlayerStorage.modal_damages[i].textContent;
 				PlayerStorage.spanDamages.textContent = valueSpanDamage;
 				
@@ -230,7 +238,7 @@ var PlayerStorage = {
 				//Si le nombre "Utilisation" n'a pas la valeur 1
 				if(!(PlayerStorage.modal_lifetime[i].textContent == 1)){
 
-					PlayerStorage.nameWeapon.textContent = PlayerStorage.modal_object[i].textContent;
+					PlayerStorage.nameWeapon.textContent = PlayerStorage.modal_name[i].textContent;
 					PlayerStorage.statLifetime.textContent = PlayerStorage.modal_lifetime[i].textContent;
 					PlayerStorage.statDamage.textContent = PlayerStorage.storagePlayer.getItem("defaultDamages");
 				}
@@ -253,12 +261,6 @@ var PlayerStorage = {
 
 			let newStatDamage = Number(PlayerStorage.spanDamages.textContent) + Number(PlayerStorage.statDamage.textContent);
 			PlayerStorage.storagePlayer.setItem("objectDamages", newStatDamage);
-
-			/*let newStatLife = Number(PlayerStorage.spanLife.textContent) + Number(PlayerStorage.statLife.textContent);
-			PlayerStorage.storagePlayer.setItem("objectLife", newStatLife);
-
-			let newStatDamage = Number(PlayerStorage.spanDamage.textContent) + Number(PlayerStorage.storagePlayer.getItem('damagePlayer'));
-			PlayerStorage.storagePlayer.setItem("objectDamages", newStatDamage);*/
 
 			let newStatLifetime = PlayerStorage.statLifetime.textContent;
 			PlayerStorage.storagePlayer.setItem("objectLifetime", newStatLifetime);
@@ -294,27 +296,9 @@ var PlayerStorage = {
 		});
 
 		//SI L'INVENTAIRE EST PLEIN
-		if(PlayerStorage.modal_object.length === 9){
+		if(PlayerStorage.modal_object.length >= 6){
 			PlayerStorage.btnInventory.classList.add("full_inventory");
 			PlayerStorage.btnInput.disabled = true;
-		}
-	},
-
-	refresh: function(){
-
-		if(PlayerStorage.storagePlayer.length > 0){
-
-			PlayerStorage.lifePlayer.textContent = PlayerStorage.storagePlayer.getItem("lifePlayer");
-			PlayerStorage.damagePlayer.textContent = PlayerStorage.storagePlayer.getItem("damagePlayer");
-
-			if(PlayerStorage.storagePlayer.getItem("objectLifetime") >= 1){
-			PlayerStorage.statLifetime.textContent = PlayerStorage.storagePlayer.getItem("objectLifetime");
-
-			//BARRE DU JEU
-			PlayerStorage.weaponPlayer.textContent = PlayerStorage.storagePlayer.getItem("objectName");
-			//DANS L'INVENTAIRE
-			PlayerStorage.nameWeapon.textContent = PlayerStorage.storagePlayer.getItem("objectName");
-			}
 		}
 	},
 
@@ -355,6 +339,24 @@ var PlayerStorage = {
 			}
 
 			});
+		}
+	},
+
+	refresh: function(){
+
+		if(PlayerStorage.storagePlayer.length > 0){
+
+			PlayerStorage.lifePlayer.textContent = PlayerStorage.storagePlayer.getItem("lifePlayer");
+			PlayerStorage.damagePlayer.textContent = PlayerStorage.storagePlayer.getItem("damagePlayer");
+
+			if(PlayerStorage.storagePlayer.getItem("objectLifetime") >= 1){
+			PlayerStorage.statLifetime.textContent = PlayerStorage.storagePlayer.getItem("objectLifetime");
+
+			//BARRE DU JEU
+			PlayerStorage.weaponPlayer.textContent = PlayerStorage.storagePlayer.getItem("objectName");
+			//DANS L'INVENTAIRE
+			PlayerStorage.nameWeapon.textContent = PlayerStorage.storagePlayer.getItem("objectName");
+			}
 		}
 	}
 }

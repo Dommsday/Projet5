@@ -30,21 +30,21 @@
 	</div>
 
 	<?php
-		if(isset($display) && $display == 1){
+		if(isset($displayAcorn) && $displayAcorn == 1){
 	?>
 
-		<div id="apple1" class="apple1-fightOneR apple">
-				
-			<img class="apple-img" src="<?= $apple['src']?>" alt="<?= $apple['name']?>" title="<?= $apple['name']?>"/>
+	<div id="acorn1" class="acorn acorn1-fightOneR">
+			
+		<img class="acorn-img" src="<?= $acorn['src']?>" alt="<?= $acorn['name']?>" title="<?= $acorn['name']?>"/>
 
-			<div id="action1" class="action">
-				<form action="" method="post">
-					<input type="hidden" name="apple1"/>
-					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple1"/>
-				</form>
-			</div>
+		<div id="action-acorn1" class="action-acorn">
+			<form action="" method="post">
+				<input type="hidden" name="acorn1"/>
+				<?= $formAcorn ?>
+				<input id="btnAcorn1" type="submit" value="Prendre" class="btnAcorn"/>
+			</form>
 		</div>
+	</div>
 
 	<?php
 	}
@@ -55,3 +55,5 @@
 	</div>
 
 </div>
+
+

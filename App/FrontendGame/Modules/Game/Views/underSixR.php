@@ -11,7 +11,7 @@
 	<a href="/game/fight-seven-right.html">?</a>
 	
 	<?php
-		if(isset($display) && $display == 1){
+		if(isset($displayAcorn) && $displayAcorn == 1){
 	?>
 
 	<div id="acorn1" class="acorn acorn1-UnderSixR">
@@ -23,10 +23,13 @@
 			<form action="" method="post">
 				<input type="hidden" name="acorn1"/>
 				<?= $formAcorn ?>
-				<input id="btnAcorn1" type="submit" value="Prendre" />
+				<input id="btnAcorn1" type="submit" value="Prendre" class="btnAcorn" />
 			</form>
 		</div>
 	</div>
+	<?php
+	}
+	?>
 
 	<div id="chest1-chestFour" class="chest chestFourL">
 			
@@ -36,10 +39,6 @@
 			<button type="button" class="open_chest" data-toggle="modal" data-target="#underSixR">Ouvrir</button>
 		</div>
 	</div>
-
-	<?php
-	}
-	?>
 
 	
 

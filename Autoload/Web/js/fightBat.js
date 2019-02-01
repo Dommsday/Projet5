@@ -24,6 +24,8 @@ var FightBat = {
 		//Quand on attaque l'ennemi
 		FightBat.btnAttakBat.addEventListener("click", function(){
 
+			FightBat.endStorageAcorn();
+
 			let chance = Math.floor(Math.random() * 50) + 1;//Taux de chance
 
 			let batLife = FightBat.lifeBat.textContent;
@@ -138,6 +140,14 @@ var FightBat = {
 
 				alert("Il vous reste "+FightBat.storageBat.getItem('lifePlayer')+ "points de vie");
 			}
+	},
+
+	endStorageAcorn: function(){
+
+			TakeAcorn.display = 1;
+
+			TakeAcorn.storageAcorn.setItem("displayAcorn", TakeAcorn.display);
+			
 	}
 	
 }

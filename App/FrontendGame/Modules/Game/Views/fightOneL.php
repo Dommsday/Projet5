@@ -26,12 +26,13 @@
 
 		</table>
 
-		<button id="button-attak-bat" class="button-attak-enemy">Attaquer</button>
+		<button type="button" id="button-attak-bat" class="button-attak-enemy">Attaquer</button>
 	</div>
 	
 	<?php
-		if(isset($display) && $display == 1){
+		if(isset($displayStick) && $displayStick == 1){
 	?>
+	
 	<div id="stick1" class="stick stick-fight">
 			
 		<img class="stick-img" src="<?= $stick['src']?>" alt="<?= $stick['name']?>" title="<?= $stick['name']?>"/>
@@ -40,7 +41,7 @@
 			<form action="" method="post">
 				<input type="hidden" name="stick1"/>
 				<?= $formStick ?>
-				<input id="btnStick1" type="submit" value="Prendre" />
+				<input id="btnStick1" type="submit" value="Prendre" class="btnStick"/>
 			</form>
 		</div>
 	</div>

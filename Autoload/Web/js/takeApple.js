@@ -2,27 +2,34 @@ var TakeApple = {
 
 	storageApple: window.sessionStorage,
 	btnApple1: document.getElementById("btnApple1"),
+	btnApple: document.getElementsByClassName("btnApple"),
 	action_element : document.querySelectorAll(".action"),
-	test: document.querySelector(".test"),
-
+	
 	allApple: document.getElementsByClassName("apple"),
 	
 	apple1 : document.getElementById("apple1"),
-	apple2 : document.getElementById("apple2"),
-	apple3 : document.getElementById("apple3"),
-	apple4 : document.getElementById("apple4"),
 
 	action1 : document.getElementById("action1"),
-	action2 : document.getElementById("action2"),
-	action3 : document.getElementById("action3"),
-	action4 : document.getElementById("action4"),
 
-
-
+	display : 1,
 
 	init: function(){
-	
-		this.AllhiddenAction();
+
+		TakeApple.refresh();
+		TakeApple.displayApple();
+		TakeApple.AllhiddenAction();
+
+		for(let i = 0; i < TakeApple.allApple.length; i++){
+
+			if((TakeApple.display.textContent || TakeApple.storageApple.getItem("displayApple")) == 1){
+
+				TakeApple.allApple[i].style.display="block";
+
+			}else{
+				TakeApple.allApple[i].style.display="none";
+			}
+		}
+		
 	},
 
 	hidden_action: function(){
@@ -41,33 +48,6 @@ var TakeApple = {
 		});
 	},
 
-	showActionApple2: function(){
-
-		this.hidden_action();
-
-		TakeApple.apple2.addEventListener("mouseover", function(){
-				TakeApple.action2.style.display="block";
-		});
-	},
-
-	showActionApple3: function(){
-
-		this.hidden_action();
-
-		TakeApple.apple3.addEventListener("mouseover", function(){
-				TakeApple.action3.style.display="block";
-		});
-	},
-
-	showActionApple4: function(){
-
-		this.hidden_action();
-		
-		TakeApple.apple4.addEventListener("mouseover", function(){
-				TakeApple.action4.style.display="block";
-		});
-	},
-
 	hiddenActionApple1: function(){
 
 		this.showActionApple1();
@@ -77,40 +57,43 @@ var TakeApple = {
 		});
 	},
 
-	hiddenActionApple2: function(){
-
-		this.showActionApple2();
-
-		TakeApple.apple2.addEventListener("mouseout", function(){
-				TakeApple.action2.style.display="none";
-		});
-	},
-
-	hiddenActionApple3: function(){
-
-		this.showActionApple3();
-
-		TakeApple.apple3.addEventListener("mouseout", function(){
-				TakeApple.action3.style.display="none";
-		});
-	},
-
-	hiddenActionApple4: function(){
-
-		this.showActionApple4();
-
-		TakeApple.apple4.addEventListener("mouseout", function(){
-				TakeApple.action4.style.display="none";
-		});
-	},
-
 	AllhiddenAction: function(){
 
 		this.hiddenActionApple1();
-		this.hiddenActionApple2();
-		this.hiddenActionApple3();
-		this.hiddenActionApple4();
+	},
+
+	displayApple: function(){
+
+		
+		for(let i = 0; i < TakeApple.btnApple.length; i++){
+
+
+			for(let j = 0; j < TakeApple.allApple.length; j++){
+
+				TakeApple.btnApple[i].addEventListener("click", function(){
+
+					if(i == j){
+
+						TakeApple.display = 2;
+
+						const newDisplay = TakeApple.display
+
+						TakeApple.storageApple.setItem("displayApple", newDisplay);
+
+					}
+				});
+			}
+		}
+	},
+
+	refresh: function(){
+
+		if(TakeApple.storageApple.length > 0){
+
+			TakeApple.display = TakeApple.storageApple.getItem("displayApple");
+		}
 	}
+
 }
 
 TakeApple.init();

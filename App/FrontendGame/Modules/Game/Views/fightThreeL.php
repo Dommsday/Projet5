@@ -34,7 +34,7 @@
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button class="open_chest" data-toggle="modal" data-target="#fightThreeL">Ouvrir</button>
+			<button type="button" class="open_chest btn" id="action-open-chest" data-toggle="modal" data-target="#fightThreeL">Ouvrir</button>
 		</div>
 	</div>
 

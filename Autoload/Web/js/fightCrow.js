@@ -7,12 +7,13 @@ var FightCrow = {
 	damageCrow: document.getElementById("damages-crow"),
 	cadreCrow : document.getElementById("crow1"),
 	choiseRoad: document.getElementById("choise-road"),
-	chest : document.getElementById("chest1-fightTwo"),
+	chest : document.getElementById("chest1"),
 
 	init: function(){
 
-		this.hiddeChest();
-		this.attakPlayerCrow();
+		FightCrow.hiddeChest();
+		FightCrow.attakPlayerCrow();
+	
 		
 	},
 
@@ -31,6 +32,8 @@ var FightCrow = {
 
 		//Quand on attaque l'ennemi
 		FightCrow.btnAttakCrow.addEventListener("click", function(){
+
+			FightCrow.endStorageAcorn();
 
 			let chance = Math.floor(Math.random() * 50) + 1;//Taux de chance
 
@@ -149,6 +152,14 @@ var FightCrow = {
 
 			alert("Il vous reste "+FightCrow.storageCrow.getItem('lifePlayer')+ "points de vie");
 		}
+	},
+
+	endStorageAcorn: function(){
+
+			TakeAcorn.display = 1;
+
+			TakeAcorn.storageAcorn.setItem("displayAcorn", TakeAcorn.display);
+			
 	}
 	
 }

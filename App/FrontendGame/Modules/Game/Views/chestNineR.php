@@ -8,13 +8,12 @@
 		<p><?= nl2br($textChest['content']) ?></p>
 	</div>
 
-
-	<div id="chest1" class="chest chestNine">
+	<div id="chest1" class="chest cchestNineR">
 			
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button type="button" class="open_chest" data-toggle="modal" data-target="#chestNineR">Ouvrir</button>
+			<button type="button" id="action-open-chest" class="open_chest btn" data-toggle="modal" data-target="#chestNineR">Ouvrir</button>
 		</div>
 	</div>
 

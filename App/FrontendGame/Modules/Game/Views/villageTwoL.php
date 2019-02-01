@@ -13,7 +13,7 @@
 	<div id="all-apple">
 
 		<?php
-		if(isset($display) && $display == 1){
+		if(isset($displayApple) && $displayApple == 1){
 		?>
 
 		<div id="apple1" class="apple1-villageTwo apple">
@@ -24,7 +24,7 @@
 				<form action="" method="post">
 					<input type="hidden" name="apple1"/>
 					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple1"/>
+					<input type="submit" value="Prendre" id="btnApple1" class="btnApple"/>
 				</form>
 			</div>
 		</div>

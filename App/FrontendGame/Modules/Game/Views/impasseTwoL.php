@@ -8,18 +8,25 @@
 		<p><?= nl2br($textImpasse['content']) ?></p>
 	</div>
 
-	<div id="apple1" class="apple apple1-impasseTwo">
-				
-			<img class="apple-img" src="/Web/images/apple.png" />
-			<?= $apple['name']?>
+	<?php
+		if(isset($displayStick) && $displayStick == 1){
+	?>
+	
+	<div id="stick1" class="stick stick-impasse-two">
+			
+		<img class="stick-img" src="<?= $stick['src']?>" alt="<?= $stick['name']?>" title="<?= $stick['name']?>"/>
 
-			<div id="action1" class="action">
-				<form action="" method="post">
-					<?= $formApple ?>
-					<input type="submit" value="Prendre" id="btnApple1"/>
-				</form>
-			</div>
+		<div id="action-stick1" class="action-stick">
+			<form action="" method="post">
+				<input type="hidden" name="stick1"/>
+				<?= $formStick ?>
+				<input id="btnStick1" type="submit" value="Prendre" class="btnStick"/>
+			</form>
 		</div>
+	</div>
+	<?php
+	}
+	?>
 
 	<div id="choise-road">
 		<a class="choise-top" href="/game/village-two-left.html">Retour en arrière</a>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <routes>
 
+	<route url="/game/delete-object-([0-9]+).html" module="Game" action="delete" vars="id"></route>
+	
 	<route url="/game/connexion.html" module="Game" action ="connexion" ></route>
 	<route url="/game/inventory.html" module="Game" action ="inventory" ></route>
 

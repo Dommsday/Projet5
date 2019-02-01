@@ -9,7 +9,7 @@
 	</div>
 
 	<?php
-		if(isset($display) && $display == 1){
+		if(isset($displayAcorn) && $displayAcorn == 1){
 	?>
 
 	<div id="acorn1" class="acorn acorn1-underThree">
@@ -20,7 +20,7 @@
 			<form action="" method="post">
 				<input type="hidden" name="acorn1"/>
 				<?= $formAcorn ?>
-				<input id="btnAcorn1" type="submit" value="Prendre" />
+				<input id="btnAcorn1" type="submit" value="Prendre" class="btnAcorn" />
 			</form>
 		</div>
 	</div>

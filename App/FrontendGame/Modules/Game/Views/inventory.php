@@ -75,7 +75,9 @@
 					<?php 
 						foreach ($allObjects as $allObject){
 					?>
+			
 						<div class="modal-object"><img class="img-src-modal" src="<?= $allObject['src']?>" /></div>
+						<div class="modal-object-name"><?= $allObject['name']?></div>
 						<div class="modal-object-description"><?= $allObject['description']?></div>
 						<div class="modal-object-damages"><?= $allObject['damages']?></div>
 						<div class="modal-object-life"><?= $allObject['life']?></div>

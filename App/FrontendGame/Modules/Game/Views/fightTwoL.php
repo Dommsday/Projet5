@@ -26,17 +26,19 @@
 
 		</table>
 
-		<button id="button-attak-crow" class="button-attak-enemy">Attaquer</button>
+		<button type="button" id="button-attak-crow" class="button-attak-enemy">Attaquer</button>
 	</div>
 
-	<div id="chest1-fightTwo" class="chest chestTwoL">
+	<div id="chest1" class="chest chestTwoL">
 			
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button type="button" class="open_chestbtn" data-toggle="modal" data-target="#fightTwoL">Ouvrir</button>
+			<button type="button" id="action-open-chest" class="open_chest btn" data-toggle="modal" data-target="#fightTwoL">Ouvrir</button>
 		</div>
 	</div>
+
+
 	
 	<div id="choise-road">
 		<a class="choise-left" href="/game/fountain-one-left.html">Aller à gauche</a>

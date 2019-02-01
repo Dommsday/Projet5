@@ -9,7 +9,7 @@
 	</div>
 
 	<?php
-		if(isset($display) && $display == 1){
+		if(isset($displaySword) && $displaySword == 1){
 	?>
 
 	<div id="sword1" class="sword swordOne">

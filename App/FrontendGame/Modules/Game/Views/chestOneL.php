@@ -13,12 +13,12 @@
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button type="button" class="open_chest btn" data-toggle="modal" data-target="#chestOneL">Ouvrir</button>
+			<button type="button" id="action-open-chest" class="open_chest btn" data-toggle="modal" data-target="#chestOneL">Ouvrir</button>
 		</div>
 	</div>
 
 	<?php
-		if(isset($display) && $display == 1){
+		if(isset($displaySword) && $displaySword == 1){
 	?>
 
 	<div id="sword1" class="sword swordOne">
@@ -30,7 +30,7 @@
 			<form action="" method="post">
 				<input type="hidden" name="sword1"/>
 				<?= $formSword ?>
-				<input id="btnSword1" type="submit" value="Prendre" />
+				<input id="btnSword1" type="submit" value="Prendre" class="btnSword" />
 			</form>
 		</div>
 	</div>

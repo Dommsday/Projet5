@@ -18,7 +18,7 @@
 	</div>
 
 		<?php
-		if(isset($display) && $display == 1){
+		if(isset($displayStick) && $displayStick == 1){
 	?>
 	<div id="stick1" class="stick stick-chestFourL">
 			
@@ -28,7 +28,7 @@
 			<form action="" method="post">
 				<input type="hidden" name="stick1"/>
 				<?= $formStick ?>
-				<input id="btnStick2" type="submit" value="Prendre" />
+				<input id="btnStick1" type="submit" value="Prendre" class="btnStick" />
 			</form>
 		</div>
 	</div>

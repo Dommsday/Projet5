@@ -3,6 +3,8 @@
 body, html, footer{
 	font-family: 'Puritan', sans-serif;
 	background-color: #5B5A60;
+	margin: 0px;
+	padding: 0px;
 }
 
 a:hover{
@@ -10,8 +12,18 @@ a:hover{
 }
 
 .text_game, .text_frontend, .dashbord{
-	position: relative;
 	height: auto;
+	width: 100%;
+}
+
+.section-container-frontendgame{
+	position: relative;
+	
+}
+
+.container-fluid{
+	padding: 0%;
+	margin: 0%;
 }
 
 /*PAGE SIGNALEMENT
@@ -32,7 +44,6 @@ a:hover{
 }
 
 .confirmation-inscription, .confirmation-deconnexion{
-
 	margin-left: 25%;
 }
 
@@ -75,7 +86,6 @@ header{
 .navbar{
     width: 100%;
     height: 120px;
-    position: relative;
    letter-spacing: 2px;
 }
 
@@ -287,9 +297,12 @@ tbody tr{
 /*PARTIE GAME
 *******************/
 
+/*Partie Inventaier et Informations
+========================================*/
 #container-inventory{
+	background-color: #C47134;
+	height: auto;
 	display: flex;
-	flex-direction: column;
 	width: 100%;
 }
 
@@ -306,47 +319,14 @@ tbody tr{
 	color: #FFFFFF;
 }
 
-.text_game{
-	background: #c5c2c1;
-	height: 800px;
-}
-
-.impasseOne, .underFour, .impasseThree{
-	margin-bottom: 25%;
-}
-
-.choise-right, .choise-left, .choise-top, .choise-bottom, .choise-back{
-	margin: 6%;
-	color: #000000;
-	font-weight: bold;
-}
-
-#choise-road, #choise-road-end{
-	background: #FFFFFF;
-	position: absolute;
-	bottom: 0%;
-	border: 2px solid black;
-	border-radius: 10px;
-	width: 100%;
-	margin-left: -1.3%;
-}
-
-
-.container-game{
-	text-align: center;
-	color: #FFFFFF;
-	margin-top: 4%;
-	
-}
-
 #container-table-button{
 	display: flex;
 	margin-top: 2%;
-	margin-bottom: 4%;
+	margin-bottom: 1%;
 }
 
 .table-inventory{
-	width: 30%;
+	width: 35%;
 	background: #FFFFFF;
 	margin-left: 25%;
 }
@@ -372,6 +352,152 @@ tbody tr{
 	position: relative;
 }
 
+#info-game{
+	width: 100%;
+	height: auto;
+	background: #2B2B2B;
+	overflow: auto;
+}
+
+#info-game p{
+	font-weight: bold;
+	margin-top: 1%;
+	margin-left: 1%;
+	line-height: 5px;
+}
+
+.action_objects{
+	color: #F2F2F2;
+}
+
+.action_enemy{
+	color: #DB2B30;
+}
+
+.action_player{
+	color: #02A676;
+}
+
+/*DEBUT TOUT LES OBJETS
+**********************/
+.all-resume{
+	background: #FFFFFF;
+}
+
+#title-all-inventory th{
+	
+	padding: 10px;
+	text-align: center;
+}
+
+#container-all-inventory td{
+	padding: 10px;
+}
+
+#container-all-inventory .description{
+	width: 20%;
+}
+
+#container-all-inventory .damages{
+	text-align: center;
+}
+
+#container-all-inventory .life{
+	width: 10%;
+	text-align: center;
+}
+
+#container-all-inventory .lifetime{
+	width: 15%;
+	text-align: center;
+}
+
+.fa-pen, .fa-trash-alt{
+	color: #000000;
+}
+
+.picture{
+	width: 20%;
+	text-align: center;
+}
+
+.img-all-pictures{
+	width: 40px;
+	height: 40px;
+}
+
+.all-pictures{
+	width: 8%;
+	height: 8%;
+}
+
+.btn-all-inventory{
+	margin-top: 2%;
+}
+
+.btn-all-inventory a{
+	color: #000000;
+	font-weight: bold;
+}
+/*FIN TOUT LES OBJETS
+*************************/
+
+/*Fin partie Inventaire et Informations
+=========================================*/
+
+.container-game{
+	position: relative;
+	text-align: center;
+	color: #FFFFFF;
+	margin-top: -4%;
+	background: gray;
+	height: 100%;
+}
+
+.title-start h1{
+	font-size: 6vw;
+	font-family: "Bradley Hand ITC","sans-serif";
+	font-weight: bold;
+}
+
+.text-start p{
+	font-size: 1.5vw;
+	font-family: "Bradley Hand ITC","sans-serif";
+	font-weight: bold;
+	width: 65%;
+	margin: auto;
+}
+
+.text_game{
+	background: #c5c2c1;
+	height: 900px;
+}
+
+.impasseOne, .underFour, .impasseThree{
+	margin-bottom: 25%;
+}
+
+.choise-right, .choise-left, .choise-top, .choise-bottom, .choise-back, .link-endgame{
+	margin: 6%;
+	color: #000000;
+	font-weight: bold;
+}
+
+#choise-road, #choise-road-end, #endgame{
+	background: #FFFFFF;
+	position: absolute;
+	bottom: 0%;
+	border: 2px solid black;
+	border-radius: 10px;
+	width: 100%;
+}
+
+
+.title-start{
+	margin-top: 4%;
+}
+
+
 #all-apple{
 	display: flex;
 }
@@ -380,37 +506,72 @@ tbody tr{
 /*Partie combat objets
 *************************/
 
+/*SECRETS
+===============*/
+#secret-rock-fountainTwo{
+	position: absolute;
+	border: 2px solid yellow;
+	bottom: 6%;
+	width: 10%;
+}
+
+#secret-rock-ville-two-L{
+	position: absolute;
+	border: 2px solid yellow;
+	bottom: 6%;
+	right: 1%;
+	width: 10%;
+}
+#secret-rock-under-six{
+	position: absolute;
+	border: 2px solid yellow;
+	bottom: 6%;
+	right: 1%;
+	width: 10%;
+}
+#secret-rock-village-fourR{
+	position: absolute;
+	border: 2px solid yellow;
+	bottom: 6%;
+	left: 1%;
+	width: 10%;
+}
+
+/*FIN SECRETS
+================*/
+
 /*APPLE
 =============*/
 .apple-img{
-	width: 45%;
-	margin-bottom: 2%;
+	width: 25%;
+	margin-bottom: 3%;
 }
 
 #apple1{
- 	border: solid black 2px;
- 	height: 100px;
- 	width: 10%;
+	position: absolute;
+ 	height: 80px;
+ 	width: 9%;
+ 	border: 2px solid yellow;
  }
 
 .apple1-index{
-	margin-top: 5%;
-	margin-left: 20%;
+	bottom: 10%;
+	left: 35%;
 }
 
 .apple-fight-four{
-	margin-top: 20%;
-	margin-left: 15%;
+	bottom: 5%;
+	right: 15%;
 }
 
 .apple-chestFive{
-	margin-top: 12%;
-	margin-left: 24%;
+	margin-top: 22%;
+	margin-left: 26%;
 }
 
 .apple1-fightFive-L{
 	margin-top: 15%;
-	margin-left: 40%;
+	margin-left: 55%;
 }
 
 .apple1-villageTwo{
@@ -419,22 +580,22 @@ tbody tr{
 }
 
 .apple1-villageThree-R{
-	margin-left: 24%;
-	margin-top: 17%;
+	left: 44%;
+	bottom: 17%;
 }
 
-.apple1-village-Five-R{
-	margin-left: 42%;
-	margin-top: 11%;
+.apple1-village-fiveR{
+	left: 30%;
+	bottom: 10%;
 }
 
 .apple1-chestEightR{
-	margin-top: 12%;
+	bottom: 12%;
 }
 
 .apple1-underFiveR{
-	margin-top: 23%;
-	margin-left: 26%;
+	bottom: 10%;
+	right: 26%;
 }
 
 /*FIN APPLE
@@ -443,18 +604,23 @@ tbody tr{
 /*STICK
 =============*/
 .stick-img{
-	width: 50%;
+	width: 40%;
 }
 
 #stick1{
+	position: absolute;
  	border: solid red 2px;
  	height: 100px;
  	width: 20%;
 }
 
+.stick-underOne{
+	bottom: 10%;
+}
+
 .stick-fightOneL{
- 	margin-top: 17%;
-	margin-left: 20%;
+ 	bottom: 10%;
+	left: 20%;
 }
 
 .stick-impasse-two{
@@ -464,8 +630,12 @@ tbody tr{
 }
 
 .stick-chestNineR{
-	margin-left: 14%;
-	margin-top: 5%;
+	right: 14%;
+	bottom: 7%;
+}
+
+.stick-chestFourL{
+	bottom: 20%;
 }
 
 
@@ -475,43 +645,50 @@ tbody tr{
 /*ACORN
 =============*/
 .acorn-img{
-	width: 30%;
+	width: 35%;
 	margin-bottom: 2%;
 }
 
 #acorn1{
+	position: absolute;
 	border: solid orange 2px;
  	height: 100px;
- 	width: 20%;	
+ 	width: 10%;	
 }
 
 .acorn-village-one{
-	margin-top: 20%;
-	margin-left: 32%;
+	bottom: 8%;
+	left: 32%;
 }
 
 .acorn-under-two{
-	margin-top: 30%;
-	margin-left: 20%;
+	bottom: 10%;
+	left: 20%;
 }
 
 .acorn1-underThree{
-	margin-top: 42%;
-	margin-left: 50%;
+	bottom: 4%;
+	right: 20%;
 }
 
 .acorn1-fightOneR{
-	margin-top: 12%;
-	margin-left: 31%;
+	bottom: 12%;
+	right: 31%;
 }
 
 .acorn1-UnderFourR{
-	margin-left: 15%;
+	left: 25%;
+	bottom: 4%;
 }
 
 .acorn1-UnderSixR{
-	margin-top: 11%;
-	margin-left: 24%;
+	bottom: 11%;
+	right: 24%;
+}
+
+.acorn1-fight-three{
+	right: 14%;
+	bottom: 4%;
 }
 
 /*FIN ACORN
@@ -521,18 +698,19 @@ tbody tr{
 =============*/
 
 .sword-img{
-	width: 35%;
+	width: 30%;
 }
 
 #sword1{
+	position: absolute;
 	border: solid green 2px;
- 	height: 170px;
- 	width: 35%;	
+ 	height: 200px;
+ 	width: 30%;	
 }
 
 .swordOne{
-	margin-top: 2%;
- 	margin-left: 8%;
+	bottom: 14%;
+ 	left: 8%;
 }
 
 .stick-underOne{
@@ -544,8 +722,9 @@ tbody tr{
 	margin-top: -10%;
 }
 
-.sword-village-Four-R{
-	margin-top: 16%;
+.sword-village-fourR{
+	bottom: 6%;
+	right: 4%;
 }
 
 /*FIN SWORD
@@ -558,9 +737,10 @@ tbody tr{
 }
 
 #chest1{
+	position: absolute;
 	border: solid red 2px;
  	height: 320px;
- 	width: 40%;
+ 	width: 30%;
 }
 
 button#action-open-chest{
@@ -569,33 +749,42 @@ button#action-open-chest{
 }
 
 .chestOne{
-	margin: auto;
+	right: 12%;
+	bottom: 15%;
 }
 
 .chestTwoL{
 
-	margin-top: 4%;
+	bottom: 12%;
+	left: 35%;
 }
 
-.chestFightFour-L{
-	margin: auto;
+.chestFightFour-L, .chest-fight-three{
+	left: 35%;
+	bottom: 12%;
 }
 
 .chestFourL{
-	margin-top: 10%;
-	margin-left: 60%;
+	top: 40%;
+	left: 60%;
 }
 
 .chestNineR{
-	margin: auto;
+	bottom: 15%;
 }
 
 .chestEightR{
-	margin-left: 30%;
+	right: 10%;
+	bottom: 20%;
 }
 
 .chestfightSevenR{
 	margin: auto;
+}
+
+.chest-under-sixR{
+	bottom: 12%;
+	left: 42%;
 }
 
 /*FIN CHEST
@@ -605,18 +794,17 @@ button#action-open-chest{
 =================*/
 
 .fountain-img{
-	width: 40%;
+	width: 60%;
 }
 
 #fountain1{
-	margin-bottom: 12%;
-	border: 1px solid black;
+	position: absolute;
+	margin-left: 24%;
+	border: 1px solid yellow;
 	height: 480px;
+	width: 50%;
 }
 
-#secret-rock-fountainTwo{
-	margin-top: -10%;
-}
 /*FIN FOUNTAIN
 ====================*/
 
@@ -624,11 +812,12 @@ button#action-open-chest{
 =======================*/
 #gate1{
 	border: 2px solid blue;
-	height: 450px;
+	height: 550px;
 }
 
 .gate-img{
 	width: 100%;
+	height: 100%;
 }
 /*FIN GATE
 ==========================*/
@@ -641,29 +830,64 @@ button#action-open-chest{
 /*PARTIE GIF
 *********************/
 #bat1, .bat_gif{
-	width: 250px;
-	height: 150px;
+	width: 320px;
+	height: 220px;
 	margin: auto;
 }
 
 #crow1, .crow_gif{
 	width: 180px;
 	height: 150px;
-	margin: auto;
 }
 
 #crow1{
 	margin-bottom: 24%;
+	margin-top: 15%;
+	margin-left: 43%;
 }
 
 #wolf1, .wolf_gif{
-	width: 180px;
-	height: 150px;
-	margin: auto;
+	width: 300px;
+	height: 200px;
+}
+
+.wolf-fight-four, .wolf-fight-three{
+	margin-top: 14%;
+	margin-left: 42%;
 }
 
 .wolf-fight-five{
 	margin-bottom: 4%;
+}
+
+#troll, .troll_gif{
+	width: 280px;
+	height: 320px;
+	margin: auto;
+}
+
+#golem1, .golem_gif{
+	width: 340px;
+	height: 240px;
+}
+
+.golem-fight-sixR{
+	margin-left: 40%;
+	margin-top: 10%;
+}
+
+.ennemi-character{
+	margin-top: 4%;
+	width: 100%;
+}
+
+.ennemi-character tr{
+	font-size: 1.2vw;
+}
+
+.button-attak-enemy{
+	margin-top: 2%;
+	font-size: 1.1vw;
 }
 
 
@@ -870,71 +1094,61 @@ button span:hover{
 /*Fin Index
 ****************/
 
-/*DEBUT TOUT LES OBJETS
-**********************/
-.all-resume{
-	background: #FFFFFF;
-}
-
-#title-all-inventory th{
-	
-	padding: 10px;
-	text-align: center;
-}
-
-#container-all-inventory td{
-	padding: 10px;
-}
-
-#container-all-inventory .description{
-	width: 20%;
-}
-
-#container-all-inventory .damages{
-	text-align: center;
-}
-
-#container-all-inventory .life{
-	width: 10%;
-	text-align: center;
-}
-
-#container-all-inventory .lifetime{
-	width: 15%;
-	text-align: center;
-}
-
-.fa-pen, .fa-trash-alt{
-	color: #000000;
-}
-
-.picture{
-	width: 20%;
-	text-align: center;
-}
-
-.img-all-pictures{
-	width: 40px;
-	height: 40px;
-}
-
-.all-pictures{
-	width: 8%;
-	height: 8%;
-}
-
-.btn-all-inventory{
-	margin-top: 2%;
-}
-
-.btn-all-inventory a{
-	color: #000000;
-	font-weight: bold;
-}
-/*FIN TOUT LES OBJETS
-*************************/
-
-
 /*FIN PARTIE BACKEND
 ************************/
+
+/*IMAGES DE FOND
+*************************/
+.container-index{
+	background-image: url("/Web/images/forest_one.jpg");
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+.container-fight{
+	background-image: url("/Web/images/fight_one.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.container-chest{
+	background-image: url("/Web/images/chest.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.container-village{
+	background-image: url("/Web/images/village.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.container-under{
+	background-image: url("/Web/images/under.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.container-fountain{
+	background-image: url("/Web/images/fountain.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.container-gate{
+	background-image: url("/Web/images/gate.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.container-impasse{
+	background-image: url("/Web/images/impasse.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+
+
+/*FIN IMAGES DE FOND
+*************************/
 

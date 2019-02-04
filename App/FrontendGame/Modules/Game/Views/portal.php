@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-gate">
 	
 	<div class="title-start">
 		<h1><?= $textPortal['title']?></h1>

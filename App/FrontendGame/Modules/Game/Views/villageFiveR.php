@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-village">
 	
 	<div class="title-start">
 		<h1><?= $textVillage['title']?></h1>
@@ -12,7 +12,7 @@
 		if(isset($displayApple) && $displayApple  == 1){		
 	?>
 
-		<div id="apple1" class="apple1-village-Five-R apple">
+		<div id="apple1" class="apple1-village-fiveR apple">
 				
 			<img class="apple-img" src="<?= $apple['src']?>" alt="<?= $apple['name']?>" title="<?= $apple['name']?>"/>
 

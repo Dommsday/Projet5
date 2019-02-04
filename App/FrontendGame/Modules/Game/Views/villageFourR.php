@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-village">
 	
 	<div class="title-start">
 		<h1><?= $textVillage['title']?></h1>
@@ -12,7 +12,7 @@
 		if(isset($displaySword) && $displaySword == 1){
 	?>
 
-	<div id="sword1" class="sword sword-village-Four-R">
+	<div id="sword1" class="sword sword-village-fourR">
 			
 		<img class="sword-img" src="<?= $sword['src']?>" alt="<?= $sword['name']?>" title="<?= $sword['name']?>"/>
 		
@@ -30,7 +30,7 @@
 	}
 	?>
 
-	<div id="secret-rock-villageFour">
+	<div id="secret-rock-village-fourR">
 		<a href="/game/chest-four-left.html">?</a>
 	</div>
 	<div id="choise-road">

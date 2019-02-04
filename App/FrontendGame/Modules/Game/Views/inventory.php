@@ -1,5 +1,8 @@
 <div id="container-inventory">
-	<div id="container-table-button">
+	<div id="info-game" clas="col-xl-6">
+	
+	</div>
+	<div id="container-table-button" class="col-xl-6">
 		<table class="table-inventory">
 			<tr class="name-character">
 				<th>Nom</th>

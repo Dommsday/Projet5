@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-fountain">
 	
 	<div class="title-start">
 		<h1><?= $textFountain['title']?></h1>

@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-fight">
 	
 	<div class="title-start">
 		<h1><?= $textFight['title']?></h1>
@@ -8,7 +8,7 @@
 		<p><?= nl2br($textFight['content']) ?></p>
 	</div>
 	
-	<div id ="wolf1" class="wolf">
+	<div id ="wolf1" class="wolf wolf-fight-three">
 		<img src="/Web/images/wolf.gif" class="wolf_gif"/>
 
 		<table class="ennemi-character">
@@ -26,10 +26,10 @@
 
 		</table>
 
-		<button id="button-attak-wolf" class="button-attak-enemy">Attaquer</button>
+		<button id="button-attak-wolf" class="button-attak-enemy btn">Attaquer</button>
 	</div>
 
-	<div id="chest1" class="chest chestOne">
+	<div id="chest1" class="chest chest-fight-three">
 			
 		<img class="chest-img" src="/Web/images/chest.png" />
 

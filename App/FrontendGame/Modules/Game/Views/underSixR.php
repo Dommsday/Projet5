@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-under">
 	
 	<div class="title-start">
 		<h1><?= nl2br($textUndergrowth['title']) ?></h1>
@@ -33,7 +33,7 @@
 	}
 	?>
 
-	<div id="chest1" class="chest chestFourR">
+	<div id="chest1" class="chest chest-under-sixR">
 			
 		<img class="chest-img" src="/Web/images/chest.png" />
 

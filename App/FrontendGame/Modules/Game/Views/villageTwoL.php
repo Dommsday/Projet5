@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-village">
 	
 	<div class="title-start">
 		<h1><?= $textVillage['title']?></h1>
@@ -8,7 +8,7 @@
 		<p><?= nl2br($textVillage['content']) ?></p>
 	</div>
 
-	<div id="secret-rock-ville-txo-L">
+	<div id="secret-rock-ville-two-L">
 		<a class="secret" href="/game/fight-three-left.html">?</a>
 	</div>
 	<div id="all-apple">

@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-fight">
 	
 	<div class="title-start">
 		<h1><?= $textFight['title']?></h1>
@@ -8,8 +8,8 @@
 		<p><?= nl2br($textFight['content']) ?></p>
 	</div>
 	
-	<div id ="crow1" class="crow">
-		<img src="/Web/images/crow.gif" class="crow_gif"/>
+	<div id ="golem1" class="golem golem-fight-sixR">
+		<img src="/Web/images/golem.gif" class="golem_gif"/>
 
 		<table class="ennemi-character">
 			<tr class="name-character">
@@ -19,9 +19,9 @@
 			</tr>
 
 			<tr class="stats-character">
-				<td><?= $crow['name']?></td>
-				<td id="damages-crow"><?= $crow['damages']?></td>
-				<td id="life-crow"><?= $crow['life']?></td>
+				<td><?= $golem['name']?></td>
+				<td id="damages-golem"><?= $golem['damages']?></td>
+				<td id="life-golem"><?= $golem['life']?></td>
 			</tr>
 
 		</table>

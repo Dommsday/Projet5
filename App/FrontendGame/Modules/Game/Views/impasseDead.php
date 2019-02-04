@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-impasse">
 	
 	<div class="title-start">
 		<h1><?= nl2br($textImpasseDead['title']) ?></h1>

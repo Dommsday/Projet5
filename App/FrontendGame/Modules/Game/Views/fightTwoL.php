@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-fight">
 	
 	<div class="title-start">
 		<h1><?= $textFight['title']?></h1>
@@ -8,7 +8,7 @@
 		<p><?= nl2br($textFight['content']) ?></p>
 	</div>
 	
-	<div id ="crow1" class="crow">
+	<div id ="crow1" class="crow crow-fight-two">
 		<img src="/Web/images/crow.gif" class="crow_gif"/>
 
 		<table class="ennemi-character">

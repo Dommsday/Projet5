@@ -7,7 +7,19 @@ use \Entity\Characters;
 
 abstract class CharactersManager extends Manager{
 
+    abstract public function getWarriorPlayer();
+
 	abstract public function getText($id);
+
+    abstract public function getCrow();
+
+    abstract public function getBat();
+
+    abstract public function getWolf();
+
+    abstract public function getTroll();
+
+    abstract public function getGolem();
 
 	abstract protected function add(Characters $characters);
     

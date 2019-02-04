@@ -367,6 +367,18 @@ class GameController extends BackController{
 
 	}
 
+	public function executeFinalFight(HTTPRequest $request){
+
+		$this->executeInventory();
+	
+		$textFinalFight = $this->managers->getManagerOf('Forest')->finalFight();
+		$troll = $this->managers->getManagerOf('Characters')->getTroll();
+		
+		$this->page->addVarPage('textFinalFight', $textFinalFight);
+		$this->page->addVarPage('troll', $troll);
+
+	}
+
 	public function executeChestOneL(HTTPRequest $request){
 
 		$this->takeSword($request);
@@ -626,10 +638,10 @@ class GameController extends BackController{
 		$this->executeInventory();
 
 		$textFight = $this->managers->getManagerOf('Forest')->fight();
-		$wolf = $this->managers->getManagerOf('Characters')->getWolf();
+		$golem = $this->managers->getManagerOf('Characters')->getGolem();
 		
 		$this->page->addVarPage('textFight', $textFight);
-		$this->page->addVarPage('wolf', $wolf);
+		$this->page->addVarPage('golem', $golem);
 	}
 
 	public function executeFightSevenR(HTTPRequest $request){
@@ -724,10 +736,10 @@ class GameController extends BackController{
 		$this->executeInventory();
 
 		$textFight = $this->managers->getManagerOf('Forest')->fight();
-		$wolf = $this->managers->getManagerOf('Characters')->getWolf();
+		$golem = $this->managers->getManagerOf('Characters')->getGolem();
 		
 		$this->page->addVarPage('textFight', $textFight);
-		$this->page->addVarPage('wolf', $wolf);
+		$this->page->addVarPage('golem', $golem);
 	}
 
 	public function executeFightThreeR(HTTPRequest $request){
@@ -747,10 +759,10 @@ class GameController extends BackController{
 		$this->executeInventory();
 
 		$textFight = $this->managers->getManagerOf('Forest')->fight();
-		$crow = $this->managers->getManagerOf('Characters')->getCrow();
+		$golem = $this->managers->getManagerOf('Characters')->getGolem();
 		
 		$this->page->addVarPage('textFight', $textFight);
-		$this->page->addVarPage('crow', $crow);
+		$this->page->addVarPage('golem', $golem);
 	}
 
 	public function executeUnderFiveR(HTTPRequest $request){

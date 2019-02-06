@@ -28,8 +28,4 @@
 
 		<button type="button" id="button-attak-troll" class="button-attak-enemy btn">Attaquer</button>
 	</div>
-
-	<div id="endgame">
-		<a class="link-endgame" href="#">Fin</a>
-	</div>
 </div>

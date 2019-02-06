@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-impasse">
 	
 	<div class="title-start">
 		<h1><?= nl2br($textImpasse['title']) ?></h1>
@@ -9,6 +9,6 @@
 	</div>
 
 	<div id="choise-road">
-		<a class="choise-top" href="/game/undergrowth-six-right.html">Retour en arrière</a>
+		<a class="choise-top" href="/game/undergrowth-six-right.html"><img class="arrow arrow-back" alt="arrow-back" title="flèche pour revenir en arrière" src="/Web/images/arrow_back.png" /></a>
 	</div>
 </div>

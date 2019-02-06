@@ -39,6 +39,9 @@ var PlayerStorage = {
 
 	//Valeur des dégâts par défault
 	defaultDamages: 4,
+
+	//Tableau du déroulement du jeu
+	info_game_array: [],
 	
 
 	init: function(){
@@ -69,6 +72,7 @@ var PlayerStorage = {
 		PlayerStorage.deconnexion.addEventListener("click", function(){
 			PlayerStorage.storagePlayer.clear();
 			TakeApple.storageApple.clear();
+			FightBat.storageBat.clear();
 		});
 
 	},

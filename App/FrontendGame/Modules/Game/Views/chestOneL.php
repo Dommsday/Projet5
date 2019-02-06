@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-chest">
 	
 	<div class="title-start">
 		<h1><?= nl2br($textChest['title']) ?></h1>
@@ -24,7 +24,7 @@
 	<div id="sword1" class="sword swordOne">
 			
 		<img class="sword-img" src="<?= $sword['src']?>" alt="<?= $sword['name']?>" title="<?= $sword['name']?>"/>
-		<?= $sword['name']?>
+		
 
 		<div id="action_sword1" class="action_sword">
 			<form action="" method="post">
@@ -40,8 +40,8 @@
 	?>
 
 	<div id="choise-road">
-		<a class="choise-left" href="/game/village-one-left.html">Aller à gauche</a>
-		<a class="choise-right" href="/game/fight-five-left.html">Aller à droite</a>
+		<a class="choise-left" href="/game/village-one-left.html"><img class="arrow arrow-left" alt="arrow-left" title="flèche de gauche" src="/Web/images/arrow_left.png" /></a>
+		<a class="choise-right" href="/game/fight-five-left.html"><img class="arrow arrow-right" alt="arrow-right" title="flèche de droite" src="/Web/images/arrow_right.png" /></a>
 	</div>
 
 </div>

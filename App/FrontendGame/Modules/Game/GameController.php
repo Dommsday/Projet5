@@ -25,6 +25,11 @@ class GameController extends BackController{
 		$this->app->httpResponse()->redirect($_SERVER['HTTP_REFERER']);
 	}
 
+	public function executeFinish(HTTPRequest $request){
+		$this->page->addVarPage('title', 'Réussite');
+		$this->executeInventory();
+	}
+
 	public function takeKnife(HTTPRequest $request){
 
 		$knife = $this->managers->getManagerOf('Inventory')->getKnife();
@@ -537,11 +542,11 @@ class GameController extends BackController{
 		$this->executeInventory();
 
 		$forest = $this->managers->getManagerOf('Forest')->fight();
-		$bat = $this->managers->getManagerOf('Characters')->getBat();
+		$golem = $this->managers->getManagerOf('Characters')->getGolem();
 		$apple = $this->managers->getManagerOf('Inventory')->getApple();
 		
 		$this->page->addVarPage('textFight', $forest);
-		$this->page->addVarPage('bat', $bat);
+		$this->page->addVarPage('golem', $golem);
 		$this->page->addVarPage('apple', $apple);
 	}
 

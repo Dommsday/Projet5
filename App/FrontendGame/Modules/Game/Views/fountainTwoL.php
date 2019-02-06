@@ -22,7 +22,7 @@
 	</div>
 
 	<div id="choise-road">
-		<a class="choise-top" href="/game/chest-four-left.html">Aller tout droit</a>
+		<a class="choise-top" href="/game/chest-four-left.html"><img class="arrow arrow-top" alt="arrow-top" title="flèche pour aller tout droit" src="/Web/images/arrow_top.png" /></a>
 	</div>
 
 </div>

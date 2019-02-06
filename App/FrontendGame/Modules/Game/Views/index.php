@@ -1,7 +1,4 @@
-<div class="container container-game">
-	
-	<p>Bonjour <?= $user->getAttribute('pseudo')?></p>
-	<p>Ton ID est  <?= $user->getAttribute('id')?></p>
+<div class="container-game container-index">
 
 	<div class="title-start">
 		<h1><?= $textStart['title']?></h1>
@@ -14,7 +11,7 @@
 	<div id="all-apple">
 
 		<?php
-		if(isset($display) && $display  == 1){
+		if(isset($displayApple) && $displayApple  == 1){
 			
 		?>
 
@@ -25,7 +22,7 @@
 			<div id="action1" class="action">
 				<form action="" method="post">
 					<?= $formApple ?>
-					<input type="submit" name="apple1" value="Prendre" id="btnApple1"/>
+					<input type="submit" name="apple1" value="Prendre" id="btnApple1" class="btnApple"/>
 				</form>
 			</div>
 		</div>
@@ -33,12 +30,12 @@
 		<?php
 		}
 		?>	
-
+	
 	</div>
 
 	<div id="choise-road">
-		<a class="choise-left" href="/game/fight-one-left.html">Aller à gauche</a>
-		<a class="choise-right" href="/game/fight-one-right.html">Aller à droite</a>
+		<a class="choise-left" href="/game/fight-one-left.html"><img class="arrow arrow-left" alt="arrow-left" title="flèche de gauche" src="/Web/images/arrow_left.png" /></a>
+		<a class="choise-right" href="/game/fight-one-right.html"><img class="arrow arrow-right" alt="arrow-right" title="flèche de droite" src="/Web/images/arrow_right.png" /></a>
 	</div>
 
 </div>

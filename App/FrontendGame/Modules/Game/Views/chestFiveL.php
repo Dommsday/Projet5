@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-chest">
 	
 	<div class="title-start">
 		<h1><?= nl2br($textChest['title']) ?></h1>
@@ -39,7 +39,7 @@
 	</div>
 
 	<div id="choise-road">
-		<a class="choise-top" href="/game/portal.html">Aller tout droit</a>
+		<a class="choise-top" href="/game/portal.html"><img class="arrow arrow-top" alt="arrow-top" title="flèche pour aller tout droit" src="/Web/images/arrow_top.png" /></a>
 	</div>
 
 </div>

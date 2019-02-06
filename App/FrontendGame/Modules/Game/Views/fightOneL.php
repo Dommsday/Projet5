@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-fight">
 	
 	<div class="title-start">
 		<h1><?= $textFight['title']?></h1>
@@ -26,7 +26,7 @@
 
 		</table>
 
-		<button type="button" id="button-attak-bat" class="button-attak-enemy">Attaquer</button>
+		<button type="button" id="button-attak-bat" class="button-attak-enemy btn">Attaquer</button>
 	</div>
 	
 	<?php
@@ -50,7 +50,8 @@
 	?>
 
 	<div id="choise-road">
-		<a class="choise-top direction" href="/game/chest-one-left.html">Aller tout droit</a>
+		<a class="choise-top direction" href="/game/chest-one-left.html"><img class="arrow arrow-top" alt="arrow-top" title="flèche pour aller tout droit" src="/Web/images/arrow_top.png" /></a>
 	</div>
 
 </div>
+

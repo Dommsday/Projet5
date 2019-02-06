@@ -7,20 +7,32 @@ var FightBat = {
 	choiseRoad: document.getElementById("choise-road"),//Div du lien pour les
 	lifePlayer : document.getElementById("life_players"),
 
+	info_game: document.getElementById("info-game"),
+
+	text_action_bat: document.createElement("p"),
+	text_action_player: document.createElement("p"),
+
 	init: function(){
 
-		this.attakPlayerBat();
+		FightBat.refresh();
+		FightBat.hiddenRoad();
+		FightBat.attakPlayerBat();
+		
 	},
 
-
-	attakPlayerBat: function(){
+	hiddenRoad: function(){
 
 		//Si la vie de l'ennemi est supérieur à 0 le changement de route est invisible
 		if(Number(FightBat.lifeBat.textContent) > 0){
 
 			FightBat.choiseRoad.style.display="none";
 		}
-		
+
+	},
+
+
+	attakPlayerBat: function(){
+
 		//Quand on attaque l'ennemi
 		FightBat.btnAttakBat.addEventListener("click", function(){
 
@@ -28,19 +40,35 @@ var FightBat = {
 
 			let chance = Math.floor(Math.random() * 50) + 1;//Taux de chance
 
-			let batLife = FightBat.lifeBat.textContent;
+			let batLife = FightBat.storageBat.getItem("beginLife");
 			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
 			//Si le taux de chance est supérieur à 35
 			if(chance >= 35){
 
-				alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
+				//alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
+
+				FightBat.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous touchez l'ennemi";
+
+				FightBat.text_action_player.setAttribute("class", "action_player");
+
+				FightBat.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
+					
+				FightBat.info_game.appendChild(FightBat.text_action_player);
 
 				let newLifeBat = batLife - playerDamage;
 
+				//alert("la vie de la bat est de "+newLifeBat);
+
+				FightBat.storageBat.setItem("newLifeBat", newLifeBat);
+
+				//alert("La nouvelle vie de bat est "+FightBat.storageBat.getItem("newLifeBat"));
+
 				FightBat.lifeBat.textContent = newLifeBat;
 
-				FightBat.storageBat.setItem('newLifeBat', newLifeBat);
+				//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
+
+				//FightBat.lifeBat.textContent = FightBat.storageBat.getItem("lifeBat");
 
 				FightBat.cadreBat.style.border ="2px solid red";
 
@@ -50,9 +78,27 @@ var FightBat = {
 				}, 1000);
 
 				//Si la vie de l'ennemi est inférieur à 0
-				if(FightBat.lifeBat.textContent <= 0 ){
+				if(FightBat.lifeBat.textContent < 0 ){
 
 					FightBat.lifeBat.textContent = 0;
+
+					let deadBat = FightBat.lifeBat.textContent;
+
+					FightBat.storageBat.setItem("deadBat", deadBat);
+
+					//alert("La vie de la bat morte est de "+FightBat.storageBat.getItem("deadBat"));
+
+					FightBat.text_action_player.textContent = "l'ennemi est mort";
+
+					FightBat.text_action_player.setAttribute("class", "action_player");
+
+					FightBat.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
+					
+					FightBat.info_game.appendChild(FightBat.text_action_player);
+
+					//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
+
+					FightBat.lifeBat.textContent = FightBat.storageBat.getItem("deadBat");
 
 					setTimeout(function(){
 						FightBat.cadreBat.style.display = "none";
@@ -64,7 +110,15 @@ var FightBat = {
 			//Si le taux de chance est inférieur à 35
 			}else{
 
-				alert("Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi");
+				//alert("Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi");
+
+				FightBat.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi";
+
+				FightBat.text_action_player.setAttribute("class", "action_player");
+
+				FightBat.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
+					
+				FightBat.info_game.appendChild(FightBat.text_action_player);
 
 			}
 
@@ -76,10 +130,6 @@ var FightBat = {
 				FightBat.attakEnemy();
 
 				},1200);
-
-			}else{
-
-				alert("l'ennemi est mort");
 
 			}
 
@@ -96,27 +146,26 @@ var FightBat = {
 
 			if(chance >= 20){
 
-				alert("le taux de chance de l'ennemi est de "+chance+" il vous touche");
+				FightBat.text_action_bat.textContent = "le taux de chance de l'ennemi est de "+chance+" il vous touche";
+
+				FightBat.storageBat.setItem("text_action_bat", FightBat.text_action_bat.textContent);
+
+				FightBat.text_action_bat.setAttribute("class", "action_enemy");
+					
+				FightBat.info_game.appendChild(FightBat.text_action_bat);
 
 				let newLifePlayer = playerLife - batDamage;
 
-				FightBat.lifePlayer.style.background="red";
+				FightBat.lifePlayer.style.background="#DB2B30";
 
 				setTimeout(function(){
 
-					FightBat.lifePlayer.style.background ="#FFF";
+					FightBat.lifePlayer.style.background ="inherit";
 				}, 900);
 
 				FightBat.lifePlayer.textContent = newLifePlayer;
 
 				FightBat.storageBat.setItem('lifePlayer', FightBat.lifePlayer.textContent);
-
-				if(FightBat.storageBat.getItem('lifePlayer') < 0){
-
-					alert("Il vous reste 0 points de vie");
-				}else{
-					alert("Il vous reste "+FightBat.storageBat.getItem('lifePlayer')+ "points de vie");
-				}
 
 				//Si le joueur à 0 points de vie
 				if(FightBat.lifePlayer.textContent <= 0){
@@ -126,6 +175,7 @@ var FightBat = {
 					setTimeout(function(){
 
 						alert("Vous êtes mort");
+						//document.location.href="/";
 
 						FightBat.storageBat.clear();
 						PlayerStorage.storagePlayer.clear();
@@ -136,9 +186,13 @@ var FightBat = {
 				
 			}else{
 
-				alert("Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas");
+				FightBat.text_action_bat.textContent = "Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas";
 
-				alert("Il vous reste "+FightBat.storageBat.getItem('lifePlayer')+ "points de vie");
+				FightBat.text_action_bat.setAttribute("class", "action_enemy");
+
+				FightBat.storageBat.setItem("text_action_bat", FightBat.text_action_bat.textContent);
+					
+				FightBat.info_game.appendChild(FightBat.text_action_bat);
 			}
 	},
 
@@ -148,6 +202,25 @@ var FightBat = {
 
 			TakeAcorn.storageAcorn.setItem("displayAcorn", TakeAcorn.display);
 			
+	},
+
+	refresh: function(){
+
+		if(FightBat.storageBat.length > 0){
+
+			FightBat.storageBat.setItem("beginLife", FightBat.lifeBat.textContent);
+
+			FightBat.lifeBat.textContent = FightBat.storageBat.getItem("beginLife");
+
+			if(FightBat.storageBat.getItem("newLifeBat") !== null){
+				FightBat.lifeBat.textContent = FightBat.storageBat.getItem("newLifeBat");
+
+				if(FightBat.storageBat.getItem("newLifeBat") <= FightBat.storageBat.getItem("deadBat")){
+					FightBat.lifeBat.textContent = FightBat.storageBat.getItem("deadBat");
+					FightBat.cadreBat.style.display = "none";
+				}
+			}
+		}
 	}
 	
 }

@@ -1,43 +1,41 @@
-var FightGolem = {
+var FightTroll = {
 
-	storageGolem: window.sessionStorage,
-	btnAttakGolem : document.getElementById("button-attak-golem"),
-	lifeGolem: document.getElementById("life-golem"),
+	storageTroll: window.sessionStorage,
+	btnAttakTroll : document.getElementById("button-attak-troll"),
+	lifeTroll: document.getElementById("life-troll"),
 	lifePlayer: document.getElementById("life_players"),
-	damageGolem: document.getElementById("damages-golem"),
-	cadreGolem : document.getElementById("golem1"),
-	choiseRoad: document.getElementById("choise-road"),
+	damageTroll: document.getElementById("damages-troll"),
+	cadreTroll : document.getElementById("troll"),
+	endGame: document.getElementById("endgame"),
 	
 	init: function(){
 
-		FightGolem.refresh();
-		FightGolem.hiddenRoad();
-		FightGolem.attakPlayerGolem();
-		
+		FightTroll.refresh();
+		FightTroll.attakPlayerTroll();
+
 	},
 
-	hiddenRoad: function(){
+	hiddeEnd: function(){
 
-		//Si la vie de l'ennemi est supérieur à 0 le changement de route est invisible
-		if(Number(FightGolem.lifeGolem.textContent) > 0){
+		//Si la vie de l'ennemi est supérieur à 0 le lien de la fin du jeu est invisble
+		if(Number(FightTroll.lifeTroll.textContent) > 0){
 
-			FightGolem.choiseRoad.style.display="none";
+			FightTroll.endGame.style.display = "none";
 		}
-
 	},
 
-	attakPlayerGolem: function(){
+	attakPlayerTroll: function(){
 
 		//Quand on attaque l'ennemi
-		FightGolem.btnAttakGolem.addEventListener("click", function(){
+		FightTroll.btnAttakTroll.addEventListener("click", function(){
 
 			let chance = Math.floor(Math.random() * 50) + 1;//Taux de chance
 
-			let golemLife = FightGolem.lifeGolem.textContent;
+			let trollLife = FightTroll.lifeTroll.textContent;
 			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
-			//Si le taux de chance est supérieur à 35
-			if(chance >= 35){
+			//Si le taux de chance est supérieur à 40
+			if(chance >= 10){
 
 				//alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
 
@@ -49,35 +47,35 @@ var FightGolem = {
 					
 				//FightBat.info_game.appendChild(FightBat.text_action_player);
 
-				let newLifeGolem = golemLife - playerDamage;
+				let newLifeTroll = trollLife - playerDamage;
 
 				//alert("la vie de la bat est de "+newLifeBat);
 
-				FightGolem.storageGolem.setItem("newLifeGolem", newLifeGolem);
+				FightTroll.storageTroll.setItem("newLifeTroll", newLifeTroll);
 
 				//alert("La nouvelle vie de bat est "+FightBat.storageBat.getItem("newLifeBat"));
 
-				FightGolem.lifeGolem.textContent = newLifeGolem;
+				FightTroll.lifeTroll.textContent = newLifeTroll;
 
 				//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
 
 				//FightBat.lifeBat.textContent = FightBat.storageBat.getItem("lifeBat");
 
-				FightGolem.cadreGolem.style.border ="2px solid red";
+				FightTroll.cadreTroll.style.border ="2px solid red";
 
 				setTimeout(function(){
 
-					FightGolem.cadreGolem.style.border ="none";
+					FightTroll.cadreTroll.style.border ="none";
 				}, 1000);
 
 				//Si la vie de l'ennemi est inférieur à 0
-				if(FightGolem.lifeGolem.textContent <= 0 ){
+				if(FightTroll.lifeTroll.textContent <= 0 ){
 
-					FightGolem.lifeGolem.textContent = 0;
+					FightTroll.lifeTroll.textContent = 0;
 
-					let deadGolem = FightGolem.lifeGolem.textContent;
+					let deadTroll = FightTroll.lifeTroll.textContent;
 
-					FightGolem.storageGolem.setItem("deadGolem", deadGolem);
+					FightTroll.storageTroll.setItem("deadTroll", deadTroll);
 
 					//alert("La vie de la bat morte est de "+FightBat.storageBat.getItem("deadBat"));
 
@@ -91,12 +89,15 @@ var FightGolem = {
 
 					//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
 
-					FightGolem.lifeGolem.textContent = FightGolem.storageGolem.getItem("deadGolem");
+					FightTroll.lifeTroll.textContent = FightTroll.storageTroll.getItem("deadTroll");
 
 					setTimeout(function(){
-						FightGolem.cadreGolem.style.display = "none";
+						FightTroll.cadreTroll.style.display = "none";
 
-					FightGolem.choiseRoad.style.display="block";
+						setTimeout(function(){
+							document.location.href="/game/endgame.html";
+						},1000);
+					
 					}, 800);
 				}
 
@@ -116,11 +117,11 @@ var FightGolem = {
 			}
 
 			//Si la vie de l'ennemi est séupérieur à 0
-			if(FightGolem.lifeGolem.textContent > 0){
+			if(FightTroll.lifeTroll.textContent > 0){
 
 				//Au bout de 1.2s l'ennemi attaque
 				setTimeout(function(){
-				FightGolem.attakEnemy();
+				FightTroll.attakEnemy();
 
 				},1200);
 
@@ -135,41 +136,42 @@ var FightGolem = {
 
 		let playerLife = PlayerStorage.storagePlayer.getItem("lifePlayer");
 		
-		let golemDamage = FightGolem.damageGolem.textContent;
+		let trollDamage = FightTroll.damageTroll.textContent;
 
 		if(chance >= 60){
 
 			alert("le taux de chance de l'ennemi est de "+chance+" il vous touche");
 
-			let newLifePlayer = playerLife - golemDamage;
+			let newLifePlayer = playerLife - trollDamage;
 
-			FightGolem.lifePlayer.style.background="red";
+			FightTroll.lifePlayer.style.background="red";
 
 			setTimeout(function(){
 
 				FightBat.lifePlayer.style.background ="inherit";
 			}, 900);
 
-			FightGolem.lifePlayer.textContent = newLifePlayer;
+			FightTroll.lifePlayer.textContent = newLifePlayer;
 
-			FightGolem.storageGolem.setItem('lifePlayer', FightGolem.lifePlayer.textContent);
+			FightTroll.storageTroll.setItem('lifePlayer', FightTroll.lifePlayer.textContent);
 
-			if(FightGolem.storageGolem.getItem('lifePlayer') < 0){
+			if(FightTroll.storageTroll.getItem('lifePlayer') <= 0){
 				alert("Il vous reste 0 points de vie");
 			}else{
-				alert("Il vous reste "+FightGolem.storageGolem.getItem('lifePlayer')+ "points de vie");
+
+				alert("Il vous reste "+FightTroll.storageTroll.getItem('lifePlayer')+ "points de vie");
 			}
 
-			
-
 			//Si le joueur à 0 points de vie
-			if(FightGolem.lifePlayer.textContent <= 0){
+			if(FightTroll.lifePlayer.textContent < 0){
 
-				FightGolem.lifePlayer.textContent = 0;
+				FightTroll.lifePlayer.textContent = 0;
+
 					setTimeout(function(){
+						
 					alert("Vous êtes mort");
 
-					FightGolem.storageGolem.clear();
+					FightTroll.storageTroll.clear();
 					PlayerStorage.storagePlayer.clear();
 				},1000);
 					
@@ -180,29 +182,28 @@ var FightGolem = {
 
 			alert("Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas");
 
-			alert("Il vous reste "+FightGolem.storageGolem.getItem('lifePlayer')+ "points de vie");
+			alert("Il vous reste "+FightTroll.storageTroll.getItem('lifePlayer')+ "points de vie");
 		}
 	},
 
 	refresh: function(){
 
-		if(FightGolem.storageGolem.length > 0){
+		if(FightTroll.storageTroll.length > 0){
 
-			FightGolem.storageGolem.setItem("beginGolem", FightGolem.lifeGolem.textContent);
+			FightTroll.storageTroll.setItem("beginTroll", FightTroll.lifeTroll.textContent);
 
-			FightGolem.lifeGolem.textContent = FightGolem.storageGolem.getItem("beginGolem");
+			FightTroll.lifeTroll.textContent = FightTroll.storageTroll.getItem("beginTroll");
 
-			if(FightGolem.storageGolem.getItem("newLifeGolem") !== null){
-				FightGolem.lifeGolem.textContent = FightGolem.storageGolem.getItem("newLifeGolem");
+			if(FightTroll.storageTroll.getItem("newLifeTroll") !== null){
+				FightTroll.lifeTroll.textContent = FightTroll.storageTroll.getItem("newLifeTroll");
 
-				if(FightGolem.storageGolem.getItem("newLifeGolem") <= FightGolem.storageGolem.getItem("deadGolem")){
-					FightGolem.lifeGolem.textContent = FightGolem.storageGolem.getItem("deadGolem");
-					FightGolem.cadreGolem.style.display = "none";
+				if(FightTroll.storageTroll.getItem("newLifeTroll") <= FightTroll.storageTroll.getItem("deadTroll")){
+					FightTroll.lifeTroll.textContent = FightTroll.storageTroll.getItem("deadTroll");
+					FightTroll.cadreTroll.style.display = "none";
 				}
 			}
 		}
 	}
-	
 }
 
-FightGolem.init();
+FightTroll.init();

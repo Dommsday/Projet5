@@ -2,6 +2,10 @@
 <routes>
 
 	<route url="/game/delete-object-([0-9]+).html" module="Game" action="delete" vars="id"></route>
+	<route url="/game/endgame.html" module="Game" action="finish"></route>
+
+	<!--Boss Final-->
+	<route url="/game/boss-game.html" module="Game" action="finalFight"></route>
 	
 	<route url="/game/connexion.html" module="Game" action ="connexion" ></route>
 	<route url="/game/inventory.html" module="Game" action ="inventory" ></route>

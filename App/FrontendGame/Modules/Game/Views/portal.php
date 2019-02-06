@@ -27,7 +27,7 @@
 	</div>	
 
 	<div id="choise-road-end">
-		<a class="choise-left" href="/game/boss-game.html">Aller tout droit</a>
+		<a class="choise-left" href="/game/boss-game.html"><img class="arrow arrow-top" alt="arrow-top" title="flèche pour aller tout droit" src="/Web/images/arrow_top.png" /></a>
 	</div>
 
 </div>

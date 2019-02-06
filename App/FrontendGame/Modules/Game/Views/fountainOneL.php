@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-fountain">
 	
 	<div class="title-start">
 		<h1><?= $textFountain['title']?></h1>
@@ -19,8 +19,8 @@
 
 
 	<div id="choise-road">
-		<a class="choise-left" href="/game/fight-four-left.html">Aller à gauche</a>
-		<a class="choise-right" href="/game/chest-five-left.html">Aller à droite</a>
+		<a class="choise-left" href="/game/fight-four-left.html"><img class="arrow arrow-left" alt="arrow-left" title="flèche de gauche" src="/Web/images/arrow_left.png" /></a>
+		<a class="choise-right" href="/game/chest-five-left.html"><img class="arrow arrow-right" alt="arrow-right" title="flèche de droite" src="/Web/images/arrow_right.png" /></a>
 	</div>
 
 </div>

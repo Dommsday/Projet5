@@ -11,6 +11,7 @@ var FightCrow = {
 
 	init: function(){
 
+		FightCrow.refresh();
 		FightCrow.hiddeChest();
 		FightCrow.attakPlayerCrow();
 	
@@ -37,7 +38,7 @@ var FightCrow = {
 
 			let chance = Math.floor(Math.random() * 50) + 1;//Taux de chance
 
-			let crowLife = FightCrow.lifeCrow.textContent;
+			let crowLife = FightCrow.storageCrow.getItem("beginLife");
 			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
 			//Si le taux de chance est supérieur à 40
@@ -45,11 +46,11 @@ var FightCrow = {
 
 				alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
 
-				let lifeCrow = crowLife - playerDamage;
+				let newLifeCrow = crowLife - playerDamage;
 
-				FightCrow.lifeCrow.textContent = lifeCrow;
+				FightCrow.storageCrow.setItem("newLifeCrow", newLifeCrow);
 
-				FightCrow.storageCrow.setItem("lifeCrow", lifeCrow);
+				FightCrow.lifeCrow.textContent = newLifeCrow;
 
 				FightCrow.cadreCrow.style.border ="2px solid red";
 
@@ -59,25 +60,52 @@ var FightCrow = {
 				}, 1000);
 
 
+			
+
 				//Si la vie de l'ennemi est inférieur à 0
 				if(FightCrow.lifeCrow.textContent <= 0 ){
 
 					FightCrow.lifeCrow.textContent = 0;
 
+					let deadCrow = FightCrow.lifeCrow.textContent;
+
+					FightCrow.storageCrow.setItem("deadCrow", deadCrow);
+
+					//alert("La vie de la bat morte est de "+FightBat.storageBat.getItem("deadBat"));
+
+					//FightCrow.text_action_player.textContent = "l'ennemi est mort";
+
+					//FightCrow.text_action_player.setAttribute("class", "action_player");
+
+					//FightCrow.storageCrow.setItem("text_action_player", FightCrow.text_action_player.textContent);
+					
+					//FightCrow.info_game.appendChild(FightCrow.text_action_player);
+
+					//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
+
+					FightCrow.lifeCrow.textContent = FightCrow.storageCrow.getItem("deadCrow");
+
 					setTimeout(function(){
 						FightCrow.cadreCrow.style.display = "none";
-
-					FightCrow.choiseRoad.style.display="block";
-					FightCrow.chest.style.display="block";
+						FightCrow.chest.style.display = "block";
+						FightCrow.choiseRoad.style.display="block";
+					Fight
 					}, 800);
 				}
-
-				FightCrow.lifeCrow.textContent = FightCrow.storage.getItem("lifeCrow");
 
 			//Si le taux de chance est inférieur à 35
 			}else{
 
 				alert("Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi");
+
+				//FightCrow.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi";
+
+				//FightCrow.text_action_player.setAttribute("class", "action_player");
+
+				//FightCrow.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
+					
+				//FightCrow.info_game.appendChild(FightCrow.text_action_player);
+
 			}
 
 			//Si la vie de l'ennemi est séupérieur à 0
@@ -88,10 +116,6 @@ var FightCrow = {
 				FightCrow.attakEnemy();
 
 				},1200);
-
-			}else{
-
-				alert("l'ennemi est mort ");
 
 			}
 
@@ -116,7 +140,7 @@ var FightCrow = {
 
 			setTimeout(function(){
 
-				FightCrow.lifePlayer.style.background ="#FFF";
+				FightBat.lifePlayer.style.background ="inherit";
 			}, 900);
 
 			FightCrow.lifePlayer.textContent = newLifePlayer;
@@ -160,6 +184,26 @@ var FightCrow = {
 
 			TakeAcorn.storageAcorn.setItem("displayAcorn", TakeAcorn.display);
 			
+	},
+
+	refresh: function(){
+
+		if(FightCrow.storageCrow.length > 0){
+	
+			FightCrow.storageCrow.setItem("beginLife", FightCrow.lifeCrow.textContent);
+
+			FightCrow.lifeCrow.textContent = FightCrow.storageCrow.getItem("beginLife");
+
+			if(FightCrow.storageCrow.getItem("newLifeCrow") !== null){
+				FightCrow.lifeCrow.textContent = FightCrow.storageCrow.getItem("newLifeCrow");
+
+				if(FightCrow.storageCrow.getItem("newLifeCrow") <= FightCrow.storageCrow.getItem("deadCrow")){
+					FightCrow.lifeCrow.textContent = FightCrow.storageCrow.getItem("deadCrow");
+					FightCrow.cadreCrow.style.display = "none";
+				}
+			}
+		}
+
 	}
 	
 }

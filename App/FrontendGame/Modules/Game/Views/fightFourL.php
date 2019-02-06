@@ -34,7 +34,7 @@
 		<img class="chest-img" src="/Web/images/chest.png" />
 
 		<div id="action_chest1" class="action_chest">
-			<button type="button" class="open_chest" data-toggle="modal" data-target="#fightFourL">Ouvrir</button>
+			<button type="button" id="action-open-chest" class="open_chest" data-toggle="modal" data-target="#fightFourL">Ouvrir</button>
 		</div>
 	</div>
 
@@ -60,7 +60,7 @@
 
 
 	<div id="choise-road">
-		<a class="choise-top" href="/game/portal.html">Aller tout droit</a>
+		<a class="choise-top" href="/game/portal.html"><img class="arrow arrow-top" alt="arrow-top" title="flèche pour aller tout droit" src="/Web/images/arrow_top.png" /></a>
 	</div>
 
 </div>

@@ -43,8 +43,8 @@
 	</div>
 
 	<div id="choise-road">
-		<a class="choise-left" href="/game/impasse-three-right.html">Aller à gauche</a>
-		<a class="choise-right" href="/game/fight-six-right.html">Aller à droite</a>
+		<a class="choise-left" href="/game/impasse-three-right.html"><img class="arrow arrow-left" alt="arrow-left" title="flèche de gauche" src="/Web/images/arrow_left.png" /></a>
+		<a class="choise-right" href="/game/fight-six-right.html"><img class="arrow arrow-right" alt="arrow-right" title="flèche de droite" src="/Web/images/arrow_right.png" /></a>
 	</div>
 	
 

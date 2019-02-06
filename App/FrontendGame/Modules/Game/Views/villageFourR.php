@@ -34,8 +34,8 @@
 		<a href="/game/chest-four-left.html">?</a>
 	</div>
 	<div id="choise-road">
-		<a class="choise-top" href="/game/fight-four-right.html">Aller à gauche</a>
-		<a class="choise-top" href="/game/fight-five-right.html">Aller à droite</a>
+		<a class="choise-top" href="/game/fight-four-right.html"><img class="arrow arrow-left" alt="arrow-left" title="flèche de gauche" src="/Web/images/arrow_left.png" /></a>
+		<a class="choise-top" href="/game/fight-five-right.html"><img class="arrow arrow-right" alt="arrow-right" title="flèche de droite" src="/Web/images/arrow_right.png" /></a>
 	</div>
 
 </div>

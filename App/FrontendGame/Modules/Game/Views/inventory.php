@@ -1,7 +1,9 @@
 <div id="container-inventory">
 	<div id="info-game" clas="col-xl-6">
-	
+		<p>pdfdfdfdfdf</p>
+		<p>dfdfdee</p>
 	</div>
+
 	<div id="container-table-button" class="col-xl-6">
 		<table class="table-inventory">
 			<tr class="name-character">
@@ -18,8 +20,11 @@
 				<td id="weapon_players">Mains nues</td>
 			</tr>
 		</table>
-		<button type="button" id="button_inventory" data-toggle="modal" data-target="#inventoryModal">Inventaire</button>
+
+		<button type="button" class="btn btn-secondary" id="button_inventory" data-toggle="modal" data-target="#inventoryModal"><img src="/Web/images/logo_inventory.png" class="img_inventory" alt="logo_inventory" title="inventaire"/></button>
 	</div>
+
+	
 
 	<div class="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-labelledby="inventoryModalTitle" aria-hidden="true">
 		<div id="all-modal-dialog" role="document">

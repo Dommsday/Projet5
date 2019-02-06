@@ -1,4 +1,4 @@
-<div class="container container-game">
+<div class="container-game container-village">
 	
 	<div class="title-start">
 		<h1><?= $textVillage['title']?></h1>
@@ -30,7 +30,7 @@
 	?>
 
 	<div id="choise-road">
-		<a class="choise-top" href="/game/undergrowth-one-left.html">Aller tout droit</a>
+		<a class="choise-top" href="/game/undergrowth-one-left.html"><img class="arrow arrow-top" alt="arrow-top" title="flèche pour aller tout droit" src="/Web/images/arrow_top.png" /></a>
 	</div>
 
 </div>

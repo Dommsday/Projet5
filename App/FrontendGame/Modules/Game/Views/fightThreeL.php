@@ -9,6 +9,7 @@
 	</div>
 	
 	<div id ="wolf1" class="wolf wolf-fight-three">
+		<h1 id="message_fail">Il vous a loupé</h1>
 		<img src="/Web/images/wolf.gif" class="wolf_gif"/>
 
 		<table class="ennemi-character">

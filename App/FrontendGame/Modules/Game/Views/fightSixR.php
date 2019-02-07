@@ -8,8 +8,9 @@
 		<p><?= nl2br($textFight['content']) ?></p>
 	</div>
 	
-	<div id ="golem1" class="golem golem-fight-sixR">
-		<img src="/Web/images/golem.gif" class="golem_gif"/>
+	<div id ="demon1" class="demon demon-fight-sixR">
+		<h1 id="message_fail">Il vous a loupé</h1>
+		<img src="/Web/images/devil.gif" class="devil_gif"/>
 
 		<table class="ennemi-character">
 			<tr class="name-character">
@@ -19,14 +20,14 @@
 			</tr>
 
 			<tr class="stats-character">
-				<td><?= $golem['name']?></td>
-				<td id="damages-golem"><?= $golem['damages']?></td>
-				<td id="life-golem"><?= $golem['life']?></td>
+				<td><?= $demon['name']?></td>
+				<td id="damages-demon"><?= $demon['damages']?></td>
+				<td id="life-demon"><?= $demon['life']?></td>
 			</tr>
 
 		</table>
 
-		<button type="button" id="button-attak-golem" class="button-attak-enemy btn">Attaquer</button>
+		<button type="button" id="button-attak-demon" class="button-attak-enemy btn">Attaquer</button>
 	</div>
 
 	<div id="choise-road">

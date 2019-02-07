@@ -643,10 +643,10 @@ class GameController extends BackController{
 		$this->executeInventory();
 
 		$textFight = $this->managers->getManagerOf('Forest')->fight();
-		$golem = $this->managers->getManagerOf('Characters')->getGolem();
+		$demon = $this->managers->getManagerOf('Characters')->getDemon();
 		
 		$this->page->addVarPage('textFight', $textFight);
-		$this->page->addVarPage('golem', $golem);
+		$this->page->addVarPage('demon', $demon);
 	}
 
 	public function executeFightSevenR(HTTPRequest $request){
@@ -752,11 +752,11 @@ class GameController extends BackController{
 		$this->executeInventory();
 
 		$textFight = $this->managers->getManagerOf('Forest')->fight();
-		$bat = $this->managers->getManagerOf('Characters')->getBat();
+		$golem = $this->managers->getManagerOf('Characters')->getGolem();
 		
 		
 		$this->page->addVarPage('textFight', $textFight);
-		$this->page->addVarPage('bat', $bat);
+		$this->page->addVarPage('golem', $golem);
 	}
 
 	public function executeFightSixR(HTTPRequest $request){
@@ -764,10 +764,10 @@ class GameController extends BackController{
 		$this->executeInventory();
 
 		$textFight = $this->managers->getManagerOf('Forest')->fight();
-		$golem = $this->managers->getManagerOf('Characters')->getGolem();
+		$demon = $this->managers->getManagerOf('Characters')->getDemon();
 		
 		$this->page->addVarPage('textFight', $textFight);
-		$this->page->addVarPage('golem', $golem);
+		$this->page->addVarPage('demon', $demon);
 	}
 
 	public function executeUnderFiveR(HTTPRequest $request){

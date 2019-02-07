@@ -9,6 +9,7 @@
 	</div>
 	
 	<div id ="crow1" class="crow crow-fight-two">
+		<h1 id="message_fail">Il vous a loupé</h1>
 		<img src="/Web/images/crow.gif" class="crow_gif"/>
 
 		<table class="ennemi-character">

@@ -43,6 +43,15 @@ class CharactersManagerPDO extends CharactersManager{
 		return $golem;
 	}
 
+	public function getDemon(){
+
+		$request = $this->dao->query('SELECT id, name, damages, life FROM characters WHERE type =\'evil\'');
+
+		$demon = $request->fetch();
+
+		return $demon;
+	}
+
 	public function getTroll(){
 
 		$request = $this->dao->query('SELECT id, name, damages, life FROM characters WHERE type =\'troll\'');

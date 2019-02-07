@@ -9,6 +9,7 @@
 	</div>
 
 	<div id ="bat1" class="bat">
+		<h1 id="message_fail">Il vous a loupé</h1>
 		<img src="/Web/images/bat.gif" class="bat_gif"/>
 
 		<table class="ennemi-character">

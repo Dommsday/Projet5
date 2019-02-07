@@ -21,6 +21,8 @@ abstract class CharactersManager extends Manager{
 
     abstract public function getGolem();
 
+    abstract public function getDemon();
+
 	abstract protected function add(Characters $characters);
     
     abstract protected function modify(Characters $characters);

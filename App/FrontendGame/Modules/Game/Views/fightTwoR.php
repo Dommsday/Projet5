@@ -8,7 +8,8 @@
 		<p><?= nl2br($textFight['content']) ?></p>
 	</div>
 	
-	<div id ="golem1" class="golem golem-fight-sixR">
+	<div id ="golem1" class="golem golem-fight-twoR">
+		<h1 id="message_fail">Il vous a loupé</h1>
 		<img src="/Web/images/golem.gif" class="golem_gif"/>
 
 		<table class="ennemi-character">

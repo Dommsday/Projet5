@@ -1,9 +1,4 @@
 <div id="container-inventory">
-	<div id="info-game" clas="col-xl-6">
-		<p>pdfdfdfdfdf</p>
-		<p>dfdfdee</p>
-	</div>
-
 	<div id="container-table-button" class="col-xl-6">
 		<table class="table-inventory">
 			<tr class="name-character">

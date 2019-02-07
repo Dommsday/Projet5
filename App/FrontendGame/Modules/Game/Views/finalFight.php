@@ -9,6 +9,7 @@
 	</div>
 
 	<div id ="troll" class="troll-forest">
+		<h1 id="message_fail">Il vous a loupé</h1>
 		<img src="/Web/images/troll.gif" class="troll_gif" alt="Troll" title="Troll de la forêt" />
 
 		<table class="ennemi-character troll-character">

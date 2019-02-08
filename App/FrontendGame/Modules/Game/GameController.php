@@ -25,8 +25,18 @@ class GameController extends BackController{
 		$this->app->httpResponse()->redirect($_SERVER['HTTP_REFERER']);
 	}
 
+	public function executeDeleteInventory(HTTPRequest $request){
+		$this->managers->getManagerOf('InventoryPlayer')->deleteInventoryPlayer($this->app->user()->getAttribute('id'));
+		$this->app->httpResponse()->redirect('/');
+	}
+
 	public function executeFinish(HTTPRequest $request){
 		$this->page->addVarPage('title', 'Réussite');
+		$this->executeInventory();
+	}
+
+	public function executeDead(HTTPRequest $request){
+		$this->page->addVarPage('title', 'Défaite');
 		$this->executeInventory();
 	}
 

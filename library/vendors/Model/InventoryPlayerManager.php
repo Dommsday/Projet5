@@ -15,6 +15,8 @@ abstract class InventoryPlayerManager extends Manager{
     abstract public function getAllInventory($id_player);
 
     abstract public function delete($id);
+
+    abstract public function deleteInventoryPlayer($id_player);
     
 	//Méthode qui s'écrit directement car elle n'est pas dépendante de la DAO
     public function save(InventoryPlayer $inventoryPlayer){

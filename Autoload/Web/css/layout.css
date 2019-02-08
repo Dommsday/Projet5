@@ -32,35 +32,36 @@ a:hover{
 /*PAGE SIGNALEMENT
 **********************/
 .confirmation, .message{
-	border: solid black 2px;
-	background: #FBEDE0;
+	border: 1px solid #FFFFFF;
+	background: rgba(0,0,0,0.4);
 	border-radius: 20px;
-	color: #000000;
-	margin-left: 10%;
-	text-align: center;
-}
-
-.confirmation{
-	padding: 20px;
-	margin-top: 5%;
-	margin-bottom: 5%;
-}
-
-.confirmation-inscription, .confirmation-deconnexion{
+	color: #FFFFFF;
 	margin-left: 25%;
+	margin-top: 15%;
+	text-align: center;
+	padding: 2%;
 }
 
 .confirmation-connexion{
 	margin-left: 30%;
 }
 
+.confirmation h1{
+	font-size: 2.5vw;
+}
+
+.btn-home{
+	padding: 10px;
+}
+
 .link-confirmation{
-	font-size: 1em;
-	margin-left: 6%;
+	font-size: 1.4vw;
+	margin-left: 5%;
+	color: #000000;
 }
 
 .fa-check-circle{
-	color: green;
+	color: #FFFFFF;
 	margin-right: 20px;
 }
 
@@ -360,12 +361,46 @@ label{
 	border-radius: 20px;
 }
 
-#title_endgame{
+#title_dead, #title_finish{
+	border: 2px solid #FFFFFF;
+	padding: 10px;
+	text-align: center;
+	background: rgba(0,0,0,0.8);
+}
+
+#title_dead{
+	
 	color: #FFFFFF;
 	position: absolute;
+	left: 0%;
 	top: 45%;
-	left: 36%;
-	font-size: 6vw;
+	font-size: 3.6vw;
+	width: 96%;
+	margin-left: 2%;
+
+}
+
+#title_finish{
+	color: #FFFFFF;
+	position: absolute;
+	left: 0%;
+	top: 45%;
+	font-size: 3.6vw;
+	width: 96%;
+	margin-left: 2%;
+}
+
+.link-finish-game, .link-dead-game{
+	color: #FFFFFF;
+	background: gray;
+	padding: 10px;
+	font-size: 2vw;
+}
+
+.link-finish-game:hover, .link-dead-game:hover{
+	color: #FFFFFF;
+	background: #000000;
+	transition: 2s;
 }
 
 #return_home{
@@ -653,7 +688,7 @@ label{
 
 #apple1{
 	position: absolute;
- 	height: 80px;
+ 	height: 85px;
  	width: 9%;
  }
 
@@ -1129,17 +1164,20 @@ button span:hover{
 	position: relative;
 	display: flex;
 	border: 2px solid black;
-	flex-wrap: wrap;
 	width: 100%;
 }
 
 
 .modal-object{
-	width: 16%;
-	height: 12%;
+	width: 25%;
+	height: 24%;
 	margin-top: 2%;
-	margin-bottom: 1%;
-	margin-left: 2%;
+	margin-left: 6%;
+}
+
+.modal-object img{
+	height: 100%;
+	width: 100%;
 }
 
 .img-src-modal{
@@ -1171,6 +1209,7 @@ button span:hover{
 	height: 12%;
 	padding: 2%;
 	bottom: 1%;
+	left: 28%;
 	border: none;
 }
 
@@ -1527,6 +1566,12 @@ button span:hover{
 
 .container-finish{
 	background-image: url("/Web/images/endgame.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.container-dead{
+	background-image: url("/Web/images/deadgame.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 }

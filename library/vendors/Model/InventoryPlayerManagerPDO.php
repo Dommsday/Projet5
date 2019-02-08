@@ -62,5 +62,13 @@ class InventoryPlayerManagerPDO extends InventoryPlayerManager{
 		$request->execute();
 	}
 
+	public function deleteInventoryPlayer($id_player){
+
+		$request = $this->dao->prepare('DELETE FROM inventory_player WHERE id_player = :id_player');
+		$request->bindValue(':id_player', (int) $id_player, \PDO::PARAM_INT);
+
+		$request->execute();
+	}
+
 }
 ?>

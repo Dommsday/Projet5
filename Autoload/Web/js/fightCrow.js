@@ -9,13 +9,16 @@ var FightCrow = {
 	choiseRoad: document.getElementById("choise-road"),
 	chest : document.getElementById("chest1"),
 
+	messageFail: document.getElementById("message_fail"),
+
 	init: function(){
+
+		FightCrow.messageFail.style.display="none";
 
 		FightCrow.refresh();
 		FightCrow.hiddeChest();
 		FightCrow.attakPlayerCrow();
-	
-		
+
 	},
 
 	hiddeChest: function(){
@@ -42,9 +45,7 @@ var FightCrow = {
 			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
 			//Si le taux de chance est supérieur à 40
-			if(chance >= 30){
-
-				alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
+			if(chance >= 25){
 
 				let newLifeCrow = crowLife - playerDamage;
 
@@ -53,10 +54,11 @@ var FightCrow = {
 				FightCrow.lifeCrow.textContent = newLifeCrow;
 
 				FightCrow.cadreCrow.style.border ="2px solid red";
+				FightCrow.btnAttakCrow.disabled = true;
 
 				setTimeout(function(){
-
 					FightCrow.cadreCrow.style.border ="none";
+					FightCrow.btnAttakCrow.disabled = false;
 				}, 1000);
 
 
@@ -71,18 +73,6 @@ var FightCrow = {
 
 					FightCrow.storageCrow.setItem("deadCrow", deadCrow);
 
-					//alert("La vie de la bat morte est de "+FightBat.storageBat.getItem("deadBat"));
-
-					//FightCrow.text_action_player.textContent = "l'ennemi est mort";
-
-					//FightCrow.text_action_player.setAttribute("class", "action_player");
-
-					//FightCrow.storageCrow.setItem("text_action_player", FightCrow.text_action_player.textContent);
-					
-					//FightCrow.info_game.appendChild(FightCrow.text_action_player);
-
-					//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
-
 					FightCrow.lifeCrow.textContent = FightCrow.storageCrow.getItem("deadCrow");
 
 					setTimeout(function(){
@@ -96,15 +86,15 @@ var FightCrow = {
 			//Si le taux de chance est inférieur à 35
 			}else{
 
-				alert("Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi");
+				FightCrow.cadreCrow.style.marginLeft = "30%";
+				FightCrow.btnAttakCrow.disabled = true;
 
-				//FightCrow.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi";
+				setTimeout(function(){
+					FightCrow.cadreCrow.style.marginLeft = "40%";
+					FightCrow.cadreCrow.style.marginTop = "10%";
+					FightCrow.btnAttakCrow.disabled = false;
+				},600);
 
-				//FightCrow.text_action_player.setAttribute("class", "action_player");
-
-				//FightCrow.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
-					
-				//FightCrow.info_game.appendChild(FightCrow.text_action_player);
 
 			}
 
@@ -130,9 +120,21 @@ var FightCrow = {
 		
 		let crowDamage = FightCrow.damageCrow.textContent;
 
-		if(chance >= 30){
+		if(chance >= 35){
 
-			alert("le taux de chance de l'ennemi est de "+chance+" il vous touche");
+				PlayerStorage.containerDamages.style.border="10px solid red";
+
+				const audioDead = document.getElementById("audio_pain");
+				audioDead.play();
+				
+				FightCrow.btnAttakCrow.disabled = true;
+
+				setTimeout(function(){
+
+					PlayerStorage.containerDamages.style.border ="none";
+					FightCrow.btnAttakCrow.disabled = false;
+
+				}, 1000);
 
 			let newLifePlayer = playerLife - crowDamage;
 
@@ -147,34 +149,36 @@ var FightCrow = {
 
 			FightCrow.storageCrow.setItem('lifePlayer', FightCrow.lifePlayer.textContent);
 
-			if(FightCrow.storageCrow.getItem('lifePlayer') < 0){
-				alert("Il vous reste 0 points de vie");
-			}else{
-
-				alert("Il vous reste "+FightCrow.storageCrow.getItem('lifePlayer')+ "points de vie");
-			}
-
 			//Si le joueur à 0 points de vie
 			if(FightCrow.lifePlayer.textContent <= 0){
 
 				FightCrow.lifePlayer.textContent = 0;
 
+					FightCrow.btnAttakCrow.disabled = true;
+
+					const audioDead = document.getElementById("audio_dead");
+					audioDead.play();
+
 					setTimeout(function(){
 						
-					alert("Vous êtes mort");
+					document.location.href="/game/deadgame.html";
 
 					FightCrow.storageCrow.clear();
 					PlayerStorage.storagePlayer.clear();
-				},1000);
+				},2000);
 					
 			}
 
 				
 		}else{
 
-			alert("Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas");
+			FightCrow.messageFail.style.display="block";
+			FightCrow.btnAttakCrow.disabled = true;
 
-			alert("Il vous reste "+FightCrow.storageCrow.getItem('lifePlayer')+ "points de vie");
+				setTimeout(function(){
+					FightCrow.messageFail.style.display="none";
+					FightCrow.btnAttakCrow.disabled = false;
+				}, 1500);
 		}
 	},
 

@@ -9,7 +9,8 @@
 	</div>
 
 	<div id="secret-rock-ville-two-L">
-		<a class="secret" href="/game/fight-three-left.html">?</a>
+		<img class="stone_img" src="/Web/images/stone.png" alt="stone" title="pierre"/>
+		<a class="secret_stone" href="/game/fight-three-left.html">?</a>
 	</div>
 	<div id="all-apple">
 

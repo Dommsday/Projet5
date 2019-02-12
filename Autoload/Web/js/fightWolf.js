@@ -9,7 +9,11 @@ var FightWolf = {
 	choiseRoad: document.getElementById("choise-road"),
 	chest : document.getElementById("chest1"),
 
+	messageFail: document.getElementById("message_fail"),
+
 	init: function(){
+
+		FightWolf.messageFail.style.display="none";
 
 		FightWolf.refresh();
 		FightWolf.hiddeChest();
@@ -39,9 +43,7 @@ var FightWolf = {
 			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
 			//Si le taux de chance est supérieur à 30
-			if(chance >= 30){
-
-				alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
+			if(chance >= 25){
 
 				let newLifeWolf = wolfLife - playerDamage;
 
@@ -50,10 +52,12 @@ var FightWolf = {
 				FightWolf.lifeWolf.textContent = newLifeWolf;
 
 				FightWolf.cadreWolf.style.border ="2px solid red";
+				FightWolf.btnAttakWolf.disabled = true;
 
 				setTimeout(function(){
 
 					FightWolf.cadreWolf.style.border ="none";
+					FightWolf.btnAttakWolf.disabled = false;
 				}, 1000);
 
 
@@ -68,18 +72,6 @@ var FightWolf = {
 
 					FightWolf.storageWolf.setItem("deadWolf", deadWolf);
 
-					//alert("La vie de la bat morte est de "+FightBat.storageBat.getItem("deadBat"));
-
-					//FightCrow.text_action_player.textContent = "l'ennemi est mort";
-
-					//FightCrow.text_action_player.setAttribute("class", "action_player");
-
-					//FightCrow.storageCrow.setItem("text_action_player", FightCrow.text_action_player.textContent);
-					
-					//FightCrow.info_game.appendChild(FightCrow.text_action_player);
-
-					//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
-
 					FightWolf.lifeWolf.textContent = FightWolf.storageWolf.getItem("deadWolf");
 
 					setTimeout(function(){
@@ -93,15 +85,14 @@ var FightWolf = {
 			//Si le taux de chance est inférieur à 35
 			}else{
 
-				alert("Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi");
+				FightWolf.cadreWolf.style.marginLeft = "30%";
+				FightWolf.btnAttakWolf.disabled = true;
 
-				//FightCrow.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi";
-
-				//FightCrow.text_action_player.setAttribute("class", "action_player");
-
-				//FightCrow.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
-					
-				//FightCrow.info_game.appendChild(FightCrow.text_action_player);
+				setTimeout(function(){
+					FightWolf.cadreWolf.style.marginLeft = "42%";
+					FightWolf.cadreWolf.style.marginTop = "14%";
+					FightWolf.btnAttakWolf.disabled = false;
+				},600);
 
 			}
 
@@ -127,9 +118,20 @@ var FightWolf = {
 		
 		let wolfDamage = FightWolf.damageWolf.textContent;
 
-		if(chance >= 60){
+		if(chance >= 38){
 
-			alert("le taux de chance de l'ennemi est de "+chance+" il vous touche");
+			PlayerStorage.containerDamages.style.border="10px solid red";
+
+			const audioDead = document.getElementById("audio_pain");
+			audioDead.play();
+
+			FightWolf.btnAttakWolf.disabled = true;
+
+				setTimeout(function(){
+
+					PlayerStorage.containerDamages.style.border ="none";
+					FightWolf.btnAttakWolf.disabled = false;
+				}, 1000);
 
 			let newLifePlayer = playerLife - wolfDamage;
 
@@ -144,33 +146,37 @@ var FightWolf = {
 
 			FightWolf.storageWolf.setItem('lifePlayer', FightWolf.lifePlayer.textContent);
 
-			if(FightWolf.storageWolf.getItem('lifePlayer') < 0){
-				alert("Il vous reste 0 points de vie");
-			}else{
-				alert("Il vous reste "+FightWolf.storageWolf.getItem('lifePlayer')+ "points de vie");
-			}
-
-			
-
 			//Si le joueur à 0 points de vie
 			if(FightWolf.lifePlayer.textContent < 0){
 
 				FightWolf.lifePlayer.textContent = 0;
-					setTimeout(function(){
-					alert("Vous êtes mort");
 
-					FightWolf.storageWolf.clear();
-					PlayerStorage.storagePlayer.clear();
-				},1000);
+				FightWolf.btnAttakWolf.disabled = true;
+
+				const audioDead = document.getElementById("audio_dead");
+				audioDead.play();
+
+
+				setTimeout(function(){
+
+				document.location.href="/game/deadgame.html";
+
+				FightWolf.storageWolf.clear();
+				PlayerStorage.storagePlayer.clear();
+				},2000);
 					
 			}
 
 				
 		}else{
 
-			alert("Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas");
+			FightWolf.messageFail.style.display="block";
+			FightWolf.btnAttakWolf.disabled = true;
 
-			alert("Il vous reste "+FightWolf.storageWolf.getItem('lifePlayer')+ "points de vie");
+				setTimeout(function(){
+					FightWolf.messageFail.style.display="none";
+					FightWolf.btnAttakWolf.disabled = false;
+				}, 1500);
 		}
 	},
 

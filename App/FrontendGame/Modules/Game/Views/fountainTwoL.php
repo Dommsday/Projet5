@@ -18,7 +18,8 @@
 	</div>
 
 	<div id="secret-rock-fountainTwo" class="rock">
-		<a href="/game/fight-two-right.html">?</a>
+		<img class="stone_img" src="/Web/images/stone.png" alt="stone" title="pierre"/>
+		<a class="secret_stone" href="/game/fight-two-right.html">?</a>
 	</div>
 
 	<div id="choise-road">

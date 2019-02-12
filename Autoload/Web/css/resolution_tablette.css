@@ -1,0 +1,811 @@
+/*PARTIE FRONTEND
+**************************/
+
+/*PAGE SIGNALEMENT
+**********************/
+
+.confirmation, .message{
+	margin-left: 10%;
+}
+
+.confirmation h1{
+	font-size: 4vw;
+}
+
+.btn-home{
+	font-size: 2vw;
+}
+
+.confirmation-connexion{
+	margin-left: 20%;
+}
+
+/*PARTIE LAYOUT
+========================*/
+
+#layout-game{
+	position: relative;
+	width: 100%;
+	padding: 0px;
+	height: 700px;
+}
+
+.ban{
+	
+    height: 700px;
+}
+
+.img-fluid{
+	
+    height: 700px;
+}
+
+.intro{
+    top: 10%;
+}
+
+.intro h1{
+    font-size: 8vw;
+}
+
+.navbar{
+	bottom: 20%;
+	width: 40%;
+}
+
+.navbar-brand, .nav-item{
+	font-size: 3vw;
+}
+/*FIN LAYOUT
+=========================*/
+
+/*PAGE TOUT LES PERSONNAGES
+================================*/
+.container-all-characters{
+	margin-top: -14%;
+}
+
+.all-characters-title{
+	margin-top: 0%;
+}
+
+.container-name-characters h1{
+	font-size: 3.2vw;
+}
+
+.container-gif-characters{
+	height: 160px;
+}
+
+.p-stat-damages, .p-stat-life{
+	font-size: 1.8vw;
+}
+/*FIN PAGE TOUT LES PERSONNAGES
+================================*/
+
+/*PARTIE SLIDER
+*********************/
+
+#slider {
+    height: 700px;
+    margin-top: -14%;
+}
+
+.item_content p {
+	padding: 10px;
+    font-size: 3vw;
+}
+
+
+.button_right {
+    right: 0%;
+}
+
+.button_left{
+    left: 0%;
+}
+
+img.all-inventory-didactitiel{
+	width: 60%;
+	height: 100px;
+}
+
+/*FIN PARTIE SLIDER
+***********************/
+
+/*FIN PARTIE FRONTEND
+***************************/
+
+/*PARTIE BACKEND
+***************************/
+
+/*PARTIE INDEX
+=====================*/
+.title-admin{
+	
+	font-size: 7vw;
+
+}
+
+.fa-home-backend{
+	right: 5%;
+	font-size: 3vw;
+}
+
+.fa-clipboard-list, .pen-item{
+	font-size: 2vw;
+}
+
+.informations_backend h2{
+	font-size: 1em;
+	padding: 5px;
+}
+
+/*FIN PARTIE INDEX
+===============================*/
+
+/*Partie Forest
+=====================*/
+.all-resume-forest{
+	padding: 25px;
+}
+
+#all-forest-table{
+	margin-top: 5%;
+}
+
+#all-forest-table th{
+	text-align: center;
+	background: #000000;
+	color: #FFFFFF;
+	font-size: 2.6vw;
+}
+
+#all-forest-table td{
+	font-size: 1.6vw;
+}
+
+/*Fin Partie Forest
+==========================*/
+
+/*Partie Characters
+===============================*/
+
+
+#all-characters-table-backend{
+	width: 100%;
+}
+
+#all-characters-table-backend th{
+
+	font-size: 2.6vw;
+}
+
+#all-characters-table-backend td{
+	padding: 5px;
+	font-size: 1.6vw;
+}
+
+#all-characters-table-backend td.visuel img{
+	width: 100%;
+}
+
+.btn-all-characters{
+	margin-left: 0%;
+}
+
+/*Fin Partie Characters
+=================================*/
+
+/*Partie Inventory
+=============================*/
+.informations_backend{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.item-back{
+	margin-bottom: 2%;
+}
+
+.fa-clipboard-list, .pen-item{
+	position: absolute;
+	color: #FFFFFF;
+	top: 4%;
+	right: 4%;
+	font-size: 1.5vw;
+}
+
+.link-all-items-game{
+	position: absolute;
+	left: 0%;
+}
+
+.lists-game, .write-game{
+	position: relative;
+	display: flex;
+}
+
+.all-resume-inventory{
+	background: #BFBFBF;
+	margin-bottom: 4%;
+}
+
+#all-inventory-table-backend{
+	margin: auto;
+}
+
+#all-inventory-table-backend th{
+	text-align: center;
+	background: #000000;
+	color: #FFFFFF;
+	font-size: 1.2vw;
+}
+
+#all-inventory-table-backend td{
+	text-align: center;
+	padding: 10px;
+	font-size: 1vw;
+	font-family: "sans sherif";
+}
+
+#all-inventory-table-backend th.name{
+	width: 16%;
+	text-align: center;
+}
+
+#all-inventory-table-backend th.description{
+	width: 18%;
+	text-align: center;
+}
+
+
+.btn-all-inventory{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 5%;
+}
+
+.btn-all-inventory a{
+	color: #000000;
+	font-weight: bold;
+}
+/*Fin Partie Inventory
+=============================*/
+
+/*Partie Membres
+=============================*/
+
+#all-member-table-backend th{
+	
+	font-size: 3vw;
+}
+
+#all-member-table-backend td{
+	font-size: 2vw;
+}
+
+/*Fin Partie Membres
+===================================*/
+
+/*FIN PARTIE BACKEND
+********************************/
+
+/*PARTIE GAME
+******************************/
+#message_fail{
+	color: red;
+	font-size: 6vw;
+	font-weight: bold;
+	position: absolute;
+	top: 25%;
+	right: -20%;
+	z-index: 2;
+	width: 500px;
+	transform: rotate(-8deg);
+	background: rgba(255,255,255,0.5);
+	text-align: center;
+	border-radius: 20px;
+}
+
+/*Modal d'exit
+=====================*/
+
+#exitModalLabel{
+	font-size: 5vw;
+}
+
+#para-exit{
+	font-size: 3vw;
+}
+
+.link-exit{
+	font-size: 4vw;
+}
+/*Fin Modal d'exit
+=======================*/
+
+#return_home{
+	width: 40px;
+	height: 40px;
+}
+
+#return_home img{
+	width: 40px;
+	height: 40px;
+}
+
+.title-start h1{
+	margin-top: 20%;
+	font-size: 8vw;
+	
+}
+
+.text-start p{
+	width: 100%;
+	font-size: 3vw;
+	padding: 5px;
+	
+}
+
+#container-table-button{
+	color: #FFFFFF;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	right: 0%;
+	bottom: 0%;
+	width: 35%;
+	height: 6%;
+	display: flex;
+}
+
+#choise-road, #choise-road-end, #endgame{
+	position: absolute;
+	right: 38%;
+	bottom: 0%;
+	border-radius: 10px;
+	width: 20%;
+	height: 40px;
+	background: rgba(255,255,255, 0.5);
+}
+
+.arrow{
+	width: 26%;
+}
+
+/*PARTIE MODAL
+========================*/
+#all-modal-dialog{
+	margin-left: 2%;
+	width: 100%;
+}
+
+.modal-dialog3{	
+	width: 35%;
+}
+
+.modal-object{
+	width: 20%;
+	height: 19%;
+	margin-top: 2%;
+	margin-left: 6%;
+}
+
+.modal-object-href{
+	font-size: 2.2vw;
+}
+
+#all-modal-description{
+	position: absolute;
+	left: -94%;
+}
+
+/*FIN PARTIE MODAL
+========================*/
+
+/*PARTIE COMBATS
+=========================*/
+.ennemi-character th{
+	font-size: 2.6vw;
+}
+
+.ennemi-character td{
+	font-size: 2.6vw;
+}
+
+.button-attak-enemy{
+	font-size: 2.2vw;
+
+}
+/*FIN PARTIE COMBATS
+==========================*/
+
+/*DEBUT OBJETS GAME
+=============================µ
+
+/*APPLE
+=============*/
+.apple-img{
+	width: 40%;
+	margin-bottom: 3%;
+}
+
+#apple1{
+	position: absolute;
+ 	height: 85px;
+ 	width: 12%;
+ }
+
+.apple1-index{
+	bottom: 10%;
+	left: 30%;
+}
+
+.apple-fight-four{
+	bottom: 5%;
+	right: 15%;
+}
+
+.apple-chestFive{
+	margin-top: 22%;
+	margin-left: 26%;
+}
+
+.apple1-fightFive-L{
+	margin-top: 0%;
+	margin-left: 4%;
+}
+
+.apple1-villageTwo{
+	margin-top: 42%;
+	margin-left: 25%;
+}
+
+.apple1-villageThree-R{
+	left: 10%;
+	bottom: 0%;
+}
+
+.apple1-village-fiveR{
+	left: 30%;
+	bottom: 10%;
+}
+
+.apple1-chestEightR{
+	left: 12%;
+}
+
+.apple1-underFiveR{
+	bottom: 10%;
+	right: 26%;
+}
+
+.apple1-impasseFour{
+	left: 20%;
+	bottom: 14%;
+}
+
+/*FIN APPLE
+================*/
+
+/*STICK
+=============*/
+.stick-img{
+	width: 45%;
+}
+
+#stick1{
+	position: absolute;
+ 	height: 100px;
+ 	width: 30%;
+}
+
+.stick-underOne{
+	bottom: 10%;
+	right: 5%;
+}
+
+.stick-fightOneL{
+ 	bottom: 5%;
+	left: 15%;
+}
+
+.stick-impasse-two{
+
+	margin-top: 25%;
+	margin-left: 21%;
+}
+
+.stick-chestNineR{
+	right: 14%;
+	bottom: 14%;
+}
+
+.stick-chestFourL{
+	bottom: 20%;
+}
+
+
+/*FIN STICK
+================*/
+
+/*ACORN
+=============*/
+.acorn-img{
+	width: 50%;
+	margin-bottom: 2%;
+}
+
+#acorn1{
+	position: absolute;
+ 	height: 100px;
+ 	width: 12%;	
+}
+
+.acorn-village-one{
+	bottom: 5%;
+	left: 32%;
+}
+
+.acorn-under-two{
+	bottom: 10%;
+	left: 20%;
+}
+
+.acorn1-underThree{
+	bottom: 4%;
+	right: 20%;
+}
+
+.acorn1-fightOneR{
+	bottom: 7%;
+	left: 21%;
+}
+
+.acorn1-UnderFourR{
+	left: 25%;
+	bottom: 4%;
+}
+
+.acorn1-UnderSixR{
+	bottom: 11%;
+	right: 24%;
+}
+
+.acorn1-fight-three{
+	right: 14%;
+	bottom: 4%;
+}
+
+/*FIN ACORN
+================*/
+
+/*SWORD
+=============*/
+
+.sword-img{
+	width: 40%;
+}
+
+#sword1{
+	position: absolute;
+ 	height: 200px;
+ 	width: 35%;	
+}
+
+.swordOne{
+	bottom: 10%;
+ 	left: 5%;
+}
+
+.stick-underOne{
+	margin-top: 40%;
+	margin-left: 80%;
+}
+
+.stick-chestFourL{
+	margin-top: -10%;
+}
+
+.sword-village-fourR{
+	bottom: 6%;
+	right: 4%;
+}
+
+/*FIN SWORD
+================*/
+
+/*CHEST
+=============*/
+.chest-img{
+	width: 70%;
+}
+
+#chest1{
+	position: absolute;
+ 	height: 320px;
+ 	width: 40%;
+}
+
+button#action-open-chest{
+	width: 20%;
+	margin-left: 20%;
+}
+
+.chestOne{
+	right: 12%;
+	bottom: 5%;
+}
+
+.chestTwoL{
+	bottom: 0%;
+	left: 15%;
+}
+
+.chestFightFour-L, .chest-fight-three{
+	left: 20%;
+	bottom: 0%;
+}
+
+.chestFourL{
+	top: 45%;
+	left: 60%;
+}
+
+.chestNineR{
+	bottom: 10%;
+}
+
+.chestEightR{
+	right: 10%;
+	bottom: 10%;
+}
+
+.chestfightSevenR{
+	left: 14%;
+	bottom: 14%;
+}
+
+.chest-under-sixR{
+	bottom: 0%;
+	left: 10%;
+}
+
+.chest-village-ThreeR{
+	left: 60%;
+	bottom: 0%;
+}
+
+.parchemin_img{
+	width: 60%;
+}
+
+/*FIN CHEST
+================*/
+
+/*FOUNTAIN
+=================*/
+
+.fountain-img{
+	width: 70%;
+}
+
+#fountain1{
+	margin-top: 15%;
+	margin-left: 20%;
+	width: 65%;
+}
+
+/*FIN FOUNTAIN
+====================*/
+
+/*GATE
+=======================*/
+#gate1{
+	height: 550px;
+	position: absolute;
+	
+}
+
+.gate-img{
+	width: 100%;
+	height: 80%;
+}
+
+.gate-end{
+	bottom: 0%;
+	left: 0%;
+}
+
+#action_portal1{
+	text-align: center;
+}
+/*FIN GATE
+==========================*/
+
+/*PARTIE GIF
+======================*/
+#bat1, .bat_gif{
+	width: 320px;
+	height: 220px;
+	margin: auto;
+	position: relative;
+}
+
+#crow1, .crow_gif{
+	width: 320px;
+	height: 220px;
+	position: relative;
+}
+
+#crow1{
+	margin-top: 10%;
+	margin-left: 40%;
+}
+
+#wolf1, .wolf_gif{
+	width: 300px;
+	height: 200px;
+	position: relative;
+}
+
+.wolf-fight-four, .wolf-fight-three{
+	margin-top: 14%;
+	margin-left: 35%;
+}
+
+.wolf-fight-five{
+	margin-bottom: 4%;
+}
+
+#troll, .troll_gif{
+	width: 280px;
+	height: 320px;
+	margin: auto;
+	position: relative;
+}
+
+#golem1, .golem_gif{
+	width: 300px;
+	height: 200px;
+	position: relative;
+}
+
+.golem-fight-sixR, .golem-fight-twoR{
+	margin-left: 35%;
+	margin-top: 14%;
+}
+
+
+#demon1, .devil_gif{
+	width: 340px;
+	height: 240px;
+}
+
+.demon-fight-sixR, .demon-fight-FiveR{
+	margin-left: 30%;
+	margin-top: 15%;
+}
+
+.ennemi-character{
+	margin-top: 4%;
+	width: 100%;
+}
+
+.ennemi-character tr{
+	font-size: 1.2vw;
+}
+
+.button-attak-enemy{
+	margin-top: 2%;
+	font-size: 2.1vw;
+}
+
+
+/*FIN PARTIE GIF
+=======================*/
+
+/*FIN PARTIE GAME
+********************************/

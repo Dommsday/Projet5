@@ -11,6 +11,7 @@ var Gate = {
 	nbrSix: document.getElementById("number_6"),
 	choiseRoadEnd: document.getElementById("choise-road-end"),
 	formGate: document.getElementById("form_gate"),
+	gateCadre: document.getElementById("gate1"),
 
 	init: function(){
 
@@ -31,16 +32,27 @@ var Gate = {
 
 	checkNumber: function(){
 
-		if((Gate.nbrOne.value == 9) && (Gate.nbrTwo.value == 9) && (Gate.nbrThree.value == 9) && 
-			(Gate.nbrFour.value == 9) && (Gate.nbrFive.value == 9) && (Gate.nbrSix.value == 9)){
+		if((Gate.nbrOne.value == 5) && (Gate.nbrTwo.value == 8) && (Gate.nbrThree.value == 7) && 
+			(Gate.nbrFour.value == 4) && (Gate.nbrFive.value == 1) && (Gate.nbrSix.value == 3)){
 
-			alert("Code bon");
+			Gate.gateCadre.style.border="2px solid green";
+
+			setTimeout(function(){
+
+					Gate.gateCadre.style.border="inherit";
+				}, 2000);
 
 			Gate.formGate.style.display =" none";
 			Gate.choiseRoadEnd.style.display = "block";
+
 		}else{
 
-			alert("Mauvais code");
+			Gate.gateCadre.style.border="2px solid red";
+
+			setTimeout(function(){
+
+					Gate.gateCadre.style.border="inherit";
+				}, 1000);
 		}
 	}
 }

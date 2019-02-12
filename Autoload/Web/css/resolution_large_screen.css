@@ -1,0 +1,666 @@
+/*PARTIE FRONTEND
+**************************/
+
+/*PARTIE LAYOUT
+========================*/
+.intro h1{
+    font-size: 8vw;
+}
+
+.navbar{
+	width: 30%;
+}
+
+.navbar-brand, .nav-item{
+	font-size: 3vw;
+}
+
+/*FIN PARTIE LAYOUT
+=============================*/
+
+/*PARTIE SLIDER
+=============================*/
+
+
+.container_items {
+    width: 100%; 
+    margin-left: -3%; 
+}
+
+.item_slider {
+    width: 100%;
+}
+
+.item_content {
+    padding: 10px;
+}
+
+.button_right {
+    right: -2%;
+}
+
+.button_left {
+    left: -2%;
+}
+
+img.all-inventory-didactitiel{
+	width: 45%;
+	height: 150px;
+	position: absolute;
+	right: 25%;
+}
+
+/*FIN PARTIE SLIDER
+=============================*/
+
+/*PAGE TOUT LES PERSONNAGES
+================================*/
+.container-all-characters{
+	margin-top: -14%;
+}
+
+.all-characters-title{
+	margin-top: 0%;
+}
+
+.container-name-characters h1{
+	font-size: 3.2vw;
+}
+
+.container-gif-characters{
+	height: 160px;
+}
+/*FIN PAGE TOUT LES PERSONNAGES
+================================*/
+
+
+/*FIN PARTIE FRONTEND
+**************************/
+
+/*PARTIE BACKEND
+**************************/
+
+/*PARTIE INDEX
+=======================*/
+.fa-home-backend{
+	font-size: 3.2vw;
+	right: 6%;
+}
+
+.fa-clipboard-list, .pen-item{
+	font-size: 2vw;
+}
+/*FIN PARTIE INDEX
+=======================*/
+
+/*PARTIE FOREST
+========================*/
+#all-forest-table th{
+	font-size: 2.2vw;
+}
+
+#all-forest-table td{
+	font-size: 1.5vw;
+}
+/*FIN PARTIE FOREST
+=========================*/
+
+/*PARTIE PERSONNAGE
+=========================*/
+#all-characters-table-backend{
+	width: 100%;
+}
+
+#all-characters-table-backend tr{
+	left: -15px;
+}
+
+#all-characters-table-backend th{
+	font-size: 2.2vw;
+}
+
+#all-characters-table-backend th.life{
+	padding: 10px;
+}
+
+#all-characters-table-backend td.visuel img{
+	width: 120px;
+}
+
+#all-characters-table-backend td{
+	font-size: 2.2vw;
+}
+
+.btn-all-characters{
+	margin-left: 0%;
+}
+/*FIN PARTIE PERSONNAGE
+=========================*/
+
+/*PARTIE MEMBRES
+=========================*/
+#all-member-table-backend th{
+	font-size: 2.2vw;
+}
+
+#all-member-table-backend td{
+	font-size: 1.8vw;
+}
+/*FIN PARTIE MEMBRES
+=========================*/
+
+/*FIN PARTIE BACKEND
+**************************/
+
+
+/*PARTIE GAME
+*******************/
+
+/*Modal d'exit
+======================*/
+#para-exit{
+	font-size: 3vw;
+}
+
+.link-exit{
+	color: #000000;
+	font-size: 2.2vw;
+}
+/*Fin Modal d'exit
+=====================*/
+
+.section-container-frontendgame{
+	position: relative;
+	height: 800px;
+}
+
+.container-game{
+	width: 100%;
+	height: 800px;
+	position: absolute;
+	top: 0%;
+	right: 0%;
+}
+
+#return_home{
+	width: 40px;
+	height: 40px
+}
+
+.img_home{
+	
+	width: 40px;
+	height: 40px;
+}
+
+.title-start h1{
+	font-size: 8vw;
+
+}
+
+.text-start p{
+	font-size: 2vw;
+	width: 85%;
+}
+
+#container-table-button{
+	width: 30%;
+}
+
+#choise-road, #choise-road-end, #endgame{
+	height: 45px;
+}
+
+/*PARTIE MODAL
+========================*/
+#all-modal-dialog{
+	margin-left: 5%;
+	width: 90%;
+}
+
+.modal-dialog1{
+	width: 45%;
+}
+
+.modal-dialog3{	
+	width: 30%;
+}
+
+.modal-object{
+	width: 18%;
+	height: 17%;
+	margin-top: 2%;
+	margin-left: 6%;
+}
+
+#all-modal-description{
+	position: absolute;
+	left: -94%;
+}
+
+/*FIN PARTIE MODAL
+========================*/
+
+/*PARTIE COMBATS
+=========================*/
+.ennemi-character th{
+	font-size: 2.2vw;
+}
+
+.ennemi-character td{
+	font-size: 2.2vw;
+}
+
+.button-attak-enemy{
+	font-size: 2vw;
+
+}
+/*FIN PARTIE COMBATS
+==========================*/
+
+/*PARTIE GIF
+======================*/
+#bat1, .bat_gif{
+	width: 320px;
+	height: 220px;
+	margin: auto;
+	position: relative;
+}
+
+#crow1, .crow_gif{
+	width: 320px;
+	height: 220px;
+	position: relative;
+}
+
+#crow1{
+	margin-top: 10%;
+	margin-left: 40%;
+}
+
+#wolf1, .wolf_gif{
+	width: 300px;
+	height: 200px;
+	position: relative;
+}
+
+.wolf-fight-four, .wolf-fight-three{
+	margin-top: 14%;
+	margin-left: 42%;
+}
+
+.wolf-fight-five{
+	margin-bottom: 4%;
+}
+
+#troll, .troll_gif{
+	width: 280px;
+	height: 320px;
+	margin: auto;
+	position: relative;
+}
+
+#golem1, .golem_gif{
+	width: 300px;
+	height: 200px;
+	position: relative;
+}
+
+.golem-fight-sixR, .golem-fight-twoR{
+	margin-left: 35%;
+	margin-top: 14%;
+}
+
+
+#demon1, .devil_gif{
+	width: 340px;
+	height: 240px;
+}
+
+.demon-fight-sixR, .demon-fight-FiveR{
+	margin-left: 30%;
+	margin-top: 15%;
+}
+
+.ennemi-character{
+	margin-top: 4%;
+	width: 100%;
+}
+
+.ennemi-character tr{
+	font-size: 1.2vw;
+}
+
+.button-attak-enemy{
+	margin-top: 2%;
+	font-size: 2.1vw;
+}
+
+
+/*FIN PARTIE GIF
+=======================*/
+
+/*IMAGES DE FOND
+==========================*/
+
+.container-fountain{
+	background-image: url("/Web/images/fountain.jpg");
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+
+/*FIN IMAGES DE FOND
+===========================*/
+
+/*DEBUT OBJETS GAME
+=============================µ
+
+/*APPLE
+=============*/
+.apple-img{
+	width: 35%;
+	margin-bottom: 3%;
+}
+
+#apple1{
+	position: absolute;
+ 	height: 85px;
+ 	width: 12%;
+ }
+
+.apple1-index{
+	bottom: 10%;
+	left: 30%;
+}
+
+.apple-fight-four{
+	bottom: 5%;
+	right: 15%;
+}
+
+.apple-chestFive{
+	margin-top: 22%;
+	margin-left: 26%;
+}
+
+.apple1-fightFive-L{
+	margin-top: 0%;
+	margin-left: 4%;
+}
+
+.apple1-villageTwo{
+	margin-top: 42%;
+	margin-left: 25%;
+}
+
+.apple1-villageThree-R{
+	left: 10%;
+	bottom: 0%;
+}
+
+.apple1-village-fiveR{
+	left: 30%;
+	bottom: 10%;
+}
+
+.apple1-chestEightR{
+	left: 12%;
+}
+
+.apple1-underFiveR{
+	bottom: 10%;
+	right: 26%;
+}
+
+.apple1-impasseFour{
+	left: 20%;
+	bottom: 14%;
+}
+
+/*FIN APPLE
+================*/
+
+/*STICK
+=============*/
+.stick-img{
+	width: 40%;
+}
+
+#stick1{
+	position: absolute;
+ 	height: 100px;
+ 	width: 30%;
+}
+
+.stick-underOne{
+	bottom: 10%;
+	right: 5%;
+}
+
+.stick-fightOneL{
+ 	bottom: 5%;
+	left: 15%;
+}
+
+.stick-impasse-two{
+
+	margin-top: 25%;
+	margin-left: 21%;
+}
+
+.stick-chestNineR{
+	right: 14%;
+	bottom: 14%;
+}
+
+.stick-chestFourL{
+	bottom: 20%;
+}
+
+
+/*FIN STICK
+================*/
+
+/*ACORN
+=============*/
+.acorn-img{
+	width: 40%;
+	margin-bottom: 2%;
+}
+
+#acorn1{
+	position: absolute;
+ 	height: 100px;
+ 	width: 12%;	
+}
+
+.acorn-village-one{
+	bottom: 5%;
+	left: 32%;
+}
+
+.acorn-under-two{
+	bottom: 10%;
+	left: 20%;
+}
+
+.acorn1-underThree{
+	bottom: 4%;
+	right: 20%;
+}
+
+.acorn1-fightOneR{
+	bottom: 7%;
+	left: 21%;
+}
+
+.acorn1-UnderFourR{
+	left: 25%;
+	bottom: 4%;
+}
+
+.acorn1-UnderSixR{
+	bottom: 11%;
+	right: 24%;
+}
+
+.acorn1-fight-three{
+	right: 14%;
+	bottom: 4%;
+}
+
+/*FIN ACORN
+================*/
+
+/*SWORD
+=============*/
+
+.sword-img{
+	width: 35%;
+}
+
+#sword1{
+	position: absolute;
+ 	height: 200px;
+ 	width: 35%;	
+}
+
+.swordOne{
+	bottom: 10%;
+ 	left: 5%;
+}
+
+.stick-underOne{
+	margin-top: 40%;
+	margin-left: 80%;
+}
+
+.stick-chestFourL{
+	margin-top: -10%;
+}
+
+.sword-village-fourR{
+	bottom: 6%;
+	right: 4%;
+}
+
+/*FIN SWORD
+================*/
+
+/*CHEST
+=============*/
+.chest-img{
+	width: 60%;
+}
+
+#chest1{
+	position: absolute;
+ 	height: 320px;
+ 	width: 40%;
+}
+
+button#action-open-chest{
+	width: 20%;
+	margin-left: 20%;
+}
+
+.chestOne{
+	right: 12%;
+	bottom: 5%;
+}
+
+.chestTwoL{
+	bottom: 0%;
+	left: 15%;
+}
+
+.chestFightFour-L, .chest-fight-three{
+	left: 20%;
+	bottom: 0%;
+}
+
+.chestFourL{
+	top: 45%;
+	left: 60%;
+}
+
+.chestNineR{
+	bottom: 10%;
+}
+
+.chestEightR{
+	right: 10%;
+	bottom: 10%;
+}
+
+.chestfightSevenR{
+	left: 14%;
+	bottom: 14%;
+}
+
+.chest-under-sixR{
+	bottom: 0%;
+	left: 10%;
+}
+
+.chest-village-ThreeR{
+	left: 60%;
+	bottom: 0%;
+}
+
+.parchemin_img{
+	width: 60%;
+}
+
+/*FIN CHEST
+================*/
+
+/*FOUNTAIN
+=================*/
+
+.fountain-img{
+	width: 60%;
+}
+
+#fountain1{
+	margin-left: 20%;
+	width: 65%;
+}
+
+/*FIN FOUNTAIN
+====================*/
+
+/*GATE
+=======================*/
+#gate1{
+	height: 550px;
+	position: absolute;
+	
+}
+
+.gate-img{
+	width: 100%;
+	height: 80%;
+}
+
+.gate-end{
+	bottom: 0%;
+	left: 0%;
+}
+
+#action_portal1{
+	text-align: center;
+}
+/*FIN GATE
+==========================*/
+
+/*FIN OBJETS GAME
+==============================*/
+
+/*FIN PARTIE GAME
+********************/
+
+
+
+

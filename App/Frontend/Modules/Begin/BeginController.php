@@ -6,6 +6,7 @@ use \framework\BackController;
 use \framework\HTTPRequest;
 use \framework\PlayersFormHandler;
 use \framework\PlayerFormConnexionHandler;
+use \Entity\InventoryPlayer;
 use \Entity\Characters;
 use \Entity\Warrior;
 use \Entity\Players;
@@ -15,14 +16,28 @@ use \FormBuilder\PlayerFormConnexionBuilder;
 
 class BeginController extends BackController{
 
+	//Quand on clique sur 'Nouveau Jeu' on vide au cas où l'inventaire
+	public function executeDeleteInventory(HTTPRequest $request){
+		$this->managers->getManagerOf('InventoryPlayer')->deleteInventoryPlayer($this->app->user()->getAttribute('id'));
+
+		$this->app->httpResponse()->redirect('/game/');
+	}
+
 	//Méthode qui affiche le menu du jeu
 	public function executeIndex(HTTPRequest $request){
-
-		$this->page->addVarPage('title', 'L\'histoire dont vous êtes le héros');
 
 		$player = $this->managers->getManagerOf('Players')->connexionAdministrator($request->postData('pseudo'));
 
 		$this->page->addVarPage('player', $player);
+
+		$this->page->addVarPage('display', 1);
+
+	}
+
+	//Méthode qui affiche le didactitiel
+	public function executeDidactitiel(HTTPRequest $request){
+
+		$this->page->addVarPage('display', 2);
 
 	}
 
@@ -35,6 +50,8 @@ class BeginController extends BackController{
 
 		$this->page->addVarPage('allCharacters', $allCharacters);
 
+		$this->page->addVarPage('display', 2);
+
 	}
 
 
@@ -43,6 +60,8 @@ class BeginController extends BackController{
 		$this->page->addVarPage('title', 'Page d\'inscription');
 
 		$this->processPlayersForm($request);
+
+		$this->page->addVarPage('display', 2);
 
 	}
 
@@ -95,8 +114,7 @@ class BeginController extends BackController{
 		$formPlayersBuilder = new PlayersFormHandler($playersForm, $this->managers->getManagerOf('Players'), $request);
 
 		if($formPlayersBuilder->process()){
-
-			$this->app->user()->setAuthenticated(true);
+			
 			$this->app->user()->setAttribute('pseudo', $request->postData('pseudo'));
 			$this->app->user()->setAttribute('id', $request->postData('id'));
 			$this->app->httpResponse()->redirect('/confirmation-inscription.html');
@@ -112,6 +130,8 @@ class BeginController extends BackController{
 		$this->page->addVarPage('title', 'Page de connexion');
 
 		$this->processPlayerFormConnexion($request);
+
+		$this->page->addVarPage('display', 2);
 	}
 
 	public function processPlayerFormConnexion(HTTPRequest $request){
@@ -153,16 +173,22 @@ class BeginController extends BackController{
 
     	$this->page->addVarPage('title', 'Confirmation d\'inscription');
 
+    	$this->page->addVarPage('display', 2);
+
   	}
 
   	public function executeConfirmConnexion(HTTPRequest $request){
 
   		$this->page->addVarPage('title', 'Confirmation de connexion');
+
+  		$this->page->addVarPage('display', 2);
   	}
 
 	public function executeConfirmDeconnexion(HTTPRequest $request){
 
     	$this->page->addVarPage('title', 'Déconnexion');
+
+    	$this->page->addVarPage('display', 2);
 
     	$this->app->user()->setAuthenticated(false);
 

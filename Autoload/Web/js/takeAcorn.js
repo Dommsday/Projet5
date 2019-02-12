@@ -9,6 +9,10 @@ var TakeAcorn = {
 	allAcorn: document.getElementsByClassName("acorn"),
 
 	action_acorn1 : document.getElementById("action-acorn1"),
+
+	info_game: document.getElementById("info-game"),
+
+	text_action_acorn: document.createElement("p"),
 	
 	display: 1,
 
@@ -82,6 +86,14 @@ var TakeAcorn = {
 						TakeAcorn.storageAcorn.setItem("displayAcorn", newDisplay);
 
 					}
+
+					TakeAcorn.text_action_acorn.textContent = "Gland pris";
+
+					TakeAcorn.text_action_acorn.setAttribute("class", "action_objects");
+
+					TakeAcorn.storageAcorn.setItem("text_action_acorn", TakeAcorn.text_action_acorn.textContent);
+					
+					TakeAcorn.info_game.appendChild(TakeAcorn.text_action_acorn);
 					
 				});
 			}

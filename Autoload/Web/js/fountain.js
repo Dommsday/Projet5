@@ -6,6 +6,8 @@ var Fountain = {
 	action_fountain1 : document.getElementById("action-fountain1"),
 	btnFountain : document.getElementById("active-fountain"),
 	lifePlayer: document.getElementById("life_players"),
+	containerPlayer : document.querySelector(".container-fountain"),
+	secretStone : document.querySelector(".secret_stone"),
 
 	display: 1,
 
@@ -14,12 +16,13 @@ var Fountain = {
 		this.refresh();
 		this.heal();
 		this.AllhiddenAction();
+		this.endStorageGolem();
 
 		if(Fountain.display == 1){
 			Fountain.btnFountain.style.display = "block";
 
 			Fountain.storageFountain.setItem("display", Fountain.display);
-			alert("DISPLAY "+Fountain.storageFountain.getItem("display"));
+			
 		}
 	},
 
@@ -56,16 +59,20 @@ var Fountain = {
 
 			Fountain.lifePlayer.textContent = Number(Fountain.lifePlayer.textContent) + 15;
 
-			alert("Vous récupérez 15 points de vie");
-
 			Fountain.storageFountain.setItem('lifePlayer', Fountain.lifePlayer.textContent);
+
+			Fountain.containerPlayer.style.border = "6px solid green";
+
+			setTimeout(function(){
+
+				Fountain.containerPlayer.style.border = "inherit";
+			}, 1000);
 
 			Fountain.btnFountain.style.display = "none";
 
 			Fountain.display = 2;
 
 			Fountain.storageFountain.setItem("display", Fountain.display);
-			alert("DISPLA NEW" +Fountain.storageFountain.getItem("display"));
 
 		});
 
@@ -74,6 +81,13 @@ var Fountain = {
 	AllhiddenAction: function(){
 
 		this.hiddenActionFountain1();
+	},
+
+	endStorageGolem: function(){
+
+		Fountain.secretStone.addEventListener("click", function(){
+			FightGolem.storageGolem.clear();
+		});
 	},
 
 	endAllStorage: function(){

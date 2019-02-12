@@ -1,5 +1,5 @@
-<div class="all-resume col-lg-12 col-xl-12">
-<table>
+<div class="all-resume-member col-lg-12 col-xl-12">
+<table id="all-member-table-backend">
 	<tr>
 		<th class="pseudo">Pseudo</th>
 		<th class="email">Email</th>
@@ -27,6 +27,5 @@
 
 
 </table>
+<a class="link btn-all-members" href="/admin/">Retour</a>
 </div>
-
-<p><a class="link " href="/admin/">Retour</a></p>

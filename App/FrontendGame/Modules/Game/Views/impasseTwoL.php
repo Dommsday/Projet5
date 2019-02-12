@@ -29,6 +29,6 @@
 	?>
 
 	<div id="choise-road">
-		<a class="choise-top" href="/game/village-two-left.html"><img class="arrow arrow-back" alt="arrow-back" title="flèche pour revenir en arrière" src="/Web/images/arrow_back.png" /></a>
+		<a class="choise-back" href="/game/village-two-left.html"><img class="arrow arrow-back" alt="arrow-back" title="flèche pour revenir en arrière" src="/Web/images/arrow_back.png" /></a>
 	</div>
 </div>

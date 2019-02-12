@@ -28,6 +28,5 @@
 
 
 </table>
+	<a class="link btn-all-cave" href="/admin/">Retour</a>
 </div>
-
-<p><a class="link " href="/admin/">Retour</a></p>

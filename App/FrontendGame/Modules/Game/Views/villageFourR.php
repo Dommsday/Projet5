@@ -31,11 +31,12 @@
 	?>
 
 	<div id="secret-rock-village-fourR">
-		<a href="/game/chest-four-left.html">?</a>
+		<img class="stone_img" src="/Web/images/stone.png" alt="stone" title="pierre"/>
+		<a class="secret_stone" href="/game/chest-four-left.html">?</a>
 	</div>
 	<div id="choise-road">
-		<a class="choise-top" href="/game/fight-four-right.html"><img class="arrow arrow-left" alt="arrow-left" title="flèche de gauche" src="/Web/images/arrow_left.png" /></a>
-		<a class="choise-top" href="/game/fight-five-right.html"><img class="arrow arrow-right" alt="arrow-right" title="flèche de droite" src="/Web/images/arrow_right.png" /></a>
+		<a class="choise-left" href="/game/fight-four-right.html"><img class="arrow arrow-left" alt="arrow-left" title="flèche de gauche" src="/Web/images/arrow_left.png" /></a>
+		<a class="choise-right" href="/game/fight-five-right.html"><img class="arrow arrow-right" alt="arrow-right" title="flèche de droite" src="/Web/images/arrow_right.png" /></a>
 	</div>
 
 </div>

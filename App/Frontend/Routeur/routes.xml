@@ -2,15 +2,18 @@
 	<routes>
 
 		<!--Partie menu du jeu-->
+
+		<route url="/delete-inventory-([0-9]+).html" module="Begin" action="deleteInventory" vars ="id"></route>
+
 		<route url="/" module="Begin" action="index"></route>
+		<route url="/didactitiel.html" module="Begin" action="didactitiel"></route>
 		<route url="/allCharacters.html" module="Begin" action="allCharacters"></route>
-		<route url="/about.html" module="Begin" action="about"></route>
+		
 		<route url="/inscription.html" module="Begin" action="inscription"></route>
 		<route url="/connexion.html" module="Begin" action="connexion"></route>
 
+		<route url ="/confirmation-inscription.html" module="Begin" action="confirmInscription"></route>
+		<route url ="/confirmation-connexion.html" module="Begin" action="confirmConnexion"></route>
 		<route url="/confirmation-deconnexion.html" module="Begin" action="confirmDeconnexion"></route>
-
-		<!--Partie Forêt-->
-		<route url="/startGame.html" module="Forest" action="start"></route>
-		<route url="/impasse.html" module="Forest" action="impasse"></route>
+		
 	</routes>

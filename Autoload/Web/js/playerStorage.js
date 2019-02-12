@@ -10,6 +10,7 @@ var PlayerStorage = {
 	btnAttakEnemy: document.getElementsByClassName("button-attak-enemy"),//Bouton d'attaque
 
 	btnInput : document.querySelector('input[type="submit"]'),
+	containerDamages: document.querySelector(".container-fight"),//Cadre de jeu (vue du joueur)
 
 	all_modal_objects: document.getElementById("all-modal-objects"),
 	modal_object: document.getElementsByClassName("modal-object"),
@@ -35,13 +36,10 @@ var PlayerStorage = {
 	textDamages: document.createElement("p"),
 	textLife: document.createElement("p"),
 	textLifetime: document.createElement("p"),
-	btnObject: document.createElement("button"),
 
 	//Valeur des dégâts par défault
 	defaultDamages: 4,
 
-	//Tableau du déroulement du jeu
-	info_game_array: [],
 	
 
 	init: function(){
@@ -70,11 +68,25 @@ var PlayerStorage = {
 		PlayerStorage.all_modal_description.style.display="none";
 
 		PlayerStorage.deconnexion.addEventListener("click", function(){
-			PlayerStorage.storagePlayer.clear();
-			TakeApple.storageApple.clear();
-			FightBat.storageBat.clear();
+			PlayerStorage.allEndStorage();
 		});
 
+	},
+
+	allEndStorage: function(){
+			PlayerStorage.storagePlayer.clear();
+			TakeApple.storageApple.clear();
+			TakeStick.storageStick.clear();
+			TakeAcorn.storageAcorn.clear();
+			TakeChest.storageChest.clear();
+			TakeSword.storageSword.clear();
+			FightBat.storageBat.clear();
+			FightCrow.storageCrow.clear();
+			FightWolf.storageWolf.clear();
+			FightTroll.storageTroll.clear();
+			FightDemon.storageDemon.clear();
+			FightGolem.storageGolem.clear();
+			Fountain.storageFountain.clear();
 	},
 
 	hidden_all_modal:function(){
@@ -83,6 +95,7 @@ var PlayerStorage = {
 		this.hidden_modal_damages();
 		this.hidden_modal_life();
 		this.hidden_modal_lifetime();
+		this.hidden_modal_href();
 	},
 
 	hidden_modal_name: function(){
@@ -118,6 +131,13 @@ var PlayerStorage = {
 
 		for(let i = 0; i< PlayerStorage.modal_lifetime.length; i++){
 			PlayerStorage.modal_lifetime[i].style.display="none";
+		}
+	},
+
+	hidden_modal_href: function(){
+
+		for(let i = 0; i< PlayerStorage.modal_href.length; i++){
+			PlayerStorage.modal_href[i].style.display="none";
 		}
 	},
 
@@ -211,23 +231,14 @@ var PlayerStorage = {
 			//QUAND ON CLIQUE SUR L'UN DES OBJET DE L'INVENTAIRE
 			PlayerStorage.modal_object[i].addEventListener("click",function(){
 
-				PlayerStorage.btnObject.textContent = null;
-				
 				for(let n = 0; n < PlayerStorage.modal_href.length; n++){
 
 					if(i == n){
 						
-						PlayerStorage.modal_href[i].textContent = "Utiliser";
-						PlayerStorage.btnObject.setAttribute("type", "button");
-						PlayerStorage.btnObject.setAttribute("class", "btnModal");
-						PlayerStorage.btnObject.appendChild(PlayerStorage.modal_href[i]);
-
-
-
-						//AFFICHE LE BOUTON D'UTILISATION
-						PlayerStorage.all_modal_objects.appendChild(PlayerStorage.btnObject);
-						PlayerStorage.btnObject.style.display="block";
+						PlayerStorage.modal_href[i].style.display="block";
+						
 					}
+
 				}
 
 				PlayerStorage.all_modal_description.style.display="none";
@@ -237,6 +248,9 @@ var PlayerStorage = {
 
 				let valueSpanDamage = PlayerStorage.modal_damages[i].textContent;
 				PlayerStorage.spanDamages.textContent = valueSpanDamage;
+
+				let valueSpanLife = PlayerStorage.modal_life[i].textContent; 
+				PlayerStorage.spanLife.textContent = valueSpanLife;
 				
 
 				//Si le nombre "Utilisation" n'a pas la valeur 1
@@ -248,57 +262,56 @@ var PlayerStorage = {
 				}
 
 				
-				let valueSpanLife = PlayerStorage.modal_life[i].textContent; 
-				PlayerStorage.spanLife.textContent = valueSpanLife;
 
 			});
 		}
 
 		//QUAND ON CLIQUE SUR 'Utiliser'
-		PlayerStorage.btnObject.addEventListener("click",function(){
+		for(let i = 0; i <PlayerStorage.modal_href.length; i++){
+			PlayerStorage.modal_href[i].addEventListener("click",function(){
 
-			let newNameWeapon = PlayerStorage.nameWeapon.textContent;
-			PlayerStorage.storagePlayer.setItem("objectName", newNameWeapon);
+				let newNameWeapon = PlayerStorage.nameWeapon.textContent;
+				PlayerStorage.storagePlayer.setItem("objectName", newNameWeapon);
 
-			let newStatLife = Number(PlayerStorage.spanLife.textContent) + Number(PlayerStorage.statLife.textContent);
-			PlayerStorage.storagePlayer.setItem("objectLife", newStatLife);
+				let newStatLife = Number(PlayerStorage.spanLife.textContent) + Number(PlayerStorage.statLife.textContent);
+				PlayerStorage.storagePlayer.setItem("objectLife", newStatLife);
 
-			let newStatDamage = Number(PlayerStorage.spanDamages.textContent) + Number(PlayerStorage.statDamage.textContent);
-			PlayerStorage.storagePlayer.setItem("objectDamages", newStatDamage);
+				let newStatDamage = Number(PlayerStorage.spanDamages.textContent) + Number(PlayerStorage.statDamage.textContent);
+				PlayerStorage.storagePlayer.setItem("objectDamages", newStatDamage);
 
-			let newStatLifetime = PlayerStorage.statLifetime.textContent;
-			PlayerStorage.storagePlayer.setItem("objectLifetime", newStatLifetime);
+				let newStatLifetime = PlayerStorage.statLifetime.textContent;
+				PlayerStorage.storagePlayer.setItem("objectLifetime", newStatLifetime);
 
-			PlayerStorage.spanLife.textContent = "";
-			PlayerStorage.spanDamages.textContent = "";
+				PlayerStorage.spanLife.textContent = "";
+				PlayerStorage.spanDamages.textContent = "";
 
-			//VALEUR DANS LA BARRE DU JEU
-			PlayerStorage.lifePlayer.textContent = PlayerStorage.storagePlayer.getItem("objectLife");
-			PlayerStorage.damagePlayer.textContent = PlayerStorage.storagePlayer.getItem("objectDamages");
-			
+				//VALEUR DANS LA BARRE DU JEU
+				PlayerStorage.lifePlayer.textContent = PlayerStorage.storagePlayer.getItem("objectLife");
+				PlayerStorage.damagePlayer.textContent = PlayerStorage.storagePlayer.getItem("objectDamages");
+				
 
-			//VALEUR DANS L'INVENTAIRE
-			PlayerStorage.spanDamages.textContent = PlayerStorage.storagePlayer.getItem("objectDamages");
+				//VALEUR DANS L'INVENTAIRE
+				PlayerStorage.spanDamages.textContent = PlayerStorage.storagePlayer.getItem("objectDamages");
 
-			//Si le nombre "Utilisation" n'a pas la valeur 1
-			if(!(PlayerStorage.storagePlayer.getItem("objectLifetime") == 1)){
+				//Si le nombre "Utilisation" n'a pas la valeur 1
+				if(!(PlayerStorage.storagePlayer.getItem("objectLifetime") == 1)){
 
-				//DANS LA BARRE DU JEU
-				PlayerStorage.weaponPlayer.textContent = PlayerStorage.storagePlayer.getItem("objectName");
+					//DANS LA BARRE DU JEU
+					PlayerStorage.weaponPlayer.textContent = PlayerStorage.storagePlayer.getItem("objectName");
 
-				//VALEUR DE L'INVENTAIRE
-				PlayerStorage.nameWeapon.textContent = PlayerStorage.storagePlayer.getItem("objectName");
-				PlayerStorage.spanLife.textContent = PlayerStorage.storagePlayer.getItem("objectLife");
-				//PlayerStorage.statLifetime.textContent = newStatLifetime;
-			}
+					//VALEUR DE L'INVENTAIRE
+					PlayerStorage.nameWeapon.textContent = PlayerStorage.storagePlayer.getItem("objectName");
+					PlayerStorage.spanLife.textContent = PlayerStorage.storagePlayer.getItem("objectLife");
+					//PlayerStorage.statLifetime.textContent = newStatLifetime;
+				}
 
-			PlayerStorage.storagePlayer.setItem("objectName", PlayerStorage.weaponPlayer.textContent);
-			PlayerStorage.storagePlayer.setItem("lifePlayer", PlayerStorage.lifePlayer.textContent);
-			PlayerStorage.storagePlayer.setItem("damagePlayer", PlayerStorage.damagePlayer.textContent);
-			PlayerStorage.storagePlayer.setItem("objectLifetime", PlayerStorage.statLifetime.textContent);
+				PlayerStorage.storagePlayer.setItem("objectName", PlayerStorage.weaponPlayer.textContent);
+				PlayerStorage.storagePlayer.setItem("lifePlayer", PlayerStorage.lifePlayer.textContent);
+				PlayerStorage.storagePlayer.setItem("damagePlayer", PlayerStorage.damagePlayer.textContent);
+				PlayerStorage.storagePlayer.setItem("objectLifetime", PlayerStorage.statLifetime.textContent);
 
-		});
-
+			});
+		}
 		//SI L'INVENTAIRE EST PLEIN
 		if(PlayerStorage.modal_object.length >= 6){
 			PlayerStorage.btnInventory.classList.add("full_inventory");
@@ -323,7 +336,8 @@ var PlayerStorage = {
 
 				if(PlayerStorage.statLifetime.textContent <= 0){
 
-					alert("!!! Arme brisée !!!!!")
+					const audioBrokenWeapon = document.getElementById("audio_broken_weapon");
+					audioBrokenWeapon.play();
 
 					PlayerStorage.statLifetime.textContent = "/";
 					PlayerStorage.weaponPlayer.textContent = "Mains nues";

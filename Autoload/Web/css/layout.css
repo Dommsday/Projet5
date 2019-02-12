@@ -7,8 +7,16 @@ body, html{
 	padding: 0px;
 }
 
+
 a:hover{
 	text-decoration: inherit;
+}
+
+#audio_start{
+	border: 4px solid red;
+	position: absolute;
+	right: 0%;
+	top: 0%;
 }
 
 .dashbord{
@@ -57,6 +65,12 @@ a:hover{
 .link-confirmation{
 	font-size: 1.4vw;
 	margin-left: 5%;
+	color: #000000;
+	background-color: gray;
+	padding: 10px;
+}
+
+.link-confirmation:hover{
 	color: #000000;
 }
 
@@ -161,6 +175,7 @@ ul{
 
 #container-link-back{
 	margin-top: 4%;
+	margin-bottom: 4%;
 }
 
 #link-back{
@@ -181,7 +196,6 @@ ul{
 #slider {
     height: 600px;
     width: 100%;
-    background-color: #000000;
     position: relative;
 }
 
@@ -195,8 +209,8 @@ ul{
     position: absolute;
     height: 90%;
     width: 95%;
-    background-color: #737373;
-    border: 2px solid #b5ebf2;
+    background-color: rgba(0,0,0,0.6);
+    border: 2px solid #000000;
     left: 3%;
     top: 5%;
     border-radius: 6px;
@@ -209,12 +223,12 @@ ul{
 
 .item_content h2 {
     font-size: 3.2em;
-    color: #b5ebf2;
+    color: #FFFFFF;
     margin-bottom: 40px;
 }
 
 .item_content p {
-    color: #b5ebf2;
+    color: #FFFFFF;
     font-size: 1.6em;
     margin-bottom: 20px;
 }
@@ -229,11 +243,22 @@ ul{
     top: 45%;
     z-index: 99;
     font-size: 25px;
-    color: #c0fafd;
+    color: #FFFFFF;
 }
 
 .button_right {
     right: 1%;
+}
+
+img.player-didactitiel{
+	width: 220px;
+}
+
+img.all-inventory-didactitiel{
+	width: 50%;
+	height: 200px;
+	position: absolute;
+	right: 25%;
 }
 
 /*FIN PARTIE SLIDER
@@ -274,7 +299,6 @@ footer{
 
 /*PAGE TOUT LES PERSONNAGES
 ******************************/
-
 .container-characters{
 	background: #FFFFFF;
 	border: 1px solid black;
@@ -284,7 +308,9 @@ footer{
 }
 
 .container-all-characters{
+	position: relative;
 	width: 100%;
+	height: auto;
 }
 
 #all-container-characters{
@@ -298,6 +324,8 @@ footer{
 	margin-top: 4%;
 	margin-bottom: 4%;
 	color: #FFFFFF;
+	padding: 20px;
+	background: rgba(0,0,0,0.6);
 }
 
 .all-characters-table{
@@ -311,6 +339,32 @@ footer{
 .link-all-characters{
 	margin-left: 2%;
 }
+
+.container-name-characters{
+	text-align: center;
+}
+
+.container-gif-characters{
+	height: 200px;
+}
+
+.p-stat-damages, .p-stat-life{
+	font-size: 1.2vw;
+	font-weight: bold;
+}
+
+.container-gif-characters img{
+	width: 50%;
+	height: 100%;
+	margin: auto;
+}
+
+.container-stats-characters{
+	background: #000000;
+	color: #FFFFFF;
+	margin-bottom: -16px;
+}
+
 
 /*FIN PAGE TOUT LES PERSONNAGES
 ******************************/
@@ -346,6 +400,19 @@ label{
 
 /*PARTIE GAME
 *******************/
+
+/*Modal d'exit
+*****************/
+#para-exit{
+	font-size: 1.4vw;
+}
+
+.link-exit{
+	color: #000000;
+	font-size: 1.2vw;
+}
+/*Fin Modal d'exit
+**********************/
 #message_fail{
 	color: red;
 	font-size: 6vw;
@@ -369,7 +436,6 @@ label{
 }
 
 #title_dead{
-	
 	color: #FFFFFF;
 	position: absolute;
 	left: 0%;
@@ -390,14 +456,20 @@ label{
 	margin-left: 2%;
 }
 
-.link-finish-game, .link-dead-game{
+.link-finish-game, .link-dead-game, .link-impasse-dead-game{
 	color: #FFFFFF;
 	background: gray;
 	padding: 10px;
 	font-size: 2vw;
 }
 
-.link-finish-game:hover, .link-dead-game:hover{
+.link-impasse-dead-game{
+	margin-left: 38%;
+}
+
+
+
+.link-finish-game:hover, .link-dead-game:hover, .link-impasse-dead-game:hover{
 	color: #FFFFFF;
 	background: #000000;
 	transition: 2s;
@@ -542,26 +614,10 @@ label{
 }
 
 
-.action_objects{
-	color: #F2F2F2;
-}
-
-.action_enemy{
-	color: #DB2B30;
-}
-
-.action_player{
-	color: #02A676;
-}
-
 /*DEBUT TOUT LES OBJETS
 **********************/
 .all-resume{
 	background: #FFFFFF;
-}
-
-.all-resume-inventory{
-	border: 2px solid orange;
 }
 
 #title-all-inventory th{
@@ -622,6 +678,172 @@ label{
 /*FIN TOUT LES OBJETS
 *************************/
 
+/*PARTIE MODAL
+********************/
+#all-modal-dialog{
+	margin-top: 6%;
+	margin-left: 10%;
+	width: 80%;
+	height: auto;
+	display: flex;
+}
+
+.modal-dialog1, .modal-dialog2, .modal-dialog3{
+	height: auto;
+}
+
+.modal-dialog1{
+	width: 40%;
+}
+
+.modal-dialog2, .modal-dialog3{	
+	width: 20%;
+}
+
+.modal-body2 p{
+	font-weight: bold;
+}
+
+ span#life, span#damages{
+	color : #02A676;
+}
+
+.modal-body3{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+
+#all-modal-dialog{
+	display: flex;
+}
+
+.modal-header{
+	background: #404040;
+	color: #FFFFFF;
+}
+
+.modal-header1{
+	display: flex;
+}
+
+button span{
+	padding: 0px 10px 0px 10px;
+	transition: 0.5s;
+}
+
+button span:hover{
+	background: #B0081A;
+	border-radius: 5px;
+}
+
+.modal-body{
+	height: 350px;
+}
+
+.modal-body-one{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#modal-img{
+	width: 40%;
+	height: 100%;
+	border: 2px solid black;
+}
+
+#modal-description-player{
+	border: 1px solid #737373;
+	border-radius: 10px;
+	background-color: #737373;
+	width: 55%;
+	height: 40%;
+	margin-left: 4%;
+	padding: 10px;
+}
+
+#modal-description-player p{
+	margin: 0px;
+	font-weight: bold;
+}
+
+.warrior_png_img{
+	width: 100%;
+	height: 100%;
+}
+
+#btnObject{
+	width: 35%;
+	height: 10%;
+	position: absolute;
+	bottom: 1%;
+}
+
+#all-modal-objects{
+	position: relative;
+	display: flex;
+	border: 2px solid black;
+	width: 100%;
+}
+
+
+.modal-object{
+	width: 25%;
+	height: 24%;
+	margin-top: 2%;
+	margin-left: 6%;
+}
+
+.modal-object img{
+	height: 100%;
+	width: 100%;
+}
+
+.img-src-modal{
+	width: 100%;
+}
+
+.modal-object-description{
+	border: 1px solid orange;
+}
+
+#all-modal-description{
+	background: #FFFFFF;
+	border: 2px solid black;
+	width: 100%;
+	height: auto;
+	position: absolute;
+	left: 92%;
+}
+
+#all-modal-objects{
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.modal-object-href{
+	color: #000000;
+	background: gray;
+	padding: 5px;
+	position: absolute;
+	bottom: 2%;
+	height: 40px;
+	font-size: 1.2vw;
+	left: 35%;
+	border-radius: 4px;
+}
+
+.modal-object-href:hover{
+	color: #000000;
+}
+
+
+
+/*FIN PARTIE MODAL
+**********************/
+
 /*Fin partie Inventaire et Informations
 =========================================*/
 
@@ -647,34 +869,53 @@ label{
 
 /*SECRETS
 ===============*/
+
 #secret-rock-fountainTwo{
 	position: absolute;
-	border: 2px solid yellow;
 	bottom: 6%;
 	width: 10%;
+	left: 10%;
 }
 
 #secret-rock-ville-two-L{
 	position: absolute;
-	border: 2px solid yellow;
 	bottom: 6%;
-	right: 1%;
+	right: 20%;
 	width: 10%;
 }
 #secret-rock-under-six{
 	position: absolute;
-	border: 2px solid yellow;
 	bottom: 6%;
 	right: 1%;
 	width: 10%;
 }
 #secret-rock-village-fourR{
 	position: absolute;
-	border: 2px solid yellow;
 	bottom: 6%;
 	left: 1%;
 	width: 10%;
 }
+
+.secret_stone{
+	z-index: 1;
+	font-size: 2vw;
+	color: #FFFFFF;
+	margin-left: 6%;
+}
+
+.secret_stone:hover{
+	color: #FFFFFF;
+}
+
+img.stone_img{
+	left: -14%;
+	bottom: 1%;
+	position: absolute;
+	z-index: 2;
+	width: 53%;
+}
+
+
 
 /*FIN SECRETS
 ================*/
@@ -718,8 +959,8 @@ label{
 }
 
 .apple1-villageThree-R{
-	left: 44%;
-	bottom: 17%;
+	left: 30%;
+	bottom: 10%;
 }
 
 .apple1-village-fiveR{
@@ -884,7 +1125,7 @@ label{
 
 button#action-open-chest{
 	width: 20%;
-	margin: auto;
+	margin-left: 20%;
 }
 
 .chestOne{
@@ -895,7 +1136,7 @@ button#action-open-chest{
 .chestTwoL{
 
 	bottom: 12%;
-	left: 35%;
+	left: 15%;
 }
 
 .chestFightFour-L, .chest-fight-three{
@@ -924,7 +1165,16 @@ button#action-open-chest{
 
 .chest-under-sixR{
 	bottom: 12%;
-	left: 42%;
+	left: 22%;
+}
+
+.chest-village-ThreeR{
+	left: 45%;
+	bottom: 17%;
+}
+
+.parchemin_img{
+	width: 60%;
 }
 
 /*FIN CHEST
@@ -942,6 +1192,7 @@ button#action-open-chest{
 	margin-left: 24%;
 	height: 480px;
 	width: 50%;
+	text-align: center;
 }
 
 /*FIN FOUNTAIN
@@ -1058,170 +1309,7 @@ button#action-open-chest{
 /*FIN PARTIE GIF
 *********************/
 
-/*PARTIE MODAL
-********************/
-#all-modal-dialog{
-	margin-top: 6%;
-	margin-left: 10%;
-	width: 80%;
-	height: auto;
-	display: flex;
-}
 
-.modal-dialog1, .modal-dialog2, .modal-dialog3{
-	height: auto;
-}
-
-.modal-dialog1{
-	width: 40%;
-}
-
-.modal-dialog2, .modal-dialog3{	
-	width: 20%;
-}
-
-.modal-body2 p{
-	font-weight: bold;
-}
-
- span#life, span#damages{
-	color : #02A676;
-}
-
-.modal-body3{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-
-
-#all-modal-dialog{
-	display: flex;
-}
-
-.modal-header{
-	background: #404040;
-	color: #FFFFFF;
-}
-
-.modal-header1{
-	display: flex;
-}
-
-button span{
-	padding: 0px 10px 0px 10px;
-	transition: 0.5s;
-}
-
-button span:hover{
-	background: #B0081A;
-	border-radius: 5px;
-}
-
-.modal-body{
-	height: 350px;
-}
-
-.modal-body-one{
-	display: flex;
-	flex-wrap: wrap;
-}
-
-#modal-img{
-	width: 40%;
-	height: 100%;
-	border: 2px solid black;
-}
-
-#modal-description-player{
-	border: 1px solid #737373;
-	border-radius: 10px;
-	background-color: #737373;
-	width: 55%;
-	height: 40%;
-	margin-left: 4%;
-	padding: 10px;
-}
-
-#modal-description-player p{
-	margin: 0px;
-	font-weight: bold;
-}
-
-.warrior_png_img{
-	width: 100%;
-	height: 100%;
-}
-
-#btnObject{
-	width: 35%;
-	height: 10%;
-	position: absolute;
-	bottom: 1%;
-}
-
-#all-modal-objects{
-	position: relative;
-	display: flex;
-	border: 2px solid black;
-	width: 100%;
-}
-
-
-.modal-object{
-	width: 25%;
-	height: 24%;
-	margin-top: 2%;
-	margin-left: 6%;
-}
-
-.modal-object img{
-	height: 100%;
-	width: 100%;
-}
-
-.img-src-modal{
-	width: 100%;
-}
-
-.modal-object-description{
-	border: 1px solid orange;
-}
-
-#all-modal-description{
-	background: #FFFFFF;
-	border: 2px solid black;
-	width: 100%;
-	height: auto;
-	position: absolute;
-	left: 92%;
-}
-
-#all-modal-objects{
-	position: relative;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.btnModal{
-	position: absolute;
-	width: 45%;
-	height: 12%;
-	padding: 2%;
-	bottom: 1%;
-	left: 28%;
-	border: none;
-}
-
-.btnModal a{
-	font-weight: bold;
-	color: #000000;
-}
-
-
-
-/*FIN PARTIE MODAL
-**********************/
 
 /*FIN PARTIE GAME
 *********************/
@@ -1232,21 +1320,35 @@ button span:hover{
 /*Index
 ***********/
 
-.containt-admin{
-	display: flex;
+.link{
+	background: gray;
+	padding: 10px;
+	color: #000000;
 }
 
-.fa-home{
+.link:hover{
+	color: #000000;
+}
+
+.containt-admin{
+	display: flex;
+	position: relative;
+}
+
+.fa-home-backend{
+	position: absolute;
+	bottom: 0%;
+	right: 0%;
 	color: #FFFFFF;
+	font-size: 40px;
 }
 
 .title-admin{
 	text-align: center;
 	font-weight: bold;
 	color: #FFFFFF;
-	font-size: 2.6vw;
-	margin-top: 2%;
-	background: red;
+	font-size: 4.6vw;
+	margin: auto;
 }
 
 .informations_backend{
@@ -1372,12 +1474,12 @@ button span:hover{
 }
 
 #all-characters-table-backend th.damages{
-	width: 12%;
+	width: 15%;
 	text-align: center;
 }
 
 #all-characters-table-backend th.life{
-	width: 12%;
+	width: 15%;
 	text-align: center;
 }
 
@@ -1389,6 +1491,11 @@ button span:hover{
 	width: 10%;
 	text-align: center;
 }
+
+#all-characters-table-backend td.visuel{
+	width: 10%;
+}
+
 
 .btn-all-characters{
 	margin-top: 2%;
@@ -1407,7 +1514,6 @@ button span:hover{
 **************************/
 .informations_backend{
 	width: 100%;
-	border: 4px solid orange;
 	height: auto;
 	display: flex;
 	flex-wrap: wrap;
@@ -1481,6 +1587,9 @@ button span:hover{
 }
 /*Fin Partie Inventory
 ******************************/
+
+/*Partie Membres
+******************************/
 .all-resume-member{
 	background: #BFBFBF;
 	margin-bottom: 4%;
@@ -1504,9 +1613,6 @@ button span:hover{
 	font-size: 1vw;
 	font-family: "sans sherif";
 }
-/*Partie Membres
-******************************/
-
 
 /*Fin Partie Membres
 ******************************/
@@ -1549,7 +1655,7 @@ button span:hover{
 .container-fountain{
 	background-image: url("/Web/images/fountain.jpg");
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: bottom;
 }
 
 .container-gate{
@@ -1576,8 +1682,24 @@ button span:hover{
 	background-position: center;
 }
 
-
-
 /*FIN IMAGES DE FOND
+*************************/
+
+/*PAGE D'ERREUR
+**************************/
+#container-error{
+	background: #FFFFFF;
+	margin-top: 20%;
+}
+
+#title-error{
+	text-align: center;
+}
+
+#para-error{
+	text-align: center;
+}
+
+/*FIN PAGE D'ERREUR
 *************************/
 

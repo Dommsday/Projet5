@@ -1,4 +1,6 @@
 <div class="container-game container-chest">
+
+	<audio id="audio_chest" src="/Web/sound/open_chest.mp3"></audio>
 	
 	<div class="title-start">
 		<h1><?= nl2br($textChest['title']) ?></h1>
@@ -10,7 +12,7 @@
 
 	<div id="chest1" class="chest chestNineR">
 			
-		<img class="chest-img" src="/Web/images/chest.png" />
+		<img class="chest-img" src="/Web/images/chest.png" alt="coffre" title="Coffre"/>
 
 		<div id="action_chest1" class="action_chest">
 			<button type="button" id="action-open-chest" class="open_chest btn" data-toggle="modal" data-target="#chestNineR">Ouvrir</button>
@@ -48,14 +50,14 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 		    <div class="modal-header">
-		       <h5 class="modal-title" id="chestOneLLabel">Un bout de parchemin</h5>
+		       <h5 class="modal-title" id="chestNineRLabel">Un bout de parchemin</h5>
 		    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		        <span aria-hidden="true">&times;</span>
 		    </button>
 		    </div>
 		     <div class="modal-body">
 		        <p>Un petit bout de papier, preques détruit. On peut y apercevoir des chiffres. Vous devriez les noter quelques part</p>
-		        12666625148
+		        <img class="parchemin_one_img parchemin_img" src="/Web/images/parchemin_one.png" />
 		     </div>
 		</div>
 	</div>

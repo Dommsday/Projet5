@@ -8,4 +8,5 @@
 		<p><?= nl2br($textImpasseDead['content']) ?></p>
 	</div>
 
+	<a class="link-impasse-dead-game" href="delete-inventory-<?= $user->getAttribute('id') ?>.html" id="deconnexion">Revenir au menu principal</a>
 </div>

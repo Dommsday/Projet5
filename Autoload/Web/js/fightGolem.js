@@ -7,13 +7,17 @@ var FightGolem = {
 	damageGolem: document.getElementById("damages-golem"),
 	cadreGolem : document.getElementById("golem1"),
 	choiseRoad: document.getElementById("choise-road"),
+
+	messageFail: document.getElementById("message_fail"),
 	
 	init: function(){
+
+		FightGolem.messageFail.style.display="none";
 
 		FightGolem.refresh();
 		FightGolem.hiddenRoad();
 		FightGolem.attakPlayerGolem();
-		
+
 	},
 
 	hiddenRoad: function(){
@@ -37,37 +41,21 @@ var FightGolem = {
 			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
 			//Si le taux de chance est supérieur à 35
-			if(chance >= 35){
-
-				//alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
-
-				//FightGolem.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous touchez l'ennemi";
-
-				//FightBat.text_action_player.setAttribute("class", "action_player");
-
-				//FightBat.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
-					
-				//FightBat.info_game.appendChild(FightBat.text_action_player);
+			if(chance >= 25){
 
 				let newLifeGolem = golemLife - playerDamage;
 
-				//alert("la vie de la bat est de "+newLifeBat);
-
 				FightGolem.storageGolem.setItem("newLifeGolem", newLifeGolem);
-
-				//alert("La nouvelle vie de bat est "+FightBat.storageBat.getItem("newLifeBat"));
 
 				FightGolem.lifeGolem.textContent = newLifeGolem;
 
-				//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
-
-				//FightBat.lifeBat.textContent = FightBat.storageBat.getItem("lifeBat");
-
 				FightGolem.cadreGolem.style.border ="2px solid red";
+				FightGolem.btnAttakGolem.disabled = true;
 
 				setTimeout(function(){
 
 					FightGolem.cadreGolem.style.border ="none";
+					FightGolem.btnAttakGolem.disabled = false;
 				}, 1000);
 
 				//Si la vie de l'ennemi est inférieur à 0
@@ -78,18 +66,6 @@ var FightGolem = {
 					let deadGolem = FightGolem.lifeGolem.textContent;
 
 					FightGolem.storageGolem.setItem("deadGolem", deadGolem);
-
-					//alert("La vie de la bat morte est de "+FightBat.storageBat.getItem("deadBat"));
-
-					//FightGolem.text_action_player.textContent = "l'ennemi est mort";
-
-					//FightGolem.text_action_player.setAttribute("class", "action_player");
-
-					//FightGolem.storageGolem.setItem("text_action_player", FightGolem.text_action_player.textContent);
-					
-					//FightGolem.info_game.appendChild(FightGolem.text_action_player);
-
-					//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
 
 					FightGolem.lifeGolem.textContent = FightGolem.storageGolem.getItem("deadGolem");
 
@@ -103,16 +79,14 @@ var FightGolem = {
 			//Si le taux de chance est inférieur à 35
 			}else{
 
-				//alert("Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi");
+				FightGolem.cadreGolem.style.marginLeft = "30%";
+				FightGolem.btnAttakGolem.disabled = true;
 
-				//FightGolem.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi";
-
-				//FightGolem.text_action_player.setAttribute("class", "action_player");
-
-				//FightGolem.storageBat.setItem("text_action_player", FightGolem.text_action_player.textContent);
-					
-				//FightGolem.info_game.appendChild(FightGolem.text_action_player);
-
+				setTimeout(function(){
+					FightGolem.cadreGolem.style.marginLeft = "40%";
+					FightGolem.cadreGolem.style.marginTop = "10%";
+					FightGolem.btnAttakGolem.disabled = false;
+				},600);
 			}
 
 			//Si la vie de l'ennemi est séupérieur à 0
@@ -137,9 +111,20 @@ var FightGolem = {
 		
 		let golemDamage = FightGolem.damageGolem.textContent;
 
-		if(chance >= 60){
+		if(chance >= 26){
 
-			alert("le taux de chance de l'ennemi est de "+chance+" il vous touche");
+			PlayerStorage.containerDamages.style.border="10px solid red";
+
+			const audioDead = document.getElementById("audio_pain");
+			audioDead.play();
+			
+			FightGolem.btnAttakGolem.disabled = true;
+
+				setTimeout(function(){
+
+					PlayerStorage.containerDamages.style.border ="none";
+					FightGolem.btnAttakGolem.disabled = false;
+				}, 1000);
 
 			let newLifePlayer = playerLife - golemDamage;
 
@@ -154,33 +139,36 @@ var FightGolem = {
 
 			FightGolem.storageGolem.setItem('lifePlayer', FightGolem.lifePlayer.textContent);
 
-			if(FightGolem.storageGolem.getItem('lifePlayer') < 0){
-				alert("Il vous reste 0 points de vie");
-			}else{
-				alert("Il vous reste "+FightGolem.storageGolem.getItem('lifePlayer')+ "points de vie");
-			}
-
-			
-
 			//Si le joueur à 0 points de vie
 			if(FightGolem.lifePlayer.textContent <= 0){
 
 				FightGolem.lifePlayer.textContent = 0;
-					setTimeout(function(){
-					alert("Vous êtes mort");
 
-					FightGolem.storageGolem.clear();
-					PlayerStorage.storagePlayer.clear();
-				},1000);
+				FightGolem.btnAttakGolem.disabled = true;
+
+				const audioDead = document.getElementById("audio_dead");
+				audioDead.play();
+
+				setTimeout(function(){
+
+				document.location.href="/game/deadgame.html";
+
+				FightGolem.storageGolem.clear();
+				PlayerStorage.storagePlayer.clear();
+				},2000);
 					
 			}
 
 				
 		}else{
 
-			alert("Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas");
+			FightGolem.messageFail.style.display="block";
+			FightGolem.btnAttakGolem.disabled = true;
 
-			alert("Il vous reste "+FightGolem.storageGolem.getItem('lifePlayer')+ "points de vie");
+				setTimeout(function(){
+					FightCrow.messageFail.style.display="none";
+					FightGolem.btnAttakGolem.disabled = false;
+				}, 1500);
 		}
 	},
 

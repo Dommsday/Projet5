@@ -69,7 +69,17 @@ class GameBackendController extends BackController{
 
 	public function executeIndex(HTTPRequest $request){
 
+		$user = new User;
+
+		if($user->getAttribute('administrator') == 1){
+
 		$this->page->addVarPage('title', 'Page Admin');
+
+    	}else{
+
+    		$this->app->httpResponse()->redirect('/');
+    	}
+
 	}
 
 	public function executeInsert(HTTPRequest $request){
@@ -92,7 +102,7 @@ class GameBackendController extends BackController{
 			$forest = new Forest([
 				'title' => $request->postData('title'),
 				'content' => $request->postData('content'),
-				'type' => $request->postData('type')
+				'type' => $request->postData('type'),
 			]);
 
 			if($request->getExists('id')){
@@ -120,7 +130,7 @@ class GameBackendController extends BackController{
 		if($FormTinyMCEHandler->process()){
 
 			$this->app->user()->setMessage($forest->idNew() ? 'L\'élément à bien été ajouté' : 'L\'élément à bien été modifié');
-			$this->app->httpResponse()->redirect('/admin/insert.html');
+			$this->app->httpResponse()->redirect('/admin/');
 		}
 
 		$this->page->addVarPage('tinymce', $tinymce->createView());
@@ -140,7 +150,8 @@ class GameBackendController extends BackController{
 			$cave = new Cave([
 				'title' => $request->postData('title'),
 				'content' => $request->postData('content'),
-				'type' => $request->postData('type')
+				'type' => $request->postData('type'),
+				'src' => $request->postData('src')
 			]);
 
 			if($request->getExists('id')){
@@ -168,7 +179,7 @@ class GameBackendController extends BackController{
 		if($FormTinyMCEHandler->process()){
 
 			$this->app->user()->setMessage($cave->idNew() ? 'L\'élément à bien été ajouté' : 'L\'élément à bien été modifié');
-			$this->app->httpResponse()->redirect('/admin/insert.html');
+			$this->app->httpResponse()->redirect('/admin/');
 		}
 
 		$this->page->addVarPage('tinymce', $tinymce->createView());
@@ -189,7 +200,8 @@ class GameBackendController extends BackController{
 				'name' => $request->postData('name'),
 				'damages' => $request->postData('damages'),
 				'type' => $request->postData('type'),
-				'life' => $request->postData('life')
+				'life' => $request->postData('life'),
+				'src' => $request->postData('src')
 			]);
 
 			if($request->getExists('id')){
@@ -217,7 +229,7 @@ class GameBackendController extends BackController{
 		if($FormTinyMCEHandler->process()){
 
 			$this->app->user()->setMessage($characters->idNew() ? 'L\'élément à bien été ajouté' : 'L\'élément à bien été modifié');
-			$this->app->httpResponse()->redirect('/admin/insert.html');
+			$this->app->httpResponse()->redirect('/admin/');
 		}
 
 		$this->page->addVarPage('tinymce', $tinymce->createView());
@@ -240,7 +252,8 @@ class GameBackendController extends BackController{
 				'damages' => $request->postData('damages'),
 				'life' => $request->postData('life'),
 				'type' => $request->postData('type'),
-				'lifetime' => $request->postData('lifetime')
+				'lifetime' => $request->postData('lifetime'),
+				'src' => $request->postData('src')
 			]);
 
 			if($request->getExists('id')){
@@ -268,7 +281,7 @@ class GameBackendController extends BackController{
 		if($FormTinyMCEHandler->process()){
 
 			$this->app->user()->setMessage($inventory->idNew() ? 'L\'objet à bien été ajouté' : 'L\'objet à bien été modifié');
-			$this->app->httpResponse()->redirect('/admin/insert.html');
+			$this->app->httpResponse()->redirect('/admin/');
 		}
 
 		$this->page->addVarPage('tinymce', $tinymce->createView());

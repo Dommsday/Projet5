@@ -1,29 +1,34 @@
 <div class="container container-all-characters">
 
-<div class="all-characters-title">
-	<h1>Listes des personnages</h1>
-</div>
+		<div class="all-characters-title">
+			<h1>Listes des personnages/bestiaires</h1>
+		</div>
 
-<table class="all-characters-table">
-	<tr>
-		<th>Nom</th>
-		<th>Dégâts</th>
-		<th>Vie</th>
-	</tr>
+		<div id="all-container-characters">
+			<?php 
+				foreach ($allCharacters as $character){
+			?>
+				<div class="container-characters">
+					
+					<div class="container-name-characters">
+						<h1><?= $character['name'] ?></h1>
+					</div>
+					<div class="container-gif-characters">
+						<img src="<?= $character['src'] ?>" alt="<?= $character['name'] ?>" title="<?= $character['name'] ?>" />
+					</div>
+					<div class="container-stats-characters">
 
-	<?php 
-		foreach ($characters as $character){
-	?>
+						<p class="p-stat-damages">Dégâts : <span class="stat-damages"><?= $character['damages'] ?></span></p>
+						<p class="p-stat-life">Vie : <span class="stat-life"><?= $character['life'] ?></span></p>
 
-	<tr>
-		<td><?= $character['name'] ?></td>
-		<td><?= $character['damages'] ?></td>
-		<td><?= $character['life'] ?></td>
-	</tr>
+					</div>
+				</div>
+			<?php
+				}
+			?>
+		</div>
 
-	<?php
-	}
-	?>
-</table>
-
+		<div id="container-link-back" class="link-all-characters">
+			<a href="/" id="link-back">Back</a>
+		</div>
 </div>

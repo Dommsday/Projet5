@@ -1,5 +1,6 @@
-<div class="all-resume col-lg-12 col-xl-12">
-<table>
+<div class="all-resume-forest col-lg-12 col-xl-12">
+<a class="link btn-all-forest" href="/admin/">Retour</a>
+<table id="all-forest-table">
 	<tr>
 		<th class="title">Titre</th>
 		<th class="content">Contenu</th>
@@ -28,6 +29,6 @@
 
 
 </table>
+	<a class="link btn-all-forest" href="/admin/">Retour</a>
 </div>
 
-<p><a class="link " href="/admin/">Retour</a></p>

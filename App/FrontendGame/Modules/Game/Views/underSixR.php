@@ -1,4 +1,6 @@
 <div class="container-game container-under">
+
+	<audio id="audio_chest" src="/Web/sound/open_chest.mp3"></audio>
 	
 	<div class="title-start">
 		<h1><?= nl2br($textUndergrowth['title']) ?></h1>
@@ -9,23 +11,22 @@
 	</div>
 
 	<div id="secret-rock-under-six">
-		<a href="/game/fight-seven-right.html">?</a>
+		<img class="stone_img" src="/Web/images/stone.png" alt="stone" title="pierre"/>
+		<a class="secret_stone" href="/game/fight-seven-right.html">?</a>
 	</div>
 
 	<?php
 		if(isset($displayAcorn) && $displayAcorn == 1){
 	?>
-
 	<div id="acorn1" class="acorn acorn1-UnderSixR">
 			
 		<img class="acorn-img" src="<?= $acorn['src']?>" alt="<?= $acorn['name']?>" title="<?= $acorn['name']?>"/>
-		
 
 		<div id="action-acorn1" class="action-acorn">
 			<form action="" method="post">
 				<input type="hidden" name="acorn1"/>
 				<?= $formAcorn ?>
-				<input id="btnAcorn1" type="submit" value="Prendre" class="btnAcorn btn" />
+				<input id="btnAcorn1" type="submit" value="Prendre" class="btnAcorn"/>
 			</form>
 		</div>
 	</div>
@@ -35,7 +36,7 @@
 
 	<div id="chest1" class="chest chest-under-sixR">
 			
-		<img class="chest-img" src="/Web/images/chest.png" />
+		<img class="chest-img" src="/Web/images/chest.png" alt="coffre" title="Coffre"/>
 
 		<div id="action_chest1" class="action_chest">
 			<button type="button" id="action-open-chest" class="open_chest btn" data-toggle="modal" data-target="#underSixR">Ouvrir</button>
@@ -61,7 +62,7 @@
 		    </div>
 		     <div class="modal-body">
 		        <p>Un petit bout de papier, preques détruit. On peut y apercevoir des chiffres. Vous devriez les noter quelques part</p>
-		        777
+		        <img class="parchemin_three_img parchemin_img" src="/Web/images/parchemin_three.png" />
 		     </div>
 		</div>
 	</div>

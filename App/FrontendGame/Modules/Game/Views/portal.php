@@ -14,20 +14,20 @@
 
 		<div id="action_portal1" class="action_gate">
 			<form id="form_gate" name="form_gate" action="" method="post">
-				<input type="number" id="number_1" value="0" min="0" max="9" />
-				<input type="number" id="number_2" value="0" min="0" max="9" />
-				<input type="number" id="number_3" value="0" min="0" max="9" />
-				<input type="number" id="number_4" value="0" min="0" max="9" />
-				<input type="number" id="number_5" value="0" min="0" max="9" />
-				<input type="number" id="number_6" value="0" min="0" max="9" />
+				<input type="number" id="number_1" value="0" min="0" max="9" class="btn btn-dark"/>
+				<input type="number" id="number_2" value="0" min="0" max="9" class="btn btn-dark"/>
+				<input type="number" id="number_3" value="0" min="0" max="9" class="btn btn-dark"/>
+				<input type="number" id="number_4" value="0" min="0" max="9" class="btn btn-dark"/>
+				<input type="number" id="number_5" value="0" min="0" max="9" class="btn btn-dark"/>
+				<input type="number" id="number_6" value="0" min="0" max="9" class="btn btn-dark"/>
 
-				<input type="submit" id ="valid_code" value="Valider" class="btn" />
+				<input type="submit" id ="valid_code" value="Valider" class="btn btn-dark" />
 			</form>
 		</div>
 	</div>	
 
 	<div id="choise-road-end">
-		<a class="choise-left" href="/game/boss-game.html"><img class="arrow arrow-top" alt="arrow-top" title="flèche pour aller tout droit" src="/Web/images/arrow_top.png" /></a>
+		<a class="choise-top" href="/game/boss-game.html"><img class="arrow arrow-top" alt="arrow-top" title="flèche pour aller tout droit" src="/Web/images/arrow_top.png" /></a>
 	</div>
 
 </div>

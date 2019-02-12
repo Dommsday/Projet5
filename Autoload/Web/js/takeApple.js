@@ -4,7 +4,7 @@ var TakeApple = {
 	btnApple1: document.getElementById("btnApple1"),
 	btnApple: document.getElementsByClassName("btnApple"),
 	action_element : document.querySelectorAll(".action"),
-	
+
 	allApple: document.getElementsByClassName("apple"),
 	
 	apple1 : document.getElementById("apple1"),
@@ -12,6 +12,7 @@ var TakeApple = {
 	action1 : document.getElementById("action1"),
 
 	display : 1,
+
 
 	init: function(){
 
@@ -44,7 +45,9 @@ var TakeApple = {
 		this.hidden_action();
 
 		TakeApple.apple1.addEventListener("mouseover", function(){
-				TakeApple.action1.style.display="block";
+
+			TakeApple.action1.style.display="block";
+
 		});
 	},
 
@@ -81,6 +84,7 @@ var TakeApple = {
 						TakeApple.storageApple.setItem("displayApple", newDisplay);
 
 					}
+
 				});
 			}
 		}
@@ -91,6 +95,7 @@ var TakeApple = {
 		if(TakeApple.storageApple.length > 0){
 
 			TakeApple.display = TakeApple.storageApple.getItem("displayApple");
+
 		}
 	}
 

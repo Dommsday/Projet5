@@ -7,8 +7,12 @@ var FightTroll = {
 	damageTroll: document.getElementById("damages-troll"),
 	cadreTroll : document.getElementById("troll"),
 	endGame: document.getElementById("endgame"),
+
+	messageFail: document.getElementById("message_fail"),
 	
 	init: function(){
+
+		FightTroll.messageFail.style.display="none";
 
 		FightTroll.refresh();
 		FightTroll.attakPlayerTroll();
@@ -35,37 +39,21 @@ var FightTroll = {
 			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
 			//Si le taux de chance est supérieur à 40
-			if(chance >= 10){
-
-				//alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
-
-				//FightGolem.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous touchez l'ennemi";
-
-				//FightBat.text_action_player.setAttribute("class", "action_player");
-
-				//FightBat.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
-					
-				//FightBat.info_game.appendChild(FightBat.text_action_player);
+			if(chance >= 25){
 
 				let newLifeTroll = trollLife - playerDamage;
 
-				//alert("la vie de la bat est de "+newLifeBat);
-
 				FightTroll.storageTroll.setItem("newLifeTroll", newLifeTroll);
-
-				//alert("La nouvelle vie de bat est "+FightBat.storageBat.getItem("newLifeBat"));
 
 				FightTroll.lifeTroll.textContent = newLifeTroll;
 
-				//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
-
-				//FightBat.lifeBat.textContent = FightBat.storageBat.getItem("lifeBat");
-
 				FightTroll.cadreTroll.style.border ="2px solid red";
+				FightTroll.btnAttakTroll.disabled = true;
 
 				setTimeout(function(){
 
 					FightTroll.cadreTroll.style.border ="none";
+					FightTroll.btnAttakTroll.disabled = true;
 				}, 1000);
 
 				//Si la vie de l'ennemi est inférieur à 0
@@ -76,18 +64,6 @@ var FightTroll = {
 					let deadTroll = FightTroll.lifeTroll.textContent;
 
 					FightTroll.storageTroll.setItem("deadTroll", deadTroll);
-
-					//alert("La vie de la bat morte est de "+FightBat.storageBat.getItem("deadBat"));
-
-					//FightGolem.text_action_player.textContent = "l'ennemi est mort";
-
-					//FightGolem.text_action_player.setAttribute("class", "action_player");
-
-					//FightGolem.storageGolem.setItem("text_action_player", FightGolem.text_action_player.textContent);
-					
-					//FightGolem.info_game.appendChild(FightGolem.text_action_player);
-
-					//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
 
 					FightTroll.lifeTroll.textContent = FightTroll.storageTroll.getItem("deadTroll");
 
@@ -104,15 +80,13 @@ var FightTroll = {
 			//Si le taux de chance est inférieur à 35
 			}else{
 
-				//alert("Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi");
+				FightTroll.cadreTroll.style.marginLeft = "360px";
+				FightTroll.btnAttakTroll.disabled = true;
 
-				//FightGolem.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi";
-
-				//FightGolem.text_action_player.setAttribute("class", "action_player");
-
-				//FightGolem.storageBat.setItem("text_action_player", FightGolem.text_action_player.textContent);
-					
-				//FightGolem.info_game.appendChild(FightGolem.text_action_player);
+				setTimeout(function(){
+					FightTroll.cadreTroll.style.margin = "auto";
+					FightTroll.btnAttakTroll.disabled = false;
+				},600);
 
 			}
 
@@ -138,9 +112,20 @@ var FightTroll = {
 		
 		let trollDamage = FightTroll.damageTroll.textContent;
 
-		if(chance >= 60){
+		if(chance >= 38){
 
-			alert("le taux de chance de l'ennemi est de "+chance+" il vous touche");
+			PlayerStorage.containerDamages.style.border="10px solid red";
+
+			const audioDead = document.getElementById("audio_pain");
+			audioDead.play();
+
+			FightTroll.btnAttakTroll.disabled = true;
+
+
+				setTimeout(function(){
+					PlayerStorage.containerDamages.style.border ="none";
+					FightTroll.btnAttakTroll.disabled = false;
+				}, 1000);
 
 			let newLifePlayer = playerLife - trollDamage;
 
@@ -155,34 +140,36 @@ var FightTroll = {
 
 			FightTroll.storageTroll.setItem('lifePlayer', FightTroll.lifePlayer.textContent);
 
-			if(FightTroll.storageTroll.getItem('lifePlayer') <= 0){
-				alert("Il vous reste 0 points de vie");
-			}else{
-
-				alert("Il vous reste "+FightTroll.storageTroll.getItem('lifePlayer')+ "points de vie");
-			}
-
 			//Si le joueur à 0 points de vie
 			if(FightTroll.lifePlayer.textContent < 0){
 
 				FightTroll.lifePlayer.textContent = 0;
 
-					setTimeout(function(){
-						
-					alert("Vous êtes mort");
+				FightTroll.btnAttakTroll.disabled = true;
 
-					FightTroll.storageTroll.clear();
-					PlayerStorage.storagePlayer.clear();
-				},1000);
+				const audioDead = document.getElementById("audio_dead");
+				audioDead.play();
+
+				setTimeout(function(){
+						
+				document.location.href="/game/deadgame.html";
+
+				FightTroll.storageTroll.clear();
+				PlayerStorage.storagePlayer.clear();
+				},2000);
 					
 			}
 
 				
 		}else{
 
-			alert("Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas");
+			FightTroll.messageFail.style.display="block";
+			FightTroll.btnAttakTroll.disabled = true;
 
-			alert("Il vous reste "+FightTroll.storageTroll.getItem('lifePlayer')+ "points de vie");
+				setTimeout(function(){
+					FightBat.messageFail.style.display="none";
+					FightTroll.btnAttakTroll.disabled = false;
+				}, 1500);
 		}
 	},
 

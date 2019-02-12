@@ -1,4 +1,6 @@
 <div class="container-game container-fight">
+	<audio id="audio_dead" src="/Web/sound/laugh-dead.mp3"></audio>
+	<audio id="audio_pain" src="/Web/sound/pain-player.mp3"></audio>
 	
 	<div class="title-start">
 		<h1><?= $textFinalFight['title']?></h1>
@@ -10,7 +12,7 @@
 
 	<div id ="troll" class="troll-forest">
 		<h1 id="message_fail">Il vous a loupé</h1>
-		<img src="/Web/images/troll.gif" class="troll_gif" alt="Troll" title="Troll de la forêt" />
+		<img src="<?= $troll['src']?>" class="troll_gif" alt="<?= $troll['name']?>" title="<?= $troll['name']?>" />
 
 		<table class="ennemi-character troll-character">
 			<tr class="name-character">

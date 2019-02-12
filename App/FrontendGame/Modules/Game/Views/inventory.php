@@ -1,4 +1,4 @@
-<div id="container-inventory">
+<!--<div id="container-inventory">
 	<div id="container-table-button" class="col-xl-6">
 		<table class="table-inventory">
 			<tr class="name-character">
@@ -47,7 +47,7 @@
 			    </div>
 			    <div class="modal-body modal-body-one">
 			     	<div id="modal-img">
-						<img src="/Web/images/warrior.png" class="warrior_png_img"/>
+						<img src="<?= $warriorPlayer['src']?>" class="warrior_png_img" alt="<?= $warriorPlayer['name']?>" title="<?= $warriorPlayer['name']?>"/>
 			     	</div>
 
 			     	<div id="modal-description-player">
@@ -97,5 +97,5 @@
 			 </div>
 		</div>
 	</div>
-</div>
+</div>-->
 

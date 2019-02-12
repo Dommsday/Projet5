@@ -1,5 +1,5 @@
 <div class="containt-admin title col-md-12 col-lg-12 col-xl-12">
-	<h1 class="title-admin">Ajout d'un nouveau personnage</h1>
+	<h1 class="title-admin">Ajout d'un nouveau personnage/bestiaire</h1>
 </div>
 
 <div class="form col-lg-12 col-xl-12">
@@ -8,6 +8,6 @@
 			<?= $tinymce ?>
 		</div>
 
-		<input type="submit" class="btn btn-primary" value="Ajouter" />
+		<input type="submit" class="btn btn-dark" value="Ajouter" />
 	</form>
 </div>

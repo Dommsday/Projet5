@@ -28,6 +28,8 @@ var TakeSword = {
 				TakeSword.allSword[i].style.display="none";
 			}
 		}
+
+		
 	},
 
 	hidden_action_sword: function(){
@@ -80,6 +82,7 @@ var TakeSword = {
 
 						TakeSword.storageSword.setItem("displaySword", newDisplay);
 					}
+
 				});
 			}
 		}

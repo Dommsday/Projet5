@@ -1,4 +1,6 @@
 <div class="container-game container-fight">
+	<audio id="audio_dead" src="/Web/sound/laugh-dead.mp3"></audio>
+	<audio id="audio_pain" src="/Web/sound/pain-player.mp3"></audio>
 	
 	<div class="title-start">
 		<h1><?= $textFight['title']?></h1>
@@ -10,7 +12,7 @@
 	
 	<div id ="golem1" class="golem golem-fight-twoR">
 		<h1 id="message_fail">Il vous a loupé</h1>
-		<img src="/Web/images/golem.gif" class="golem_gif"/>
+		<img src="<?= $golem['src']?>" class="golem_gif" alt="<?= $golem['name']?>" title="<?= $golem['name']?>"/>
 
 		<table class="ennemi-character">
 			<tr class="name-character">

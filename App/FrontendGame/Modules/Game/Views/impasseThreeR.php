@@ -9,6 +9,6 @@
 	</div>
 
 	<div id="choise-road">
-		<a class="choise-top" href="/game/undergrowth-six-right.html"><img class="arrow arrow-back" alt="arrow-back" title="flèche pour revenir en arrière" src="/Web/images/arrow_back.png" /></a>
+		<a class="choise-back" href="/game/undergrowth-six-right.html"><img class="arrow arrow-back" alt="arrow-back" title="flèche pour revenir en arrière" src="/Web/images/arrow_back.png" /></a>
 	</div>
 </div>

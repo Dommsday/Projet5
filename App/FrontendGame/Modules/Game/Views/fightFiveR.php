@@ -1,4 +1,6 @@
 <div class="container-game container-fight">
+	<audio id="audio_dead" src="/Web/sound/laugh-dead.mp3"></audio>
+	<audio id="audio_pain" src="/Web/sound/pain-player.mp3"></audio>
 	
 	<div class="title-start">
 		<h1><?= $textFight['title']?></h1>
@@ -10,7 +12,7 @@
 
 	<div id ="demon1" class="demon demon-fight-FiveR">
 		<h1 id="message_fail">Il vous a loupé</h1>
-		<img src="/Web/images/devil.gif" class="devil_gif"/>
+		<img src="<?= $demon['src']?>" class="devil_gif" alt="<?= $demon['name']?>" title="<?= $demon['name']?>"/>
 
 		<table class="ennemi-character">
 			<tr class="name-character">
@@ -31,7 +33,7 @@
 	</div>
 
 	<div id="choise-road">
-		<a class="choise-top" href="/game/impasse-four-right.html"><img class="arrow arrow-top" alt="arrow-top" title="flèche pour aller tout droit" src="/Web/images/arrow_top.png" /></a>
+		<a class="choise-top" href="/game/impasse-dead.html"><img class="arrow arrow-top" alt="arrow-top" title="flèche pour aller tout droit" src="/Web/images/arrow_top.png" /></a>
 	</div>
 
 </div>

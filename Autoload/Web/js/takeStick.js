@@ -82,6 +82,7 @@ var TakeStick = {
 
 						TakeStick.storageStick.setItem("displayStick", newDisplay);
 					}
+
 				});
 			}
 		}

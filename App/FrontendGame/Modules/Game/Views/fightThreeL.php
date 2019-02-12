@@ -1,4 +1,7 @@
 <div class="container-game container-fight">
+	<audio id="audio_dead" src="/Web/sound/laugh-dead.mp3"></audio>
+	<audio id="audio_pain" src="/Web/sound/pain-player.mp3"></audio>
+	<audio id="audio_chest" src="/Web/sound/open_chest.mp3"></audio>
 	
 	<div class="title-start">
 		<h1><?= $textFight['title']?></h1>
@@ -10,7 +13,7 @@
 	
 	<div id ="wolf1" class="wolf wolf-fight-three">
 		<h1 id="message_fail">Il vous a loupé</h1>
-		<img src="/Web/images/wolf.gif" class="wolf_gif"/>
+		<img src="<?= $wolf['src']?>" class="wolf_gif" alt="<?= $wolf['name']?>" title="<?= $wolf['name']?>"/>
 
 		<table class="ennemi-character">
 			<tr class="name-character">
@@ -32,7 +35,7 @@
 
 	<div id="chest1" class="chest chest-fight-three">
 			
-		<img class="chest-img" src="/Web/images/chest.png" />
+		<img class="chest-img" src="/Web/images/chest.png" alt="coffre" title="Coffre"/>
 
 		<div id="action_chest1" class="action_chest">
 			<button type="button" class="open_chest btn" id="action-open-chest" data-toggle="modal" data-target="#fightThreeL">Ouvrir</button>
@@ -81,7 +84,7 @@
 		    </div>
 		     <div class="modal-body">
 		        <p>Un petit bout de papier, preques détruit. On peut y apercevoir des chiffres. Vous devriez les noter quelques part</p>
-		        88
+		        <img class="parchemin_three_img parchemin_img" src="/Web/images/parchemin_three.png" />
 		     </div>
 		</div>
 	</div>

@@ -1,0 +1,52 @@
+/*PARTIE FRONTEND
+*******************/
+
+/*PARTIE LAYOUT JEU
+========================*/
+#layout-game{
+	height: 500px;
+}
+
+.ban{
+
+    height: 500px;
+}
+
+.img-fluid{
+    height: 500px;
+}
+
+.intro{
+    top: 10%;
+}
+
+.intro h1{
+    font-size: 8vw;
+}
+
+.navbar-light{
+	display: block;
+	border: 2px solid orange;
+}
+
+.navbar-collapse{
+	display: block;
+	border: 2px solid green;
+}
+
+.nav-item{
+	border: 2px solid yellow;
+	display: block;
+}
+
+.navbar-nav{
+	border: 1px solid red;
+	display: block;
+}
+/*FIN PARTIE LAYOUT JEU
+==========================*/
+
+
+
+/*FIN PARTIE FRONTEND
+************************/

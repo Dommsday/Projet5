@@ -3,7 +3,6 @@
 
 	<route url="/admin/connexion.html" module="GameBackend" action ="connexion" ></route>
 	<route url="/admin/" module="GameBackend" action ="index" ></route>
-	<route url="/admin/insert.html" module="GameBackend" action="insert"></route>
 	<route url="/admin/writing-forest.html" module="GameBackend" action="writingForest"></route>
 	<route url="/admin/writing-cave.html" module="GameBackend" action="writingCave"></route>
 	<route url="/admin/writing-characters.html" module="GameBackend" action="writingCharacters"></route>

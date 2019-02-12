@@ -1,5 +1,6 @@
 <div class="container-game container-fight">
-	
+	<audio id="audio_dead" src="/Web/sound/laugh-dead.mp3"></audio>
+	<audio id="audio_pain" src="/Web/sound/pain-player.mp3"></audio>
 	<div class="title-start">
 		<h1><?= $textFight['title']?></h1>
 	</div>
@@ -10,7 +11,8 @@
 
 	<div id ="bat1" class="bat">
 		<h1 id="message_fail">Il vous a loupé</h1>
-		<img src="/Web/images/bat.gif" class="bat_gif"/>
+		<img src="<?= $bat['src']?>" class="bat_gif" alt="<?= $bat['name']?>" title="<?= $bat['name']?>"/>
+		
 
 		<table class="ennemi-character">
 			<tr class="name-character">

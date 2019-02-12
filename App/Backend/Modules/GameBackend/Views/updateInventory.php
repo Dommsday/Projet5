@@ -10,6 +10,6 @@
 			<?= $tinymce ?>
 		</div>
 
-		<input type="submit" class="btn btn-primary" value="Modifier" />
+		<input type="submit" class="btn btn-dark" value="Modifier" />
 	</form>
 </div>

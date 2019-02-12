@@ -7,17 +7,18 @@ var FightBat = {
 	choiseRoad: document.getElementById("choise-road"),//Div du lien pour les
 	lifePlayer : document.getElementById("life_players"),
 
-	info_game: document.getElementById("info-game"),
+	messageFail: document.getElementById("message_fail"),
 
-	text_action_bat: document.createElement("p"),
-	text_action_player: document.createElement("p"),
+
 
 	init: function(){
+
+		FightBat.messageFail.style.display="none";
 
 		FightBat.refresh();
 		FightBat.hiddenRoad();
 		FightBat.attakPlayerBat();
-		
+
 	},
 
 	hiddenRoad: function(){
@@ -29,7 +30,6 @@ var FightBat = {
 		}
 
 	},
-
 
 	attakPlayerBat: function(){
 
@@ -43,38 +43,22 @@ var FightBat = {
 			let batLife = FightBat.storageBat.getItem("beginLife");
 			let playerDamage = PlayerStorage.storagePlayer.getItem("damagePlayer");
 
-			//Si le taux de chance est supérieur à 35
-			if(chance >= 35){
-
-				//alert("Votre taux de chance est de "+chance+" vous touchez l'ennemi");
-
-				FightBat.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous touchez l'ennemi";
-
-				FightBat.text_action_player.setAttribute("class", "action_player");
-
-				FightBat.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
-					
-				FightBat.info_game.appendChild(FightBat.text_action_player);
+			//Si le taux de chance est supérieur à 25
+			if(chance >= 30){
 
 				let newLifeBat = batLife - playerDamage;
 
-				//alert("la vie de la bat est de "+newLifeBat);
-
 				FightBat.storageBat.setItem("newLifeBat", newLifeBat);
-
-				//alert("La nouvelle vie de bat est "+FightBat.storageBat.getItem("newLifeBat"));
 
 				FightBat.lifeBat.textContent = newLifeBat;
 
-				//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
-
-				//FightBat.lifeBat.textContent = FightBat.storageBat.getItem("lifeBat");
-
 				FightBat.cadreBat.style.border ="2px solid red";
+				FightBat.btnAttakBat.disabled = true;
 
 				setTimeout(function(){
 
 					FightBat.cadreBat.style.border ="none";
+					FightBat.btnAttakBat.disabled = false;
 				}, 1000);
 
 				//Si la vie de l'ennemi est inférieur à 0
@@ -85,18 +69,6 @@ var FightBat = {
 					let deadBat = FightBat.lifeBat.textContent;
 
 					FightBat.storageBat.setItem("deadBat", deadBat);
-
-					//alert("La vie de la bat morte est de "+FightBat.storageBat.getItem("deadBat"));
-
-					FightBat.text_action_player.textContent = "l'ennemi est mort";
-
-					FightBat.text_action_player.setAttribute("class", "action_player");
-
-					FightBat.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
-					
-					FightBat.info_game.appendChild(FightBat.text_action_player);
-
-					//FightBat.storageBat.setItem("lifeBat", FightBat.lifeBat.textContent);
 
 					FightBat.lifeBat.textContent = FightBat.storageBat.getItem("deadBat");
 
@@ -110,16 +82,13 @@ var FightBat = {
 			//Si le taux de chance est inférieur à 35
 			}else{
 
-				//alert("Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi");
+				FightBat.cadreBat.style.marginLeft = "360px";
+				FightBat.btnAttakBat.disabled = true;
 
-				FightBat.text_action_player.textContent = "Votre taux de chance est de "+chance+" vous ne touchez pas l'ennemi";
-
-				FightBat.text_action_player.setAttribute("class", "action_player");
-
-				FightBat.storageBat.setItem("text_action_player", FightBat.text_action_player.textContent);
-					
-				FightBat.info_game.appendChild(FightBat.text_action_player);
-
+				setTimeout(function(){
+					FightBat.cadreBat.style.margin = "auto";
+					FightBat.btnAttakBat.disabled = false;
+				},600);
 			}
 
 			//Si la vie de l'ennemi est séupérieur à 0
@@ -144,15 +113,20 @@ var FightBat = {
 		
 			let batDamage = FightBat.damageBat.textContent;
 
-			if(chance >= 20){
+			if(chance >= 30){
 
-				FightBat.text_action_bat.textContent = "le taux de chance de l'ennemi est de "+chance+" il vous touche";
+				PlayerStorage.containerDamages.style.border="10px solid red";
 
-				FightBat.storageBat.setItem("text_action_bat", FightBat.text_action_bat.textContent);
+				const audioDead = document.getElementById("audio_pain");
+				audioDead.play();
 
-				FightBat.text_action_bat.setAttribute("class", "action_enemy");
-					
-				FightBat.info_game.appendChild(FightBat.text_action_bat);
+				FightBat.btnAttakBat.disabled = true;
+
+				setTimeout(function(){
+
+					PlayerStorage.containerDamages.style.border ="none";
+					FightBat.btnAttakBat.disabled = false;
+				}, 1000);
 
 				let newLifePlayer = playerLife - batDamage;
 
@@ -172,27 +146,31 @@ var FightBat = {
 
 					FightBat.lifePlayer.textContent = 0;
 
+					FightBat.btnAttakBat.disabled = true;
+
+					const audioDead = document.getElementById("audio_dead");
+					audioDead.play();
+
 					setTimeout(function(){
 
-						alert("Vous êtes mort");
-						//document.location.href="/";
+						document.location.href="/game/deadgame.html";
 
 						FightBat.storageBat.clear();
 						PlayerStorage.storagePlayer.clear();
-					},1000);
+					},2500);
 					
 				}
 
 				
 			}else{
 
-				FightBat.text_action_bat.textContent = "Le taux de chance de l'ennemi est de "+chance+" il ne vous touche pas";
+				FightBat.messageFail.style.display="block";
+				FightBat.btnAttakBat.disabled = true;
 
-				FightBat.text_action_bat.setAttribute("class", "action_enemy");
-
-				FightBat.storageBat.setItem("text_action_bat", FightBat.text_action_bat.textContent);
-					
-				FightBat.info_game.appendChild(FightBat.text_action_bat);
+				setTimeout(function(){
+					FightBat.messageFail.style.display="none";
+					FightBat.btnAttakBat.disabled = false;
+				}, 1500);
 			}
 	},
 

@@ -6,6 +6,7 @@ var TakeChest = {
 
 	action_chest1 : document.getElementById("action-chest1"),
 	btnChest : document.getElementById("action-open-chest"),
+
 	
 	init: function(){
 
@@ -42,6 +43,9 @@ var TakeChest = {
 		TakeChest.btnChest.addEventListener("click", function(){
 
 			TakeApple.display = 1;
+
+			const audioChest = document.getElementById("audio_chest");
+			audioChest.play();
 
 			TakeApple.storageApple.setItem("displayApple", TakeApple.display);
 			
